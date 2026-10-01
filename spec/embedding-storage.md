@@ -15,8 +15,17 @@ provenance; a changed exact text creates a different embedding key. Model aliase
 cannot guarantee provider-side immutability; revision namespaces express our frozen
 execution choice, not an invented upstream snapshot guarantee.
 
-Default store is `<main checkout>/data/representations/shared-store`, discovered
-through Git's common directory. Override with `EMBEDDING_CACHE_ROOT` or
+The persistent project root on this machine is
+`/Users/ext-weihsiang.lin/Documents/profound/data/content-optimization-system`.
+It holds raw inputs, prepared documents/features/splits/models, embedding inputs,
+original vectors, projection fits/coordinates, reports, and interrupted-job caches.
+Both the main checkout and this embedding worktree have a `data` symlink to it;
+historical artifact paths remain valid without rewriting frozen manifests.
+
+Default store is `<persistent project root>/representations/shared-store`.
+`CONTENT_OPTIMIZATION_DATA_ROOT` overrides the project root. Otherwise Git's common
+directory discovers `<main checkout parent>/data/<repository name>` when present,
+falling back to `<main checkout>/data` on other machines. Override just the cache with `EMBEDDING_CACHE_ROOT` or
 `embed --cache-root`. SQLite coordinates lookups, model configurations, job history,
 and inference usage. Per-model filesystem locks prevent overlapping writers from
 issuing duplicate requests. Fully cached readers can export during another job.
@@ -59,6 +68,8 @@ model weights and unpublished orphan shards; preserve these separately as needed
 ## Current model scope
 
 Use hosted OpenAI `text-embedding-3-large` and local `voyageai/voyage-4-nano`.
+Current execution is OpenAI only: the user stopped the MLX job on 2026-10-01.
+Its 115,554 completed unique vectors remain cached; do not resume without direction.
 Voyage nano uses the official checkpoint through a pinned community MLX port, with
 trained role prefixes, full 2,048-dimensional float32 outputs, BF16 compute, bounded
 memory, and explicit context checks before the backend's truncating tokenizer.

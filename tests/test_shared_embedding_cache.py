@@ -8,7 +8,7 @@ from unittest.mock import patch
 
 import numpy as np
 
-from representations.cache import VectorCache, embedding_config
+from representations.cache import VectorCache, embedding_config, default_cache_root
 from representations.inputs import prepare
 from representations.runner import embed, load_vectors, request_identity
 from representations.storage import digest, read_json, read_rows, write_array, write_json
@@ -28,6 +28,19 @@ class SharedCacheTests(unittest.TestCase):
 
     def tearDown(self):
         self.tmp.cleanup()
+
+    def test_persistent_volume_discovery_and_overrides(self):
+        checkout = self.root / 'project'
+        persistent = self.root / 'data' / 'project'
+        result = type('GitResult', (), {'returncode': 0, 'stdout': str(checkout / '.git')})()
+        with patch.dict('os.environ', {}, clear=True), patch('representations.cache.subprocess.run', return_value=result):
+            self.assertEqual(default_cache_root('run'), (checkout / 'data/representations/shared-store').resolve())
+            persistent.mkdir(parents=True)
+            self.assertEqual(default_cache_root('run'), (persistent / 'representations/shared-store').resolve())
+            with patch.dict('os.environ', {'CONTENT_OPTIMIZATION_DATA_ROOT': str(self.root / 'override')}):
+                self.assertEqual(default_cache_root('run'), (self.root / 'override/representations/shared-store').resolve())
+                with patch.dict('os.environ', {'EMBEDDING_CACHE_ROOT': str(self.root / 'cache-override')}):
+                    self.assertEqual(default_cache_root('run'), (self.root / 'cache-override').resolve())
 
     def run_at(self, name, config=None):
         run = self.root / name

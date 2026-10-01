@@ -28,13 +28,25 @@ def request_key(unit, config):
     return digest(["embedding-cache-v1", embedding_config(config), unit["role"], unit["text_hash"]])
 
 
-def default_cache_root(run):
-    if os.environ.get("EMBEDDING_CACHE_ROOT"):
-        return Path(os.environ["EMBEDDING_CACHE_ROOT"]).expanduser().resolve()
+def default_data_root():
+    """Use the persistent project volume when present; allow an explicit override."""
+    if os.environ.get("CONTENT_OPTIMIZATION_DATA_ROOT"):
+        return Path(os.environ["CONTENT_OPTIMIZATION_DATA_ROOT"]).expanduser().resolve()
     result = subprocess.run(["git", "rev-parse", "--path-format=absolute", "--git-common-dir"],
                             cwd=Path(__file__).parent, capture_output=True, text=True)
     if result.returncode == 0:
-        return Path(result.stdout.strip()).parent / "data" / "representations" / "shared-store"
+        checkout = Path(result.stdout.strip()).parent
+        persistent = checkout.parent / "data" / checkout.name
+        return (persistent if persistent.is_dir() else checkout / "data").resolve()
+    return None
+
+
+def default_cache_root(run):
+    if os.environ.get("EMBEDDING_CACHE_ROOT"):
+        return Path(os.environ["EMBEDDING_CACHE_ROOT"]).expanduser().resolve()
+    root = default_data_root()
+    if root is not None:
+        return root / "representations" / "shared-store"
     return Path(run).resolve().parent / "shared-store"
 
 

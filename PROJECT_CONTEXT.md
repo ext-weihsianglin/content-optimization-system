@@ -5,6 +5,22 @@ read the linked specs and reports as needed; verify live Git state before acting
 
 ## Goal and user priorities
 
+Latest storage/execution decision (2026-10-01): all local project data now lives in
+`/Users/ext-weihsiang.lin/Documents/profound/data/content-optimization-system`.
+The main checkout and this embedding worktree's `data` paths are compatibility
+symlinks to that root. Existing persistent raw/processed outputs were preserved;
+five duplicate raw parquet files were SHA-256 verified before deduplication.
+Other directories moved on the same filesystem, preserving file inodes. Local
+audit: `<persistent root>/storage-migration-2026-10-01.json`.
+Set `CONTENT_OPTIMIZATION_DATA_ROOT` for an explicit alternate project volume;
+`EMBEDDING_CACHE_ROOT` still overrides only the vector cache. Do not recreate
+worktree-local data copies or redo preparation/inference.
+
+The user explicitly stopped local Voyage MLX: its process exited and the catalog
+marks the job interrupted, with 115,554 completed unique vectors retained. Do not
+resume it without user direction. OpenAI is complete and is the current model for
+downstream work. Older active-job statements below are historical.
+
 Profound work trial: analyze page/content factors associated with answer-engine
 citations and build a lightweight query-specific content generation/refinement
 workflow. Original task: `project-brief.md`. Deliver useful, inspectable work quickly;
