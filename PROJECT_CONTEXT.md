@@ -214,3 +214,33 @@ required anchors 126/129 and unwanted 46/50 unchanged; 22,412 valid declared
 locations, zero invalid. Sparse AI-assisted anchors do not establish semantic
 accuracy. Native inline source locations remain explicitly unavailable rather
 than claiming generated HTML paths. Final suite: 141 tests / 12 subtests passed.
+
+## Markdownify default and complete corpus export (2026-10-01)
+
+User follow-up explicitly requested replacing the incumbent conversion backend
+with markdownify and redoing extraction at full-corpus scale. The active pipeline
+now uses pinned runtime `markdownify==1.2.3`, via `markdownify-structured-v1`, with
+custom code/terminal-break/media/table/definition converters. Handwritten Markdown
+conversion is removed from the active path; structured provenance remains separate.
+`conservative_dom` still names the retention-region policy. New blocks (including
+native plain text) declare `dom-blocks-v3`; chunk identities include that version.
+
+Complete new export in the isolated `deck/markdownify-fix` worktree:
+`data/processed/markdownify-corpus-v1-complete/`. All 9,700 rows reference 9,551 exact
+payload-plus-URL snapshots; the 149 additional references were preserved. Zero
+extraction errors/timeouts. Statuses: 9,167 selected, 334 needs review, 47 source
+insufficient, 3 unsupported. 3,309,747 blocks / 278,479 chunks / 2,448 oversized chunks.
+8,973,098 declared HTML locations valid, zero invalid; missing/ambiguous mappings
+stay explicit. Independent verification reread all original rows and checked all
+document file/content checksums, six artifact hashes and ordered chunk coverage.
+Full documents/raw data stay out of Git; original caches and frozen outputs unchanged.
+
+Report/reproduction: `analysis/markdownify-corpus-v1/README.md`; release development,
+held-out and corpus reports live in separate subdirectories. Development fixtures
+12/12 expected outputs; reused held-out HTML selected anchors unchanged at 126/129
+required and 46/50 unwanted. Not human semantic gold or citation-uplift evidence.
+CLI: `python -m preprocessing.corpus` (offline, versioned, bounded, resumable) and
+`python -m preprocessing.markdownify_report` for independently scoped evidence.
+Final regression suite: 154 tests / 12 subtests passed. Four-worker complete run
+(including indexing): 1,191.539 seconds. Models/features were not retrained or
+regenerated; that remains separate from this completed extraction request.

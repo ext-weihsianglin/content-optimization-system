@@ -18,7 +18,7 @@ from bs4 import BeautifulSoup
 from markdownify import markdownify
 
 from preprocessing.adapters.local import extract_conservative
-from preprocessing.blocks import BLOCK_SCHEMA_VERSION, PRESERVE_WHITESPACE_TAGS, dom_path
+from preprocessing.blocks import BLOCK_SCHEMA_VERSION, PRESERVE_WHITESPACE_TAGS, _dom_index
 from preprocessing.evaluate import normalize_anchor
 from preprocessing.offline import network_disabled
 from preprocessing.schema import Snapshot, snapshot_identity, stable_hash
@@ -52,7 +52,8 @@ def annotations(blocks):
 
 def location_diagnostics(blocks, payload):
     soup = BeautifulSoup(payload, 'html.parser', preserve_whitespace_tags=PRESERVE_WHITESPACE_TAGS)
-    paths = {dom_path(tag): tag for tag in [soup, *soup.find_all(True)]}
+    indexed_paths = _dom_index(soup)[0]
+    paths = {indexed_paths[id(tag)]: tag for tag in [soup, *soup.find_all(True)]}
     counts = Counter()
     for node in [*blocks, *annotations(blocks)]:
         counts[node['mapping_status']] += 1

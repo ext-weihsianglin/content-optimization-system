@@ -50,7 +50,7 @@ def test_issue_examples_and_edge_cases(case):
     result = extract_conservative(snapshot(case['html']))
     assert result.markdown == case['expected_markdown']
     assert_original_locations(result.blocks, case['html'])
-    assert result.diagnostics['block_schema_version'] == 'dom-blocks-v2'
+    assert result.diagnostics['block_schema_version'] == 'dom-blocks-v3'
     assert blocks_to_markdown(json.loads(json.dumps(result.blocks))) == result.markdown
     # Structured inline nodes, rather than a cached Markdown string, drive rendering.
     for block in result.blocks:
@@ -115,7 +115,7 @@ def test_transformed_semantics_never_mapped_by_flattened_text():
 def test_break_only_and_nested_empty_alt_media_are_not_dropped():
     result = extract_conservative(snapshot('<p><br></p><p><span><img src="/a.png" alt=""></span></p>'))
     assert len(result.blocks) == 2
-    assert result.markdown == '\\\n\n\n![](<https://example.test/a.png>)'
+    assert result.markdown == '<br>\n\n![](<https://example.test/a.png>)'
     assert_original_locations(result.blocks, '<p><br></p><p><span><img src="/a.png" alt=""></span></p>')
 
 
@@ -142,4 +142,4 @@ def test_schema_version_prevents_chunk_identity_collision_with_legacy():
         block.pop('schema_version')
     _, previous = structure_chunks('s', 'conservative_dom', legacy)
     assert current[0]['chunk_id'] != previous[0]['chunk_id']
-    assert current[0]['block_schema_versions'] == ['dom-blocks-v2']
+    assert current[0]['block_schema_versions'] == ['dom-blocks-v3']
