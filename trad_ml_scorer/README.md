@@ -59,3 +59,61 @@ uv run python -m pytest -q
 ```
 
 The repository-wide suite additionally requires the existing Node preprocessing dependencies (`npm ci --prefix preprocessing/node --ignore-scripts`). Tests cover source identity, structured feature counts, native Markdown, no fallback on unusable content, train-only transformations, and model serialization.
+
+## ROC-AUC frontier (v4)
+
+The new explicit candidate is `data/trad_ml_scorer/v4/model.joblib` (86 features,
+C=.01). V2 remains the default for backward compatibility. See
+[v4/report.html](v4/report.html) and [v4/report.md](v4/report.md) for the full
+coefficient breakdown, ROC-AUC permutation/family importance, sensitivity curves,
+ELI5 feature descriptions, stress checks and next-round ideas.
+
+V4 reused-test ROC-AUC is **0.67904** versus v2 **0.67689** on the same 947 rows.
+The paired 95% host-bootstrap AUC-difference interval is [-0.01517, +0.01775]:
+this small observed gain is not independently confirmed. Validation AUC improved
+from 0.66070 to 0.67206. Top coefficient share is 5.83%; top positive permutation
+share is 10.51%. Duplicate-heading score inflation fell substantially, but the
+stress checks cover only three post-parser edits, not arbitrary manipulation.
+
+V3 explored cached-document lexical relevance and composition. V4 suppresses
+repeated headings and headings unsupported by following content **in its scoring
+view only**. Parser documents, original eligible rows and hostname assignments are
+unchanged. Parent headings immediately followed by subheadings can lose credit;
+heading-only documents retain body text. This tradeoff is explicit, not a parser
+fallback. No labels, hostname identities or source-row provenance enter features.
+
+Reuse the existing cache; **do not repeat preparation to initialize a session**.
+Local shared caches live under the main repository's ignored `data/trad_ml_scorer/`.
+A new worktree can link that directory when its destination does not already exist.
+Raw records/documents remain in v2; v3/v4 add feature matrices and fitted models.
+
+```sh
+uv run python -m trad_ml_scorer.predict_lr --model data/trad_ml_scorer/v4/model.joblib --prompt "How to choose running shoes" --html-file page.html --url https://example.com/shoes
+uv run python -m trad_ml_scorer.verify_frontier --input-dir data/raw
+```
+
+For reproduction in a fresh artifact location/checkout, the bounded sequence is:
+
+```sh
+uv run python -m trad_ml_scorer.prepare_frontier
+uv run python -m trad_ml_scorer.frontier_experiment --version v3
+uv run python -m trad_ml_scorer.audit_frontier --version v3
+uv run python -m trad_ml_scorer.stress_frontier --version v3
+uv run python -m trad_ml_scorer.prepare_robust
+uv run python -m trad_ml_scorer.frontier_experiment --version v4
+uv run python -m trad_ml_scorer.audit_frontier --version v4
+uv run python -m trad_ml_scorer.stress_frontier --version v4
+uv run python -m trad_ml_scorer.finalize_frontier
+uv run python -m trad_ml_scorer.verify_frontier --input-dir data/raw
+uv run python -m trad_ml_scorer.finalize_frontier --evaluate
+uv run python -m trad_ml_scorer.build_frontier_report
+```
+
+These commands refuse to overwrite frozen caches/search/selection/evaluation
+artifacts; the checked-in output directories must also be absent in a reproduction
+checkout. They do not constitute instructions to remove existing results. Four
+hostname-grouped training folds select C; validation selects among passing variants.
+Coefficient gates are top-one ≤20% and top-five ≤60%; positive permutation top-one
+≤45%. Each stress check requires mean probability increase ≤.03 and p95 ≤.08.
+Test is evaluated only after selection freezes; further tuning must not use these
+test outcomes. Source fingerprints are enforced during explicit v4 inference.

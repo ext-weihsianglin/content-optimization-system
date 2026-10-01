@@ -1,0 +1,123 @@
+{
+  "rows": 120,
+  "split": "validation",
+  "selection": "first 120 record hashes in ascending order",
+  "scope": "Post-parser document edits, not end-to-end raw HTML robustness; cached feature parity checked on all sampled rows",
+  "variants": {
+    "v2_auc": {
+      "query_repetition": {
+        "mean_delta": 0.001207476125085229,
+        "median_delta": 0.0026974749772452067,
+        "p95_increase": 0.020197375861103185,
+        "max_increase": 0.04943464801801556,
+        "fraction_increase_above_0_10": 0.0
+      },
+      "query_headings": {
+        "mean_delta": 0.10439903038996175,
+        "median_delta": 0.09470915870754204,
+        "p95_increase": 0.19468481454086062,
+        "max_increase": 0.2579775153629165,
+        "fraction_increase_above_0_10": 0.48333333333333334
+      },
+      "irrelevant_padding": {
+        "mean_delta": 0.0055879103637722465,
+        "median_delta": 0.0060809165838278945,
+        "p95_increase": 0.017691470770229787,
+        "max_increase": 0.026417723193814524,
+        "fraction_increase_above_0_10": 0.0
+      }
+    },
+    "lexical": {
+      "query_repetition": {
+        "mean_delta": 0.011556352448152066,
+        "median_delta": 0.014780138556530986,
+        "p95_increase": 0.05928261693533809,
+        "max_increase": 0.08824159926110664,
+        "fraction_increase_above_0_10": 0.0
+      },
+      "query_headings": {
+        "mean_delta": 0.07850506365988487,
+        "median_delta": 0.07765586936314511,
+        "p95_increase": 0.16815225944843235,
+        "max_increase": 0.248027672609488,
+        "fraction_increase_above_0_10": 0.30833333333333335
+      },
+      "irrelevant_padding": {
+        "mean_delta": 0.014107174604094648,
+        "median_delta": 0.012777427097748317,
+        "p95_increase": 0.037400198008170016,
+        "max_increase": 0.06861729493685387,
+        "fraction_increase_above_0_10": 0.0
+      }
+    },
+    "composition": {
+      "query_repetition": {
+        "mean_delta": 0.00010730836103413702,
+        "median_delta": 0.002248423770144281,
+        "p95_increase": 0.02432796780043518,
+        "max_increase": 0.04791974402627486,
+        "fraction_increase_above_0_10": 0.0
+      },
+      "query_headings": {
+        "mean_delta": 0.12491811210943458,
+        "median_delta": 0.1170539062883485,
+        "p95_increase": 0.22545055355315097,
+        "max_increase": 0.2889046283594599,
+        "fraction_increase_above_0_10": 0.625
+      },
+      "irrelevant_padding": {
+        "mean_delta": 0.005922359995337154,
+        "median_delta": 0.00558884957333039,
+        "p95_increase": 0.0214264542838854,
+        "max_increase": 0.042983389901728064,
+        "fraction_increase_above_0_10": 0.0
+      }
+    },
+    "all": {
+      "query_repetition": {
+        "mean_delta": 0.009450267695925356,
+        "median_delta": 0.013125336505810714,
+        "p95_increase": 0.05702938798865651,
+        "max_increase": 0.09149191245041494,
+        "fraction_increase_above_0_10": 0.0
+      },
+      "query_headings": {
+        "mean_delta": 0.11272450286082156,
+        "median_delta": 0.113088337367518,
+        "p95_increase": 0.2242976448495337,
+        "max_increase": 0.31107257410500927,
+        "fraction_increase_above_0_10": 0.6083333333333333
+      },
+      "irrelevant_padding": {
+        "mean_delta": 0.019606189673655565,
+        "median_delta": 0.01696674662588446,
+        "p95_increase": 0.05292330069800437,
+        "max_increase": 0.09883898574890393,
+        "fraction_increase_above_0_10": 0.0
+      }
+    },
+    "content_only": {
+      "query_repetition": {
+        "mean_delta": 0.016106493918064724,
+        "median_delta": 0.0179856651583295,
+        "p95_increase": 0.03564748501458034,
+        "max_increase": 0.07751098817768776,
+        "fraction_increase_above_0_10": 0.0
+      },
+      "query_headings": {
+        "mean_delta": 0.11668587323790523,
+        "median_delta": 0.11310210408823518,
+        "p95_increase": 0.18273631809950747,
+        "max_increase": 0.2052974044008769,
+        "fraction_increase_above_0_10": 0.7083333333333334
+      },
+      "irrelevant_padding": {
+        "mean_delta": 0.0024417129196131703,
+        "median_delta": 0.001952938345054972,
+        "p95_increase": 0.012310824575987504,
+        "max_increase": 0.024474493557618326,
+        "fraction_increase_above_0_10": 0.0
+      }
+    }
+  }
+}
