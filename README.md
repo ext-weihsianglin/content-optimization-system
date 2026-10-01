@@ -14,6 +14,58 @@ The provided ZIP remains in Downloads. Five parquet files are extracted into `da
 
 ## Reproduce the analysis
 
+### Textual embedding pipeline
+
+The implemented `representations` package consumes the selected structural outputs from snapshot preprocessing. It prepares query, document-title/H1, outline, section, page, and URL-path views; calls hosted embedding APIs; derives query alignment; saves PCA fits; and builds offline UMAP explorers. It does not require a local GPU or re-extract HTML.
+
+Read [the specification](spec/embedding-representations.md) and [implementation plan](plan/embedding-representations.md) for evaluation boundaries. OpenAI `text-embedding-3-large` is the initial hosted baseline (3,072 dimensions), with Voyage 4 Large and hosted Qwen3 available for comparison. A baseline is not a reviewed model winner.
+
+Install from the updated lockfile with `uv sync` (or the available `.tools/uv`). Start with a small upstream sample:
+
+```sh
+uv run python -m representations prepare \
+  --input data/processed/<preprocessing_run_id> \
+  --output data/representations/<run_id> \
+  --limit 20
+
+uv run python -m representations review \
+  --run data/representations/<run_id> \
+  --output data/representations/<run_id>/relevance-review.json
+
+uv run python -m representations embed \
+  --run data/representations/<run_id> --model openai-large --resume
+
+uv run python -m representations align \
+  --run data/representations/<run_id> --model openai-large
+
+uv run python -m representations project \
+  --run data/representations/<run_id> --model openai-large \
+  --view page --components 2 --exploratory --umap
+
+uv run python scripts/build_embedding_report.py \
+  --run data/representations/<run_id> --output analysis/embedding-explorer.html
+```
+
+If an upstream evaluation export omits prompts, add `--raw-root data/raw` to `prepare`. Hydration verifies the raw file hash and source-row payload/URL before reading original prompts and labels. Preparation refuses incomplete upstream runs or broken provenance/joins. `--limit` includes both selected and abstained snapshots; unavailable units stay explicit.
+
+Set `OPENAI_API_KEY`, `VOYAGE_API_KEY`, or `OPENROUTER_API_KEY` in the environment for the corresponding adapter. Never put keys in configuration. For Qwen, copy `representations/config.json`, pin `provider_order` to a verified OpenRouter route, and pass the copy to `prepare --config`. Queries get the documented Qwen instruction; Voyage uses query/document modes; OpenAI uses the same embedding interface for both roles. API routing and dimensions must be verified on the chosen endpoint.
+
+The first input policy uses lossless UTF-8 byte ceilings (4,096-byte sections; 7,000-byte full-page inputs), rather than claiming tokenizer counts. This conservative policy avoids local model/tokenizer downloads and fits the shortest candidate context with instruction headroom. Oversized page/outline/title/path views retain all chunks and a separately marked byte-weighted pooled vector. Prompts exceeding the common ceiling abstain. No input is silently truncated.
+
+`embed --max-requests 12` bounds new API work for a smoke test. Run `--resume --retry-failed` to explicitly retry failed requests; compatible successful requests are cached. A bounded run stays marked partial. `align` may inspect partial coverage; model selection and corpus conclusions require completed, reviewed inputs.
+
+For predictive PCA, supply a JSON `--fit-manifest` containing `scope: "training"`, `unit_ids`, and `heldout_unit_ids`. Fitting rejects overlapping IDs/hostnames and known duplicate content. `project --exploratory` explicitly fits available corpus vectors for visualization. Keep these maps separate from held-out predictive features. Use `apply --projection <folder> --output <parquet>` to transform compatible runs without refitting.
+
+Review manifests contain editable relevance grades (0–3) and fixed query/candidate identities. Complete all candidate grades before `evaluate --annotations <review.json> --output <metrics.json>`. Metrics describe the judged pools, not whole-corpus recall. `analyze --output <analysis.json>` runs grouped structural/path/alignment ablations and fold-fitted PCA; it requires sufficient independent hosts and both labels. It excludes label-conflicted URLs, averages repeated snapshots/queries explicitly, and reports uncertainty. Small smoke tests do not establish citation uplift.
+
+Run meaningful offline integration checks without credentials:
+
+```sh
+uv run python -m unittest discover -s tests -v
+```
+
+Vectors and run data remain under ignored `data/`. Image asset references are reserved in the unit schema; fetching images, visual embeddings, and learned fusion are deferred.
+
 Run from the repository root:
 
 ```sh

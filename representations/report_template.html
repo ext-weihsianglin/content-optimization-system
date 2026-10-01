@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Semantic evidence explorer</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f5f6f2;color:#19362e;font:16px/1.6 system-ui,sans-serif}main{max-width:1300px;margin:auto;padding:28px}h1{font-size:32px;margin:0}label{display:flex;flex-direction:column;gap:4px}select,button{font:inherit;padding:9px;border:1px solid #a4b9ae;border-radius:6px;background:white;color:inherit}button{cursor:pointer}select:focus-visible,button:focus-visible{outline:3px solid #d59421}.controls{display:flex;flex-wrap:wrap;gap:16px;margin:20px 0}.layout{display:grid;grid-template-columns:1.3fr 1fr;gap:24px}.panel{background:white;padding:20px;border:1px solid #d7e0d9;border-radius:10px;min-width:0}svg{width:100%;height:auto;display:block}circle{fill:#217b62;opacity:.65;cursor:pointer}circle.selected{fill:#b65524;opacity:1;stroke:#19362e;stroke-width:2}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:14px/1.6 ui-monospace,monospace;background:#f1f4ef;padding:14px}a{color:#126b58;overflow-wrap:anywhere}.muted{color:#53685d}.wide{width:100%}#detail{overflow-wrap:anywhere}summary{cursor:pointer}#point{max-width:100%}@media(max-width:800px){main{padding:18px}.layout{grid-template-columns:1fr}}@media(prefers-color-scheme:dark){body{background:#172520;color:#e5eee8}.panel,select,button{background:#22362c;color:inherit;border-color:#52725f}pre{background:#192b22}.muted{color:#bccdc2}a{color:#8dd5b8}circle{fill:#72c5a4}circle.selected{fill:#efb477;stroke:#fff}}
+</style></head><body><main>
+<h1>Semantic evidence explorer</h1><p class="muted">Exploratory maps of available vectors. Screen distance is not a citation score or proof of relevance. Similarity and neighbors use the original embedding space.</p>
+<p id="coverage"></p><div class="controls"><label>Model / view<select id="map"></select></label><label>Hostname<select id="host"><option value="">All hostnames</option></select></label><label>Citation association<select id="label"><option value="">All labels</option><option>top</option><option>bottom</option></select></label><label>Extraction quality<select id="quality"><option value="">All</option><option value="flagged">Flagged</option><option value="unflagged">Unflagged</option></select></label></div>
+<div class="layout"><div class="panel"><p id="map-status" role="status" aria-live="polite"></p><svg id="plot" viewBox="0 0 600 480" role="img" aria-label="Exploratory semantic map. Use the point selector below for keyboard navigation."></svg><label>Inspect point<select id="point" class="wide"></select></label><p id="diagnostic" class="muted"></p></div><div class="panel" id="detail" aria-live="polite">Choose a point to inspect its source evidence.</div></div>
+<details><summary>Coverage and limitations</summary><pre id="manifest"></pre></details>
+</main><script type="application/json" id="data">__EXPLORER_DATA__</script><script>
+(() => {
+'use strict';
+const data=JSON.parse(document.getElementById('data').textContent), byId=id=>document.getElementById(id);
+const mapSelect=byId('map'),host=byId('host'),label=byId('label'),quality=byId('quality'),pointSelect=byId('point'),plot=byId('plot'),detail=byId('detail');
+let active,visible=[],chosen;
+function option(select,value,text){const el=document.createElement('option');el.value=value;el.textContent=text;select.append(el)}
+data.maps.forEach(m=>option(mapSelect,m.id,m.name));
+byId('coverage').textContent=`${data.coverage.records} citation records · ${data.coverage.units} logical units. Missing/excluded/failed inputs remain in run artifacts.`;
+byId('manifest').textContent=JSON.stringify(data.coverage,null,2);
+function para(text,parent=detail){const el=document.createElement('p');el.textContent=text;parent.append(el)}
+function pre(text,parent=detail){const el=document.createElement('pre');el.textContent=text;parent.append(el)}
+function inspect(uid){
+ chosen=uid;pointSelect.value=uid;detail.replaceChildren();
+ const point=active.points.find(p=>p.unit_id===uid);if(!point){para('No available points for this filter.');return}
+ plot.querySelectorAll('circle').forEach(c=>c.classList.toggle('selected',c.dataset.id===uid));
+ const heading=document.createElement('h2');heading.textContent=point.view+' · '+point.subview;detail.append(heading);
+ para('Unit: '+point.unit_id);para('Representation: '+point.status);para('Source blocks: '+(point.block_ids.join(', ')||'Not applicable'));
+ point.associations.slice(0,5).forEach(a=>{const p=document.createElement('p');const anchor=document.createElement('a');try{const url=new URL(a.href);if(['http:','https:'].includes(url.protocol)){anchor.href=url.href;anchor.rel='noopener noreferrer';anchor.target='_blank'}}catch(_){}anchor.textContent=a.href;p.append(anchor);detail.append(p);para('Prompt: '+a.prompt);para('Extraction: '+a.extraction_status+' · flags: '+(a.quality_flags.join(', ')||'none'));});
+ para(point.excerpt?'Input excerpt (first 4,000 characters; complete text in units.parquet).':'Embedding input / pooled input members:');pre(point.text);
+ if(point.alignment.length){para('Alignment for associated queries/pages only (original-space cosine):');pre(JSON.stringify(point.alignment,null,2))}
+ if(point.support.length){para('Supporting sections:');point.support.forEach(s=>pre(s.text+'\nBlocks: '+s.block_ids.join(', ')))}
+ para('Original-space neighbors within this view:');point.neighbor_unit_ids.forEach(id=>{const other=active.points.find(p=>p.unit_id===id);if(!other)return;const b=document.createElement('button');b.type='button';b.textContent=(other.associations[0]?.href||other.text.slice(0,80));b.addEventListener('click',()=>{host.value='';label.value='';quality.value='';render();inspect(id)});detail.append(b,document.createElement('br'))});
+}
+function render(){
+ visible=active.points.filter(p=>(!host.value||p.associations.some(a=>a.hostname===host.value))&&(!label.value||p.associations.some(a=>a.citation_category===label.value))&&(!quality.value||p.associations.some(a=>quality.value==='flagged'?a.quality_flags.length>0:a.quality_flags.length===0)));
+ plot.replaceChildren();pointSelect.replaceChildren();byId('map-status').textContent=visible.length+' / '+active.points.length+' available points';
+ const xs=active.points.map(p=>p.x),ys=active.points.map(p=>p.y),minX=Math.min(...xs),maxX=Math.max(...xs),minY=Math.min(...ys),maxY=Math.max(...ys);
+ visible.forEach((p,i)=>{option(pointSelect,p.unit_id,(p.associations[0]?.href||p.text.slice(0,80)||p.unit_id));const c=document.createElementNS('http://www.w3.org/2000/svg','circle');c.setAttribute('cx',25+(p.x-minX)/(maxX-minX||1)*550);c.setAttribute('cy',25+(p.y-minY)/(maxY-minY||1)*430);c.setAttribute('r','5');c.dataset.id=p.unit_id;const title=document.createElementNS(c.namespaceURI,'title');title.textContent=p.associations[0]?.href||p.unit_id;c.append(title);c.addEventListener('click',()=>inspect(p.unit_id));plot.append(c)});
+ inspect(visible.some(p=>p.unit_id===chosen)?chosen:visible[0]?.unit_id);
+}
+function switchMap(){active=data.maps.find(m=>m.id===mapSelect.value);host.replaceChildren();option(host,'','All hostnames');[...new Set(active.points.flatMap(p=>p.associations.map(a=>a.hostname)))].sort().forEach(h=>option(host,h,h));byId('diagnostic').textContent='Exploratory all-available fit · mean original/screen neighbor overlap: '+active.metadata.umap.mean_neighbor_overlap_at_5.toFixed(3);render()}
+mapSelect.addEventListener('change',switchMap);[host,label,quality].forEach(el=>el.addEventListener('change',render));pointSelect.addEventListener('change',()=>inspect(pointSelect.value));switchMap();
+})();
+</script></body></html>

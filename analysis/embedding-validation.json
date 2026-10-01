@@ -1,0 +1,67 @@
+{
+  "date": "2026-10-01",
+  "scope": "Bounded integration smoke test, not model selection or citation uplift evaluation",
+  "input": "Upstream eval-v2; 20 deterministically selected snapshots, including abstentions",
+  "records": 20,
+  "extraction_statuses": {
+    "needs_review": 7,
+    "selected": 11,
+    "source_insufficient": 2
+  },
+  "logical_units": 342,
+  "unit_statuses": {
+    "ready": 324,
+    "derived": 10,
+    "unavailable": 8
+  },
+  "views": {
+    "section": 226,
+    "page": 46,
+    "query": 20,
+    "title": 28,
+    "outline": 11,
+    "path": 11
+  },
+  "hosted_model": {
+    "config_id": "434acaaec973a272a54e4e5deda65dfae56239f35862f7f1368493cb60e1a8cc",
+    "model": "text-embedding-3-large",
+    "provider": "openai",
+    "status": "complete",
+    "vectors": 334,
+    "logical_units": 342,
+    "unique_requests": 320,
+    "cached_requests": 320,
+    "failed_requests": 0,
+    "fatal_error": null
+  },
+  "observed_prompt_tokens": 88998,
+  "resume": "A second completed-run execution made no new requests and retained the same vector/cardinality summary",
+  "tests": {
+    "python_integration": "16 passed",
+    "explorer_script": "passed: initial map, point detail, map switching, hostname filtering"
+  },
+  "browser_review": "Not performed: automatic browser security review blocks file:// navigation",
+  "pending": [
+    "Human relevance annotations and frozen comparative selection",
+    "Voyage or pinned hosted Qwen credentials/capability preflight",
+    "Validated full-corpus upstream artifacts and subsequent corpus execution"
+  ],
+  "sources": {
+    "__init__.py": "fc89e46776ab9048e2ddf6591d478b1ba8bab64efdb45a952103ce58f8e31ee9",
+    "__main__.py": "666c9b8ffaad29dfeaeaba8928f24bfe65af9d786a08c9ff8ea15fdd3d701ff8",
+    "alignment.py": "5703ca66a89c6a174e9ba8ba09a23c42b25ec7a5f61605b124a5cbc001b3486b",
+    "analysis.py": "e8c04441b49cd93dfe8b5540dd356ffadc4a5606f1ab7503fdf34873702f35b0",
+    "chunking.py": "ea35d67214ff62ed846656376dabba6e69799f3cef6e769e0bb5ac04e27c555c",
+    "config.py": "02239336e2d492ea51df6bd9df34d8d3a78f872baca3e1e815df8c77a9a5aaba",
+    "contracts.py": "de6f2db6d845235423dbc6e81a3fc7e042279d5db8fa87d87ecc1c6de9010f47",
+    "evaluation.py": "2914856f4962d628b01b1bf5a6b87ef44190ffb300e6a963fb269f8fc9b770a1",
+    "inputs.py": "a5db1596863ebbfe519b45a1712c1a6656f059be801f8af6ee4b5717b374eb5d",
+    "projection.py": "1d57c09a2123a71d9097b940bbb95d8b8288771c2785cea9366cf05875ade0d7",
+    "providers.py": "a1a9fa0a59896f322454e6e611f2fadf2b46bec35b775b9b08464b56747d700b",
+    "report.py": "7564e8251a015791bc395e2ac0d6234c7cf9f21805b590cf96d98513314b5504",
+    "runner.py": "b5ffbe73c28903bfce632aacd08a12a0414074305b68891078e7b8bd10044697",
+    "storage.py": "bc970b859ac11b67bd13affece06b392019111630fdac310350d49c03bfba2aa",
+    "upstream.py": "e58482be654fba1916201c4f9c9d5d9233d1f8a5cb9d073c7eabf99cce55eeb5",
+    "url_path.py": "b66f233bb24cb021808417acdbd05ca433459349f0ba4ddfce380d1c5508afb0"
+  }
+}

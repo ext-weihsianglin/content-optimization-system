@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0.0",
+  "chunk_bytes": 4096,
+  "page_bytes": 7000,
+  "counting_policy": "conservative_utf8_bytes_v1",
+  "seed": 42,
+  "models": {
+    "openai-large": {
+      "provider": "openai",
+      "model": "text-embedding-3-large",
+      "endpoint": "https://api.openai.com/v1/embeddings",
+      "key_env": "OPENAI_API_KEY",
+      "dimensions": 3072,
+      "max_input_bytes": 8192,
+      "batch_size": 32,
+      "batch_bytes": 100000,
+      "concurrency": 2,
+      "attempts": 4,
+      "timeout": 60,
+      "revision": "unversioned-2026-10-01",
+      "query_instruction": ""
+    },
+    "voyage-large": {
+      "provider": "voyage",
+      "model": "voyage-4-large",
+      "endpoint": "https://api.voyageai.com/v1/embeddings",
+      "key_env": "VOYAGE_API_KEY",
+      "dimensions": 2048,
+      "max_input_bytes": 32000,
+      "batch_size": 32,
+      "batch_bytes": 100000,
+      "concurrency": 2,
+      "attempts": 4,
+      "timeout": 60,
+      "revision": "unversioned-2026-10-01",
+      "query_instruction": ""
+    },
+    "qwen-hosted": {
+      "provider": "openrouter",
+      "model": "qwen/qwen3-embedding-8b",
+      "endpoint": "https://openrouter.ai/api/v1/embeddings",
+      "key_env": "OPENROUTER_API_KEY",
+      "dimensions": 4096,
+      "max_input_bytes": 32000,
+      "batch_size": 16,
+      "batch_bytes": 100000,
+      "concurrency": 2,
+      "attempts": 4,
+      "timeout": 60,
+      "revision": "unversioned-2026-10-01",
+      "provider_order": [],
+      "query_instruction": "Instruct: Given a web search query, retrieve relevant passages that answer the query\nQuery: "
+    }
+  }
+}
