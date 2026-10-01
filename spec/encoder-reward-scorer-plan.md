@@ -1,10 +1,15 @@
 # Teacher curation, encoder distillation, and P2 evaluation plan
 
-Status: proposed for review, 2026-10-01. Contract and evidence:
+Status: implementation authorized; Phase 1 offline preparation started, 2026-10-01. Contract and evidence:
 [encoder reward scorer spec](encoder-reward-scorer.md).
 
-This is a documentation-only proposal. No teacher calls, model training, corpus
-reprocessing, scorer promotion, or demo changes are included in this PR.
+The initial plan was submitted in PR #12. The user subsequently authorized
+implementation and explicitly reserved teacher-model choice for discussion.
+No teacher is selected and no calls have been made. Offline curation, response
+contracts, draft rubrics, smoke packets, and controlled edit pairs are available in
+[encoder_scorer](../encoder_scorer/README.md); see the
+[preparation report](../analysis/teacher-curation-v1.html). Training and later phases
+remain gated on reviewed teacher evidence.
 
 ## Phase 1 — Curate supervision from stronger models
 

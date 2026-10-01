@@ -1,6 +1,7 @@
 # Encoder P1 scorer and component rewards for P2
 
-Status: proposed for review, 2026-10-01. Implementation sequence and gates:
+Status: implementation authorized; teacher-model selection pending user discussion,
+2026-10-01. Implementation sequence and gates:
 [delivery plan](encoder-reward-scorer-plan.md).
 
 ## Objective and scope
@@ -13,8 +14,8 @@ scorers; finally inspect end-to-end behavior in the demo webapp.
 
 The initial P2 use case is improving an existing page using supplied factual
 material. New-page generation can follow using an explicit evidence pack. This
-proposal does not authorize model runs, paid annotation, or changes to inference
-defaults as part of the documentation PR.
+implementation keeps teacher-model choice with the user before any teacher calls.
+It does not change inference defaults automatically.
 
 The citation target remains top versus bottom within a hostname among already-cited
 pages. It is not cited versus uncited, absolute citation probability, or causal

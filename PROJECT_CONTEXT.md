@@ -141,6 +141,33 @@ absent; a separate machine needs an artifact transfer. Models and raw/prepared d
 are not committed. All LR code, manifests, report outputs and predictions belong
 under `trad_ml_scorer/`; original analysis and frozen v1/v2 are preserved.
 
+## Encoder scorer workstream checkpoint
+
+The user authorized the teacher-curation → ModernBERT → LR benchmark → demo dogfood
+plan, then explicitly asked to discuss teacher-model choice before selection.
+**No teacher model has been selected; do not choose one or make teacher calls until
+the user supplies that choice.** OpenAI key presence was verified without exposing it.
+
+On branch `deck/scorers-llm-classifiers`, `encoder_scorer/` implements offline,
+label-blind curation, stage-separated packets, strict evidence validation, and
+controlled edit pairs. `evaluation/teacher/rubric.md` is a development draft.
+Local ignored artifacts: `data/encoder_scorer/teacher-v1/`. Source caches are read
+from the main repository's `data/trad_ml_scorer/v2/`; they were not changed.
+120 distinct development hosts: 96 train / 24 validation; 12 train-only smoke cases,
+30 queued independent reviews, 18 unlabeled edit pairs across 3 training parents.
+No test documents loaded. Four smoke views have omitted blocks; token budgeting
+awaits teacher choice. No annotations or human reviews have occurred. Independent
+curation and packet replay is byte-identical. Preparation report:
+`analysis/teacher-curation-v1.html` / `.json`; plan: `spec/encoder-reward-scorer-plan.md`.
+Verification: 124 tests / 12 subtests passed with locked worktree-local Python and
+Node dependencies installed offline. No environments or raw caches are committed.
+
+The adjacent `profound/demo-webapp` is Content Studio (Next.js/FastAPI). Its inspected
+main checkout exposes `/api/analyze` and `/api/draft` in `backend/app/main.py` with
+mock grades and deterministic edits. Workstream branches may be ahead; no demo or
+other worktree files were modified. v5/v6 LR evidence was local/uncommitted at the
+time of inspection; freeze its artifacts before using it as a benchmark comparator.
+
 ## Reader-LM experiment and stop decision
 
 No hosted Jina API access. Downloaded `jinaai/reader-lm-0.5b` at pinned revision

@@ -1,0 +1,67 @@
+{
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "enum": [
+        "teacher-label-v1"
+      ]
+    },
+    "task_type": {
+      "type": "string",
+      "enum": [
+        "lookup",
+        "comparison",
+        "procedure",
+        "explanation",
+        "other",
+        "ambiguous"
+      ]
+    },
+    "ambiguity": {
+      "type": "string"
+    },
+    "requirements": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "requirement_id": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string"
+          },
+          "origin": {
+            "type": "string",
+            "enum": [
+              "explicit",
+              "inferred"
+            ]
+          },
+          "importance": {
+            "type": "string",
+            "enum": [
+              "essential",
+              "optional"
+            ]
+          }
+        },
+        "required": [
+          "requirement_id",
+          "text",
+          "origin",
+          "importance"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "schema_version",
+    "task_type",
+    "ambiguity",
+    "requirements"
+  ],
+  "additionalProperties": false
+}
