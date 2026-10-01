@@ -1,0 +1,260 @@
+[
+  {
+    "record_id": "31e54667cf9c2b7b3490b7bc330c2bdc5d2cade909ac2e780dbc787fa7c28271",
+    "split": "train",
+    "prompt": "best AI picture creator online",
+    "url": "https://a1.art/features/ai-brasil-art-generator",
+    "is_cited_high": 1,
+    "predicted_probability": 0.6354098996144526,
+    "intercept": -0.006298961662153612,
+    "top_log_odds_contributions": [
+      {
+        "feature": "coverage_title",
+        "contribution": 0.23878444913150848
+      },
+      {
+        "feature": "prompt_question",
+        "contribution": 0.23403063889879705
+      },
+      {
+        "feature": "log_list_items",
+        "contribution": -0.19581045071729714
+      },
+      {
+        "feature": "prompt_comparison",
+        "contribution": 0.18892097115347747
+      },
+      {
+        "feature": "has_list",
+        "contribution": 0.1397507492930256
+      },
+      {
+        "feature": "has_jsonld",
+        "contribution": 0.07711291108532824
+      },
+      {
+        "feature": "focus_text_fraction",
+        "contribution": -0.06945072274646073
+      },
+      {
+        "feature": "log_heading_count",
+        "contribution": -0.05232566046443586
+      }
+    ]
+  },
+  {
+    "record_id": "e31021e056e88a97ff840f04c02211a17b91664de9f81b25fcb4b908e35239e7",
+    "split": "train",
+    "prompt": "How to create AI Art?",
+    "url": "https://a1.art/features/ai-brazilian-art-generator",
+    "is_cited_high": 1,
+    "predicted_probability": 0.4591737885599775,
+    "intercept": -0.006298961662153612,
+    "top_log_odds_contributions": [
+      {
+        "feature": "prompt_how_to",
+        "contribution": -0.4906977359741712
+      },
+      {
+        "feature": "coverage_title",
+        "contribution": 0.4061283080249849
+      },
+      {
+        "feature": "log_list_items",
+        "contribution": -0.19581045071729714
+      },
+      {
+        "feature": "has_list",
+        "contribution": 0.1397507492930256
+      },
+      {
+        "feature": "coverage_url_path",
+        "contribution": 0.1166099727061563
+      },
+      {
+        "feature": "prompt_question",
+        "contribution": -0.1004062654130163
+      },
+      {
+        "feature": "coverage_intro",
+        "contribution": 0.08816893583802778
+      },
+      {
+        "feature": "has_jsonld",
+        "contribution": 0.07711291108532824
+      }
+    ]
+  },
+  {
+    "record_id": "a8d657c7bd7009eb42288fe9b3e2cd6229eec0c62388ec302db154dcb15b1990",
+    "split": "train",
+    "prompt": "Quelle est la meilleure fa\u00e7on de g\u00e9n\u00e9rer de l'art AI gratuitement ?",
+    "url": "https://a1.art/features/ai-french-art-generator",
+    "is_cited_high": 1,
+    "predicted_probability": 0.41285545959375497,
+    "intercept": -0.006298961662153612,
+    "top_log_odds_contributions": [
+      {
+        "feature": "log_list_items",
+        "contribution": -0.19581045071729714
+      },
+      {
+        "feature": "has_list",
+        "contribution": 0.1397507492930256
+      },
+      {
+        "feature": "prompt_question",
+        "contribution": -0.1004062654130163
+      },
+      {
+        "feature": "coverage_title",
+        "contribution": -0.08069019057421929
+      },
+      {
+        "feature": "has_jsonld",
+        "contribution": 0.07711291108532824
+      },
+      {
+        "feature": "prompt_comparison",
+        "contribution": -0.07698213065058865
+      },
+      {
+        "feature": "focus_text_fraction",
+        "contribution": -0.06945072274646073
+      },
+      {
+        "feature": "log_heading_count",
+        "contribution": -0.05232566046443586
+      }
+    ]
+  },
+  {
+    "record_id": "a1c46c527fa922bf6102669d9ec2f996e6ce707d83b1e670f6d54c0e413a9e43",
+    "split": "validation",
+    "prompt": "What is the best expense management software for growing businesses?",
+    "url": "https://advertiserreview.com/softwares/expense-management",
+    "is_cited_high": 1,
+    "predicted_probability": 0.7556903122961074,
+    "intercept": -0.006298961662153612,
+    "top_log_odds_contributions": [
+      {
+        "feature": "log_heading_count",
+        "contribution": 0.4107824590420999
+      },
+      {
+        "feature": "coverage_title",
+        "contribution": 0.33919076446759433
+      },
+      {
+        "feature": "log_list_items",
+        "contribution": 0.235141710847876
+      },
+      {
+        "feature": "prompt_comparison",
+        "contribution": 0.18892097115347747
+      },
+      {
+        "feature": "prompt_question",
+        "contribution": -0.1004062654130163
+      },
+      {
+        "feature": "has_article_schema",
+        "contribution": -0.07832089470268822
+      },
+      {
+        "feature": "log_h1_count",
+        "contribution": 0.07244879510657382
+      },
+      {
+        "feature": "focus_text_fraction",
+        "contribution": -0.057724110093196605
+      }
+    ]
+  },
+  {
+    "record_id": "40342c6c7df3ae583abe6593cbbb5eb88e62d85534d867392d8d1201deee444c",
+    "split": "validation",
+    "prompt": "best rated cloud expense management software",
+    "url": "https://advertiserreview.com/softwares/expense-management-software-in-uk",
+    "is_cited_high": 1,
+    "predicted_probability": 0.8024645199044579,
+    "intercept": -0.006298961662153612,
+    "top_log_odds_contributions": [
+      {
+        "feature": "log_heading_count",
+        "contribution": 0.3887595807582172
+      },
+      {
+        "feature": "coverage_title",
+        "contribution": 0.33919076446759433
+      },
+      {
+        "feature": "prompt_question",
+        "contribution": 0.23403063889879705
+      },
+      {
+        "feature": "prompt_comparison",
+        "contribution": 0.18892097115347747
+      },
+      {
+        "feature": "log_list_items",
+        "contribution": 0.1824776228239916
+      },
+      {
+        "feature": "coverage_url_path",
+        "contribution": 0.09890146702048644
+      },
+      {
+        "feature": "has_article_schema",
+        "contribution": -0.07832089470268822
+      },
+      {
+        "feature": "log_h1_count",
+        "contribution": 0.07244879510657382
+      }
+    ]
+  },
+  {
+    "record_id": "6a262ad2ee3da83f37bb7005465c291914121804551f7cf9b3539a05cbaff75c",
+    "split": "validation",
+    "prompt": "top rated support software for businesses",
+    "url": "https://advertiserreview.com/softwares/help-desk",
+    "is_cited_high": 1,
+    "predicted_probability": 0.6723351394637774,
+    "intercept": -0.006298961662153612,
+    "top_log_odds_contributions": [
+      {
+        "feature": "log_heading_count",
+        "contribution": 0.4272207614744596
+      },
+      {
+        "feature": "prompt_question",
+        "contribution": 0.23403063889879705
+      },
+      {
+        "feature": "log_list_items",
+        "contribution": 0.23298705411866458
+      },
+      {
+        "feature": "has_article_schema",
+        "contribution": -0.07832089470268822
+      },
+      {
+        "feature": "prompt_comparison",
+        "contribution": -0.07698213065058865
+      },
+      {
+        "feature": "log_h1_count",
+        "contribution": 0.07244879510657382
+      },
+      {
+        "feature": "coverage_url_path",
+        "contribution": -0.06047508415054253
+      },
+      {
+        "feature": "focus_text_fraction",
+        "contribution": -0.06035352916165211
+      }
+    ]
+  }
+]

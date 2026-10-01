@@ -1,0 +1,427 @@
+{
+  "permutation": [
+    {
+      "feature": "log_heading_count",
+      "mean_log_loss_increase": 0.023227958595432828,
+      "shuffle_sd": 0.003693629903650598
+    },
+    {
+      "feature": "coverage_title",
+      "mean_log_loss_increase": 0.013724998096902289,
+      "shuffle_sd": 0.002918053245792665
+    },
+    {
+      "feature": "path_homepage",
+      "mean_log_loss_increase": 0.009197222549494281,
+      "shuffle_sd": 0.0038426318014972614
+    },
+    {
+      "feature": "mean_section_coverage",
+      "mean_log_loss_increase": 0.00856557304461459,
+      "shuffle_sd": 0.0017997776528427573
+    },
+    {
+      "feature": "prompt_comparison",
+      "mean_log_loss_increase": 0.005219668659884261,
+      "shuffle_sd": 0.001925543263606994
+    },
+    {
+      "feature": "format_html",
+      "mean_log_loss_increase": 0.004465889677810338,
+      "shuffle_sd": 0.0016167860389830883
+    },
+    {
+      "feature": "path_commerce",
+      "mean_log_loss_increase": 0.0034761491273421355,
+      "shuffle_sd": 0.002065409328034299
+    },
+    {
+      "feature": "prompt_question",
+      "mean_log_loss_increase": 0.0032820930571878923,
+      "shuffle_sd": 0.0021841913540479
+    },
+    {
+      "feature": "log_list_items",
+      "mean_log_loss_increase": 0.0032760050840576166,
+      "shuffle_sd": 0.0012350085461385208
+    },
+    {
+      "feature": "path_editorial",
+      "mean_log_loss_increase": 0.0023024831187842044,
+      "shuffle_sd": 0.0011800356599609197
+    },
+    {
+      "feature": "log_word_count",
+      "mean_log_loss_increase": 0.0021822867605680567,
+      "shuffle_sd": 0.0011266743104081153
+    },
+    {
+      "feature": "coverage_table_headers",
+      "mean_log_loss_increase": 0.002058799437889384,
+      "shuffle_sd": 0.0012700209660537756
+    },
+    {
+      "feature": "coverage_intro",
+      "mean_log_loss_increase": 0.0019602582989296105,
+      "shuffle_sd": 0.000712059678089434
+    },
+    {
+      "feature": "path_depth",
+      "mean_log_loss_increase": 0.001438855253424028,
+      "shuffle_sd": 0.0010032889401830028
+    },
+    {
+      "feature": "prompt_how_to",
+      "mean_log_loss_increase": 0.001210428505305535,
+      "shuffle_sd": 0.0014016592510970995
+    },
+    {
+      "feature": "has_article_schema",
+      "mean_log_loss_increase": 0.001113904479033312,
+      "shuffle_sd": 0.0011802627055291792
+    },
+    {
+      "feature": "has_table",
+      "mean_log_loss_increase": 0.0007267898014384766,
+      "shuffle_sd": 0.0008302083359794467
+    },
+    {
+      "feature": "headings_per_1000_words",
+      "mean_log_loss_increase": 0.0005378924066860098,
+      "shuffle_sd": 0.00021807288829054717
+    },
+    {
+      "feature": "best_section_coverage",
+      "mean_log_loss_increase": 0.00022760442657065265,
+      "shuffle_sd": 0.00011790344683451578
+    },
+    {
+      "feature": "comparison_x_table_header_coverage",
+      "mean_log_loss_increase": 0.00020999017625503342,
+      "shuffle_sd": 0.0009380686847758816
+    },
+    {
+      "feature": "needs_review",
+      "mean_log_loss_increase": 0.0001535486725713057,
+      "shuffle_sd": 8.609796063262646e-05
+    },
+    {
+      "feature": "path_support_docs",
+      "mean_log_loss_increase": 0.00012678782527978012,
+      "shuffle_sd": 0.0005475534164694084
+    },
+    {
+      "feature": "possible_error_response",
+      "mean_log_loss_increase": 0.00012308547595576424,
+      "shuffle_sd": 7.121372055451583e-05
+    },
+    {
+      "feature": "log_h1_count",
+      "mean_log_loss_increase": 4.96040770908257e-05,
+      "shuffle_sd": 0.0005181536134691985
+    },
+    {
+      "feature": "log_table_count",
+      "mean_log_loss_increase": 4.4689849528689594e-05,
+      "shuffle_sd": 8.376232995854812e-05
+    },
+    {
+      "feature": "best_section_heading_coverage",
+      "mean_log_loss_increase": 3.836678509651081e-05,
+      "shuffle_sd": 4.473664723061768e-05
+    },
+    {
+      "feature": "coverage_headings",
+      "mean_log_loss_increase": 3.425195127002197e-05,
+      "shuffle_sd": 8.152485578377689e-05
+    },
+    {
+      "feature": "best_section_position",
+      "mean_log_loss_increase": 2.6115665105075347e-05,
+      "shuffle_sd": 6.342118682543574e-05
+    },
+    {
+      "feature": "log_ordered_steps",
+      "mean_log_loss_increase": -3.973924540175607e-06,
+      "shuffle_sd": 0.0002150869264889288
+    },
+    {
+      "feature": "how_to_x_ordered_steps",
+      "mean_log_loss_increase": -5.6087280837021265e-06,
+      "shuffle_sd": 0.00014257990924697127
+    },
+    {
+      "feature": "coverage_h1",
+      "mean_log_loss_increase": -5.175062968920674e-05,
+      "shuffle_sd": 0.00017861342703088176
+    },
+    {
+      "feature": "list_items_per_1000_words",
+      "mean_log_loss_increase": -0.00010363355566828103,
+      "shuffle_sd": 9.074204300456519e-05
+    },
+    {
+      "feature": "retained_text_fraction",
+      "mean_log_loss_increase": -0.0001537203487237219,
+      "shuffle_sd": 0.0003822624658419008
+    },
+    {
+      "feature": "log_prompt_words",
+      "mean_log_loss_increase": -0.00018308605968359037,
+      "shuffle_sd": 0.00033406253727658524
+    },
+    {
+      "feature": "matching_section_fraction",
+      "mean_log_loss_increase": -0.00031913303920578416,
+      "shuffle_sd": 0.00010094802465991472
+    },
+    {
+      "feature": "coverage_body",
+      "mean_log_loss_increase": -0.0003395962909127766,
+      "shuffle_sd": 0.0009635391408030188
+    },
+    {
+      "feature": "log_title_words",
+      "mean_log_loss_increase": -0.00043349282498504523,
+      "shuffle_sd": 0.000363135513120984
+    },
+    {
+      "feature": "log_source_script_count",
+      "mean_log_loss_increase": -0.0005012982642486508,
+      "shuffle_sd": 0.0002471413700378656
+    },
+    {
+      "feature": "has_list",
+      "mean_log_loss_increase": -0.0005038061246687227,
+      "shuffle_sd": 0.000806328237686451
+    },
+    {
+      "feature": "empty_title",
+      "mean_log_loss_increase": -0.0007696416914631706,
+      "shuffle_sd": 0.0006793731270661492
+    },
+    {
+      "feature": "log_paragraph_count",
+      "mean_log_loss_increase": -0.0007842342991342418,
+      "shuffle_sd": 0.0009556312070154823
+    },
+    {
+      "feature": "has_jsonld",
+      "mean_log_loss_increase": -0.0009066408692749069,
+      "shuffle_sd": 0.0005163714112999647
+    },
+    {
+      "feature": "log_code_count",
+      "mean_log_loss_increase": -0.001285311479104049,
+      "shuffle_sd": 0.0008565673353544305
+    },
+    {
+      "feature": "sparse_body",
+      "mean_log_loss_increase": -0.0015427077467341029,
+      "shuffle_sd": 0.0023282616223734135
+    }
+  ],
+  "family_ablation": [
+    {
+      "family": "prompt",
+      "validation_log_loss": 0.6533164495092957,
+      "delta": 0.00271439888807945
+    },
+    {
+      "family": "url",
+      "validation_log_loss": 0.659040204886009,
+      "delta": 0.008438154264792774
+    },
+    {
+      "family": "whole_alignment",
+      "validation_log_loss": 0.6530744160440907,
+      "delta": 0.002472365422874434
+    },
+    {
+      "family": "content_size",
+      "validation_log_loss": 0.6566160627213288,
+      "delta": 0.006014012100112542
+    },
+    {
+      "family": "structure",
+      "validation_log_loss": 0.6503089889960024,
+      "delta": -0.0002930616252138085
+    },
+    {
+      "family": "source_metadata",
+      "validation_log_loss": 0.6497986289871126,
+      "delta": -0.0008034216341036293
+    },
+    {
+      "family": "quality",
+      "validation_log_loss": 0.6501509353833161,
+      "delta": -0.00045111523790009045
+    },
+    {
+      "family": "section_alignment",
+      "validation_log_loss": 0.6539050616190386,
+      "delta": 0.0033030109978223754
+    }
+  ],
+  "partial_dependence": [
+    {
+      "feature": "log_heading_count",
+      "grid": [
+        1.0986122886681098,
+        1.6094379124341003,
+        2.0794415416798357,
+        2.302585092994046,
+        2.4849066497880004,
+        2.6390573296152584,
+        2.772588722239781,
+        2.8903717578961645,
+        2.995732273553991,
+        3.091042453358316,
+        3.1780538303479458,
+        3.258096538021482,
+        3.367295829986474,
+        3.4657359027997265,
+        3.5553480614894135,
+        3.6635616461296463,
+        3.8066624897703196,
+        3.9889840465642745,
+        4.248495242049359
+      ],
+      "mean_probability": [
+        0.3791265176633397,
+        0.41098745822634203,
+        0.4409862805451386,
+        0.4553994401419259,
+        0.4672358127143981,
+        0.4772754231221706,
+        0.4859896074790673,
+        0.4936853048509128,
+        0.500573710269857,
+        0.5068064193999939,
+        0.5124959621961127,
+        0.5177281827190212,
+        0.5248617189407808,
+        0.5312857685126586,
+        0.53712647536269,
+        0.5441681296403049,
+        0.5534564146373844,
+        0.565242593546197,
+        0.5819032675833556
+      ]
+    },
+    {
+      "feature": "coverage_title",
+      "grid": [
+        0.0,
+        0.07692307692307693,
+        0.125,
+        0.16666666666666666,
+        0.2,
+        0.2222222222222222,
+        0.25,
+        0.2857142857142857,
+        0.3333333333333333,
+        0.4,
+        0.42857142857142855,
+        0.5,
+        0.6,
+        0.6666666666666666
+      ],
+      "mean_probability": [
+        0.44596290642934366,
+        0.4630316340138746,
+        0.4737475724063546,
+        0.4830557920244456,
+        0.4905120718036298,
+        0.4954859970274958,
+        0.5017051955273036,
+        0.5097014343535746,
+        0.5203569558048892,
+        0.5352464896731582,
+        0.541612089285863,
+        0.5574682061203962,
+        0.5794802082771374,
+        0.5939981202222433
+      ]
+    },
+    {
+      "feature": "path_homepage",
+      "grid": [
+        0.0,
+        1.0
+      ],
+      "mean_probability": [
+        0.5011569423309012,
+        0.8624762143546202
+      ]
+    },
+    {
+      "feature": "mean_section_coverage",
+      "grid": [
+        0.0,
+        0.040224753694581276,
+        0.07142857142857142,
+        0.09523809523809523,
+        0.11666666666666667,
+        0.1357142857142857,
+        0.15625,
+        0.17492481203007515,
+        0.19387755102040816,
+        0.21111111111111108,
+        0.23015873015873012,
+        0.25,
+        0.272804128238911,
+        0.298094839942666,
+        0.32795698924731176,
+        0.35720364741641336,
+        0.39999999999999997,
+        0.4482758620689654,
+        0.5278594771241818
+      ],
+      "mean_probability": [
+        0.459712853886836,
+        0.46738481897592726,
+        0.4733476752158056,
+        0.47790314560463265,
+        0.4820065694867836,
+        0.48565640014456257,
+        0.48959340100255805,
+        0.4931750835671917,
+        0.4968111049232917,
+        0.5001179048187191,
+        0.5037731077594775,
+        0.5075805771973161,
+        0.511956026302555,
+        0.5168071064048436,
+        0.522531898526547,
+        0.528134082333404,
+        0.5363206613823882,
+        0.5455349638360539,
+        0.5606622134447388
+      ]
+    },
+    {
+      "feature": "prompt_comparison",
+      "grid": [
+        0.0,
+        1.0
+      ],
+      "mean_probability": [
+        0.48562068484873794,
+        0.5492955235971261
+      ]
+    },
+    {
+      "feature": "format_html",
+      "grid": [
+        0.0,
+        1.0
+      ],
+      "mean_probability": [
+        0.18294349174834304,
+        0.5070843320356475
+      ]
+    }
+  ],
+  "note": "Validation-only diagnostics, not used for further selection. Shuffle SD is not a confidence interval. Correlation may mask importance; one-feature perturbations can create implausible combinations. Not causal."
+}

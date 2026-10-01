@@ -1,0 +1,16 @@
+{
+  "trad_ml_scorer/v1/test_metrics.json": "5e207bff09def0fe5345107e1b7884977746716d6090c2f5690975b3e237e7db",
+  "data/lr/features.npz": "aadd1e4218817465122fd626dedb6125fc9dea21333628cf7924452c65bd4230",
+  "data/lr/model.joblib": "24514c61fb6bdea7cd818dab5edb046906d0360b7a15062d8e36d4a911dd7f4e",
+  "pyproject.toml": "e33e8312ac3af30664a64b8b71c62adb4a538c2273a4abb7555c1e3a2758a6c9",
+  "trad_ml_scorer/evaluate_lr.py": "3f204d985b2e03ece392b1d22927087bf7753b69873ee29076910133bb041c18",
+  "trad_ml_scorer/lr_evaluation.py": "e64807a04c17499036ffd3bc43d56319efae96800750f26d3141678b2a770d09",
+  "trad_ml_scorer/lr_features.py": "db43ba934bd81cc4662f06a13577d05292c75580d10f381cbd12c51bfc8b1f49",
+  "trad_ml_scorer/predict_lr.py": "ba04976500af390202d8f3b1f7eae66072981650d87902a6b6cd48a93cc9cc84",
+  "trad_ml_scorer/prepare_lr_data.py": "d2cba8db666625f32fea465886279ae22a9cd9896ae15465d74992b7cee98339",
+  "trad_ml_scorer/train_lr.py": "5fca1736e53b52e6ec2548bbf88ae6827eaf64937eaac1cd9a2a9dcc328ecd96",
+  "trad_ml_scorer/verify_lr.py": "5ee4e5f8e3a43250b4f4c39ddc5c2ba1b78214286829adb1b210f0f8b6ac8da6",
+  "tests/test_lr.py": "592cb97d61b856d9841c3f3a232273043e33fd42c68d58aec5462656c4948bfd",
+  "uv.lock": "37d426c03f9472bef520925e64b4eae58abfcb3a810d56a794897f0de246cf56",
+  "trad_ml_scorer/lr_report_notes.md": "0e97e2169767fb7f6b6ed48c65cc0ca2f7acfb9cabb11df8dcf01987c9c49464"
+}
