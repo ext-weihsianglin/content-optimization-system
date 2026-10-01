@@ -106,6 +106,41 @@ chunks. Statuses: 87 selected, 8 need review, 5 source-insufficient. Selected me
 `analysis/retention-export.json`. This is the evaluation set only, NOT a 9,700-row
 corpus rollout. Last validation: **94 tests passed, 12 subtests passed**.
 
+## Traditional ML scorer handoff (v2 through v4)
+
+PR #2 completed the full-corpus retention integration under `trad_ml_scorer/`.
+9,700 rows reference 9,551 exact payload-plus-URL snapshots; the 149 difference
+is shared references, not missing data or a split artifact. Eligible v2/v4 rows:
+7,540 train, 945 validation, 947 test with frozen hostname assignments.
+
+The v3/v4 follow-up preserves both iterations. V3 adds lexical relevance and
+composition features; balanced importance still allowed duplicate-heading score
+inflation. V4 suppresses repeated and unsupported headings in a scoring view,
+without modifying parser documents. It has 86 features and C=.01. Four training
+host-grouped folds choose regularization; validation AUC chooses among candidates
+passing coefficient, permutation, and three post-parser manipulation gates.
+
+Validation AUC: v2 0.66070, v4 0.67206. Reused-test AUC: v2 0.67689, v4 0.67904;
+paired difference +0.00215, 95% host-bootstrap interval [-0.01517, +0.01775].
+The gain is small and statistically uncertain, not independent confirmation.
+V4 top coefficient share is 5.83%, top positive permutation share 10.51%.
+Duplicate-heading mean score inflation fell from 0.113 to 0.013 (p95 .224 to .031).
+These checks do not certify arbitrary manipulation resistance or causal uplift.
+
+Read `trad_ml_scorer/v3/STATUS.md` for the historical iteration and
+`trad_ml_scorer/v4/report.md` / `report.html` for final metrics, visual importance,
+sensitivity, all feature explanations and next-round ideas. V2 remains default;
+select v4 with `--model data/trad_ml_scorer/v4/model.joblib`. Full test suite:
+114 tests / 12 subtests; training-only refit verification and raw inference parity
+on six development snapshots passed. Do not retune against the inspected test.
+
+**Reuse prepared data rather than redoing preparation.** Shared ignored caches in
+the main repository's `data/` contain `lr/` and `trad_ml_scorer/{v2,v3,v4}/`, with
+SHA-256 copy inventories. New local worktrees may link them if destinations are
+absent; a separate machine needs an artifact transfer. Models and raw/prepared data
+are not committed. All LR code, manifests, report outputs and predictions belong
+under `trad_ml_scorer/`; original analysis and frozen v1/v2 are preserved.
+
 ## Reader-LM experiment and stop decision
 
 No hosted Jina API access. Downloaded `jinaai/reader-lm-0.5b` at pinned revision
@@ -139,9 +174,10 @@ restart without user direction.** Reports: `analysis/reader-lm-review.html`,
    revisiting settled parser choices. Use the existing local export for a fast demo.
 3. Integrate structured chunks into the query-specific downstream workflow, carrying
    source/block/chunk IDs through relevance selection and generated suggestions.
-4. Full-corpus runner/migration, human reference review, model-specific token budgeting,
-   factual grounding checks, and v2 feature/sensitivity reanalysis remain outstanding.
-   Do not claim these are completed. A prospective citation experiment is separate.
+4. Full-corpus scorer migration and versioned feature/sensitivity analysis are complete.
+   Remaining work includes fresh-host confirmation, human reference review, broader
+   manipulation checks, model-specific token budgeting and factual grounding checks.
+   A prospective citation experiment remains separate.
 
 Useful commands (repo root):
 

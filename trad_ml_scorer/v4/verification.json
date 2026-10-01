@@ -1,0 +1,14 @@
+{
+  "status": "passed",
+  "preserved_v2_rows": 9432,
+  "training_rows": 7540,
+  "raw_parity_examples": 6,
+  "checks": [
+    "model and feature cache hashes",
+    "parser and feature source hashes",
+    "exact v2 row/label/split/quality identity",
+    "zero host overlap",
+    "training-only imputer/scaler and full LR refit parity"
+  ],
+  "scope": "Cached feature parity for 120 validation documents additionally recorded by stress_frontier. Raw inference parity verified on six train/validation source snapshots; this is not new independent-host evidence."
+}
