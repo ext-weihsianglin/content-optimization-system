@@ -117,3 +117,89 @@ Coefficient gates are top-one ≤20% and top-five ≤60%; positive permutation t
 ≤45%. Each stress check requires mean probability increase ≤.03 and p95 ≤.08.
 Test is evaluated only after selection freezes; further tuning must not use these
 test outcomes. Source fingerprints are enforced during explicit v4 inference.
+
+## V5 answer and evidence iteration
+
+Following merged PR #5, v5 explores 28 new sparse features across answer sentences,
+numerical/explanation/link cues, and table/numbered-step alignment. See
+[v5/report.html](v5/report.html), [v5/report.md](v5/report.md), and the predeclared
+[v5/plan.md](v5/plan.md), including the pending embedding integration contract.
+No embeddings or projection methods are implemented in this iteration.
+
+The selected experimental candidate adds **10 answer-sentence features** to v4
+(96 total, C=.01). Grouped training CV AUC 0.66185; validation 0.67435; reused-test
+0.68088 versus v4 0.67904. The paired 95% difference interval [-0.00253,+0.00604]
+crosses zero. Evidence cues raised validation AUC but failed the predeclared CV
+non-regression rule; table/step features did not improve validation. Accuracy and
+within-host AUC declined slightly even though overall AUC and log loss improved.
+
+Top coefficient share is 5.55%, top positive permutation share 11.42%. Original
+post-parser gates pass, but broader raw-input diagnostics expose unresolved title,
+URL, and synthetic-assertion score inflation. These models remain experimental
+ranking estimators, not unchecked content-editing rewards. No independent fresh-host
+confirmation is available. V2 remains the default; use v5 explicitly:
+
+```sh
+uv run python -m trad_ml_scorer.predict_lr --model data/trad_ml_scorer/v5/model.joblib --prompt "How to choose running shoes" --html-file page.html --url https://example.com/shoes
+```
+
+Reuse the prepared matrices/models under the main repository's shared ignored
+`data/trad_ml_scorer/v5/`. This derives features from existing cached documents;
+it does not repeat corpus parsing. Reproduction in a fresh artifact checkout follows
+these commands; existing frozen outputs deliberately refuse overwrite:
+
+```sh
+uv run python -m trad_ml_scorer.prepare_evidence
+uv run python -m trad_ml_scorer.frontier_experiment --version v5
+uv run python -m trad_ml_scorer.audit_frontier --version v5
+uv run python -m trad_ml_scorer.stress_frontier --version v5
+uv run python -m trad_ml_scorer.finalize_evidence
+uv run python -m trad_ml_scorer.stress_evidence_raw --input-dir data/raw
+uv run python -m trad_ml_scorer.finalize_evidence --evaluate
+uv run python -m trad_ml_scorer.build_evidence_report
+```
+
+Evaluation refuses to open test if no new candidate wins on development data.
+Finalization verifies v4 feature-column/row/split identity and training-only full
+refit parity; the raw diagnostic verifies extraction and public inference parity on
+20 validation HTML snapshots. Source/extractor fingerprints accompany the cache and
+model. New query/page-field embeddings should preserve exact snapshot and prompt
+identity, field-level provenance, and fold-local fitting of learned transforms.
+
+## V6 controlled ablations: retain v5
+
+The three approved low-cost ideas were tested separately, plus a combined variant:
+body-supported metadata, long-prose recovery, and conservative lexical normalization.
+See [v6/report.html](v6/report.html), [v6/report.md](v6/report.md), and the
+predeclared [v6/plan.md](v6/plan.md). All 25 C/variant configurations are recorded.
+
+None passed the development promotion rule. CV AUC was .66185 for v5, .66146 for
+corroboration, .66162 for long prose, .66072 for normalization and .66051 combined.
+Validation AUC rose slightly, but this did not override the predeclared CV gate.
+**No new test evaluation was performed.** Keep the original v5 experimental model;
+there is no new v6 deployment model or default change.
+
+Corroboration reduced raw title/URL inflation, but its query-repetition p95 inflation
+rose from .066 to .112 (.131 combined). Normalization also worsened some raw-edit
+tails. Importance concentration passed; that alone did not establish robustness.
+The decreases in CV AUC are small, not proof that the ideas are universally harmful.
+
+V6 caches reuse the original parsed documents and the selected 96 v5 columns.
+They are also SHA-verified copies in the main repository's shared ignored
+`data/trad_ml_scorer/v6/`. Reproduction requires absent frozen output paths:
+
+```sh
+uv run python -m trad_ml_scorer.prepare_controls
+uv run python -m trad_ml_scorer.frontier_experiment --version v6
+uv run python -m trad_ml_scorer.audit_frontier --version v6
+uv run python -m trad_ml_scorer.stress_frontier --version v6
+uv run python -m trad_ml_scorer.stress_controls_raw --input-dir data/raw
+uv run python -m trad_ml_scorer.finalize_evidence --version v6
+uv run python -m trad_ml_scorer.build_controls_report
+```
+
+`finalize_evidence --version v6 --evaluate` deliberately refuses when no new
+candidate wins. The v6 saved model is an audit copy of the refitted baseline;
+for inference keep using `data/trad_ml_scorer/v5/model.joblib`. No embeddings or
+projection fitting were added. Await the other session's field embeddings before
+another semantic-feature comparison.

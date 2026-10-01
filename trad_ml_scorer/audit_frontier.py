@@ -12,7 +12,7 @@ from trad_ml_scorer.retention_features import FAMILIES as BASE_FAMILIES
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--version", choices=("v3", "v4"), default="v3")
+    parser.add_argument("--version", choices=("v3", "v4", "v5", "v6"), default="v3")
     version = parser.parse_args().version
     root = Path('trad_ml_scorer') / version
     cache = Path('data/trad_ml_scorer') / version

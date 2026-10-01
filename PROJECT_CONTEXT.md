@@ -196,3 +196,41 @@ not resample. Use new output directories instead of overwriting frozen artifacts
 JSONL must be read by file iteration, not `str.splitlines()` (embedded Unicode line
 separators caused a real parsing bug). Large generated reports use escaped previews;
 their truncation does not affect full-output anchor scoring.
+
+## V5 sparse-feature follow-up after merged PR #5
+
+Review branch `feat/lr-evidence-v5-v6` captures the v5 and v6 iterations. See
+`trad_ml_scorer/v5/report.md` / `.html` and `v5/STATUS.md`. Added 28 candidate
+features; development rules selected 10 answer-sentence features (96 total).
+Validation AUC .67435; reused-test .68088 vs v4 .67904; difference interval
+[-.00253,+.00604] crosses zero. Numerical/evidence cues failed CV non-regression,
+and structured table/step additions did not improve validation. No post-test tuning.
+
+119 tests / 12 subtests pass; unchanged population/v4 columns, training-only refit
+and 20 raw/public inference parity checks passed. Shared ignored v5 cache avoids
+repeating prep. V2 remains the CLI default. Importance is not concentrated, but raw
+title replacement causes ~23-point probability inflation; arbitrary metadata and
+unverified assertion edits remain unsafe as model-driven optimization targets.
+
+The user has another session scoping per-field embeddings and projections. Leave
+that work to it. Integrate later via exact snapshot/field/prompt identity, encoding
+fingerprints and fold-local fitting of learned projections (see v5/plan.md), with
+explicit benchmark/test exposure. No embeddings were generated in this iteration.
+
+## V6 controlled low-cost experiments
+
+The user approved all three follow-up ideas: body-supported title/URL matching,
+long-prose recovery, and conservative lexical normalization. Each was tested alone,
+plus combined, against selected v5 (25 C/variant configurations; same host folds).
+See `trad_ml_scorer/v6/report.html`, `report.md`, `plan.md` and `STATUS.md`.
+
+Retain v5: all new variants slightly reduced grouped CV AUC despite small validation
+gains, failing the predeclared rule. No new test evaluation. Corroboration cuts title
+mean inflation .230 -> .142 and URL .066 -> .018, but query-repetition p95 grows
+.066 -> .112 (combined .131). Balanced importance does not establish robustness.
+123 tests / 12 subtests pass, training-only refit and source/cache parity verified.
+
+Prepared v6 caches are shared and SHA-verified under the main repository's ignored
+`data/trad_ml_scorer/v6`. Reuse v5 for inference; v6 bundles are experiment artifacts.
+No embedding work was duplicated. Continue with per-field embeddings when the
+other session supplies provenance and fold-local projection/benchmark details.
