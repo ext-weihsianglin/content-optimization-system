@@ -1,0 +1,12 @@
+{
+  "source_folder": "https://drive.google.com/drive/folders/1bnc2ioGP-KV8quOdvB7_cwFgSUedMKg8?usp=sharing",
+  "archive_path": "/Users/ext-weihsiang.lin/Downloads/drive-download-20261001T150358Z-1-001.zip",
+  "archive_origin": "Already present in Downloads when the task began; no second download performed",
+  "archive_bytes": 500295175,
+  "archive_sha256": "59339feb3d20e02f0f5d069f37b13f0a36b9f572380b1547eb50c52108019487",
+  "archive_integrity": "unzip -t passed for all five entries",
+  "uncompressed_parquet_bytes": 616945207,
+  "extracted_directory": "data/raw",
+  "analysis_date": "2026-10-01",
+  "interpretation": "Observational top/bottom labels relative to hostnames; not citation probabilities or causal effects"
+}

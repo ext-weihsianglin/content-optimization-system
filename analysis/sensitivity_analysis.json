@@ -1,0 +1,2434 @@
+{
+  "method": {
+    "quality_filter": "Exclude a URL if any source row is a heuristic failure, has <=30 body tokens, or has no recognized HTML. Additional >=100 extracted-word threshold in all comparisons. Conflicting labels are excluded by the comparison functions.",
+    "join": "Lowercase stripped hostname and stripped URL without fragment; same normalization as content analysis. All pages must match the quality audit.",
+    "editorial_filter": "URL path heuristic from quality audit, not verified page purpose.",
+    "matching": "Same hostname and normalized nonblank prompt; unique pages per label within query. Average top-minus-bottom differences within each query, then average query differences within host; report equal-host descriptive summaries. Query coverage is recomputed for the matched prompt.",
+    "limitations": "Sensitivity analyses selected after exploration, not held-out validation. Matching does not control exposure, time or semantic intent. Conservative URL exclusions can discard a good snapshot if another snapshot failed. No causal conclusions or citation uplift estimates."
+  },
+  "quality_excluded_unique_pages": 328,
+  "clean_html": {
+    "minimum_extracted_words": 100,
+    "eligible_pages": 8687,
+    "features": {
+      "title_words": {
+        "pooled": {
+          "top": {
+            "pages": 4374,
+            "mean": 8.618655692729767,
+            "median": 8.0
+          },
+          "bottom": {
+            "pages": 4313,
+            "mean": 8.757477393925342,
+            "median": 9.0
+          },
+          "median_difference_top_minus_bottom": -1.0,
+          "mean_difference_top_minus_bottom": -0.13882170119557458
+        },
+        "within_host": {
+          "paired_hosts": 931,
+          "positive_hosts": 424,
+          "negative_hosts": 466,
+          "tied_hosts": 41,
+          "median_mean_difference": -0.04999999999999982,
+          "median_median_difference": 0.0,
+          "mean_mean_difference": -0.1513605442176871,
+          "exploratory_wilcoxon_p": 0.025968708324199428,
+          "exploratory_bh_q": 0.03143580481350457
+        },
+        "pooled_vs_paired_mean_direction_reversal": false,
+        "pooled_vs_host_balanced_mean_direction_reversal": false,
+        "host_weighting_mean_shift": -0.012538843022112528
+      },
+      "heading_count": {
+        "pooled": {
+          "top": {
+            "pages": 4374,
+            "mean": 30.12048468221308,
+            "median": 23.0
+          },
+          "bottom": {
+            "pages": 4313,
+            "mean": 24.629028518432644,
+            "median": 18.0
+          },
+          "median_difference_top_minus_bottom": 5.0,
+          "mean_difference_top_minus_bottom": 5.491456163780434
+        },
+        "within_host": {
+          "paired_hosts": 931,
+          "positive_hosts": 656,
+          "negative_hosts": 263,
+          "tied_hosts": 12,
+          "median_mean_difference": 3.9999999999999982,
+          "median_median_difference": 3.0,
+          "mean_mean_difference": 5.46467955603294,
+          "exploratory_wilcoxon_p": 7.717198953171208e-44,
+          "exploratory_bh_q": 8.87477879614689e-43
+        },
+        "pooled_vs_paired_mean_direction_reversal": false,
+        "pooled_vs_host_balanced_mean_direction_reversal": false,
+        "host_weighting_mean_shift": -0.02677660774749402
+      },
+      "h1_count": {
+        "pooled": {
+          "top": {
+            "pages": 4374,
+            "mean": 1.0541838134430728,
+            "median": 1.0
+          },
+          "bottom": {
+            "pages": 4313,
+            "mean": 1.0570368652909807,
+            "median": 1.0
+          },
+          "median_difference_top_minus_bottom": 0.0,
+          "mean_difference_top_minus_bottom": -0.0028530518479079614
+        },
+        "within_host": {
+          "paired_hosts": 931,
+          "positive_hosts": 151,
+          "negative_hosts": 142,
+          "tied_hosts": 638,
+          "median_mean_difference": 0.0,
+          "median_median_difference": 0.0,
+          "mean_mean_difference": -0.002989616899391333,
+          "exploratory_wilcoxon_p": 0.29296585785769924,
+          "exploratory_bh_q": 0.29296585785769924
+        },
+        "pooled_vs_paired_mean_direction_reversal": false,
+        "pooled_vs_host_balanced_mean_direction_reversal": false,
+        "host_weighting_mean_shift": -0.00013656505148337177
+      },
+      "word_count": {
+        "pooled": {
+          "top": {
+            "pages": 4374,
+            "mean": 2341.3479652491997,
+            "median": 1711.0
+          },
+          "bottom": {
+            "pages": 4313,
+            "mean": 1919.7421748203108,
+            "median": 1491.0
+          },
+          "median_difference_top_minus_bottom": 220.0,
+          "mean_difference_top_minus_bottom": 421.6057904288889
+        },
+        "within_host": {
+          "paired_hosts": 931,
+          "positive_hosts": 602,
+          "negative_hosts": 326,
+          "tied_hosts": 3,
+          "median_mean_difference": 214.39999999999998,
+          "median_median_difference": 145.5,
+          "mean_mean_difference": 418.3592731829574,
+          "exploratory_wilcoxon_p": 1.2497214056913354e-23,
+          "exploratory_bh_q": 5.748718466180143e-23
+        },
+        "pooled_vs_paired_mean_direction_reversal": false,
+        "pooled_vs_host_balanced_mean_direction_reversal": false,
+        "host_weighting_mean_shift": -3.2465172459315
+      },
+      "raw_body_words": {
+        "pooled": {
+          "top": {
+            "pages": 4374,
+            "mean": 2716.158436213992,
+            "median": 1928.0
+          },
+          "bottom": {
+            "pages": 4313,
+            "mean": 2308.4811036401575,
+            "median": 1681.0
+          },
+          "median_difference_top_minus_bottom": 247.0,
+          "mean_difference_top_minus_bottom": 407.6773325738345
+        },
+        "within_host": {
+          "paired_hosts": 931,
+          "positive_hosts": 600,
+          "negative_hosts": 330,
+          "tied_hosts": 1,
+          "median_mean_difference": 219.10000000000002,
+          "median_median_difference": 183.0,
+          "mean_mean_difference": 411.87894736842105,
+          "exploratory_wilcoxon_p": 5.752881865465483e-24,
+          "exploratory_bh_q": 3.307907072642653e-23
+        },
+        "pooled_vs_paired_mean_direction_reversal": false,
+        "pooled_vs_host_balanced_mean_direction_reversal": false,
+        "host_weighting_mean_shift": 4.201614794586533
+      },
+      "removed_text_fraction": {
+        "pooled": {
+          "top": {
+            "pages": 4374,
+            "mean": 0.07365341032384419,
+            "median": 0.014742103738046908
+          },
+          "bottom": {
+            "pages": 4313,
+            "mean": 0.08113168940546113,
+            "median": 0.01666666666666672
+          },
+          "median_difference_top_minus_bottom": -0.0019245629286198107,
+          "mean_difference_top_minus_bottom": -0.00747827908161694
+        },
+        "within_host": {
+          "paired_hosts": 931,
+          "positive_hosts": 329,
+          "negative_hosts": 499,
+          "tied_hosts": 103,
+          "median_mean_difference": -0.0005120463345932094,
+          "median_median_difference": -4.141108162780682e-05,
+          "mean_mean_difference": -0.008258371405174639,
+          "exploratory_wilcoxon_p": 2.1402562462697268e-07,
+          "exploratory_bh_q": 4.4750812422003373e-07
+        },
+        "pooled_vs_paired_mean_direction_reversal": false,
+        "pooled_vs_host_balanced_mean_direction_reversal": false,
+        "host_weighting_mean_shift": -0.0007800923235576993
+      },
+      "focus_text_fraction": {
+        "pooled": {
+          "top": {
+            "pages": 4374,
+            "mean": 0.8878544440576518,
+            "median": 0.9603472973637616
+          },
+          "bottom": {
+            "pages": 4313,
+            "mean": 0.8775878335875613,
+            "median": 0.9543924089378635
+          },
+          "median_difference_top_minus_bottom": 0.005954888425898086,
+          "mean_difference_top_minus_bottom": 0.010266610470090476
+        },
+        "within_host": {
+          "paired_hosts": 931,
+          "positive_hosts": 528,
+          "negative_hosts": 339,
+          "tied_hosts": 64,
+          "median_mean_difference": 0.002556513853951392,
+          "median_median_difference": 0.0009684967680843037,
+          "mean_mean_difference": 0.010417462074967795,
+          "exploratory_wilcoxon_p": 4.253643677144832e-09,
+          "exploratory_bh_q": 1.0870422730481236e-08
+        },
+        "pooled_vs_paired_mean_direction_reversal": false,
+        "pooled_vs_host_balanced_mean_direction_reversal": false,
+        "host_weighting_mean_shift": 0.00015085160487731883
+      },
+      "list_count": {
+        "pooled": {
+          "top": {
+            "pages": 4374,
+            "mean": 11.097393689986282,
+            "median": 5.0
+          },
+          "bottom": {
+            "pages": 4313,
+            "mean": 8.653605379086482,
+            "median": 4.0
+          },
+          "median_difference_top_minus_bottom": 1.0,
+          "mean_difference_top_minus_bottom": 2.4437883108997998
+        },
+        "within_host": {
+          "paired_hosts": 931,
+          "positive_hosts": 543,
+          "negative_hosts": 333,
+          "tied_hosts": 55,
+          "median_mean_difference": 0.6000000000000001,
+          "median_median_difference": 0.0,
+          "mean_mean_difference": 2.403293949158611,
+          "exploratory_wilcoxon_p": 1.7124676563273216e-15,
+          "exploratory_bh_q": 5.6266794422183426e-15
+        },
+        "pooled_vs_paired_mean_direction_reversal": false,
+        "pooled_vs_host_balanced_mean_direction_reversal": false,
+        "host_weighting_mean_shift": -0.04049436174118881
+      },
+      "list_items": {
+        "pooled": {
+          "top": {
+            "pages": 4374,
+            "mean": 50.52903520804755,
+            "median": 22.0
+          },
+          "bottom": {
+            "pages": 4313,
+            "mean": 40.55066079295154,
+            "median": 16.0
+          },
+          "median_difference_top_minus_bottom": 6.0,
+          "mean_difference_top_minus_bottom": 9.978374415096013
+        },
+        "within_host": {
+          "paired_hosts": 931,
+          "positive_hosts": 556,
+          "negative_hosts": 342,
+          "tied_hosts": 33,
+          "median_mean_difference": 3.4000000000000004,
+          "median_median_difference": 2.5,
+          "mean_mean_difference": 10.159577515216613,
+          "exploratory_wilcoxon_p": 9.552218563251107e-19,
+          "exploratory_bh_q": 3.661683782579591e-18
+        },
+        "pooled_vs_paired_mean_direction_reversal": false,
+        "pooled_vs_host_balanced_mean_direction_reversal": false,
+        "host_weighting_mean_shift": 0.1812031001205998
+      },
+      "table_count": {
+        "pooled": {
+          "top": {
+            "pages": 4374,
+            "mean": 1.0064014631915867,
+            "median": 0.0
+          },
+          "bottom": {
+            "pages": 4313,
+            "mean": 0.6909343844191977,
+            "median": 0.0
+          },
+          "median_difference_top_minus_bottom": 0.0,
+          "mean_difference_top_minus_bottom": 0.315467078772389
+        },
+        "within_host": {
+          "paired_hosts": 931,
+          "positive_hosts": 286,
+          "negative_hosts": 201,
+          "tied_hosts": 444,
+          "median_mean_difference": 0.0,
+          "median_median_difference": 0.0,
+          "mean_mean_difference": 0.3311672037235947,
+          "exploratory_wilcoxon_p": 1.0621856577130082e-05,
+          "exploratory_bh_q": 1.628684675159946e-05
+        },
+        "pooled_vs_paired_mean_direction_reversal": false,
+        "pooled_vs_host_balanced_mean_direction_reversal": false,
+        "host_weighting_mean_shift": 0.015700124951205707
+      },
+      "list_items_per_1000_words": {
+        "pooled": {
+          "top": {
+            "pages": 4374,
+            "mean": 21.38965785870172,
+            "median": 13.255039643076291
+          },
+          "bottom": {
+            "pages": 4313,
+            "mean": 20.515259000357474,
+            "median": 11.45475372279496
+          },
+          "median_difference_top_minus_bottom": 1.8002859202813308,
+          "mean_difference_top_minus_bottom": 0.8743988583442466
+        },
+        "within_host": {
+          "paired_hosts": 931,
+          "positive_hosts": 502,
+          "negative_hosts": 407,
+          "tied_hosts": 22,
+          "median_mean_difference": 0.7102678025076568,
+          "median_median_difference": 0.23626729711444483,
+          "mean_mean_difference": 0.6601586836394004,
+          "exploratory_wilcoxon_p": 0.0017743353702096762,
+          "exploratory_bh_q": 0.0025506070946764094
+        },
+        "pooled_vs_paired_mean_direction_reversal": false,
+        "pooled_vs_host_balanced_mean_direction_reversal": false,
+        "host_weighting_mean_shift": -0.21424017470484613
+      },
+      "headings_per_1000_words": {
+        "pooled": {
+          "top": {
+            "pages": 4374,
+            "mean": 16.491222782624053,
+            "median": 12.77502417794971
+          },
+          "bottom": {
+            "pages": 4313,
+            "mean": 15.415930030470165,
+            "median": 11.527377521613833
+          },
+          "median_difference_top_minus_bottom": 1.2476466563358777,
+          "mean_difference_top_minus_bottom": 1.0752927521538886
+        },
+        "within_host": {
+          "paired_hosts": 931,
+          "positive_hosts": 521,
+          "negative_hosts": 407,
+          "tied_hosts": 3,
+          "median_mean_difference": 0.7146029322081038,
+          "median_median_difference": 0.5143086834876502,
+          "mean_mean_difference": 1.0989121143403848,
+          "exploratory_wilcoxon_p": 1.6890047290408104e-06,
+          "exploratory_bh_q": 2.774793483424189e-06
+        },
+        "pooled_vs_paired_mean_direction_reversal": false,
+        "pooled_vs_host_balanced_mean_direction_reversal": false,
+        "host_weighting_mean_shift": 0.023619362186496184
+      },
+      "has_table": {
+        "pooled": {
+          "top": {
+            "pages": 4374,
+            "mean": 0.2398262459990855,
+            "median": 0.0
+          },
+          "bottom": {
+            "pages": 4313,
+            "mean": 0.1952237421748203,
+            "median": 0.0
+          },
+          "median_difference_top_minus_bottom": 0.0,
+          "mean_difference_top_minus_bottom": 0.0446025038242652
+        },
+        "within_host": {
+          "paired_hosts": 931,
+          "positive_hosts": 265,
+          "negative_hosts": 172,
+          "tied_hosts": 494,
+          "median_mean_difference": 0.0,
+          "median_median_difference": 0.0,
+          "mean_mean_difference": 0.04962406015037594,
+          "exploratory_wilcoxon_p": 1.2916168642033256e-07,
+          "exploratory_bh_q": 2.970718787667649e-07
+        },
+        "pooled_vs_paired_mean_direction_reversal": false,
+        "pooled_vs_host_balanced_mean_direction_reversal": false,
+        "host_weighting_mean_shift": 0.005021556326110739
+      },
+      "has_list": {
+        "pooled": {
+          "top": {
+            "pages": 4374,
+            "mean": 0.8550525834476452,
+            "median": 1.0
+          },
+          "bottom": {
+            "pages": 4313,
+            "mean": 0.8492928356132622,
+            "median": 1.0
+          },
+          "median_difference_top_minus_bottom": 0.0,
+          "mean_difference_top_minus_bottom": 0.005759747834383044
+        },
+        "within_host": {
+          "paired_hosts": 931,
+          "positive_hosts": 196,
+          "negative_hosts": 165,
+          "tied_hosts": 570,
+          "median_mean_difference": 0.0,
+          "median_median_difference": 0.0,
+          "mean_mean_difference": 0.007465091299677767,
+          "exploratory_wilcoxon_p": 0.23507037024497102,
+          "exploratory_bh_q": 0.2574580245540159
+        },
+        "pooled_vs_paired_mean_direction_reversal": false,
+        "pooled_vs_host_balanced_mean_direction_reversal": false,
+        "host_weighting_mean_shift": 0.0017053434652947227
+      },
+      "has_main": {
+        "pooled": {
+          "top": {
+            "pages": 4374,
+            "mean": 0.6282578875171467,
+            "median": 1.0
+          },
+          "bottom": {
+            "pages": 4313,
+            "mean": 0.6290285184326455,
+            "median": 1.0
+          },
+          "median_difference_top_minus_bottom": 0.0,
+          "mean_difference_top_minus_bottom": -0.0007706309154987823
+        },
+        "within_host": {
+          "paired_hosts": 931,
+          "positive_hosts": 65,
+          "negative_hosts": 89,
+          "tied_hosts": 777,
+          "median_mean_difference": 0.0,
+          "median_median_difference": 0.0,
+          "mean_mean_difference": -0.009380594343000358,
+          "exploratory_wilcoxon_p": 0.13745287280985818,
+          "exploratory_bh_q": 0.15807080373133692
+        },
+        "pooled_vs_paired_mean_direction_reversal": false,
+        "pooled_vs_host_balanced_mean_direction_reversal": false,
+        "host_weighting_mean_shift": -0.008609963427501576
+      },
+      "has_article": {
+        "pooled": {
+          "top": {
+            "pages": 4374,
+            "mean": 0.4028349336991312,
+            "median": 0.0
+          },
+          "bottom": {
+            "pages": 4313,
+            "mean": 0.40922791560398797,
+            "median": 0.0
+          },
+          "median_difference_top_minus_bottom": 0.0,
+          "mean_difference_top_minus_bottom": -0.006392981904856765
+        },
+        "within_host": {
+          "paired_hosts": 931,
+          "positive_hosts": 120,
+          "negative_hosts": 126,
+          "tied_hosts": 685,
+          "median_mean_difference": 0.0,
+          "median_median_difference": 0.0,
+          "mean_mean_difference": -0.005406373075546008,
+          "exploratory_wilcoxon_p": 0.28852891502894684,
+          "exploratory_bh_q": 0.29296585785769924
+        },
+        "pooled_vs_paired_mean_direction_reversal": false,
+        "pooled_vs_host_balanced_mean_direction_reversal": false,
+        "host_weighting_mean_shift": 0.0009866088293107571
+      },
+      "has_jsonld": {
+        "pooled": {
+          "top": {
+            "pages": 4374,
+            "mean": 0.7942386831275721,
+            "median": 1.0
+          },
+          "bottom": {
+            "pages": 4313,
+            "mean": 0.7818223974031996,
+            "median": 1.0
+          },
+          "median_difference_top_minus_bottom": 0.0,
+          "mean_difference_top_minus_bottom": 0.012416285724372478
+        },
+        "within_host": {
+          "paired_hosts": 931,
+          "positive_hosts": 129,
+          "negative_hosts": 87,
+          "tied_hosts": 715,
+          "median_mean_difference": 0.0,
+          "median_median_difference": 0.0,
+          "mean_mean_difference": 0.013444325098460436,
+          "exploratory_wilcoxon_p": 0.01605294205752224,
+          "exploratory_bh_q": 0.020512092629056195
+        },
+        "pooled_vs_paired_mean_direction_reversal": false,
+        "pooled_vs_host_balanced_mean_direction_reversal": false,
+        "host_weighting_mean_shift": 0.0010280393740879582
+      },
+      "jsonld_blocks": {
+        "pooled": {
+          "top": {
+            "pages": 4374,
+            "mean": 1.570644718792867,
+            "median": 1.0
+          },
+          "bottom": {
+            "pages": 4313,
+            "mean": 1.5348945049849292,
+            "median": 1.0
+          },
+          "median_difference_top_minus_bottom": 0.0,
+          "mean_difference_top_minus_bottom": 0.03575021380793775
+        },
+        "within_host": {
+          "paired_hosts": 931,
+          "positive_hosts": 317,
+          "negative_hosts": 196,
+          "tied_hosts": 418,
+          "median_mean_difference": 0.0,
+          "median_median_difference": 0.0,
+          "mean_mean_difference": 0.04255281059792338,
+          "exploratory_wilcoxon_p": 5.435570827419142e-07,
+          "exploratory_bh_q": 9.616779156203098e-07
+        },
+        "pooled_vs_paired_mean_direction_reversal": false,
+        "pooled_vs_host_balanced_mean_direction_reversal": false,
+        "host_weighting_mean_shift": 0.0068025967899856335
+      },
+      "valid_jsonld_blocks": {
+        "pooled": {
+          "top": {
+            "pages": 4374,
+            "mean": 1.5507544581618655,
+            "median": 1.0
+          },
+          "bottom": {
+            "pages": 4313,
+            "mean": 1.51147693021099,
+            "median": 1.0
+          },
+          "median_difference_top_minus_bottom": 0.0,
+          "mean_difference_top_minus_bottom": 0.03927752795087547
+        },
+        "within_host": {
+          "paired_hosts": 931,
+          "positive_hosts": 317,
+          "negative_hosts": 192,
+          "tied_hosts": 422,
+          "median_mean_difference": 0.0,
+          "median_median_difference": 0.0,
+          "mean_mean_difference": 0.0460436806301468,
+          "exploratory_wilcoxon_p": 2.3829832253622094e-07,
+          "exploratory_bh_q": 4.567384515277568e-07
+        },
+        "pooled_vs_paired_mean_direction_reversal": false,
+        "pooled_vs_host_balanced_mean_direction_reversal": false,
+        "host_weighting_mean_shift": 0.006766152679271331
+      },
+      "has_article_schema": {
+        "pooled": {
+          "top": {
+            "pages": 4374,
+            "mean": 0.4199817101051669,
+            "median": 0.0
+          },
+          "bottom": {
+            "pages": 4313,
+            "mean": 0.44841177834453977,
+            "median": 0.0
+          },
+          "median_difference_top_minus_bottom": 0.0,
+          "mean_difference_top_minus_bottom": -0.028430068239372885
+        },
+        "within_host": {
+          "paired_hosts": 931,
+          "positive_hosts": 160,
+          "negative_hosts": 195,
+          "tied_hosts": 576,
+          "median_mean_difference": 0.0,
+          "median_median_difference": 0.0,
+          "mean_mean_difference": -0.02228786251342642,
+          "exploratory_wilcoxon_p": 0.011401488038390457,
+          "exploratory_bh_q": 0.015425542640175326
+        },
+        "pooled_vs_paired_mean_direction_reversal": false,
+        "pooled_vs_host_balanced_mean_direction_reversal": false,
+        "host_weighting_mean_shift": 0.006142205725946464
+      },
+      "script_char_ratio": {
+        "pooled": {
+          "top": {
+            "pages": 4374,
+            "mean": 0.3815511796000569,
+            "median": 0.3307203246194159
+          },
+          "bottom": {
+            "pages": 4313,
+            "mean": 0.39819056756249577,
+            "median": 0.3484029900660848
+          },
+          "median_difference_top_minus_bottom": -0.017682665446668855,
+          "mean_difference_top_minus_bottom": -0.016639387962438856
+        },
+        "within_host": {
+          "paired_hosts": 931,
+          "positive_hosts": 356,
+          "negative_hosts": 573,
+          "tied_hosts": 2,
+          "median_mean_difference": -0.012193385261290102,
+          "median_median_difference": -0.010607411258446164,
+          "mean_mean_difference": -0.018848795706607822,
+          "exploratory_wilcoxon_p": 6.106861928369127e-15,
+          "exploratory_bh_q": 1.755722804406124e-14
+        },
+        "pooled_vs_paired_mean_direction_reversal": false,
+        "pooled_vs_host_balanced_mean_direction_reversal": false,
+        "host_weighting_mean_shift": -0.002209407744168966
+      },
+      "query_title_coverage": {
+        "pooled": {
+          "top": {
+            "pages": 4312,
+            "mean": 0.313003426278279,
+            "median": 0.2857142857142857
+          },
+          "bottom": {
+            "pages": 4293,
+            "mean": 0.23295260688467762,
+            "median": 0.2
+          },
+          "median_difference_top_minus_bottom": 0.08571428571428569,
+          "mean_difference_top_minus_bottom": 0.08005081939360137
+        },
+        "within_host": {
+          "paired_hosts": 931,
+          "positive_hosts": 651,
+          "negative_hosts": 275,
+          "tied_hosts": 5,
+          "median_mean_difference": 0.0764285714285714,
+          "median_median_difference": 0.08333333333333331,
+          "mean_mean_difference": 0.079143437954428,
+          "exploratory_wilcoxon_p": 1.19921732037259e-44,
+          "exploratory_bh_q": 2.758199836856957e-43
+        },
+        "pooled_vs_paired_mean_direction_reversal": false,
+        "pooled_vs_host_balanced_mean_direction_reversal": false,
+        "host_weighting_mean_shift": -0.0009073814391733631
+      },
+      "query_body_coverage": {
+        "pooled": {
+          "top": {
+            "pages": 4312,
+            "mean": 0.7264366797155666,
+            "median": 0.8
+          },
+          "bottom": {
+            "pages": 4293,
+            "mean": 0.6581259078186883,
+            "median": 0.7142857142857143
+          },
+          "median_difference_top_minus_bottom": 0.08571428571428574,
+          "mean_difference_top_minus_bottom": 0.06831077189687829
+        },
+        "within_host": {
+          "paired_hosts": 931,
+          "positive_hosts": 633,
+          "negative_hosts": 294,
+          "tied_hosts": 4,
+          "median_mean_difference": 0.07825396825396824,
+          "median_median_difference": 0.08333333333333326,
+          "mean_mean_difference": 0.06956539095437035,
+          "exploratory_wilcoxon_p": 1.1407914861469816e-31,
+          "exploratory_bh_q": 8.746068060460193e-31
+        },
+        "pooled_vs_paired_mean_direction_reversal": false,
+        "pooled_vs_host_balanced_mean_direction_reversal": false,
+        "host_weighting_mean_shift": 0.0012546190574920651
+      }
+    }
+  },
+  "clean_editorial_paths": {
+    "minimum_extracted_words": 100,
+    "eligible_pages": 2640,
+    "features": {
+      "title_words": {
+        "pooled": {
+          "top": {
+            "pages": 1236,
+            "mean": 9.297734627831716,
+            "median": 9.0
+          },
+          "bottom": {
+            "pages": 1404,
+            "mean": 9.331196581196581,
+            "median": 9.0
+          },
+          "median_difference_top_minus_bottom": 0.0,
+          "mean_difference_top_minus_bottom": -0.03346195336486524
+        },
+        "within_host": {
+          "paired_hosts": 357,
+          "positive_hosts": 169,
+          "negative_hosts": 168,
+          "tied_hosts": 20,
+          "median_mean_difference": 0.0,
+          "median_median_difference": 0.0,
+          "mean_mean_difference": 0.06293183940242764,
+          "exploratory_wilcoxon_p": 0.8800745086401841,
+          "exploratory_bh_q": 0.920077895396556
+        },
+        "pooled_vs_paired_mean_direction_reversal": false,
+        "pooled_vs_host_balanced_mean_direction_reversal": true,
+        "host_weighting_mean_shift": 0.09639379276729287
+      },
+      "heading_count": {
+        "pooled": {
+          "top": {
+            "pages": 1236,
+            "mean": 37.521844660194176,
+            "median": 27.0
+          },
+          "bottom": {
+            "pages": 1404,
+            "mean": 30.007122507122507,
+            "median": 21.0
+          },
+          "median_difference_top_minus_bottom": 6.0,
+          "mean_difference_top_minus_bottom": 7.51472215307167
+        },
+        "within_host": {
+          "paired_hosts": 357,
+          "positive_hosts": 238,
+          "negative_hosts": 109,
+          "tied_hosts": 10,
+          "median_mean_difference": 3.75,
+          "median_median_difference": 4.0,
+          "mean_mean_difference": 5.620401493930906,
+          "exploratory_wilcoxon_p": 6.454823208166638e-14,
+          "exploratory_bh_q": 2.9692186757566534e-13
+        },
+        "pooled_vs_paired_mean_direction_reversal": false,
+        "pooled_vs_host_balanced_mean_direction_reversal": false,
+        "host_weighting_mean_shift": -1.8943206591407638
+      },
+      "h1_count": {
+        "pooled": {
+          "top": {
+            "pages": 1236,
+            "mean": 1.0242718446601942,
+            "median": 1.0
+          },
+          "bottom": {
+            "pages": 1404,
+            "mean": 1.0690883190883191,
+            "median": 1.0
+          },
+          "median_difference_top_minus_bottom": 0.0,
+          "mean_difference_top_minus_bottom": -0.044816474428124975
+        },
+        "within_host": {
+          "paired_hosts": 357,
+          "positive_hosts": 17,
+          "negative_hosts": 30,
+          "tied_hosts": 310,
+          "median_mean_difference": 0.0,
+          "median_median_difference": 0.0,
+          "mean_mean_difference": -0.022315592903828195,
+          "exploratory_wilcoxon_p": 0.07329829397795164,
+          "exploratory_bh_q": 0.11239071743285917
+        },
+        "pooled_vs_paired_mean_direction_reversal": false,
+        "pooled_vs_host_balanced_mean_direction_reversal": false,
+        "host_weighting_mean_shift": 0.02250088152429678
+      },
+      "word_count": {
+        "pooled": {
+          "top": {
+            "pages": 1236,
+            "mean": 2926.054207119741,
+            "median": 2376.5
+          },
+          "bottom": {
+            "pages": 1404,
+            "mean": 2249.724358974359,
+            "median": 1916.5
+          },
+          "median_difference_top_minus_bottom": 460.0,
+          "mean_difference_top_minus_bottom": 676.3298481453821
+        },
+        "within_host": {
+          "paired_hosts": 357,
+          "positive_hosts": 240,
+          "negative_hosts": 115,
+          "tied_hosts": 2,
+          "median_mean_difference": 290.40000000000146,
+          "median_median_difference": 312.0,
+          "mean_mean_difference": 535.066106442577,
+          "exploratory_wilcoxon_p": 9.70070048531338e-15,
+          "exploratory_bh_q": 7.920188466199287e-14
+        },
+        "pooled_vs_paired_mean_direction_reversal": false,
+        "pooled_vs_host_balanced_mean_direction_reversal": false,
+        "host_weighting_mean_shift": -141.26374170280508
+      },
+      "raw_body_words": {
+        "pooled": {
+          "top": {
+            "pages": 1236,
+            "mean": 3199.6909385113267,
+            "median": 2623.0
+          },
+          "bottom": {
+            "pages": 1404,
+            "mean": 2667.3482905982905,
+            "median": 2108.5
+          },
+          "median_difference_top_minus_bottom": 514.5,
+          "mean_difference_top_minus_bottom": 532.3426479130362
+        },
+        "within_host": {
+          "paired_hosts": 357,
+          "positive_hosts": 241,
+          "negative_hosts": 116,
+          "tied_hosts": 0,
+          "median_mean_difference": 322.5,
+          "median_median_difference": 335.0,
+          "mean_mean_difference": 172.83380018674134,
+          "exploratory_wilcoxon_p": 1.0330680608086025e-14,
+          "exploratory_bh_q": 7.920188466199287e-14
+        },
+        "pooled_vs_paired_mean_direction_reversal": false,
+        "pooled_vs_host_balanced_mean_direction_reversal": false,
+        "host_weighting_mean_shift": -359.5088477262949
+      },
+      "removed_text_fraction": {
+        "pooled": {
+          "top": {
+            "pages": 1236,
+            "mean": 0.04501071825752709,
+            "median": 0.009925176377004852
+          },
+          "bottom": {
+            "pages": 1404,
+            "mean": 0.061566039137327534,
+            "median": 0.011207113102091215
+          },
+          "median_difference_top_minus_bottom": -0.0012819367250863634,
+          "mean_difference_top_minus_bottom": -0.016555320879800446
+        },
+        "within_host": {
+          "paired_hosts": 357,
+          "positive_hosts": 90,
+          "negative_hosts": 195,
+          "tied_hosts": 72,
+          "median_mean_difference": -0.0003015413041834225,
+          "median_median_difference": -0.0001942832075395029,
+          "mean_mean_difference": -0.012632405946146133,
+          "exploratory_wilcoxon_p": 2.2322105093298146e-09,
+          "exploratory_bh_q": 5.704537968287304e-09
+        },
+        "pooled_vs_paired_mean_direction_reversal": false,
+        "pooled_vs_host_balanced_mean_direction_reversal": false,
+        "host_weighting_mean_shift": 0.003922914933654313
+      },
+      "focus_text_fraction": {
+        "pooled": {
+          "top": {
+            "pages": 1236,
+            "mean": 0.9148863872849055,
+            "median": 0.9737849708636375
+          },
+          "bottom": {
+            "pages": 1404,
+            "mean": 0.9025978666110874,
+            "median": 0.965497261427119
+          },
+          "median_difference_top_minus_bottom": 0.008287709436518464,
+          "mean_difference_top_minus_bottom": 0.012288520673818026
+        },
+        "within_host": {
+          "paired_hosts": 357,
+          "positive_hosts": 213,
+          "negative_hosts": 96,
+          "tied_hosts": 48,
+          "median_mean_difference": 0.0018145369729711813,
+          "median_median_difference": 0.0011386110113029702,
+          "mean_mean_difference": 0.017379832595040317,
+          "exploratory_wilcoxon_p": 1.9133440035374897e-10,
+          "exploratory_bh_q": 6.286701725908894e-10
+        },
+        "pooled_vs_paired_mean_direction_reversal": false,
+        "pooled_vs_host_balanced_mean_direction_reversal": false,
+        "host_weighting_mean_shift": 0.0050913119212222906
+      },
+      "list_count": {
+        "pooled": {
+          "top": {
+            "pages": 1236,
+            "mean": 15.44822006472492,
+            "median": 11.0
+          },
+          "bottom": {
+            "pages": 1404,
+            "mean": 9.893162393162394,
+            "median": 5.0
+          },
+          "median_difference_top_minus_bottom": 6.0,
+          "mean_difference_top_minus_bottom": 5.555057671562526
+        },
+        "within_host": {
+          "paired_hosts": 357,
+          "positive_hosts": 225,
+          "negative_hosts": 114,
+          "tied_hosts": 18,
+          "median_mean_difference": 2.0500000000000007,
+          "median_median_difference": 2.0,
+          "mean_mean_difference": 4.1758636788048555,
+          "exploratory_wilcoxon_p": 9.565355673138805e-13,
+          "exploratory_bh_q": 3.666719674703209e-12
+        },
+        "pooled_vs_paired_mean_direction_reversal": false,
+        "pooled_vs_host_balanced_mean_direction_reversal": false,
+        "host_weighting_mean_shift": -1.3791939927576706
+      },
+      "list_items": {
+        "pooled": {
+          "top": {
+            "pages": 1236,
+            "mean": 56.080906148867314,
+            "median": 43.0
+          },
+          "bottom": {
+            "pages": 1404,
+            "mean": 36.01638176638177,
+            "median": 21.0
+          },
+          "median_difference_top_minus_bottom": 22.0,
+          "mean_difference_top_minus_bottom": 20.064524382485544
+        },
+        "within_host": {
+          "paired_hosts": 357,
+          "positive_hosts": 230,
+          "negative_hosts": 118,
+          "tied_hosts": 9,
+          "median_mean_difference": 8.5,
+          "median_median_difference": 8.0,
+          "mean_mean_difference": 15.643790849673202,
+          "exploratory_wilcoxon_p": 1.9737100563097472e-15,
+          "exploratory_bh_q": 4.539533129512419e-14
+        },
+        "pooled_vs_paired_mean_direction_reversal": false,
+        "pooled_vs_host_balanced_mean_direction_reversal": false,
+        "host_weighting_mean_shift": -4.420733532812342
+      },
+      "table_count": {
+        "pooled": {
+          "top": {
+            "pages": 1236,
+            "mean": 0.9579288025889967,
+            "median": 0.0
+          },
+          "bottom": {
+            "pages": 1404,
+            "mean": 0.6502849002849003,
+            "median": 0.0
+          },
+          "median_difference_top_minus_bottom": 0.0,
+          "mean_difference_top_minus_bottom": 0.30764390230409644
+        },
+        "within_host": {
+          "paired_hosts": 357,
+          "positive_hosts": 108,
+          "negative_hosts": 72,
+          "tied_hosts": 177,
+          "median_mean_difference": 0.0,
+          "median_median_difference": 0.0,
+          "mean_mean_difference": 0.134593837535014,
+          "exploratory_wilcoxon_p": 0.013217905533018543,
+          "exploratory_bh_q": 0.02338552517380204
+        },
+        "pooled_vs_paired_mean_direction_reversal": false,
+        "pooled_vs_host_balanced_mean_direction_reversal": false,
+        "host_weighting_mean_shift": -0.17305006476908244
+      },
+      "list_items_per_1000_words": {
+        "pooled": {
+          "top": {
+            "pages": 1236,
+            "mean": 21.94772437110891,
+            "median": 16.726339748856073
+          },
+          "bottom": {
+            "pages": 1404,
+            "mean": 17.198413060485315,
+            "median": 11.391890082499923
+          },
+          "median_difference_top_minus_bottom": 5.33444966635615,
+          "mean_difference_top_minus_bottom": 4.749311310623597
+        },
+        "within_host": {
+          "paired_hosts": 357,
+          "positive_hosts": 221,
+          "negative_hosts": 130,
+          "tied_hosts": 6,
+          "median_mean_difference": 2.311963664148516,
+          "median_median_difference": 2.3157617419751757,
+          "mean_mean_difference": 2.6823384586146175,
+          "exploratory_wilcoxon_p": 8.89108819184883e-08,
+          "exploratory_bh_q": 2.0449502841252307e-07
+        },
+        "pooled_vs_paired_mean_direction_reversal": false,
+        "pooled_vs_host_balanced_mean_direction_reversal": false,
+        "host_weighting_mean_shift": -2.066972852008979
+      },
+      "headings_per_1000_words": {
+        "pooled": {
+          "top": {
+            "pages": 1236,
+            "mean": 12.793892135920824,
+            "median": 11.419055710512609
+          },
+          "bottom": {
+            "pages": 1404,
+            "mean": 12.441765794714527,
+            "median": 10.732271771989948
+          },
+          "median_difference_top_minus_bottom": 0.6867839385226606,
+          "mean_difference_top_minus_bottom": 0.35212634120629716
+        },
+        "within_host": {
+          "paired_hosts": 357,
+          "positive_hosts": 188,
+          "negative_hosts": 166,
+          "tied_hosts": 3,
+          "median_mean_difference": 0.30536832837904093,
+          "median_median_difference": 0.3965159640775102,
+          "mean_mean_difference": 0.3109759436873802,
+          "exploratory_wilcoxon_p": 0.1345144977648863,
+          "exploratory_bh_q": 0.19336459053702407
+        },
+        "pooled_vs_paired_mean_direction_reversal": false,
+        "pooled_vs_host_balanced_mean_direction_reversal": false,
+        "host_weighting_mean_shift": -0.04115039751891697
+      },
+      "has_table": {
+        "pooled": {
+          "top": {
+            "pages": 1236,
+            "mean": 0.3155339805825243,
+            "median": 0.0
+          },
+          "bottom": {
+            "pages": 1404,
+            "mean": 0.20797720797720798,
+            "median": 0.0
+          },
+          "median_difference_top_minus_bottom": 0.0,
+          "mean_difference_top_minus_bottom": 0.10755677260531632
+        },
+        "within_host": {
+          "paired_hosts": 357,
+          "positive_hosts": 103,
+          "negative_hosts": 55,
+          "tied_hosts": 199,
+          "median_mean_difference": 0.0,
+          "median_median_difference": 0.0,
+          "mean_mean_difference": 0.08151260504201681,
+          "exploratory_wilcoxon_p": 1.3737855685954202e-05,
+          "exploratory_bh_q": 2.8724607343358787e-05
+        },
+        "pooled_vs_paired_mean_direction_reversal": false,
+        "pooled_vs_host_balanced_mean_direction_reversal": false,
+        "host_weighting_mean_shift": -0.02604416756329951
+      },
+      "has_list": {
+        "pooled": {
+          "top": {
+            "pages": 1236,
+            "mean": 0.9312297734627831,
+            "median": 1.0
+          },
+          "bottom": {
+            "pages": 1404,
+            "mean": 0.9145299145299145,
+            "median": 1.0
+          },
+          "median_difference_top_minus_bottom": 0.0,
+          "mean_difference_top_minus_bottom": 0.016699858932868628
+        },
+        "within_host": {
+          "paired_hosts": 357,
+          "positive_hosts": 44,
+          "negative_hosts": 28,
+          "tied_hosts": 285,
+          "median_mean_difference": 0.0,
+          "median_median_difference": 0.0,
+          "mean_mean_difference": 0.022035480859010272,
+          "exploratory_wilcoxon_p": 0.04593811561676838,
+          "exploratory_bh_q": 0.07546976137040519
+        },
+        "pooled_vs_paired_mean_direction_reversal": false,
+        "pooled_vs_host_balanced_mean_direction_reversal": false,
+        "host_weighting_mean_shift": 0.005335621926141645
+      },
+      "has_main": {
+        "pooled": {
+          "top": {
+            "pages": 1236,
+            "mean": 0.5687702265372169,
+            "median": 1.0
+          },
+          "bottom": {
+            "pages": 1404,
+            "mean": 0.6025641025641025,
+            "median": 1.0
+          },
+          "median_difference_top_minus_bottom": 0.0,
+          "mean_difference_top_minus_bottom": -0.03379387602688566
+        },
+        "within_host": {
+          "paired_hosts": 357,
+          "positive_hosts": 6,
+          "negative_hosts": 10,
+          "tied_hosts": 341,
+          "median_mean_difference": 0.0,
+          "median_median_difference": 0.0,
+          "mean_mean_difference": 0.002334267040149393,
+          "exploratory_wilcoxon_p": 0.9792623137784526,
+          "exploratory_bh_q": 0.9792623137784525
+        },
+        "pooled_vs_paired_mean_direction_reversal": false,
+        "pooled_vs_host_balanced_mean_direction_reversal": true,
+        "host_weighting_mean_shift": 0.03612814306703505
+      },
+      "has_article": {
+        "pooled": {
+          "top": {
+            "pages": 1236,
+            "mean": 0.45145631067961167,
+            "median": 0.0
+          },
+          "bottom": {
+            "pages": 1404,
+            "mean": 0.4601139601139601,
+            "median": 0.0
+          },
+          "median_difference_top_minus_bottom": 0.0,
+          "mean_difference_top_minus_bottom": -0.008657649434348436
+        },
+        "within_host": {
+          "paired_hosts": 357,
+          "positive_hosts": 16,
+          "negative_hosts": 13,
+          "tied_hosts": 328,
+          "median_mean_difference": 0.0,
+          "median_median_difference": 0.0,
+          "mean_mean_difference": 0.007983193277310925,
+          "exploratory_wilcoxon_p": 0.21252451433476227,
+          "exploratory_bh_q": 0.28753316645291366
+        },
+        "pooled_vs_paired_mean_direction_reversal": false,
+        "pooled_vs_host_balanced_mean_direction_reversal": true,
+        "host_weighting_mean_shift": 0.01664084271165936
+      },
+      "has_jsonld": {
+        "pooled": {
+          "top": {
+            "pages": 1236,
+            "mean": 0.8203883495145631,
+            "median": 1.0
+          },
+          "bottom": {
+            "pages": 1404,
+            "mean": 0.8283475783475783,
+            "median": 1.0
+          },
+          "median_difference_top_minus_bottom": 0.0,
+          "mean_difference_top_minus_bottom": -0.007959228833015253
+        },
+        "within_host": {
+          "paired_hosts": 357,
+          "positive_hosts": 17,
+          "negative_hosts": 19,
+          "tied_hosts": 321,
+          "median_mean_difference": 0.0,
+          "median_median_difference": 0.0,
+          "mean_mean_difference": 0.0024743230625583583,
+          "exploratory_wilcoxon_p": 0.5236069553576423,
+          "exploratory_bh_q": 0.6281589890360201
+        },
+        "pooled_vs_paired_mean_direction_reversal": false,
+        "pooled_vs_host_balanced_mean_direction_reversal": true,
+        "host_weighting_mean_shift": 0.010433551895573611
+      },
+      "jsonld_blocks": {
+        "pooled": {
+          "top": {
+            "pages": 1236,
+            "mean": 1.5161812297734627,
+            "median": 1.0
+          },
+          "bottom": {
+            "pages": 1404,
+            "mean": 1.5178062678062678,
+            "median": 1.0
+          },
+          "median_difference_top_minus_bottom": 0.0,
+          "mean_difference_top_minus_bottom": -0.001625038032805115
+        },
+        "within_host": {
+          "paired_hosts": 357,
+          "positive_hosts": 59,
+          "negative_hosts": 55,
+          "tied_hosts": 243,
+          "median_mean_difference": 0.0,
+          "median_median_difference": 0.0,
+          "mean_mean_difference": -0.015592903828197946,
+          "exploratory_wilcoxon_p": 0.6477746530897912,
+          "exploratory_bh_q": 0.7094674771935809
+        },
+        "pooled_vs_paired_mean_direction_reversal": false,
+        "pooled_vs_host_balanced_mean_direction_reversal": false,
+        "host_weighting_mean_shift": -0.013967865795392831
+      },
+      "valid_jsonld_blocks": {
+        "pooled": {
+          "top": {
+            "pages": 1236,
+            "mean": 1.4789644012944985,
+            "median": 1.0
+          },
+          "bottom": {
+            "pages": 1404,
+            "mean": 1.4679487179487178,
+            "median": 1.0
+          },
+          "median_difference_top_minus_bottom": 0.0,
+          "mean_difference_top_minus_bottom": 0.011015683345780625
+        },
+        "within_host": {
+          "paired_hosts": 357,
+          "positive_hosts": 58,
+          "negative_hosts": 52,
+          "tied_hosts": 247,
+          "median_mean_difference": 0.0,
+          "median_median_difference": 0.0,
+          "mean_mean_difference": -0.007609710550887021,
+          "exploratory_wilcoxon_p": 0.5076983768717829,
+          "exploratory_bh_q": 0.6281589890360201
+        },
+        "pooled_vs_paired_mean_direction_reversal": false,
+        "pooled_vs_host_balanced_mean_direction_reversal": true,
+        "host_weighting_mean_shift": -0.018625393896667647
+      },
+      "has_article_schema": {
+        "pooled": {
+          "top": {
+            "pages": 1236,
+            "mean": 0.6650485436893204,
+            "median": 1.0
+          },
+          "bottom": {
+            "pages": 1404,
+            "mean": 0.6588319088319088,
+            "median": 1.0
+          },
+          "median_difference_top_minus_bottom": 0.0,
+          "mean_difference_top_minus_bottom": 0.00621663485741164
+        },
+        "within_host": {
+          "paired_hosts": 357,
+          "positive_hosts": 25,
+          "negative_hosts": 28,
+          "tied_hosts": 304,
+          "median_mean_difference": 0.0,
+          "median_median_difference": 0.0,
+          "mean_mean_difference": 0.004154995331465921,
+          "exploratory_wilcoxon_p": 0.5462252078574088,
+          "exploratory_bh_q": 0.6281589890360201
+        },
+        "pooled_vs_paired_mean_direction_reversal": false,
+        "pooled_vs_host_balanced_mean_direction_reversal": false,
+        "host_weighting_mean_shift": -0.002061639525945719
+      },
+      "script_char_ratio": {
+        "pooled": {
+          "top": {
+            "pages": 1236,
+            "mean": 0.3783171688778278,
+            "median": 0.3173923458175426
+          },
+          "bottom": {
+            "pages": 1404,
+            "mean": 0.40368446439557887,
+            "median": 0.34576110567325136
+          },
+          "median_difference_top_minus_bottom": -0.028368759855708747,
+          "mean_difference_top_minus_bottom": -0.025367295517751076
+        },
+        "within_host": {
+          "paired_hosts": 357,
+          "positive_hosts": 153,
+          "negative_hosts": 203,
+          "tied_hosts": 1,
+          "median_mean_difference": -0.007620850346435656,
+          "median_median_difference": -0.006716541316632851,
+          "mean_mean_difference": -0.008239316674133971,
+          "exploratory_wilcoxon_p": 0.001578359833807175,
+          "exploratory_bh_q": 0.0030251896814637524
+        },
+        "pooled_vs_paired_mean_direction_reversal": false,
+        "pooled_vs_host_balanced_mean_direction_reversal": false,
+        "host_weighting_mean_shift": 0.017127978843617105
+      },
+      "query_title_coverage": {
+        "pooled": {
+          "top": {
+            "pages": 1219,
+            "mean": 0.32093298960903477,
+            "median": 0.3333333333333333
+          },
+          "bottom": {
+            "pages": 1395,
+            "mean": 0.24532519619734194,
+            "median": 0.2
+          },
+          "median_difference_top_minus_bottom": 0.1333333333333333,
+          "mean_difference_top_minus_bottom": 0.07560779341169283
+        },
+        "within_host": {
+          "paired_hosts": 356,
+          "positive_hosts": 233,
+          "negative_hosts": 109,
+          "tied_hosts": 14,
+          "median_mean_difference": 0.07814102564102562,
+          "median_median_difference": 0.08214285714285716,
+          "mean_mean_difference": 0.07896542800887141,
+          "exploratory_wilcoxon_p": 4.963853609144991e-14,
+          "exploratory_bh_q": 2.8542158252583695e-13
+        },
+        "pooled_vs_paired_mean_direction_reversal": false,
+        "pooled_vs_host_balanced_mean_direction_reversal": false,
+        "host_weighting_mean_shift": 0.0033576345971785826
+      },
+      "query_body_coverage": {
+        "pooled": {
+          "top": {
+            "pages": 1219,
+            "mean": 0.7752801719551415,
+            "median": 0.8333333333333334
+          },
+          "bottom": {
+            "pages": 1395,
+            "mean": 0.7110136805932551,
+            "median": 0.75
+          },
+          "median_difference_top_minus_bottom": 0.08333333333333337,
+          "mean_difference_top_minus_bottom": 0.06426649136188645
+        },
+        "within_host": {
+          "paired_hosts": 356,
+          "positive_hosts": 224,
+          "negative_hosts": 120,
+          "tied_hosts": 12,
+          "median_mean_difference": 0.071031746031746,
+          "median_median_difference": 0.08214285714285713,
+          "mean_mean_difference": 0.0714691171922086,
+          "exploratory_wilcoxon_p": 3.200837387325758e-10,
+          "exploratory_bh_q": 9.202407488561554e-10
+        },
+        "pooled_vs_paired_mean_direction_reversal": false,
+        "pooled_vs_host_balanced_mean_direction_reversal": false,
+        "host_weighting_mean_shift": 0.0072026258303221485
+      }
+    }
+  },
+  "clean_semantic_content_container": {
+    "minimum_extracted_words": 100,
+    "eligible_pages": 6118,
+    "features": {
+      "title_words": {
+        "pooled": {
+          "top": {
+            "pages": 3069,
+            "mean": 8.816552623004236,
+            "median": 9.0
+          },
+          "bottom": {
+            "pages": 3049,
+            "mean": 8.990488684814693,
+            "median": 9.0
+          },
+          "median_difference_top_minus_bottom": 0.0,
+          "mean_difference_top_minus_bottom": -0.17393606181045662
+        },
+        "within_host": {
+          "paired_hosts": 682,
+          "positive_hosts": 322,
+          "negative_hosts": 333,
+          "tied_hosts": 27,
+          "median_mean_difference": 0.0,
+          "median_median_difference": 0.0,
+          "mean_mean_difference": -0.11295210166177912,
+          "exploratory_wilcoxon_p": 0.15726373489822032,
+          "exploratory_bh_q": 0.1722412334599556
+        },
+        "pooled_vs_paired_mean_direction_reversal": false,
+        "pooled_vs_host_balanced_mean_direction_reversal": false,
+        "host_weighting_mean_shift": 0.060983960148677505
+      },
+      "heading_count": {
+        "pooled": {
+          "top": {
+            "pages": 3069,
+            "mean": 27.469859889214728,
+            "median": 22.0
+          },
+          "bottom": {
+            "pages": 3049,
+            "mean": 20.978025582158086,
+            "median": 17.0
+          },
+          "median_difference_top_minus_bottom": 5.0,
+          "mean_difference_top_minus_bottom": 6.491834307056642
+        },
+        "within_host": {
+          "paired_hosts": 682,
+          "positive_hosts": 488,
+          "negative_hosts": 184,
+          "tied_hosts": 10,
+          "median_mean_difference": 3.6333333333333337,
+          "median_median_difference": 3.0,
+          "mean_mean_difference": 6.121480938416423,
+          "exploratory_wilcoxon_p": 1.0782279469562268e-36,
+          "exploratory_bh_q": 2.4799242779993215e-35
+        },
+        "pooled_vs_paired_mean_direction_reversal": false,
+        "pooled_vs_host_balanced_mean_direction_reversal": false,
+        "host_weighting_mean_shift": -0.3703533686402194
+      },
+      "h1_count": {
+        "pooled": {
+          "top": {
+            "pages": 3069,
+            "mean": 0.9970674486803519,
+            "median": 1.0
+          },
+          "bottom": {
+            "pages": 3049,
+            "mean": 0.9872089209576911,
+            "median": 1.0
+          },
+          "median_difference_top_minus_bottom": 0.0,
+          "mean_difference_top_minus_bottom": 0.009858527722660826
+        },
+        "within_host": {
+          "paired_hosts": 682,
+          "positive_hosts": 95,
+          "negative_hosts": 81,
+          "tied_hosts": 506,
+          "median_mean_difference": 0.0,
+          "median_median_difference": 0.0,
+          "mean_mean_difference": 0.006573802541544478,
+          "exploratory_wilcoxon_p": 0.1454972952089742,
+          "exploratory_bh_q": 0.1673218894903203
+        },
+        "pooled_vs_paired_mean_direction_reversal": false,
+        "pooled_vs_host_balanced_mean_direction_reversal": false,
+        "host_weighting_mean_shift": -0.003284725181116348
+      },
+      "word_count": {
+        "pooled": {
+          "top": {
+            "pages": 3069,
+            "mean": 2266.907787552949,
+            "median": 1675.0
+          },
+          "bottom": {
+            "pages": 3049,
+            "mean": 1792.8707773040342,
+            "median": 1434.0
+          },
+          "median_difference_top_minus_bottom": 241.0,
+          "mean_difference_top_minus_bottom": 474.0370102489146
+        },
+        "within_host": {
+          "paired_hosts": 682,
+          "positive_hosts": 449,
+          "negative_hosts": 230,
+          "tied_hosts": 3,
+          "median_mean_difference": 231.12500000000006,
+          "median_median_difference": 194.5,
+          "mean_mean_difference": 441.4188905180841,
+          "exploratory_wilcoxon_p": 2.032193734707841e-22,
+          "exploratory_bh_q": 1.496967345718482e-21
+        },
+        "pooled_vs_paired_mean_direction_reversal": false,
+        "pooled_vs_host_balanced_mean_direction_reversal": false,
+        "host_weighting_mean_shift": -32.61811973083053
+      },
+      "raw_body_words": {
+        "pooled": {
+          "top": {
+            "pages": 3069,
+            "mean": 2726.6754643206255,
+            "median": 1939.0
+          },
+          "bottom": {
+            "pages": 3049,
+            "mean": 2272.522794358806,
+            "median": 1654.0
+          },
+          "median_difference_top_minus_bottom": 285.0,
+          "mean_difference_top_minus_bottom": 454.15266996181936
+        },
+        "within_host": {
+          "paired_hosts": 682,
+          "positive_hosts": 448,
+          "negative_hosts": 233,
+          "tied_hosts": 1,
+          "median_mean_difference": 239.50000000000006,
+          "median_median_difference": 212.75,
+          "mean_mean_difference": 423.08734115347016,
+          "exploratory_wilcoxon_p": 4.53832298245114e-22,
+          "exploratory_bh_q": 2.0876285719275245e-21
+        },
+        "pooled_vs_paired_mean_direction_reversal": false,
+        "pooled_vs_host_balanced_mean_direction_reversal": false,
+        "host_weighting_mean_shift": -31.065328808349193
+      },
+      "removed_text_fraction": {
+        "pooled": {
+          "top": {
+            "pages": 3069,
+            "mean": 0.07762332868795471,
+            "median": 0.02026049204052094
+          },
+          "bottom": {
+            "pages": 3049,
+            "mean": 0.0864312118103256,
+            "median": 0.021739130434782594
+          },
+          "median_difference_top_minus_bottom": -0.0014786383942616554,
+          "mean_difference_top_minus_bottom": -0.008807883122370894
+        },
+        "within_host": {
+          "paired_hosts": 682,
+          "positive_hosts": 233,
+          "negative_hosts": 387,
+          "tied_hosts": 62,
+          "median_mean_difference": -0.0007689463241817348,
+          "median_median_difference": -0.00031957980283242593,
+          "mean_mean_difference": -0.008955503518128669,
+          "exploratory_wilcoxon_p": 2.1165807758197518e-07,
+          "exploratory_bh_q": 4.868135784385429e-07
+        },
+        "pooled_vs_paired_mean_direction_reversal": false,
+        "pooled_vs_host_balanced_mean_direction_reversal": false,
+        "host_weighting_mean_shift": -0.00014762039575777486
+      },
+      "focus_text_fraction": {
+        "pooled": {
+          "top": {
+            "pages": 3069,
+            "mean": 0.8675168977912447,
+            "median": 0.9394449116904963
+          },
+          "bottom": {
+            "pages": 3049,
+            "mean": 0.8551749878187023,
+            "median": 0.9250535331905781
+          },
+          "median_difference_top_minus_bottom": 0.014391378499918117,
+          "mean_difference_top_minus_bottom": 0.012341909972542475
+        },
+        "within_host": {
+          "paired_hosts": 682,
+          "positive_hosts": 411,
+          "negative_hosts": 247,
+          "tied_hosts": 24,
+          "median_mean_difference": 0.004571040805688764,
+          "median_median_difference": 0.0015988354571168095,
+          "mean_mean_difference": 0.012629536123063157,
+          "exploratory_wilcoxon_p": 5.654911623530064e-09,
+          "exploratory_bh_q": 1.445144081568794e-08
+        },
+        "pooled_vs_paired_mean_direction_reversal": false,
+        "pooled_vs_host_balanced_mean_direction_reversal": false,
+        "host_weighting_mean_shift": 0.0002876261505206819
+      },
+      "list_count": {
+        "pooled": {
+          "top": {
+            "pages": 3069,
+            "mean": 9.77842945584881,
+            "median": 5.0
+          },
+          "bottom": {
+            "pages": 3049,
+            "mean": 7.198753689734339,
+            "median": 4.0
+          },
+          "median_difference_top_minus_bottom": 1.0,
+          "mean_difference_top_minus_bottom": 2.5796757661144714
+        },
+        "within_host": {
+          "paired_hosts": 682,
+          "positive_hosts": 399,
+          "negative_hosts": 237,
+          "tied_hosts": 46,
+          "median_mean_difference": 0.6000000000000001,
+          "median_median_difference": 0.5,
+          "mean_mean_difference": 2.440689149560117,
+          "exploratory_wilcoxon_p": 1.691268207715079e-13,
+          "exploratory_bh_q": 4.862396097180852e-13
+        },
+        "pooled_vs_paired_mean_direction_reversal": false,
+        "pooled_vs_host_balanced_mean_direction_reversal": false,
+        "host_weighting_mean_shift": -0.1389866165543543
+      },
+      "list_items": {
+        "pooled": {
+          "top": {
+            "pages": 3069,
+            "mean": 40.235581622678396,
+            "median": 20.0
+          },
+          "bottom": {
+            "pages": 3049,
+            "mean": 28.92981305346015,
+            "median": 14.0
+          },
+          "median_difference_top_minus_bottom": 6.0,
+          "mean_difference_top_minus_bottom": 11.305768569218245
+        },
+        "within_host": {
+          "paired_hosts": 682,
+          "positive_hosts": 412,
+          "negative_hosts": 242,
+          "tied_hosts": 28,
+          "median_mean_difference": 3.4249999999999994,
+          "median_median_difference": 3.0,
+          "mean_mean_difference": 9.367130987292278,
+          "exploratory_wilcoxon_p": 2.7392888394729094e-15,
+          "exploratory_bh_q": 9.000520472553845e-15
+        },
+        "pooled_vs_paired_mean_direction_reversal": false,
+        "pooled_vs_host_balanced_mean_direction_reversal": false,
+        "host_weighting_mean_shift": -1.938637581925967
+      },
+      "table_count": {
+        "pooled": {
+          "top": {
+            "pages": 3069,
+            "mean": 1.065167807103291,
+            "median": 0.0
+          },
+          "bottom": {
+            "pages": 3049,
+            "mean": 0.6510331256149557,
+            "median": 0.0
+          },
+          "median_difference_top_minus_bottom": 0.0,
+          "mean_difference_top_minus_bottom": 0.4141346814883353
+        },
+        "within_host": {
+          "paired_hosts": 682,
+          "positive_hosts": 208,
+          "negative_hosts": 135,
+          "tied_hosts": 339,
+          "median_mean_difference": 0.0,
+          "median_median_difference": 0.0,
+          "mean_mean_difference": 0.4099706744868035,
+          "exploratory_wilcoxon_p": 1.5554569028244903e-05,
+          "exploratory_bh_q": 2.555393483211663e-05
+        },
+        "pooled_vs_paired_mean_direction_reversal": false,
+        "pooled_vs_host_balanced_mean_direction_reversal": false,
+        "host_weighting_mean_shift": -0.0041640070015318
+      },
+      "list_items_per_1000_words": {
+        "pooled": {
+          "top": {
+            "pages": 3069,
+            "mean": 19.10903709486314,
+            "median": 12.693375644585482
+          },
+          "bottom": {
+            "pages": 3049,
+            "mean": 17.742995676620488,
+            "median": 10.845383759733037
+          },
+          "median_difference_top_minus_bottom": 1.8479918848524441,
+          "mean_difference_top_minus_bottom": 1.3660414182426521
+        },
+        "within_host": {
+          "paired_hosts": 682,
+          "positive_hosts": 373,
+          "negative_hosts": 290,
+          "tied_hosts": 19,
+          "median_mean_difference": 0.8720745197168789,
+          "median_median_difference": 0.30776041246107666,
+          "mean_mean_difference": 0.8295765296515559,
+          "exploratory_wilcoxon_p": 0.00014469249235833908,
+          "exploratory_bh_q": 0.00020799545776511243
+        },
+        "pooled_vs_paired_mean_direction_reversal": false,
+        "pooled_vs_host_balanced_mean_direction_reversal": false,
+        "host_weighting_mean_shift": -0.5364648885910962
+      },
+      "headings_per_1000_words": {
+        "pooled": {
+          "top": {
+            "pages": 3069,
+            "mean": 16.291128104292035,
+            "median": 12.391158740790354
+          },
+          "bottom": {
+            "pages": 3049,
+            "mean": 15.027036361830493,
+            "median": 11.15485564304462
+          },
+          "median_difference_top_minus_bottom": 1.2363030977457345,
+          "mean_difference_top_minus_bottom": 1.2640917424615417
+        },
+        "within_host": {
+          "paired_hosts": 682,
+          "positive_hosts": 384,
+          "negative_hosts": 295,
+          "tied_hosts": 3,
+          "median_mean_difference": 0.6931499687754572,
+          "median_median_difference": 0.5519718552452373,
+          "mean_mean_difference": 1.287490404161805,
+          "exploratory_wilcoxon_p": 3.987819703592889e-05,
+          "exploratory_bh_q": 6.114656878842429e-05
+        },
+        "pooled_vs_paired_mean_direction_reversal": false,
+        "pooled_vs_host_balanced_mean_direction_reversal": false,
+        "host_weighting_mean_shift": 0.02339866170026328
+      },
+      "has_table": {
+        "pooled": {
+          "top": {
+            "pages": 3069,
+            "mean": 0.23884001303356142,
+            "median": 0.0
+          },
+          "bottom": {
+            "pages": 3049,
+            "mean": 0.19350606756313546,
+            "median": 0.0
+          },
+          "median_difference_top_minus_bottom": 0.0,
+          "mean_difference_top_minus_bottom": 0.04533394547042596
+        },
+        "within_host": {
+          "paired_hosts": 682,
+          "positive_hosts": 191,
+          "negative_hosts": 121,
+          "tied_hosts": 370,
+          "median_mean_difference": 0.0,
+          "median_median_difference": 0.0,
+          "mean_mean_difference": 0.05498533724340176,
+          "exploratory_wilcoxon_p": 2.6897557067619857e-07,
+          "exploratory_bh_q": 5.624034659593243e-07
+        },
+        "pooled_vs_paired_mean_direction_reversal": false,
+        "pooled_vs_host_balanced_mean_direction_reversal": false,
+        "host_weighting_mean_shift": 0.009651391772975797
+      },
+      "has_list": {
+        "pooled": {
+          "top": {
+            "pages": 3069,
+            "mean": 0.8566308243727598,
+            "median": 1.0
+          },
+          "bottom": {
+            "pages": 3049,
+            "mean": 0.8471630042636931,
+            "median": 1.0
+          },
+          "median_difference_top_minus_bottom": 0.0,
+          "mean_difference_top_minus_bottom": 0.009467820109066771
+        },
+        "within_host": {
+          "paired_hosts": 682,
+          "positive_hosts": 146,
+          "negative_hosts": 118,
+          "tied_hosts": 418,
+          "median_mean_difference": 0.0,
+          "median_median_difference": 0.0,
+          "mean_mean_difference": 0.013758553274682308,
+          "exploratory_wilcoxon_p": 0.11298827574603548,
+          "exploratory_bh_q": 0.13677528116625348
+        },
+        "pooled_vs_paired_mean_direction_reversal": false,
+        "pooled_vs_host_balanced_mean_direction_reversal": false,
+        "host_weighting_mean_shift": 0.004290733165615537
+      },
+      "has_main": {
+        "pooled": {
+          "top": {
+            "pages": 3069,
+            "mean": 0.8950798305637016,
+            "median": 1.0
+          },
+          "bottom": {
+            "pages": 3049,
+            "mean": 0.8891439816333224,
+            "median": 1.0
+          },
+          "median_difference_top_minus_bottom": 0.0,
+          "mean_difference_top_minus_bottom": 0.005935848930379128
+        },
+        "within_host": {
+          "paired_hosts": 682,
+          "positive_hosts": 14,
+          "negative_hosts": 14,
+          "tied_hosts": 654,
+          "median_mean_difference": 0.0,
+          "median_median_difference": 0.0,
+          "mean_mean_difference": 0.0021505376344086026,
+          "exploratory_wilcoxon_p": 0.5081896972561437,
+          "exploratory_bh_q": 0.5312892289496047
+        },
+        "pooled_vs_paired_mean_direction_reversal": false,
+        "pooled_vs_host_balanced_mean_direction_reversal": false,
+        "host_weighting_mean_shift": -0.003785311295970526
+      },
+      "has_article": {
+        "pooled": {
+          "top": {
+            "pages": 3069,
+            "mean": 0.5698924731182796,
+            "median": 1.0
+          },
+          "bottom": {
+            "pages": 3049,
+            "mean": 0.5746146277468023,
+            "median": 1.0
+          },
+          "median_difference_top_minus_bottom": 0.0,
+          "mean_difference_top_minus_bottom": -0.004722154628522657
+        },
+        "within_host": {
+          "paired_hosts": 682,
+          "positive_hosts": 88,
+          "negative_hosts": 77,
+          "tied_hosts": 517,
+          "median_mean_difference": 0.0,
+          "median_median_difference": 0.0,
+          "mean_mean_difference": 0.003201368523949169,
+          "exploratory_wilcoxon_p": 0.911154537075968,
+          "exploratory_bh_q": 0.911154537075968
+        },
+        "pooled_vs_paired_mean_direction_reversal": false,
+        "pooled_vs_host_balanced_mean_direction_reversal": true,
+        "host_weighting_mean_shift": 0.007923523152471825
+      },
+      "has_jsonld": {
+        "pooled": {
+          "top": {
+            "pages": 3069,
+            "mean": 0.8224177256435321,
+            "median": 1.0
+          },
+          "bottom": {
+            "pages": 3049,
+            "mean": 0.8104296490652673,
+            "median": 1.0
+          },
+          "median_difference_top_minus_bottom": 0.0,
+          "mean_difference_top_minus_bottom": 0.011988076578264839
+        },
+        "within_host": {
+          "paired_hosts": 682,
+          "positive_hosts": 70,
+          "negative_hosts": 40,
+          "tied_hosts": 572,
+          "median_mean_difference": 0.0,
+          "median_median_difference": 0.0,
+          "mean_mean_difference": 0.016080156402737047,
+          "exploratory_wilcoxon_p": 0.018053186433328705,
+          "exploratory_bh_q": 0.024424899292150602
+        },
+        "pooled_vs_paired_mean_direction_reversal": false,
+        "pooled_vs_host_balanced_mean_direction_reversal": false,
+        "host_weighting_mean_shift": 0.004092079824472208
+      },
+      "jsonld_blocks": {
+        "pooled": {
+          "top": {
+            "pages": 3069,
+            "mean": 1.65623981753014,
+            "median": 1.0
+          },
+          "bottom": {
+            "pages": 3049,
+            "mean": 1.6126598884880288,
+            "median": 1.0
+          },
+          "median_difference_top_minus_bottom": 0.0,
+          "mean_difference_top_minus_bottom": 0.043579929042111276
+        },
+        "within_host": {
+          "paired_hosts": 682,
+          "positive_hosts": 202,
+          "negative_hosts": 124,
+          "tied_hosts": 356,
+          "median_mean_difference": 0.0,
+          "median_median_difference": 0.0,
+          "mean_mean_difference": 0.07082111436950146,
+          "exploratory_wilcoxon_p": 1.5124964513785637e-06,
+          "exploratory_bh_q": 2.8989515318089137e-06
+        },
+        "pooled_vs_paired_mean_direction_reversal": false,
+        "pooled_vs_host_balanced_mean_direction_reversal": false,
+        "host_weighting_mean_shift": 0.027241185327390185
+      },
+      "valid_jsonld_blocks": {
+        "pooled": {
+          "top": {
+            "pages": 3069,
+            "mean": 1.6357119582926034,
+            "median": 1.0
+          },
+          "bottom": {
+            "pages": 3049,
+            "mean": 1.5903574942604133,
+            "median": 1.0
+          },
+          "median_difference_top_minus_bottom": 0.0,
+          "mean_difference_top_minus_bottom": 0.04535446403219012
+        },
+        "within_host": {
+          "paired_hosts": 682,
+          "positive_hosts": 201,
+          "negative_hosts": 123,
+          "tied_hosts": 358,
+          "median_mean_difference": 0.0,
+          "median_median_difference": 0.0,
+          "mean_mean_difference": 0.07238514173998045,
+          "exploratory_wilcoxon_p": 1.6529112368272992e-06,
+          "exploratory_bh_q": 2.9243814190021446e-06
+        },
+        "pooled_vs_paired_mean_direction_reversal": false,
+        "pooled_vs_host_balanced_mean_direction_reversal": false,
+        "host_weighting_mean_shift": 0.02703067770779033
+      },
+      "has_article_schema": {
+        "pooled": {
+          "top": {
+            "pages": 3069,
+            "mean": 0.4626914304333659,
+            "median": 0.0
+          },
+          "bottom": {
+            "pages": 3049,
+            "mean": 0.494260413250246,
+            "median": 0.0
+          },
+          "median_difference_top_minus_bottom": 0.0,
+          "mean_difference_top_minus_bottom": -0.03156898281688009
+        },
+        "within_host": {
+          "paired_hosts": 682,
+          "positive_hosts": 97,
+          "negative_hosts": 120,
+          "tied_hosts": 465,
+          "median_mean_difference": 0.0,
+          "median_median_difference": 0.0,
+          "mean_mean_difference": -0.0209188660801564,
+          "exploratory_wilcoxon_p": 0.0382413646234079,
+          "exploratory_bh_q": 0.04886396590768787
+        },
+        "pooled_vs_paired_mean_direction_reversal": false,
+        "pooled_vs_host_balanced_mean_direction_reversal": false,
+        "host_weighting_mean_shift": 0.010650116736723687
+      },
+      "script_char_ratio": {
+        "pooled": {
+          "top": {
+            "pages": 3069,
+            "mean": 0.3903414618564774,
+            "median": 0.34113723565628623
+          },
+          "bottom": {
+            "pages": 3049,
+            "mean": 0.41649664596517705,
+            "median": 0.3789500535686955
+          },
+          "median_difference_top_minus_bottom": -0.03781281791240926,
+          "mean_difference_top_minus_bottom": -0.02615518410869966
+        },
+        "within_host": {
+          "paired_hosts": 682,
+          "positive_hosts": 247,
+          "negative_hosts": 433,
+          "tied_hosts": 2,
+          "median_mean_difference": -0.012443731701904784,
+          "median_median_difference": -0.014556753455830296,
+          "mean_mean_difference": -0.025430021400941624,
+          "exploratory_wilcoxon_p": 3.7918131107312515e-17,
+          "exploratory_bh_q": 1.4535283591136464e-16
+        },
+        "pooled_vs_paired_mean_direction_reversal": false,
+        "pooled_vs_host_balanced_mean_direction_reversal": false,
+        "host_weighting_mean_shift": 0.0007251627077580342
+      },
+      "query_title_coverage": {
+        "pooled": {
+          "top": {
+            "pages": 3022,
+            "mean": 0.3085252948931522,
+            "median": 0.2857142857142857
+          },
+          "bottom": {
+            "pages": 3035,
+            "mean": 0.22679616406276812,
+            "median": 0.2
+          },
+          "median_difference_top_minus_bottom": 0.08571428571428569,
+          "mean_difference_top_minus_bottom": 0.0817291308303841
+        },
+        "within_host": {
+          "paired_hosts": 682,
+          "positive_hosts": 482,
+          "negative_hosts": 194,
+          "tied_hosts": 6,
+          "median_mean_difference": 0.07976190476190476,
+          "median_median_difference": 0.08333333333333331,
+          "mean_mean_difference": 0.08084746214288192,
+          "exploratory_wilcoxon_p": 2.0813049531499314e-33,
+          "exploratory_bh_q": 2.393500696122421e-32
+        },
+        "pooled_vs_paired_mean_direction_reversal": false,
+        "pooled_vs_host_balanced_mean_direction_reversal": false,
+        "host_weighting_mean_shift": -0.0008816686875021823
+      },
+      "query_body_coverage": {
+        "pooled": {
+          "top": {
+            "pages": 3022,
+            "mean": 0.7189715716335443,
+            "median": 0.8
+          },
+          "bottom": {
+            "pages": 3035,
+            "mean": 0.6503879731891933,
+            "median": 0.6666666666666666
+          },
+          "median_difference_top_minus_bottom": 0.13333333333333341,
+          "mean_difference_top_minus_bottom": 0.06858359844435102
+        },
+        "within_host": {
+          "paired_hosts": 682,
+          "positive_hosts": 464,
+          "negative_hosts": 213,
+          "tied_hosts": 5,
+          "median_mean_difference": 0.07379625534424294,
+          "median_median_difference": 0.08333333333333331,
+          "mean_mean_difference": 0.0710364221334635,
+          "exploratory_wilcoxon_p": 2.603421470814751e-22,
+          "exploratory_bh_q": 1.496967345718482e-21
+        },
+        "pooled_vs_paired_mean_direction_reversal": false,
+        "pooled_vs_host_balanced_mean_direction_reversal": false,
+        "host_weighting_mean_shift": 0.002452823689112482
+      }
+    }
+  },
+  "matched_query_all": {
+    "host_query_groups": 29,
+    "hosts": 27,
+    "unique_pages": 66,
+    "features": {
+      "title_words": {
+        "hosts": 27,
+        "median_host_difference": -0.75,
+        "positive_hosts": 10,
+        "negative_hosts": 14,
+        "tied_hosts": 3
+      },
+      "heading_count": {
+        "hosts": 27,
+        "median_host_difference": 1,
+        "positive_hosts": 14,
+        "negative_hosts": 8,
+        "tied_hosts": 5
+      },
+      "h1_count": {
+        "hosts": 27,
+        "median_host_difference": 0,
+        "positive_hosts": 2,
+        "negative_hosts": 3,
+        "tied_hosts": 22
+      },
+      "word_count": {
+        "hosts": 27,
+        "median_host_difference": 43,
+        "positive_hosts": 15,
+        "negative_hosts": 12,
+        "tied_hosts": 0
+      },
+      "raw_body_words": {
+        "hosts": 27,
+        "median_host_difference": 44,
+        "positive_hosts": 15,
+        "negative_hosts": 12,
+        "tied_hosts": 0
+      },
+      "removed_text_fraction": {
+        "hosts": 27,
+        "median_host_difference": -0.0009624639076034613,
+        "positive_hosts": 11,
+        "negative_hosts": 14,
+        "tied_hosts": 2
+      },
+      "focus_text_fraction": {
+        "hosts": 27,
+        "median_host_difference": 0.0005133697825879802,
+        "positive_hosts": 14,
+        "negative_hosts": 12,
+        "tied_hosts": 1
+      },
+      "list_count": {
+        "hosts": 27,
+        "median_host_difference": 0,
+        "positive_hosts": 12,
+        "negative_hosts": 7,
+        "tied_hosts": 8
+      },
+      "list_items": {
+        "hosts": 27,
+        "median_host_difference": 1,
+        "positive_hosts": 14,
+        "negative_hosts": 9,
+        "tied_hosts": 4
+      },
+      "table_count": {
+        "hosts": 27,
+        "median_host_difference": 0,
+        "positive_hosts": 2,
+        "negative_hosts": 2,
+        "tied_hosts": 23
+      },
+      "list_items_per_1000_words": {
+        "hosts": 27,
+        "median_host_difference": 0.0,
+        "positive_hosts": 13,
+        "negative_hosts": 11,
+        "tied_hosts": 3
+      },
+      "headings_per_1000_words": {
+        "hosts": 27,
+        "median_host_difference": 0.7118137393079884,
+        "positive_hosts": 17,
+        "negative_hosts": 10,
+        "tied_hosts": 0
+      },
+      "has_table": {
+        "hosts": 27,
+        "median_host_difference": 0,
+        "positive_hosts": 1,
+        "negative_hosts": 2,
+        "tied_hosts": 24
+      },
+      "has_list": {
+        "hosts": 27,
+        "median_host_difference": 0,
+        "positive_hosts": 6,
+        "negative_hosts": 4,
+        "tied_hosts": 17
+      },
+      "has_main": {
+        "hosts": 27,
+        "median_host_difference": 0,
+        "positive_hosts": 0,
+        "negative_hosts": 1,
+        "tied_hosts": 26
+      },
+      "has_article": {
+        "hosts": 27,
+        "median_host_difference": 0,
+        "positive_hosts": 0,
+        "negative_hosts": 3,
+        "tied_hosts": 24
+      },
+      "has_jsonld": {
+        "hosts": 27,
+        "median_host_difference": 0,
+        "positive_hosts": 0,
+        "negative_hosts": 1,
+        "tied_hosts": 26
+      },
+      "jsonld_blocks": {
+        "hosts": 27,
+        "median_host_difference": 0,
+        "positive_hosts": 3,
+        "negative_hosts": 2,
+        "tied_hosts": 22
+      },
+      "valid_jsonld_blocks": {
+        "hosts": 27,
+        "median_host_difference": 0,
+        "positive_hosts": 3,
+        "negative_hosts": 2,
+        "tied_hosts": 22
+      },
+      "has_article_schema": {
+        "hosts": 27,
+        "median_host_difference": 0,
+        "positive_hosts": 1,
+        "negative_hosts": 5,
+        "tied_hosts": 21
+      },
+      "script_char_ratio": {
+        "hosts": 27,
+        "median_host_difference": -0.001663923955250446,
+        "positive_hosts": 11,
+        "negative_hosts": 16,
+        "tied_hosts": 0
+      },
+      "query_title_coverage": {
+        "hosts": 27,
+        "median_host_difference": 0.0,
+        "positive_hosts": 13,
+        "negative_hosts": 1,
+        "tied_hosts": 13
+      },
+      "query_body_coverage": {
+        "hosts": 27,
+        "median_host_difference": 0.0,
+        "positive_hosts": 8,
+        "negative_hosts": 10,
+        "tied_hosts": 9
+      }
+    }
+  },
+  "matched_query_clean": {
+    "host_query_groups": 29,
+    "hosts": 27,
+    "unique_pages": 66,
+    "features": {
+      "title_words": {
+        "hosts": 27,
+        "median_host_difference": -0.75,
+        "positive_hosts": 10,
+        "negative_hosts": 14,
+        "tied_hosts": 3
+      },
+      "heading_count": {
+        "hosts": 27,
+        "median_host_difference": 1,
+        "positive_hosts": 14,
+        "negative_hosts": 8,
+        "tied_hosts": 5
+      },
+      "h1_count": {
+        "hosts": 27,
+        "median_host_difference": 0,
+        "positive_hosts": 2,
+        "negative_hosts": 3,
+        "tied_hosts": 22
+      },
+      "word_count": {
+        "hosts": 27,
+        "median_host_difference": 43,
+        "positive_hosts": 15,
+        "negative_hosts": 12,
+        "tied_hosts": 0
+      },
+      "raw_body_words": {
+        "hosts": 27,
+        "median_host_difference": 44,
+        "positive_hosts": 15,
+        "negative_hosts": 12,
+        "tied_hosts": 0
+      },
+      "removed_text_fraction": {
+        "hosts": 27,
+        "median_host_difference": -0.0009624639076034613,
+        "positive_hosts": 11,
+        "negative_hosts": 14,
+        "tied_hosts": 2
+      },
+      "focus_text_fraction": {
+        "hosts": 27,
+        "median_host_difference": 0.0005133697825879802,
+        "positive_hosts": 14,
+        "negative_hosts": 12,
+        "tied_hosts": 1
+      },
+      "list_count": {
+        "hosts": 27,
+        "median_host_difference": 0,
+        "positive_hosts": 12,
+        "negative_hosts": 7,
+        "tied_hosts": 8
+      },
+      "list_items": {
+        "hosts": 27,
+        "median_host_difference": 1,
+        "positive_hosts": 14,
+        "negative_hosts": 9,
+        "tied_hosts": 4
+      },
+      "table_count": {
+        "hosts": 27,
+        "median_host_difference": 0,
+        "positive_hosts": 2,
+        "negative_hosts": 2,
+        "tied_hosts": 23
+      },
+      "list_items_per_1000_words": {
+        "hosts": 27,
+        "median_host_difference": 0.0,
+        "positive_hosts": 13,
+        "negative_hosts": 11,
+        "tied_hosts": 3
+      },
+      "headings_per_1000_words": {
+        "hosts": 27,
+        "median_host_difference": 0.7118137393079884,
+        "positive_hosts": 17,
+        "negative_hosts": 10,
+        "tied_hosts": 0
+      },
+      "has_table": {
+        "hosts": 27,
+        "median_host_difference": 0,
+        "positive_hosts": 1,
+        "negative_hosts": 2,
+        "tied_hosts": 24
+      },
+      "has_list": {
+        "hosts": 27,
+        "median_host_difference": 0,
+        "positive_hosts": 6,
+        "negative_hosts": 4,
+        "tied_hosts": 17
+      },
+      "has_main": {
+        "hosts": 27,
+        "median_host_difference": 0,
+        "positive_hosts": 0,
+        "negative_hosts": 1,
+        "tied_hosts": 26
+      },
+      "has_article": {
+        "hosts": 27,
+        "median_host_difference": 0,
+        "positive_hosts": 0,
+        "negative_hosts": 3,
+        "tied_hosts": 24
+      },
+      "has_jsonld": {
+        "hosts": 27,
+        "median_host_difference": 0,
+        "positive_hosts": 0,
+        "negative_hosts": 1,
+        "tied_hosts": 26
+      },
+      "jsonld_blocks": {
+        "hosts": 27,
+        "median_host_difference": 0,
+        "positive_hosts": 3,
+        "negative_hosts": 2,
+        "tied_hosts": 22
+      },
+      "valid_jsonld_blocks": {
+        "hosts": 27,
+        "median_host_difference": 0,
+        "positive_hosts": 3,
+        "negative_hosts": 2,
+        "tied_hosts": 22
+      },
+      "has_article_schema": {
+        "hosts": 27,
+        "median_host_difference": 0,
+        "positive_hosts": 1,
+        "negative_hosts": 5,
+        "tied_hosts": 21
+      },
+      "script_char_ratio": {
+        "hosts": 27,
+        "median_host_difference": -0.001663923955250446,
+        "positive_hosts": 11,
+        "negative_hosts": 16,
+        "tied_hosts": 0
+      },
+      "query_title_coverage": {
+        "hosts": 27,
+        "median_host_difference": 0.0,
+        "positive_hosts": 13,
+        "negative_hosts": 1,
+        "tied_hosts": 13
+      },
+      "query_body_coverage": {
+        "hosts": 27,
+        "median_host_difference": 0.0,
+        "positive_hosts": 8,
+        "negative_hosts": 10,
+        "tied_hosts": 9
+      }
+    }
+  }
+}
