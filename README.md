@@ -203,7 +203,7 @@ Treat associations as exploratory hypotheses. Page purpose, query intent, langua
 
 ## Logistic-regression baseline
 
-The handcrafted LR prototype predicts membership in the dataset's within-host `top` class. Its 35 inference-time features cover prompt alignment, prompt style, content structure, URL paths, and extraction quality. See [the result report](analysis/lr/report.html), [Markdown results](analysis/lr/report.md), and [feature definitions](analysis/lr/feature_definitions.md).
+The handcrafted LR prototype predicts membership in the dataset's within-host `top` class. Its 35 inference-time features cover prompt alignment, prompt style, content structure, URL paths, and extraction quality. See [the result report](trad_ml_scorer/report.html), [Markdown results](trad_ml_scorer/report.md), and [feature definitions](trad_ml_scorer/feature_definitions.md).
 
 Install the locked environment with `uv sync --locked` (or a workspace-local `uv` binary). Run from the repository root:
 
@@ -215,7 +215,7 @@ uv run python scripts/verify_lr.py --input-dir data/raw
 uv run python -m unittest discover -s tests -p test_lr.py -v
 ```
 
-In this worktree, the raw source was supplied with `--input-dir ../../data/raw`. Preparation writes the local feature table, source/exclusion records, split manifest, and fingerprints to ignored `data/lr/`. The saved inference pipeline is `data/lr/model.joblib`; published metrics, split assignments, and PNG/SVG plots are in `analysis/lr/`. These scripts refuse to overwrite completed data, models, or test evaluations. For an explicitly new experiment, pass a new `--output-dir` to preparation and matching `--data-dir` / `--output-dir` arguments to training and evaluation. Rebuild presentation alone with `uv run python scripts/evaluate_lr.py --report-only`.
+In this worktree, the raw source was supplied with `--input-dir ../../data/raw`. Preparation writes the local feature table, source/exclusion records, split manifest, and fingerprints to ignored `data/lr/`. The saved inference pipeline is `data/lr/model.joblib`; published metrics, split assignments, and PNG/SVG plots are in `trad_ml_scorer/`. These scripts refuse to overwrite completed data, models, or test evaluations. For an explicitly new experiment, pass a new `--output-dir` to preparation and matching `--data-dir` / `--output-dir` arguments to training and evaluation. Rebuild presentation alone with `uv run python scripts/evaluate_lr.py --report-only`.
 
 Score a supplied snapshot (load only trusted joblib models):
 

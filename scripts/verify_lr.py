@@ -17,7 +17,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--input-dir", type=Path, default=Path("data/raw"))
     parser.add_argument("--data-dir", type=Path, default=Path("data/lr"))
-    parser.add_argument("--output-dir", type=Path, default=Path("analysis/lr"))
+    parser.add_argument("--output-dir", type=Path, default=Path("trad_ml_scorer"))
     args = parser.parse_args()
     records = [json.loads(line) for line in (args.data_dir / "records.jsonl").read_text().splitlines()]
     manifest = json.loads((args.data_dir / "manifest.json").read_text())

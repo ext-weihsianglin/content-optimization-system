@@ -101,7 +101,7 @@ def build_report(output, selection, manifest, result):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--data-dir", type=Path, default=Path("data/lr"))
-    parser.add_argument("--output-dir", type=Path, default=Path("analysis/lr"))
+    parser.add_argument("--output-dir", type=Path, default=Path("trad_ml_scorer"))
     parser.add_argument("--report-only", action="store_true", help="Rebuild HTML/Markdown from saved results without reevaluation")
     args = parser.parse_args()
     output = args.output_dir

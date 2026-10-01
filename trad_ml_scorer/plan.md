@@ -111,6 +111,6 @@ This document is a proposed plan. Model implementation and training have not sta
 
 - [Project brief](../project-brief.md)
 - [Dataset and analysis summary](../README.md)
-- [Existing HTML analysis report](brief-report.html)
+- [Existing HTML analysis report](../analysis/brief-report.html)
 - [Content extraction implementation](../scripts/analyze_content.py)
 - [Sensitivity analysis implementation](../scripts/analyze_sensitivity.py)

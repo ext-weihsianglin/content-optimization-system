@@ -71,7 +71,7 @@ def plot_response_curves(model, xt, xv, names, permutation, output):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--data-dir", type=Path, default=Path("data/lr"))
-    parser.add_argument("--output-dir", type=Path, default=Path("analysis/lr"))
+    parser.add_argument("--output-dir", type=Path, default=Path("trad_ml_scorer"))
     args = parser.parse_args()
     args.output_dir.mkdir(parents=True, exist_ok=True)
     model_path = args.data_dir / "model.joblib"
