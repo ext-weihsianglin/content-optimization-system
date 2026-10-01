@@ -1,0 +1,10 @@
+{
+  "schema_version": "1.0.0",
+  "seed": "snapshot-eval-v1-20261001",
+  "methods": ["baseline", "trafilatura", "readability", "conservative_dom", "markdown_text"],
+  "max_payload_bytes": 10000000,
+  "timeout_seconds": 30,
+  "network": "disabled",
+  "annotation_policy": "Source-only AI-assisted reference anchors; no human gold claim",
+  "selection_policy": "Diagnostics only; no citation labels or prompts"
+}

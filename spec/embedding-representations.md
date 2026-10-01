@@ -40,6 +40,8 @@ The representation runner may contact the configured embedding service. The upst
 
 ## Upstream inputs and identity
 
+Compatibility checkpoint after merging preprocessing PR #1: this implementation's initial adapter targets the frozen `eval-v2` method/block-JSON parquet schema. Its 20-record smoke report preserves the older selection outcomes as historical evidence. Main now defines a retention-first `downstream-document-v1` export in [downstream-document.md](downstream-document.md). Consuming that export, preserving its source chunk IDs and retained `needs_review` content, is a rollout gate before a new retention-first corpus run. This PR does not change the current preprocessing default or regenerate frozen extraction evidence.
+
 Read `records.parquet`, `snapshots.parquet`, `source_features.parquet`, `extractions.parquet`, `blocks.parquet`, `selection.parquet`, and `manifest.json` under `data/processed/<run_id>/`.
 
 Use an adapter at the boundary to resolve the upstream schema's exact column names. Validate its schema version, hashes, IDs, joins, selected candidate identity, ordered blocks, and cardinalities. Reject incompatible schemas before API work. Do not invent an upstream column contract beyond PR #1.

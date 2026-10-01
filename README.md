@@ -10,6 +10,95 @@ Use `uv` for all Python environment and dependency operations. A workspace-local
 .tools/uv sync
 ```
 
+## Offline extraction benchmark
+
+**Current workflow decision:** retention-first HTML parsing using conservative DOM
+blocks, with native Markdown/text handling. Source warnings remain attached rather
+than dropping content. See `spec/downstream-document.md` for the document/chunk
+contract and reproduction instructions. `analysis/retention-export.json` records
+the 100-snapshot structured export; full-corpus migration is not yet performed.
+
+Report index:
+
+- `analysis/extraction-evaluation.html`: completed five-method benchmark.
+- `analysis/reader-lm-review.html`: stopped Reader-LM run, matched completed-page comparison.
+- `analysis/reader-lm-pilot.html`: three development examples with expanded context/output budgets.
+- `analysis/reader-lm-progress.html`: partial run ledger, **not** a final ranking.
+
+
+The implementation in `preprocessing/` compares the frozen BeautifulSoup baseline,
+Trafilatura, Mozilla Readability + Turndown/GFM, conservative DOM blocks, and a
+native Markdown/text adapter. It uses only the supplied saved payloads: no browser
+rendering, page fetching, remote extraction API, or dynamic index.
+
+```sh
+.tools/uv sync --dev
+npm ci --prefix preprocessing/node
+.tools/uv run --offline python -m preprocessing.prepare_eval --materialize
+.tools/uv run --offline python -m pytest -q
+.tools/uv run --offline python -m preprocessing.fixture_benchmark
+.tools/uv run --offline python -m preprocessing run --split all --output data/processed/replay
+.tools/uv run --offline python -m preprocessing.benchmark --results data/processed/replay/results.jsonl
+.tools/uv run --offline python -m preprocessing.selection_report --run data/processed/replay
+open analysis/extraction-evaluation.html
+```
+
+Raw parquet files must first be present at `data/raw/`. Materialization verifies
+their hashes and restores the existing evaluation snapshots; it does not resample.
+The checked-in manifest freezes 100 distinct hosts (60 development, 40 held-out),
+with no hostname or identical-payload overlap between splits. All five candidates
+receive every snapshot and report unsupported formats explicitly. To resume an
+interrupted run, repeat the run command with `--resume`; changed extraction code,
+dependencies, configuration, or evaluation manifest invalidate cached results.
+
+`analysis/extraction-evaluation.html` provides metrics, denominators, structural
+fixture results, and filterable per-document candidate output/anchor comparisons.
+Its JSON companion contains detailed per-method, per-split, per-stratum metrics.
+References in `evaluation/extraction/annotations.json` are **AI-assisted source-only
+anchors, not human gold or exhaustive annotations**. Retention and boilerplate
+leakage are anchor-based measurements, not whole-document recall and precision.
+The human acceptance gates remain unassessed; held-out non-HTML cases contain
+Markdown only, so plain-text quality has no held-out estimate. Synthetic structural
+checks are separate from real-page accuracy. No citation-uplift claim is made.
+
+Local run artifacts include `results.jsonl`, `extractions.parquet`, `blocks.parquet`,
+`source_features.parquet`, `records.parquet`, `snapshots.parquet`, and a versioned
+run manifest. Source metadata/JSON-LD remain separate from candidate text, while
+structured blocks preserve tables, nested lists, code, links and source mappings
+where available. Selection proposals are diagnostic and abstain on disagreement;
+they are not a validated production policy. The current selection default is the
+retention-first policy; the earlier precision proposal is retained as
+`select_precision_candidate` for provenance. The runner currently targets the frozen
+evaluation set, not full-corpus ingestion. Original v1 analysis stays unchanged;
+human review, corpus migration, and extractor-sensitive reanalysis remain follow-up
+work in `plan/snapshot-preprocessing.md`.
+
+### Held-out results
+
+For the additive Hugging Face Reader-LM benchmark served locally on Apple Silicon,
+see `preprocessing/READER-LM.md`. It has separate dependencies, resource limits,
+run artifacts, and report; it does not replace the frozen five-candidate run.
+
+HTML content scores cover 32 evaluable pages, 129 required anchors and 50 unwanted
+anchors; five additional held-out HTML snapshots were source-unevaluable. Higher
+retention and lower leakage are better.
+
+| Method | Required-anchor retention | Unwanted-anchor leakage |
+| --- | ---: | ---: |
+| Frozen baseline | 121/129 (93.8%) | 30/50 (60.0%) |
+| Trafilatura | 100/129 (77.5%) | 11/50 (22.0%) |
+| Readability + Turndown | 111/129 (86.0%) | 11/50 (22.0%) |
+| Conservative DOM | 126/129 (97.7%) | 46/50 (92.0%) |
+| Native adapter — 3 Markdown pages only | 13/13 (100%) | 2/2 (100%) |
+
+The native result is not directly comparable to HTML rows. Readability retains
+more selected content than Trafilatura on held-out HTML at equal measured leakage,
+reversing their development retention ranking. Conservative extraction preserves
+content but also substantial boilerplate. These results do not establish a universal
+winner or justify changing the development-frozen selection policy on the test set.
+The complete run has 500 explicit outcomes, including unsupported formats and six
+empty outputs, with zero exceptions or timeouts. Resume preserved result bytes.
+
 The provided ZIP remains in Downloads. Five parquet files are extracted into `data/raw/`; these files and the local environment are excluded from Git. Archive provenance and its verified SHA-256 are in `analysis/provenance.json`.
 
 ## Reproduce the analysis

@@ -1,0 +1,331 @@
+{
+  "annotation_type": "ai_source_only",
+  "documents": [
+    {
+      "snapshot_id": "cc7b74e1ea25db23a892222c30baf05b46e11fe495216b6c53613ee2d1c66837",
+      "evaluable": true,
+      "required": [
+        {"text": "Despite initial concerns, existing studies show that BEVs do not present a higher fire risk than internal combustion engine vehicles (ICEVs).", "kind": "content", "reason": "Preserves the executive summary's central comparative risk finding."},
+        {"text": "Thermal runaway can sometimes begin at relatively low temperatures (approximately 90 – 120°C), often as a result of overcharging.", "kind": "numeric", "reason": "Captures a specific temperature range and the associated battery hazard."},
+        {"text": "Upon detection, automated alarm systems alert occupants, facilitating safe and efficient evacuation.", "kind": "content", "reason": "Covers the detection and evacuation mechanism in the detailed guidance."},
+        {"text": "Only charging cables approved by the manufacturers and specifically intended for charging electric vehicles may be used.", "kind": "content", "reason": "Preserves a concrete user responsibility from the recommendations."}
+      ],
+      "unwanted": [
+        {"text": "Luxembourg: Publications Office of the European Union, 2025 © European Union, 2025", "reason": "Publication imprint and copyright boilerplate, not fire safety guidance."}
+      ],
+      "notes": "The bounded sample contains front matter only. Reviewed full-source executive summary and selected substantive pages 45, 58, 64 and 79. PDF spacing is normalized; these are selective anchors, not exhaustive document coverage.",
+      "reviewer_type": "ai_source_only"
+    },
+    {
+      "snapshot_id": "0e957ea72c2d0a626c1f2a84868499e64711d723734b198e39e92ebe51110d09",
+      "evaluable": true,
+      "required": [
+        {"text": "If your employer has fewer than 20 employees, Medicare generally pays first.", "kind": "numeric", "reason": "Retains the employer-size qualification affecting coverage."},
+        {"text": "you have eight months from that month (whichever comes first) to sign up for Medicare Part B.", "kind": "numeric", "reason": "Retains the special enrollment deadline following employment or coverage ending."},
+        {"text": "To avoid a tax penalty, you should stop contributing to your HSA at least six months before you apply for Medicare.", "kind": "numeric", "reason": "Captures the HSA timing warning in the enrollment instructions."},
+        {"text": "Fax your CMS-40B and employer-signed CMS-L564 (or written notification) to your local Social Security office .", "kind": "content", "reason": "Preserves an application route and the exact required form identifiers."}
+      ],
+      "unwanted": [
+        {"text": "Produced and published at U.S. taxpayer expense", "reason": "Generic publication production notice."}
+      ],
+      "notes": "Reviewed the full two-page source because the sample cuts off the enrollment explanation. Whitespace normalized. Instructions and figures reflect this saved publication, without external verification.",
+      "reviewer_type": "ai_source_only"
+    },
+    {
+      "snapshot_id": "5204f9a99ac1b9d7d381c2063467e03ca05dac13d205936b2537882ca7f958ea",
+      "evaluable": false,
+      "required": [],
+      "unwanted": [{"text": "not-implemented", "reason": "Implementation placeholder rather than the requested report."}],
+      "notes": "Full source contains only not-implemented. No report content is available to annotate.",
+      "reviewer_type": "ai_source_only"
+    },
+    {
+      "snapshot_id": "76bc9af9fc314e8858ded201ecfbe1745120c78f32c722d1876b4ff6cf4a3c21",
+      "evaluable": false,
+      "required": [],
+      "unwanted": [{"text": "Waiting for www.helcim.com to respond...", "reason": "Loading or blocking shell message, not the credit-card-fee guide."}],
+      "notes": "Full source consists of an address, request identifier and waiting message under a Just a moment title. The intended content is absent.",
+      "reviewer_type": "ai_source_only"
+    },
+    {
+      "snapshot_id": "42ae32e8e84be24bdd7794524ab8f8b411ebfcc4f57d5a5677aabcac44833d81",
+      "evaluable": false,
+      "required": [],
+      "unwanted": [{"text": "We're having trouble finding the page you were looking for. Let's try to get you where you need to be.", "reason": "Generic missing-page recovery text."}],
+      "notes": "Full source has only a 404 apology and recovery message. The intended press release is absent.",
+      "reviewer_type": "ai_source_only"
+    },
+    {
+      "snapshot_id": "38d518c3ac4a950ad3a542fec079bed69458517bfed1b7059ee3ee29e2719ab0",
+      "evaluable": false,
+      "required": [],
+      "unwanted": [{"text": "At the moment bajajfinservmarkets.in site and our products are available only in India.", "reason": "Geographic availability gate replaces the intended article."}],
+      "notes": "Full source contains only an interest acknowledgment and geographic restriction. No PayPal or credit-card article content is available.",
+      "reviewer_type": "ai_source_only"
+    },
+    {
+      "snapshot_id": "86a642c4ddce25ea899dacabd2c2d0e2ee3363b87856bf9824b0fe1789d0c3bc",
+      "evaluable": true,
+      "required": [
+        {"text": "Tip: If you're looking for a more local stop, sip and sample at Peoria's Winery 101, home to Gallifant Cellars and Southpaw Cellars.", "kind": "content", "reason": "Retains the local wine-tasting recommendation and named wineries."},
+        {"text": "Page Springs Cellars 1500 Page Springs Road, Cornville (928) 639-3004", "kind": "content", "reason": "Preserves a northern Arizona venue with its practical address and phone details."},
+        {"text": "Sonoita Vineyards 290 Elgin Canelo Road, Elgin (520) 455-5893", "kind": "content", "reason": "Covers a different wine region's venue listing."},
+        {"text": "In the far southeast corner of Arizona, just about three hours from Phoenix, you’ll find Willcox", "kind": "numeric", "reason": "Retains the southeast destination and approximate travel time."}
+      ],
+      "unwanted": [
+        {"text": "Your browser is not supported for this experience. We recommend using Chrome, Firefox, Edge, or Safari.", "reason": "Browser compatibility warning."},
+        {"text": "Dive into the cocktail scene of downtown Phoenix, Arizona, with our curated list of the city's…", "reason": "Separate cocktail-article teaser outside the wine-tasting guide."}
+      ],
+      "notes": "Venue table cells are useful main content. Selected geographically varied entries and travel context; sitewide travel-guide promotions are not required.",
+      "reviewer_type": "ai_source_only"
+    },
+    {
+      "snapshot_id": "a9e162f9690f2eb127afe6a383fb2b342e424988e2ebf82727c92cfdf5aef5d5",
+      "evaluable": true,
+      "required": [
+        {"text": "Azure offers reserved instances involving upfront payments for a one-year or three-year commitment.", "kind": "numeric", "reason": "Captures the reservation model and commitment durations."},
+        {"text": "The pricing for Azure VMs is influenced by local infrastructure costs, regional demand, and data residency requirements.", "kind": "content", "reason": "Explains regional pricing factors."},
+        {"text": "By including these costs, organizations can devise a strategy for Azure cost optimization and prevent unexpected expenses from overlooked service dependencies.", "kind": "content", "reason": "Covers inclusion of additional services in cost estimation."},
+        {"text": "Common unexpected Azure VM costs include data egress charges for outbound network traffic, charges for stopped but not deallocated VMs", "kind": "content", "reason": "Retains concrete hidden-cost examples from the FAQ."}
+      ],
+      "unwanted": [{"text": "Sign up and get $200 in credit for your first 60 days with DigitalOcean.*", "reason": "Signup incentive rather than VM pricing explanation."}],
+      "notes": "The article includes vendor comparison material; that material is not automatically classified as boilerplate. Required anchors focus on distinct substantive pricing sections.",
+      "reviewer_type": "ai_source_only"
+    },
+    {
+      "snapshot_id": "3e1e06f987225cc5a0eb6800be68242df5f6929e6ad7a890d8ce6660d398ad1c",
+      "evaluable": true,
+      "required": [
+        {"text": "You can buy a house now without waiting years to save with no-down-payment options.", "kind": "content", "reason": "Preserves the product's down-payment benefit."},
+        {"text": "The seller is allowed to contribute up to 4% of the value of the home toward your qualifying closing costs", "kind": "numeric", "reason": "Retains the seller-contribution limit and purpose."},
+        {"text": "To demonstrate eligibility, you’ll need to provide a valid Certificate of Eligibility (COE).", "kind": "content", "reason": "Captures required eligibility documentation."},
+        {"text": "A VA loan of $300,000 for 15 years at 4.875% interest and 5.558% APR will result in a monthly payment of $2,352.", "kind": "numeric", "reason": "Preserves the worked loan-payment example, including principal, term, rate and APR."}
+      ],
+      "unwanted": [
+        {"text": "To continue enjoying all the features of Navy Federal Online, please use a compatible browser. Confirm your browser capability.", "reason": "Browser compatibility UI notice."},
+        {"text": "The Navy Federal Credit Union privacy and security polices do not apply to the linked site.", "reason": "External-link modal boilerplate, not loan terms."}
+      ],
+      "notes": "Loan-specific footnotes are substantive, including the payment example; they are not blanket boilerplate. The example excludes taxes and insurance and is subject to the qualifications in its source paragraph. The unrelated cashback paragraph is truncated in the sample and is not used.",
+      "reviewer_type": "ai_source_only"
+    },
+    {
+      "snapshot_id": "690268366d6746d9e0f2091c34e854229a5c1e620bf1d2b0c28f1c2441f538bd",
+      "evaluable": true,
+      "required": [
+        {"text": "If you were a victim of fraud via the Internet, file a report with your local police and the Internet Crime Complaint Center (IC3)", "kind": "content", "reason": "Preserves the online-fraud reporting route."},
+        {"text": "File a complaint with the Federal Trade Commission or call toll free 1-877-FTC-HELP.", "kind": "content", "reason": "Captures a second reporting authority and its phone contact."},
+        {"text": "Please call MoneyGram Customer Service in the United States, at 1-800-926-9400 or complete our report fraud form online.", "kind": "numeric", "reason": "Retains the explicitly US-scoped MoneyGram contact and alternative form."},
+        {"text": "If you're suspicious that you have received a phishing email, don't second guess yourself — please report it so we can investigate.", "kind": "content", "reason": "Covers phishing-specific guidance."}
+      ],
+      "unwanted": [{"text": "Join millions and get the app—it's an easy, fast, and secure way to send money internationally.", "reason": "Generic app promotion outside fraud-reporting instructions."}],
+      "notes": "The source contains multiple regional phone numbers. Selected the explicitly United States-labeled instruction without reconciling the other numbers externally.",
+      "reviewer_type": "ai_source_only"
+    },
+    {
+      "snapshot_id": "caf9adc13e1b9a340de557119cb35a5b8a1630385d134a7e3aab0dbc6055b523",
+      "evaluable": true,
+      "required": [
+        {"text": "Use the username user_good and password pass_good .", "kind": "content", "reason": "Preserves the basic Sandbox credential pair."},
+        {"text": "These credentials have realistic transaction history and may update transactions and fire webhooks when /transactions/refresh is called.", "kind": "content", "reason": "Captures dynamic transaction-testing behavior."},
+        {"text": "You can trigger any multi-factor authentication (MFA) flow that Plaidsupports when creating an Item by using username user_good and modifying the password.", "kind": "content", "reason": "Preserves the MFA simulation procedure without depending on code-block line-number artifacts."},
+        {"text": "Note that error testing credentials are not compatible with institutions that use OAuth.", "kind": "content", "reason": "Preserves a consequential limitation on error simulations."}
+      ],
+      "unwanted": [],
+      "notes": "Reviewed the complete source blocks. No clear unrelated boilerplate is present. reCAPTCHA and error text here are documentation content, not a blocking shell; test credentials and code examples are useful main content.",
+      "reviewer_type": "ai_source_only"
+    },
+    {
+      "snapshot_id": "cc4426a9578fe166faa420842d9cb685b4eeb7b1584dd8eb94340bef7602e6f4",
+      "evaluable": true,
+      "required": [
+        {"text": "Highspot Role Play mirrors real selling moments and aligns to your GTM skills so reps grow with your strategy.", "kind": "content", "reason": "Identifies the product and its intended training purpose."},
+        {"text": "Tailor exercises using the content, messaging, and training already in your Highspot instance.", "kind": "content", "reason": "Captures exercise customization using existing materials."},
+        {"text": "Feedback is tied to your team’s coaching and competency frameworks, not a generic rating.", "kind": "content", "reason": "Preserves the feedback mechanism."},
+        {"text": "Monitor progress with Rep Scorecards and Skill Dashboards across reps, teams, and programs.", "kind": "content", "reason": "Covers progress monitoring features."}
+      ],
+      "unwanted": [{"text": "You’ve made it this far, let’s schedule a demo", "reason": "Generic demo conversion prompt with no feature information."}],
+      "notes": "Reviewed full blocks to distinguish product explanations from conversion prompts and language controls. Product marketing descriptions are the main content of this page.",
+      "reviewer_type": "ai_source_only"
+    },
+    {
+      "snapshot_id": "933571ba70038621feb96c6517dfa773cecf35d5d0205d111a50ac31094512d3",
+      "evaluable": true,
+      "required": [
+        {"text": "Monthly text messages and keywords determine the price. Pay month-by-month or annually for 20% more texts per month.", "kind": "numeric", "reason": "Captures pricing drivers and the annual-plan allowance benefit."},
+        {"text": "10-digit long code numbers require a registration fee, while toll-free numbers do not.", "kind": "content", "reason": "Preserves the phone-number distinction in setup charges."},
+        {"text": "Every new Textedly customer gets a free 14-day trial with 50 text messages and one custom keyword.", "kind": "numeric", "reason": "Retains exact trial duration and included allowances."},
+        {"text": "Additionally, on each account, you’ll need to pay a monthly Telecom surcharge of $8.", "kind": "numeric", "reason": "Captures an extra recurring cost beyond plan pricing."}
+      ],
+      "unwanted": [{"text": "Get started with Textedly. You'll be set up in minutes.", "reason": "Generic bottom-of-page conversion prompt rather than pricing information."}],
+      "notes": "Full blocks contain useful pricing FAQs but no detailed plan-price table. Trial allowances, surcharges and product terms are substantive, even when promotional in tone.",
+      "reviewer_type": "ai_source_only"
+    },
+    {
+      "snapshot_id": "8e5749b03077604e3a21634e80e600e67447211e1471cc10a702a5f3f8ce6bb5",
+      "evaluable": true,
+      "required": [
+        {"text": "Simply start a free introduction course to begin your journey on a new career path. No experience or degree required!", "kind": "content", "reason": "Preserves the introductory offering and entry requirements."},
+        {"text": "Enroll in one of our online self-paced courses to begin learning.", "kind": "content", "reason": "Captures the delivery format of paid study."},
+        {"text": "You can also access 1:1 coaching support throughout the entire job search.", "kind": "content", "reason": "Covers job-search support beyond coursework."},
+        {"text": "After in depth training and passing our highly respected final exam for your course, you’ll receive a certificate of completion!", "kind": "content", "reason": "Preserves the condition for earning a certificate."}
+      ],
+      "unwanted": [{"text": "Career Finder Tool", "reason": "Dropdown control label, not a description of course content."}],
+      "notes": "Reviewed full blocks. Career offerings and program explanations are homepage main content. The limited-time money-back banner and later no-job-promise statement have unresolved scope differences; neither is selected or adjudicated.",
+      "reviewer_type": "ai_source_only"
+    },
+    {
+      "snapshot_id": "48f149a1c2602616e4e82fc9524a8bb3b1e77b74f9037fa1431eb5c6cfa4454c",
+      "evaluable": true,
+      "required": [
+        {"text": "The baby registry that grows with your family", "kind": "heading", "reason": "Identifies the homepage's central service."},
+        {"text": "Eliminate guesswork with our interactive checklist and universal registry.", "kind": "content", "reason": "Preserves the registry's practical features."},
+        {"text": "Find expert-selected, real-parent-tested products, gear, and our exclusive curated kits.", "kind": "content", "reason": "Covers the product-selection offering."},
+        {"text": "We'll take care of contacting your provider and billing your insurance.", "kind": "content", "reason": "Preserves the breast-pump service's insurance handling, confirmed by the adjacent heading."}
+      ],
+      "unwanted": [{"text": "Shop Now", "reason": "Repeated shopping action label without descriptive content."}],
+      "notes": "Full source confirms the insurance sentence belongs to the free breast-pump offering. This is a valid service homepage; its short feature descriptions are evaluable main content.",
+      "reviewer_type": "ai_source_only"
+    },
+    {
+      "snapshot_id": "14823c7693a8e4ad394e333143a8c8fbd68913f43d4f13d010d2e5a8d24ca73e",
+      "evaluable": true,
+      "required": [
+        {"text": "Un guide étape par étape pour intégrer l'IA à votre application à l'aide de Zapier", "kind": "heading", "reason": "Preserves the French tutorial's subject."},
+        {"text": "La technologie d'analyse des factures extrait les informations clés d'une facture (format .pdf, .png ou .jpg)", "kind": "content", "reason": "Captures the parsing task and supported source formats."},
+        {"text": "Pour utiliser cette action avec succès, vous aurez besoin d'un forfait payant sur votre compte Zapier.", "kind": "content", "reason": "Retains a prerequisite for the Code by Zapier step."},
+        {"text": "Il vous suffit de remplacer Autorisation valeur avec votre clé d'API Eden AI.", "kind": "content", "reason": "Preserves the authentication configuration instruction exactly as written."}
+      ],
+      "unwanted": [{"text": "Comment équilibrer les appels aux APIs d’IA et de LLM ?", "reason": "Linked teaser for a separate article about API call balancing."}],
+      "notes": "French anchors preserve source wording, including awkward phrasing. The unrelated rate-limit article card is excluded; substantive tutorial instructions remain required.",
+      "reviewer_type": "ai_source_only"
+    },
+    {
+      "snapshot_id": "eedfacb8cce58033ec98f809a7721fa696dfc7951af2371f5d5c5cff7d8f54aa",
+      "evaluable": true,
+      "required": [
+        {"text": "Selbst bei Anbietern wie der Lohnsteuerhilfe ist diese in aller Regel nicht kostenlos.", "kind": "content", "reason": "Retains the article's answer about free individualized tax advice."},
+        {"text": "Person 2: Gehalt 25.000 € , mit Abzug von Werbungskosten 3.000 € → Steuerberatungskosten von 200,85 € bis 1.618,20 €", "kind": "numeric", "reason": "Preserves a concrete salary, deduction and advisory-cost example."},
+        {"text": "Mit Taxfix kannst du die Höhe einer möglichen Rück- oder Nachzahlung deiner Steuererklärung kostenlos einschätzen lassen.", "kind": "content", "reason": "Distinguishes the free estimate offered by Taxfix."},
+        {"text": "Wenn alles passt, leiten wir deine Steuererklärung über die offizielle ELSTER-Schnittstelle persönlich und sicher an dein zuständiges Finanzamt weiter.", "kind": "content", "reason": "Captures the filing mechanism."}
+      ],
+      "unwanted": [{"text": "Abgabefrist am 2. September verpasst? Schnell nachreichen und Strafen vermeiden!", "reason": "Linked urgency banner separate from the article's tax-advice explanation."}],
+      "notes": "German wording and numeric punctuation are preserved. Advisory prices are source examples, not externally verified estimates. Taxfix service explanations are relevant to the article topic.",
+      "reviewer_type": "ai_source_only"
+    },
+    {
+      "snapshot_id": "a27b24f03a79c788be052205f7b0cd0239345558f5f28994c4b7778e87bfc385",
+      "evaluable": true,
+      "required": [
+        {"text": "93% say reviews affect their final decision. Reviews offer real customer feedback and help build trust fast.", "kind": "numeric", "reason": "Retains the article's quantitative motivation for review tools."},
+        {"text": "WiserReview makes it easy to collect authentic customer feedback in multiple formats.", "kind": "content", "reason": "Preserves a named product capability."},
+        {"text": "Photo reviews, referral programs, and display widgets for Shopify", "kind": "content", "reason": "Captures Loox's features in the comparison table, confirmed from adjacent cells."},
+        {"text": "Automated review requests: Save time by sending reviews via email, SMS, or WhatsApp without doing it manually.", "kind": "content", "reason": "Covers a practical selection criterion from the later guidance."}
+      ],
+      "unwanted": [{"text": "Get Summary On :", "reason": "Summary-generation UI label, not article content."}],
+      "notes": "Inspected full-source comparison table and surrounding sections to identify Loox's feature cell. Product-comparison claims are retained as source content without judging their accuracy.",
+      "reviewer_type": "ai_source_only"
+    },
+    {
+      "snapshot_id": "77178dcd5144dad8491b987acd7ce57da45579f4abd3839ddb2bf5fdc76726e3",
+      "evaluable": true,
+      "required": [
+        {"text": "Refersion integrates seamlessly with major e-commerce platforms like Shopify, WooCommerce, and BigCommerce", "kind": "content", "reason": "Preserves named integrations for one compared platform."},
+        {"text": "Post Affiliate Pro is a robust and feature-rich affiliate management software that is highly customisable.", "kind": "content", "reason": "Covers a second platform's positioning."},
+        {"text": "Why SMBs love it: Tapfiliate’s user-friendly interface and affordable pricing make it an excellent choice for SMBs", "kind": "content", "reason": "Preserves the stated small-business fit of a third platform."},
+        {"text": "Automation reduces manual tasks like tracking affiliate performance, calculating commissions, and managing payments.", "kind": "content", "reason": "Retains the FAQ explanation of operational benefits."}
+      ],
+      "unwanted": [
+        {"text": "For more insights on streamlining business operations, check out GoHire’s guide on hiring the right talent for SMBs .", "reason": "Cross-promotion of an unrelated hiring guide within the article."},
+        {"text": "Learn everything you need to know about web hosting in this definitive guide.", "reason": "Unrelated web-hosting article card."}
+      ],
+      "notes": "The source interleaves affiliate-software information with recruitment promotions. Anchors distinguish substantive comparison and FAQ content from those unrelated links.",
+      "reviewer_type": "ai_source_only"
+    },
+    {
+      "snapshot_id": "739bb165c0d9978cf3a2f29dbf1e42e4dac3317e4dcb2419555e1750d366d01d",
+      "evaluable": true,
+      "required": [
+        {"text": "It operates as a control loop in the Kubernetes controller manager with a default interval of 15 seconds .", "kind": "numeric", "reason": "Retains the HPA control-loop timing."},
+        {"text": "Kubernetes Event‑Driven Autoscaling (KEDA) extends HPA to react to external event sources like Kafka queue lag, HTTP queue length, or Pub/Sub messages.", "kind": "content", "reason": "Covers event-driven scaling and concrete trigger sources."},
+        {"text": "A sync interval that’s too aggressive leads to thrashing, with pods spinning up and down so fast that resources and budgets get wasted.", "kind": "content", "reason": "Preserves a practical tuning risk."},
+        {"text": "When using both, scale on custom metrics to avoid conflicting CPU/memory calculations.", "kind": "content", "reason": "Captures the FAQ's guidance for combining HPA and VPA."}
+      ],
+      "unwanted": [
+        {"text": "Was this content helpful?", "reason": "Rating-form UI prompt."},
+        {"text": "Join our Slack community", "reason": "Footer community signup prompt."}
+      ],
+      "notes": "Inspected full-source ending to separate FAQ answers from rating controls, related posts and footer. The final required anchor refers to HPA and VPA in its preceding sentences.",
+      "reviewer_type": "ai_source_only"
+    },
+    {
+      "snapshot_id": "a2dc73dc37ac68980b5aa72560892b6dc0430656af7512cd484a71b74b19f805",
+      "evaluable": true,
+      "required": [
+        {"text": "An AI engineer is a specialist who builds and deploys artificial intelligence models to solve real-world problems.", "kind": "content", "reason": "Preserves the role definition."},
+        {"text": "Over 1.5M engineers graduate annually in India, with many specializing in AI/ML through IITs, IIITs, and certifications (Google, DeepLearning.AI).", "kind": "numeric", "reason": "Retains the source's quantified talent-pool rationale."},
+        {"text": "Successful onboarding of AI developers in India requires clear access to tools, datasets, and workflows from day one.", "kind": "content", "reason": "Captures concrete onboarding guidance."},
+        {"text": "Freelancers are fine for short-term tasks, but EOR is better for continuity, IP safety, and compliance.", "kind": "content", "reason": "Preserves the FAQ's comparison of engagement models."}
+      ],
+      "unwanted": [{"text": "Hire eCommerce Developers in India: 2025 Guide to Building Scalable Online Stores", "reason": "Separate related-post title, not the AI-engineer hiring guide."}],
+      "notes": "Main article and FAQ content are clearly separated from related-post and sidebar contexts. Claims about hiring models are annotated as source claims, not endorsed or fact-checked.",
+      "reviewer_type": "ai_source_only"
+    },
+    {
+      "snapshot_id": "78f39d63068e09af2ba4751d37b0d875fbfe83cc9cb6895a436817f386a1d399",
+      "evaluable": true,
+      "required": [
+        {"text": "The key difference lies in their format: EAN codes typically have 13 digits, while UPC codes have 12.", "kind": "numeric", "reason": "Preserves the EAN/UPC distinction."},
+        {"text": "GS1 India offers a flexible fee structure with a one-time registration fee and annual renewal charges", "kind": "content", "reason": "Retains purchase-cost structure from the procedural list."},
+        {"text": "Once registered, you’ll receive a unique company prefix needed for barcode generation.", "kind": "content", "reason": "Captures the result of membership registration."},
+        {"text": "Additionally, ensure the barcode is clearly displayed on your product packaging and labels for easy scanning at every point of the supply chain.", "kind": "content", "reason": "Preserves integration guidance from the later tips section."}
+      ],
+      "unwanted": [{"text": "Your email address will not be published. Required fields are marked *", "reason": "Comment-form boilerplate."}],
+      "notes": "Selected explanatory, purchasing and implementation passages. Source claims about authorization and compliance are not externally adjudicated.",
+      "reviewer_type": "ai_source_only"
+    },
+    {
+      "snapshot_id": "a3fb42da002a7ec62603646cd8e33f858eafdfcde28b36c733e3eea04519b9a2",
+      "evaluable": true,
+      "required": [
+        {"text": "Step 1: Choose the destination, course type, course length, and accommodation to create your ideal trip abroad.", "kind": "content", "reason": "Preserves the choices needed to begin a booking."},
+        {"text": "Step 2: Request your personalized offer online, in person at your local EF office, or over the phone.", "kind": "content", "reason": "Captures the available offer-request channels."},
+        {"text": "Step 3: Pay your deposit to confirm your place in the language course of your choice.", "kind": "content", "reason": "Retains the action required to confirm a booking."}
+      ],
+      "unwanted": [{"text": "Click here to explore the available offers", "reason": "Top-banner promotional navigation prompt."}],
+      "notes": "Reviewed all source blocks. The short booking procedure is valid main content. FAQ questions appear only as button labels with no answers in the source; no missing answers are inferred.",
+      "reviewer_type": "ai_source_only"
+    },
+    {
+      "snapshot_id": "f5cf7a1533ff989b6765275554d09ab56e2a38b9db654b0b030db87db8fc8470",
+      "evaluable": true,
+      "required": [
+        {"text": "Lindy – Best overall for businesses ($39/month) – Handles everything from writing to automating follow-ups", "kind": "numeric", "reason": "Retains a named recommendation, price and functional scope."},
+        {"text": "Grammarly’s AI email writer surprised me. It’s completely free, integrates everywhere, and generates genuinely useful email drafts.", "kind": "content", "reason": "Covers the author's assessment of a free alternative."},
+        {"text": "Copy.ai excels at marketing and sales emails. The templates are conversion-focused, and the AI understands sales psychology better than general-purpose tools.", "kind": "content", "reason": "Preserves the marketing-specific comparison."},
+        {"text": "Complex tools like Lindy require 5-10 hours of initial setup", "kind": "numeric", "reason": "Captures the implementation-time cost beyond subscription fees."}
+      ],
+      "unwanted": [
+        {"text": "1207 Delaware Avenue, Suite 1228 Wilmington, DE 19806 United States", "reason": "Site business-address block outside the article."},
+        {"text": "5G Implementation: mmWave vs Sub-6GHz Business Case Analysis October 8, 2025", "reason": "Unrelated sidebar article link."}
+      ],
+      "notes": "Comparative and experiential claims are source content, not independently validated tests. Selected named tools and an explicit setup-cost statement, avoiding the ambiguous unnamed deal-breaker passage.",
+      "reviewer_type": "ai_source_only"
+    },
+    {
+      "snapshot_id": "39de57ebc8987d062e0bbceba626ab811b18f7b98434aef5611e986741c86475",
+      "evaluable": true,
+      "required": [
+        {"text": "Pepsico stands to receive an NIS 80 million grant plus tax benefits for the NIS 320 million investment", "kind": "numeric", "reason": "Preserves the grant and investment amounts from the article deck."},
+        {"text": "SodaStream currently has 1,500 employees at the plant, and will hire 1,000 more for the expanded plant.", "kind": "numeric", "reason": "Captures existing employment and planned hiring."},
+        {"text": "The tax benefit requires approval from the Ministry of Economy and Industry, the Ministry of Finance, and the Israel Tax Authority.", "kind": "content", "reason": "Retains the approval dependencies."},
+        {"text": "the process of granting approval for the planned expansion of the SodaStream plant would be completed by the end of the year.", "kind": "content", "reason": "Preserves the reported approval timetable."}
+      ],
+      "unwanted": [
+        {"text": "Senior PepsiCo execs in Israel scouting for technology", "reason": "Separate related-article title, not the expansion report."},
+        {"text": "The Phoenix Holdings is paying NIS 150 million for the price comparison engine.", "reason": "Unrelated news-feed item outside the article section."}
+      ],
+      "notes": "The source identifies publication on November 24, 2019. Later market-news items belong to a separate feed and are not expansion-report content; dates and relative timing are preserved as historical source claims.",
+      "reviewer_type": "ai_source_only"
+    }
+  ]
+}

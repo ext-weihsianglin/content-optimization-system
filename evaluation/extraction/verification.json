@@ -1,0 +1,21 @@
+{
+  "run": "data/processed/eval-v2",
+  "manifest_hash": "ad6bf81327b68b85242432fba0416f29e27510d03ed6e7b1fb0378410d2876d5",
+  "reference_hash": "4bc34255656df1f7d7f2af6029c07301d4ce1d9bc887d7c9f99c9f08caa99e7e",
+  "results_sha256": "4811bcece415adf058b62a3a2ab7f960beba29c6735daccbeb613efe8baf053c",
+  "snapshots": 100,
+  "unique_candidate_outcomes": 500,
+  "development_snapshots": 60,
+  "heldout_snapshots": 40,
+  "hostname_overlap": 0,
+  "payload_overlap": 0,
+  "errors": 0,
+  "timeouts": 0,
+  "empty_outputs": 6,
+  "resume_results_byte_identical": true,
+  "independent_repeat_run": "data/processed/eval-repeat",
+  "repeat_outcomes_identical_excluding_runtime": 500,
+  "freeze_fingerprints_verified": true,
+  "human_validation": "not_performed",
+  "notes": "Verification records this completed local run, not a claim of determinism on all platforms. Source caches and full extraction artifacts are intentionally gitignored. Reproduction commands are in README.md."
+}
