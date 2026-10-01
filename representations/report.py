@@ -40,7 +40,7 @@ def build_report(run, output):
                 if row:
                     scores[model_name] = {**{key: row[key] for key in ("title_similarity", "h1_similarity", "outline_similarity", "page_similarity", "path_similarity", "section_max", "section_chunk_count", "status")},
                         "sections": [{"text": unit_lookup[uid]["text"][:2400], "excerpt": len(unit_lookup[uid]["text"]) > 2400,
-                                      "block_ids": unit_lookup[uid]["block_ids"]} for uid in row["best_section_unit_ids"]]}
+                                      "block_ids": unit_lookup[uid]["block_ids"], "source_chunk_ids": unit_lookup[uid].get("source_chunk_ids") or []} for uid in row["best_section_unit_ids"]]}
             results.append({**association, "title": title, "h1": h1, "path": path, "scores": scores})
         queries.append({"unit_id": qid, "prompt": unit_lookup[qid]["text"], "status": unit_lookup[qid]["status"], "results": results})
     queries.sort(key=lambda q: (not any(r["extraction_status"] == "selected" for r in q["results"]), len(q["prompt"]), q["unit_id"]))

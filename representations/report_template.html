@@ -25,7 +25,7 @@ const mapSelect=byId('map'),host=byId('host'),label=byId('label'),quality=byId('
 let active,visible=[],chosen;
 function option(select,value,text){const el=document.createElement('option');el.value=value;el.textContent=text;select.append(el)}
 data.maps.forEach(m=>option(mapSelect,m.id,m.name));
-byId('coverage').textContent=`Current run: ${data.coverage.records} citation records; ${data.coverage.selected_snapshots} snapshots selected for content analysis. Other snapshots remain excluded or awaiting extraction review. This view demonstrates pipeline behavior; comparative model quality needs separate evaluation.`;
+byId('coverage').textContent=`Current run: ${data.coverage.records} citation records; ${data.coverage.selected_snapshots} snapshots selected without review flags. Retained content marked needs review may also be scored; inspect its flags. This view demonstrates pipeline behavior; comparative model quality needs separate evaluation.`;
 byId('manifest').textContent=JSON.stringify(data.coverage,null,2);
 function para(text,parent=detail){const el=document.createElement('p');el.textContent=text;parent.append(el)}
 function pre(text,parent=detail){const el=document.createElement('pre');el.textContent=text;parent.append(el)}
@@ -43,8 +43,9 @@ function evidence(){
  node('p','Original dataset label: '+(r.citation_category||'unavailable')+' (relative within this hostname). This is not a model prediction.',summary).className='muted';
  node('h3','Title / visible main heading',summary);node('p',r.title||'Document title not present in this saved source.',summary);if(r.h1.length)node('p','Visible H1: '+r.h1.join(' · '),summary);
  node('h3','URL path we embedded',summary);node('p',r.path||'No usable path representation.',summary);
+ node('p','Extraction: '+r.extraction_status.replaceAll('_',' ')+' · quality flags: '+(r.quality_flags.join(', ')||'none'),summary).className='muted';
  const s=r.scores[modelSelect.value];
- if(!s||r.extraction_status!=='selected'){
+ if(!s||!['selected','needs_review'].includes(r.extraction_status)){
   node('p','This snapshot was not selected for content analysis: '+r.extraction_status.replaceAll('_',' ')+'. No content-match conclusions are available.',scores);
   node('p','No matching section evidence is available for this snapshot.',support);return;
  }
@@ -52,7 +53,7 @@ function evidence(){
  const features=[['Document title','title_similarity','Query vs. HTML document title'],['Visible H1','h1_similarity','Query vs. the visible main heading'],['Heading outline','outline_similarity','Query vs. the ordered heading hierarchy'],['Whole page','page_similarity','Query vs. page meaning; long pages may use a pooled representation'],['URL path','path_similarity','Query vs. path text, such as “journal / running shoes”'],['Closest section','section_max','Best match among '+s.section_chunk_count+' section chunks; more chunks can increase the maximum']];
  features.forEach(([label,key,meaning])=>{const row=document.createElement('tr');node('td',label,row);node('td',s[key]===null?'Unavailable':s[key].toFixed(3),row);node('td',meaning,row);table.append(row)});scores.append(table);
  if(!s.sections.length)node('p','No successfully embedded section is available.',support);
- s.sections.forEach((section,i)=>{const article=document.createElement('article');node('h3',i===0?'Best matching section':'Next matching section '+(i+1),article);node('p',section.text,article).className='evidence-text';if(section.excerpt)node('p','Excerpt only; complete input is retained in the run artifacts.',article).className='muted';const provenance=document.createElement('details');node('summary','Source block references',provenance);node('p',section.block_ids.join(', '),provenance);article.append(provenance);support.append(article)});
+ s.sections.forEach((section,i)=>{const article=document.createElement('article');node('h3',i===0?'Best matching section':'Next matching section '+(i+1),article);node('p',section.text,article).className='evidence-text';if(section.excerpt)node('p','Excerpt only; complete input is retained in the run artifacts.',article).className='muted';const provenance=document.createElement('details');node('summary','Source block references',provenance);node('p',section.block_ids.join(', '),provenance);if(section.source_chunk_ids?.length)node('p','Saved source chunks: '+section.source_chunk_ids.join(', '),provenance);article.append(provenance);support.append(article)});
 }
 function selectQuery(){const q=data.queries.find(q=>q.unit_id===querySelect.value);byId('query-text').textContent=q.prompt||'The original prompt is blank.';pageSelect.replaceChildren();q.results.forEach((r,i)=>option(pageSelect,String(i),r.hostname+' · '+r.extraction_status.replaceAll('_',' ')));evidence()}
 querySelect.addEventListener('change',selectQuery);pageSelect.addEventListener('change',evidence);modelSelect.addEventListener('change',evidence);selectQuery();

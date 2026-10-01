@@ -3,6 +3,7 @@
 import json
 from collections import Counter
 from pathlib import Path
+from urllib.parse import urldefrag
 
 from . import SCHEMA_VERSION, SERIALIZER_VERSION
 from .chunking import split_text
@@ -57,7 +58,7 @@ def make_unit(sid, eid, view, subview, text, *, block_ids=None, section_id=None,
     identity = [SERIALIZER_VERSION, sid, eid, view, subview, section_id, chunk_index, text, start, end, status]
     return {"unit_id": digest(identity), "snapshot_id": sid, "extraction_id": eid,
             "view": view, "subview": subview, "text": text, "text_hash": digest(text),
-            "status": status, "reason": reason, "block_ids": block_ids or [], "section_id": section_id,
+            "status": status, "reason": reason, "block_ids": block_ids or [], "source_chunk_ids": [], "section_id": section_id,
             "chunk_index": chunk_index, "serialized_start": start, "serialized_end": end,
             "content_weight": weight if weight is not None else len(text.encode()),
             "role": "query" if view == "query" else "document", "modality": "text",
@@ -90,7 +91,7 @@ def text_units(sid, eid, view, subview, text, ceiling, *, spans=(), section_id=N
 
 def document_units(document, config):
     sid, eid = document["snapshot"]["snapshot_id"], document["extraction_id"]
-    if document["selection"]["status"] != "selected":
+    if document["selection"]["status"] != "selected" and not (document.get("retention_first") and document["selection"]["status"] == "needs_review" and eid):
         return []
     blocks = document["blocks"]
     by_id = {b["block_id"]: b for b in blocks}
@@ -118,6 +119,31 @@ def document_units(document, config):
     units += text_units(sid, eid, "path", "url_path", path["text"], page, diagnostics=path)
     if path["status"] != "ready":
         units[-1]["reason"] = path["reason"]
+    if document.get("retention_first"):
+        chunk_for_block = {bid: c["chunk_id"] for c in document["chunks"] for bid in c["block_ids"]}
+        for source_chunk in document["chunks"]:
+            chunk_blocks = [by_id[bid] for bid in source_chunk["block_ids"]]
+            text, local_spans = serialize(chunk_blocks, by_id)
+            ancestry = [by_id[h["block_id"]] for h in source_chunk["heading_path"]
+                        if h["block_id"] not in source_chunk["block_ids"]]
+            prefix = "\n".join(render_block(h, by_id) for h in ancestry)
+            section_units = text_units(sid, eid, "section", "source_chunk", text, chunk,
+                                       spans=local_spans, section_id=source_chunk["chunk_id"],
+                                       prefix=prefix + "\n\n" if prefix else "",
+                                       diagnostics={"heading_ids": [h["block_id"] for h in source_chunk["heading_path"]],
+                                                    "source_oversized": source_chunk["oversized"]})
+            for unit in section_units:
+                unit["block_ids"] = list(dict.fromkeys([h["block_id"] for h in ancestry] + unit["block_ids"]))
+                unit["source_chunk_ids"] = [source_chunk["chunk_id"]]
+            units.extend(section_units)
+        for unit in units:
+            if not unit["source_chunk_ids"]:
+                unit["source_chunk_ids"] = list(dict.fromkeys(chunk_for_block[bid] for bid in unit["block_ids"]))
+            diagnostics = json.loads(unit["diagnostics_json"])
+            diagnostics.update(selection_status=document["selection"]["status"],
+                               quality_flags=document["selection"].get("quality_flags", []))
+            unit["diagnostics_json"] = json.dumps(diagnostics, ensure_ascii=False, sort_keys=True)
+        return units
     stack, content, section_id = [], [], "preamble"
 
     def emit():
@@ -153,8 +179,10 @@ def prepare(input_root, output, config, *, raw_root=None, limit=None):
     if output.exists() and any(output.iterdir()):
         raise ValueError("Preparation requires an empty output directory; use a new run ID")
     documents, records, upstream = load_upstream(input_root, raw_root, limit)
-    units = [unit for doc in documents for unit in document_units(doc, config)]
-    by_snapshot = {d["snapshot"]["snapshot_id"]: d for d in documents}
+    units, by_snapshot = [], {}
+    for doc in documents:
+        units.extend(document_units(doc, config))
+        by_snapshot[doc["snapshot"]["snapshot_id"]] = {key: doc[key] for key in ("snapshot", "selection", "extraction_id")}
     queries, associations = {}, []
     for record in records:
         prompt = record["prompt"]
@@ -168,10 +196,17 @@ def prepare(input_root, output, config, *, raw_root=None, limit=None):
             query["unit_id"] = qid
             queries[qid] = query
         doc = by_snapshot[record["snapshot_id"]]
-        associations.append({"record_id": record["record_id"], "snapshot_id": record["snapshot_id"],
+        if urldefrag(record["href"].strip())[0] != urldefrag(doc["snapshot"]["href"].strip())[0]:
+            raise ValueError("Record/saved-document URL mismatch")
+        if record["payload_hash"] != doc["snapshot"]["payload_hash"]:
+            raise ValueError("Record/saved-document payload mismatch")
+        associations.append({"source_record_id": record.get("source_record_id", record["record_id"]),
+                             "source_file": record.get("source_file"), "source_file_hash": record.get("source_file_hash"),
+                             "source_row": record.get("source_row"), "upstream_exclusions": record.get("upstream_exclusions", []),
+                             "record_id": record["record_id"], "snapshot_id": record["snapshot_id"],
                              "extraction_id": doc["extraction_id"], "query_unit_id": qid, "prompt": prompt,
                              "citation_category": record.get("citation_category"), "hostname": record["hostname"],
-                             "href": record["href"], "payload_hash": record["payload_hash"],
+                             "href": doc["snapshot"]["href"], "payload_hash": record["payload_hash"],
                              "extraction_status": doc["selection"]["status"],
                              "quality_flags": doc["selection"].get("quality_flags") or [], "split": record.get("split")})
     units += list(queries.values())

@@ -7,7 +7,7 @@ UNIT_SCHEMA = pa.schema([
     ("unit_id", pa.string()), ("snapshot_id", pa.string()), ("extraction_id", pa.string()),
     ("view", pa.string()), ("subview", pa.string()), ("text", pa.string()),
     ("text_hash", pa.string()), ("status", pa.string()), ("reason", pa.string()),
-    ("block_ids", pa.list_(pa.string())), ("section_id", pa.string()),
+    ("block_ids", pa.list_(pa.string())), ("source_chunk_ids", pa.list_(pa.string())), ("section_id", pa.string()),
     ("chunk_index", pa.int32()), ("serialized_start", pa.int64()), ("serialized_end", pa.int64()),
     ("content_weight", pa.int64()), ("role", pa.string()), ("modality", pa.string()),
     ("asset_id", pa.string()), ("product_entity_id", pa.string()),
@@ -15,6 +15,8 @@ UNIT_SCHEMA = pa.schema([
 ])
 
 ASSOCIATION_SCHEMA = pa.schema([
+    ("source_record_id", pa.string()), ("source_file", pa.string()), ("source_file_hash", pa.string()),
+    ("source_row", pa.int64()), ("upstream_exclusions", pa.list_(pa.string())),
     ("record_id", pa.string()), ("snapshot_id", pa.string()), ("extraction_id", pa.string()),
     ("query_unit_id", pa.string()), ("prompt", pa.string()), ("citation_category", pa.string()),
     ("hostname", pa.string()), ("href", pa.string()), ("payload_hash", pa.string()),

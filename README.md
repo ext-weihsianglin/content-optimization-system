@@ -135,6 +135,8 @@ uv run python scripts/build_embedding_report.py \
   --run data/representations/<run_id> --output analysis/embedding-explorer.html
 ```
 
+For the full corpus, use PR #2's shared prepared cache as `--input` (on this machine: `/Users/ext-weihsiang.lin/Documents/profound/content-optimization-system/data/trad_ml_scorer/v2`). `prepare` only serializes saved documents into embedding inputs; it does not rerun extraction or scorer preparation. It preserves retained `needs_review` content, source chunk/block IDs, original record provenance, exclusions, and existing splits. The 9,551-snapshot input adapter has been checked across all 9,700 records; full-corpus API embeddings are pending. See [adapter validation](analysis/embedding-retention-validation.json) and the [20-snapshot retention evidence report](analysis/embedding-retention-explorer.html).
+
 If an upstream evaluation export omits prompts, add `--raw-root data/raw` to `prepare`. Hydration verifies the raw file hash and source-row payload/URL before reading original prompts and labels. Preparation refuses incomplete upstream runs or broken provenance/joins. `--limit` includes both selected and abstained snapshots; unavailable units stay explicit.
 
 Set `OPENAI_API_KEY`, `VOYAGE_API_KEY`, or `OPENROUTER_API_KEY` in the environment for the corresponding adapter. Never put keys in configuration. For Qwen, copy `representations/config.json`, pin `provider_order` to a verified OpenRouter route, and pass the copy to `prepare --config`. Queries get the documented Qwen instruction; Voyage uses query/document modes; OpenAI uses the same embedding interface for both roles. API routing and dimensions must be verified on the chosen endpoint.

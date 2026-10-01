@@ -163,3 +163,7 @@ The evaluation review and upstream extraction readiness may dominate elapsed tim
 URL-path similarity can reflect taxonomy or page purpose. Long-page pooling may lose local distinctions, and more sections increase the chance of a high maximum match. Record these sensitivities rather than treating them as universal content-editing rules.
 
 Reserve modality/asset/product references now. Product-image acquisition, historical provenance, image model comparison, and visual projection/fusion require a subsequent specification. No image execution or learned fusion is part of these milestones.
+
+## PR #2 shared-corpus integration
+
+Completed the saved `downstream-document-v1` adapter: consume shared compressed documents and records without rerunning parsing; preserve original source chunks, quality flags, duplicate-row provenance, exclusions, and scorer splits. Full-corpus input serialization and a bounded hosted OpenAI alignment/PCA/UMAP smoke validate integration. Full-corpus API execution, human relevance/model comparison, and visual embeddings remain separate next steps. Existing grouped ablation analysis is exploratory cross-validation; it does not reproduce the scorer's frozen train/validation/test experiment.

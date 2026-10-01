@@ -42,6 +42,7 @@ def align(run, model_name):
                        section_q25=float(np.quantile(scores, .25)) if scores else None,
                        section_q75=float(np.quantile(scores, .75)) if scores else None,
                        best_section_unit_ids=[u["unit_id"] for _, u in scored[:3]],
+                       best_section_source_chunk_ids=list(dict.fromkeys(c for _, u in scored[:3] for c in (u.get("source_chunk_ids") or []))),
                        best_section_block_ids=list(dict.fromkeys(b for _, u in scored[:3] for b in u["block_ids"])))
             import json
             row["missing_reasons_json"] = json.dumps(reasons, sort_keys=True)
@@ -52,7 +53,7 @@ def align(run, model_name):
                            + [pa.field(k + "_similarity", pa.float64()) for k in ("title", "h1", "outline", "page", "path")]
                            + [pa.field(k, pa.int64()) for k in ("section_count", "section_chunk_count", "scored_section_chunks")]
                            + [pa.field(k, pa.float64()) for k in ("section_max", "section_top3_mean", "section_median", "section_q25", "section_q75")]
-                           + [pa.field(k, pa.list_(pa.string())) for k in ("best_section_unit_ids", "best_section_block_ids")]
+                           + [pa.field(k, pa.list_(pa.string())) for k in ("best_section_unit_ids", "best_section_block_ids", "best_section_source_chunk_ids")]
                            + [pa.field(k, pa.string()) for k in ("missing_reasons_json", "status")])
         relative = f"alignment/{manifest['models'][model_name]['config_id']}.parquet"
         write_rows(run / relative, rows, schema)

@@ -116,9 +116,22 @@ query alignment; saves PCA fits; and builds a query-first evidence report with
 optional UMAP maps. No local GPU is required. Images and learned fusion are deferred.
 
 The initial compatibility adapter consumes the frozen `eval-v2` parquet schema.
-Its smoke evidence uses the older selection outcomes, not the retention-first
-default. A `downstream-document-v1` adapter preserving source chunk IDs and retained
-`needs_review` content is a rollout gate before a new retention-first corpus run.
+PR #2's saved `downstream-document-v1` documents are now supported as well. Canonical
+shared input: `/Users/ext-weihsiang.lin/Documents/profound/content-optimization-system/data/trad_ml_scorer/v2`.
+Do not repeat HTML extraction or scorer preparation. The adapter streams saved
+compressed documents, preserves source chunks and retained `needs_review` content,
+and carries original scorer IDs, row provenance, exclusions, and existing splits.
+All 9,551 snapshots / 9,700 records validated; 377,460 logical embedding units were
+serialized to this worktree's `data/representations/retention-corpus-v1`.
+Full-corpus API embeddings have not run. Serializer is now `blocks-v2`.
+A new live 20-snapshot retention smoke completed 674 unique OpenAI requests,
+produced 732 vectors, and aligned all 20 records; page/query/path exploratory
+PCA/UMAP projections and a query-first report are saved. Resume used the cache.
+The full corpus would require 323,751 unique OpenAI requests with this input policy,
+not merely one request per record; budget runtime/storage before scheduling it.
+New compact reports: `analysis/embedding-retention-validation.json`,
+`analysis/embedding-retention-smoke.json`, `analysis/embedding-retention-explorer.html`.
+The historical smoke below still reflects older selection outcomes.
 
 Live OpenAI `text-embedding-3-large` baseline: 20 source records/snapshots, 11 selected
 extractions, 342 logical units, 320 unique requests, 334 vectors, zero request
@@ -130,9 +143,9 @@ checked-in summaries: `analysis/embedding-validation.json` and the query-first
 user feedback. Rendered browser verification was blocked by file-URL policy;
 source escaping and script interactions were checked independently.
 
-After integration with main: 110 tests and 12 subtests passed; explorer script
+After integration with PR #2: 130 tests and 12 subtests passed; explorer script
 checks passed. Human query–section relevance review, additional provider
-credentials/preflight, reviewed model selection, retention-export integration,
+credentials/preflight, reviewed model selection,
 and full-corpus processing remain pending. Do not restart embedding API work just
 to reproduce the static report; use cached vectors and the report builder.
 

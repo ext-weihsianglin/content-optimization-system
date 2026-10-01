@@ -1,6 +1,7 @@
-"""Compatibility adapter for PR #1's method/block_json evaluation schema."""
+"""Adapters for frozen evaluation parquets and shared retention-first documents."""
 
 import hashlib
+import gzip
 import json
 from pathlib import Path
 
@@ -27,6 +28,8 @@ def unique(rows, key, name):
 
 def load_upstream(root, raw_root=None, limit=None):
     root = Path(root)
+    if (root / "records.jsonl").is_file():
+        return load_retention(root, limit)
     paths = [root / "manifest.json", *[root / f"{name}.parquet" for name in REQUIRED]]
     for path in paths:
         if not path.is_file():
@@ -122,3 +125,75 @@ def load_upstream(root, raw_root=None, limit=None):
     return documents, records, {"hashes": hashes, "manifest": manifest,
                                 "source_records": len(tables["records"]), "source_snapshots": len(snapshots),
                                 "limit": limit}
+
+
+def load_retention(root, limit=None):
+    """Consume PR #2's saved full-corpus documents, without parsing HTML again."""
+    manifest = read_json(root / "manifest.json")
+    if manifest.get("parser_policy") != "retention-first-v1":
+        raise ValueError("Unsupported retention parser policy")
+    if limit is not None and limit < 1:
+        raise ValueError("Limit must be positive")
+    with (root / "records.jsonl").open() as stream:
+        records = [json.loads(line) for line in stream if line.strip()]
+    if len(records) != manifest["raw_rows"] or len({r["snapshot_id"] for r in records}) != manifest["unique_snapshots"]:
+        raise ValueError("Retention manifest accounting mismatch")
+    chosen = set(sorted({r["snapshot_id"] for r in records})[:limit]) if limit else {r["snapshot_id"] for r in records}
+    hashes = {name: file_hash(root / name) for name in ("manifest.json", "records.jsonl")}
+    sources = manifest["source_files"]
+    seen, selected = set(), []
+    for source in records:
+        row = dict(source)
+        if sources.get(Path(row["source_file"]).name) != row["source_file_hash"]:
+            raise ValueError("Record raw-file provenance differs from manifest")
+        identity = digest([row["source_file_hash"], row["source_row"]])
+        if identity in seen or row["source_row"] < 0:
+            raise ValueError("Duplicate or invalid original row identity")
+        seen.add(identity)
+        if row["snapshot_id"] not in chosen:
+            continue
+        if not isinstance(row["prompt"], str):
+            raise ValueError("Original prompts must be strings")
+        row.update(record_id=identity, source_record_id=source["record_id"],
+                   payload_hash=source["html_sha256"],
+                   citation_category="top" if source["is_cited_high"] else "bottom",
+                   upstream_exclusions=source.get("exclusions", []))
+        selected.append(row)
+
+    def documents():
+        for sid in sorted(chosen):
+            path = root / "documents" / f"{sid}.json.gz"
+            hashes[str(path.relative_to(root))] = file_hash(path)
+            with gzip.open(path, "rt") as stream:
+                doc = json.load(stream)
+            if doc.get("schema_version") != "downstream-document-v1" or doc["snapshot_id"] != sid or doc["selection"]["policy"] != "retention-first-v1":
+                raise ValueError("Invalid saved downstream document")
+            source = doc["source"]
+            if digest([source["payload_hash"], source["href"]]) != sid:
+                raise ValueError("Saved snapshot identity mismatch")
+            blocks = doc["blocks"]
+            ids, orders = set(), set()
+            for block in blocks:
+                if block["block_id"] in ids or block["order"] in orders or (block.get("parent_id") and block["parent_id"] not in ids):
+                    raise ValueError("Invalid saved block tree")
+                ids.add(block["block_id"])
+                orders.add(block["order"])
+            if [b["order"] for b in blocks] != sorted(orders):
+                raise ValueError("Saved blocks must be in source order")
+            chunks = doc["chunks"]
+            if doc["chunk_ids"] != [c["chunk_id"] for c in chunks] or len(set(doc["chunk_ids"])) != len(chunks):
+                raise ValueError("Saved chunk identity mismatch")
+            if [bid for c in chunks for bid in c["block_ids"]] != [b["block_id"] for b in blocks]:
+                raise ValueError("Source chunks must partition saved blocks in order")
+            for chunk in chunks:
+                if chunk["snapshot_id"] != sid or chunk["method"] != doc["selection"]["method"] or any(h["block_id"] not in ids for h in chunk["heading_path"]):
+                    raise ValueError("Invalid source chunk lineage")
+            eid = digest([sid, hashes[str(path.relative_to(root))]])
+            yield {"snapshot": {**source, "snapshot_id": sid}, "selection": doc["selection"],
+                   "inventory": doc["source_metadata"], "blocks": blocks, "chunks": chunks,
+                   "extraction_id": eid if doc["selection"].get("method") else None,
+                   "retention_first": True}
+
+    return documents(), selected, {"format": "downstream-document-v1", "hashes": hashes,
+                                  "manifest": manifest, "source_records": len(records),
+                                  "source_snapshots": manifest["unique_snapshots"], "limit": limit}
