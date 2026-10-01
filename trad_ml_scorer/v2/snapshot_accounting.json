@@ -1,0 +1,8 @@
+{
+  "input_records": 9700,
+  "distinct_snapshots": 9551,
+  "extra_snapshot_references": 149,
+  "shared_snapshots": 111,
+  "records_on_shared_snapshots": 260,
+  "records_without_archive": 0
+}

@@ -1,18 +1,16 @@
 """Behavior checks for inference consistency, split leakage, and train-only preprocessing."""
 
-import sys
 from pathlib import Path
 import tempfile
 import unittest
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
 
 import joblib
 import numpy as np
 
-from lr_features import FEATURE_NAMES, FEATURE_VERSION, extract_features, predict
-from prepare_lr_data import assign_hosts, extract_record, leakage_audit, prepare
-from train_lr import pipeline, response_grid
+from trad_ml_scorer.lr_features import FEATURE_NAMES, FEATURE_VERSION, extract_features, predict
+from trad_ml_scorer.prepare_lr_data import assign_hosts, extract_record, leakage_audit, prepare
+from trad_ml_scorer.train_lr import pipeline, response_grid
 
 HTML = '<html><head><title>Running shoes</title></head><body><main><h1>Running shoes</h1><p>Comfortable running shoes for daily training.</p></main></body></html>'
 

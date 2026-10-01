@@ -22,8 +22,8 @@ from sklearn.metrics import log_loss
 from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import StandardScaler
 
-from lr_evaluation import metrics
-from lr_features import FAMILIES, FEATURE_NAMES, FEATURE_VERSION, PAGE
+from trad_ml_scorer.lr_evaluation import metrics
+from trad_ml_scorer.lr_features import FAMILIES, FEATURE_NAMES, FEATURE_VERSION, PAGE
 
 
 def pipeline(c):
@@ -34,6 +34,8 @@ def pipeline(c):
 def save_plot(fig, output, name):
     fig.savefig(output / f"{name}.png", dpi=170, bbox_inches="tight")
     fig.savefig(output / f"{name}.svg", bbox_inches="tight")
+    svg = output / f"{name}.svg"
+    svg.write_text("\n".join(line.rstrip() for line in svg.read_text().splitlines()) + "\n")
     plt.close(fig)
 
 
@@ -71,7 +73,7 @@ def plot_response_curves(model, xt, xv, names, permutation, output):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--data-dir", type=Path, default=Path("data/lr"))
-    parser.add_argument("--output-dir", type=Path, default=Path("trad_ml_scorer"))
+    parser.add_argument("--output-dir", type=Path, default=Path("trad_ml_scorer/v1"))
     args = parser.parse_args()
     args.output_dir.mkdir(parents=True, exist_ok=True)
     model_path = args.data_dir / "model.joblib"

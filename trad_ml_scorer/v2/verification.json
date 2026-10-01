@@ -1,0 +1,19 @@
+{
+  "status": "passed",
+  "unique_snapshots": 9551,
+  "raw_parity_examples": 6,
+  "v1_model_preserved": true,
+  "checks": [
+    "existing local v1 model checked when supplied",
+    "all source Parquet file fingerprints match",
+    "complete unique-snapshot archive",
+    "copied v1 hostname assignments",
+    "zero cross-split host/URL/HTML/retained-text/record overlap",
+    "exact payload+URL identity joins",
+    "all full/common preprocessing fits use train only",
+    "all regularization choices use validation loss",
+    "primary winner chosen only from v2 variants by validation",
+    "raw/document/feature/model parity",
+    "chunk membership exact and ordered; no duplicated blocks"
+  ]
+}

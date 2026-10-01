@@ -13,9 +13,9 @@ from urllib.parse import urldefrag
 import duckdb
 import numpy as np
 
-from analyze_content import extract
-from analyze_quality import normalize, probe
-from lr_features import FEATURE_NAMES, FEATURE_VERSION, features_from_extraction
+from scripts.analyze_content import extract
+from scripts.analyze_quality import normalize, probe
+from trad_ml_scorer.lr_features import FEATURE_NAMES, FEATURE_VERSION, features_from_extraction
 
 
 def digest(value):
@@ -135,7 +135,7 @@ def main():
         "leakage_audit": audit,
         "clean_policy": "Per-snapshot recognized HTML, no heuristic failure or <=30-body-token flag, >=100 extracted words; evaluation subset only",
         "source_files": {p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(args.input_dir.glob("*.parquet"))},
-        "extractor_hashes": {p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in [Path(__file__), Path(__file__).with_name("lr_features.py"), Path(__file__).with_name("analyze_content.py"), Path(__file__).with_name("analyze_quality.py")]},
+        "extractor_hashes": {p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in [Path(__file__), Path(__file__).with_name("lr_features.py"), Path(__file__).resolve().parents[1] / "scripts/analyze_content.py", Path(__file__).resolve().parents[1] / "scripts/analyze_quality.py"]},
     }
     payload["features_sha256"] = hashlib.sha256((args.output_dir / "features.npz").read_bytes()).hexdigest()
     manifest.write_text(json.dumps(payload, indent=2) + "\n")

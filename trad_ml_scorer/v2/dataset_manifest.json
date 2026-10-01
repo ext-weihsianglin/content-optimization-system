@@ -1,0 +1,139 @@
+{
+  "source_files": {
+    "citations_part_001.parquet": "815aca4d97e8143f3a5eeb1da9373855664699734b6bdee45f2a4dc74bec079f",
+    "citations_part_002.parquet": "8437f3ac54554ece8939eeb82fb1f4275f81d3b4505dce59de21592517844976",
+    "citations_part_003.parquet": "061f47a4999814ec779d1ca87ea2e51d20f42261240e15a0bfa13a2e3698e71f",
+    "citations_part_004.parquet": "5ac0d42caaa1eaf7457ddf2c342af4ebbe6910f883d050b4658f7368a0e53c7d",
+    "citations_part_005.parquet": "ede6525f3d69cd81e9a41f588bb1b76e648e68bba9fa94649ef56d74cede09ae"
+  },
+  "code_hashes": {
+    "preprocessing/schema.py": "fcce8bfd4f532330234d12a5072fa2d7250504c231e823260310a4018a1e60e1",
+    "preprocessing/blocks.py": "b303be2ab983b7ee8c06adfa7439732bb669524ec3f49d9228e6dfb99efdb99b",
+    "preprocessing/quality.py": "8d01da9c7a1aec1b4176019eb8169a760aa177748fba19726dd546779a80e52f",
+    "preprocessing/select.py": "e15d75348bb6a9de18a97690c64aac89101b49a733ff3d8aa6e34caf50902af4",
+    "preprocessing/downstream.py": "36aaf935d929cf76176ec95769fab49cb72d4e79a81c8eb81eae5ed5de41da2e",
+    "preprocessing/adapters/local.py": "c976815924c852553008daafbb1b3b30e90ad8cdc065f83c00bcef2ebc8437dd",
+    "/Users/ext-weihsiang.lin/Documents/profound/content-optimization-system/.worktrees/deck-prototype-trad-ml-scorers/trad_ml_scorer/prepare_retention.py": "2d0e7f9756dd686e1d12f923ae9a26bcc8ecb0a3f6f9dadac92e11e7278313dc",
+    "/Users/ext-weihsiang.lin/Documents/profound/content-optimization-system/.worktrees/deck-prototype-trad-ml-scorers/trad_ml_scorer/retention_features.py": "d9ff4de10ceb0283025b929cd6462743f315c7a27651156303d1e16ae091624f"
+  },
+  "feature_version": "lr-retention-v2",
+  "feature_names": [
+    "log_prompt_words",
+    "prompt_question",
+    "prompt_comparison",
+    "prompt_how_to",
+    "path_depth",
+    "path_homepage",
+    "path_editorial",
+    "path_commerce",
+    "path_support_docs",
+    "coverage_title",
+    "coverage_headings",
+    "coverage_body",
+    "coverage_intro",
+    "log_word_count",
+    "log_title_words",
+    "log_heading_count",
+    "log_h1_count",
+    "log_list_items",
+    "log_table_count",
+    "log_paragraph_count",
+    "log_code_count",
+    "log_ordered_steps",
+    "headings_per_1000_words",
+    "list_items_per_1000_words",
+    "has_table",
+    "has_list",
+    "has_jsonld",
+    "has_article_schema",
+    "log_source_script_count",
+    "empty_title",
+    "retained_text_fraction",
+    "needs_review",
+    "possible_error_response",
+    "sparse_body",
+    "format_html",
+    "coverage_h1",
+    "coverage_table_headers",
+    "best_section_coverage",
+    "mean_section_coverage",
+    "matching_section_fraction",
+    "best_section_heading_coverage",
+    "best_section_position",
+    "comparison_x_table_header_coverage",
+    "how_to_x_ordered_steps"
+  ],
+  "parser_policy": "retention-first-v1",
+  "raw_rows": 9700,
+  "unique_snapshots": 9551,
+  "snapshot_statuses": {
+    "selected": 9168,
+    "needs_review": 333,
+    "source_insufficient": 47,
+    "unsupported_format": 3
+  },
+  "splits": {
+    "train": {
+      "rows": 7540,
+      "hosts": 771,
+      "common_rows": 7525
+    },
+    "validation": {
+      "rows": 945,
+      "hosts": 97,
+      "common_rows": 945
+    },
+    "test": {
+      "rows": 947,
+      "hosts": 97,
+      "common_rows": 938
+    }
+  },
+  "eligible_rows": 9432,
+  "common_rows": 9408,
+  "v1_only_rows": 39,
+  "v2_only_rows": 24,
+  "exclusions_overlapping": {
+    "blank_prompt": 91,
+    "no_selected_retained_content": 54,
+    "conflicting_url_labels": 76,
+    "html_shared_across_hosts": 25,
+    "exact_duplicate": 28,
+    "retained_text_shared_across_hosts": 22
+  },
+  "leakage_audit": {
+    "hostname": {
+      "train__validation": 0,
+      "train__test": 0,
+      "validation__test": 0
+    },
+    "href": {
+      "train__validation": 0,
+      "train__test": 0,
+      "validation__test": 0
+    },
+    "html_sha256": {
+      "train__validation": 0,
+      "train__test": 0,
+      "validation__test": 0
+    },
+    "text_sha256": {
+      "train__validation": 0,
+      "train__test": 0,
+      "validation__test": 0
+    },
+    "record_id": {
+      "train__validation": 0,
+      "train__test": 0,
+      "validation__test": 0
+    },
+    "prompt_hash": {
+      "train__validation": 59,
+      "train__test": 48,
+      "validation__test": 13
+    }
+  },
+  "features_sha256": "6762517a4c745939029feeda7e565912dc6da7cad6f39c3d8ac7989cfecb5d56",
+  "test_status": "Reused v1 host benchmark, not a fresh independent holdout",
+  "clean_policy": "selected without source quality flags and >=100 whitespace-separated retained words; differs from v1"
+}

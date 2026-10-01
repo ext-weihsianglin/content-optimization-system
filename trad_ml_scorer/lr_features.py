@@ -6,8 +6,8 @@ from urllib.parse import unquote, urlsplit
 
 import numpy as np
 
-from analyze_content import coverage, extract, words
-from analyze_quality import PATH_RULES, probe
+from scripts.analyze_content import coverage, extract, words
+from scripts.analyze_quality import PATH_RULES, probe
 
 FEATURE_VERSION = "lr-handcrafted-v1"
 ALIGNMENT = [f"coverage_{name}" for name in ("title", "headings", "body", "intro", "url_path")]

@@ -18,9 +18,9 @@ import numpy as np
 from sklearn.calibration import calibration_curve
 from sklearn.metrics import RocCurveDisplay
 
-from lr_evaluation import host_bootstrap, metrics
-from lr_features import FEATURE_NAMES
-from train_lr import save_plot
+from trad_ml_scorer.lr_evaluation import host_bootstrap, metrics
+from trad_ml_scorer.lr_features import FEATURE_NAMES
+from trad_ml_scorer.train_lr import save_plot
 
 
 def build_report(output, selection, manifest, result):
@@ -101,7 +101,7 @@ def build_report(output, selection, manifest, result):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--data-dir", type=Path, default=Path("data/lr"))
-    parser.add_argument("--output-dir", type=Path, default=Path("trad_ml_scorer"))
+    parser.add_argument("--output-dir", type=Path, default=Path("trad_ml_scorer/v1"))
     parser.add_argument("--report-only", action="store_true", help="Rebuild HTML/Markdown from saved results without reevaluation")
     args = parser.parse_args()
     output = args.output_dir

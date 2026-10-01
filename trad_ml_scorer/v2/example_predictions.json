@@ -1,0 +1,122 @@
+[
+  {
+    "record_id": "31e54667cf9c2b7b3490b7bc330c2bdc5d2cade909ac2e780dbc787fa7c28271",
+    "snapshot_id": "a9c6b3210147b1ba318713ba511da6ebd94fa7867691825a8c4f570100ed2cd8",
+    "split": "train",
+    "prompt": "best AI picture creator online",
+    "url": "https://a1.art/features/ai-brasil-art-generator",
+    "is_cited_high": 1,
+    "p_is_cited_high": 0.6301628785421549,
+    "selection": {
+      "policy": "retention-first-v1",
+      "human_validated": false,
+      "quality_flags": [],
+      "status": "selected",
+      "method": "conservative_dom",
+      "reasons": [
+        "Preserve content and structure before downstream relevance decisions; flagged content remains available. Boilerplate is expected."
+      ]
+    },
+    "feature_version": "lr-retention-v2"
+  },
+  {
+    "record_id": "e31021e056e88a97ff840f04c02211a17b91664de9f81b25fcb4b908e35239e7",
+    "snapshot_id": "7363810d922794b40d1598d700ca0ccafcc372de53b60a1fd83413d889ad143e",
+    "split": "train",
+    "prompt": "How to create AI Art?",
+    "url": "https://a1.art/features/ai-brazilian-art-generator",
+    "is_cited_high": 1,
+    "p_is_cited_high": 0.513259826968589,
+    "selection": {
+      "policy": "retention-first-v1",
+      "human_validated": false,
+      "quality_flags": [],
+      "status": "selected",
+      "method": "conservative_dom",
+      "reasons": [
+        "Preserve content and structure before downstream relevance decisions; flagged content remains available. Boilerplate is expected."
+      ]
+    },
+    "feature_version": "lr-retention-v2"
+  },
+  {
+    "record_id": "a8d657c7bd7009eb42288fe9b3e2cd6229eec0c62388ec302db154dcb15b1990",
+    "snapshot_id": "95f30204e838dc016a4dd18264793eb14d1703db5fc5a76a1f5e84f5bebc07db",
+    "split": "train",
+    "prompt": "Quelle est la meilleure fa\u00e7on de g\u00e9n\u00e9rer de l'art AI gratuitement ?",
+    "url": "https://a1.art/features/ai-french-art-generator",
+    "is_cited_high": 1,
+    "p_is_cited_high": 0.42448913820460205,
+    "selection": {
+      "policy": "retention-first-v1",
+      "human_validated": false,
+      "quality_flags": [],
+      "status": "selected",
+      "method": "conservative_dom",
+      "reasons": [
+        "Preserve content and structure before downstream relevance decisions; flagged content remains available. Boilerplate is expected."
+      ]
+    },
+    "feature_version": "lr-retention-v2"
+  },
+  {
+    "record_id": "a1c46c527fa922bf6102669d9ec2f996e6ce707d83b1e670f6d54c0e413a9e43",
+    "snapshot_id": "2510ee4b046ae09df43f15090f7ab37f34aba24d491e06ba07a48476d5217dbe",
+    "split": "validation",
+    "prompt": "What is the best expense management software for growing businesses?",
+    "url": "https://advertiserreview.com/softwares/expense-management",
+    "is_cited_high": 1,
+    "p_is_cited_high": 0.7218421277538253,
+    "selection": {
+      "policy": "retention-first-v1",
+      "human_validated": false,
+      "quality_flags": [],
+      "status": "selected",
+      "method": "conservative_dom",
+      "reasons": [
+        "Preserve content and structure before downstream relevance decisions; flagged content remains available. Boilerplate is expected."
+      ]
+    },
+    "feature_version": "lr-retention-v2"
+  },
+  {
+    "record_id": "40342c6c7df3ae583abe6593cbbb5eb88e62d85534d867392d8d1201deee444c",
+    "snapshot_id": "bc8337414409037271a7bc20c439cffa81ca684f6331a17a6f853566538f4219",
+    "split": "validation",
+    "prompt": "best rated cloud expense management software",
+    "url": "https://advertiserreview.com/softwares/expense-management-software-in-uk",
+    "is_cited_high": 1,
+    "p_is_cited_high": 0.75011996427851,
+    "selection": {
+      "policy": "retention-first-v1",
+      "human_validated": false,
+      "quality_flags": [],
+      "status": "selected",
+      "method": "conservative_dom",
+      "reasons": [
+        "Preserve content and structure before downstream relevance decisions; flagged content remains available. Boilerplate is expected."
+      ]
+    },
+    "feature_version": "lr-retention-v2"
+  },
+  {
+    "record_id": "6a262ad2ee3da83f37bb7005465c291914121804551f7cf9b3539a05cbaff75c",
+    "snapshot_id": "af1921c7c5c1b8cb9a0e161191c9b13cdf4aa250b1875379e485d5a33bb2237c",
+    "split": "validation",
+    "prompt": "top rated support software for businesses",
+    "url": "https://advertiserreview.com/softwares/help-desk",
+    "is_cited_high": 1,
+    "p_is_cited_high": 0.6404081306773588,
+    "selection": {
+      "policy": "retention-first-v1",
+      "human_validated": false,
+      "quality_flags": [],
+      "status": "selected",
+      "method": "conservative_dom",
+      "reasons": [
+        "Preserve content and structure before downstream relevance decisions; flagged content remains available. Boilerplate is expected."
+      ]
+    },
+    "feature_version": "lr-retention-v2"
+  }
+]

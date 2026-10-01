@@ -201,31 +201,21 @@ The top/bottom labels describe relative performance within a hostname. Both clas
 
 Treat associations as exploratory hypotheses. Page purpose, query intent, language, scrape failures, shared templates, and repeated URLs can distort comparisons. An observed association does not show that changing the feature increases citations. A content prototype should ground its factual claims in supplied source material and trace its editing rules to the analysis. Measuring citation uplift requires a separate prospective evaluation.
 
-## Logistic-regression baseline
+## Traditional ML scorer
 
-The handcrafted LR prototype predicts membership in the dataset's within-host `top` class. Its 35 inference-time features cover prompt alignment, prompt style, content structure, URL paths, and extraction quality. See [the result report](trad_ml_scorer/report.html), [Markdown results](trad_ml_scorer/report.md), and [feature definitions](trad_ml_scorer/feature_definitions.md).
+The current **v2 scorer uses the retention-first parser as its source of truth**. LR code, plans, visual reports, and feature explanations live in [`trad_ml_scorer/`](trad_ml_scorer/README.md), with frozen original results in [`trad_ml_scorer/v1/`](trad_ml_scorer/v1/report.md) and retention-based results in [`trad_ml_scorer/v2/`](trad_ml_scorer/v2/report.md). See the [v2 HTML report](trad_ml_scorer/v2/report.html) for feature importance and sensitivity charts.
 
-Install the locked environment with `uv sync --locked` (or a workspace-local `uv` binary). Run from the repository root:
+The full corpus is parsed once per exact payload-plus-URL snapshot. Queries and labels are joined afterward; original metadata, structured blocks, sections, lists, and table headers provide features. V2 reuses v1's hostname assignments and reports both its own eligible population and refitted comparisons on common rows. Training transformations and regularization/feature-variant selection use train and validation respectively. Test results are explicitly a **reused v1 host benchmark**, not new independent confirmation.
 
-```sh
-uv run python scripts/prepare_lr_data.py --input-dir data/raw --workers 4
-uv run python scripts/train_lr.py
-uv run python scripts/evaluate_lr.py
-uv run python scripts/verify_lr.py --input-dir data/raw
-uv run python -m unittest discover -s tests -p test_lr.py -v
-```
-
-In this worktree, the raw source was supplied with `--input-dir ../../data/raw`. Preparation writes the local feature table, source/exclusion records, split manifest, and fingerprints to ignored `data/lr/`. The saved inference pipeline is `data/lr/model.joblib`; published metrics, split assignments, and PNG/SVG plots are in `trad_ml_scorer/`. These scripts refuse to overwrite completed data, models, or test evaluations. For an explicitly new experiment, pass a new `--output-dir` to preparation and matching `--data-dir` / `--output-dir` arguments to training and evaluation. Rebuild presentation alone with `uv run python scripts/evaluate_lr.py --report-only`.
-
-Score a supplied snapshot (load only trusted joblib models):
+Run from the repository root:
 
 ```sh
-uv run python scripts/predict_lr.py \
-  --prompt "What are the best running shoes?" \
+uv sync --locked
+uv run python -m trad_ml_scorer.predict_lr \
+  --prompt "How to choose running shoes" \
   --html-file /path/to/page.html \
-  --url https://example.com/running-shoes
+  --url https://example.com/shoes
+uv run python -m pytest tests/test_lr.py tests/test_retention_scorer.py -q
 ```
 
-Seed 42 fixes the 80/10/10 hostname assignment. After duplicate/conflict/blank-query exclusions, splits contain 7,561 / 947 / 939 rows. Cross-split hostname, URL, exact HTML, nonempty normalized extracted-text, and exact-record overlaps are zero. All imputation and scaling fit on training data. Validation log loss selects the feature variant and `C`; the selected model remains train-only, with no test-driven retuning. Validation-only feature permutation, family ablation, and response curves explain sensitivity without using test labels for selection.
-
-The selected prompt-plus-page LR (`C=0.01`) achieves test ROC-AUC **0.6688** (95% host-bootstrap interval **0.6288–0.7026**), log loss **0.6479**, Brier score **0.2285**, and accuracy **61.45%**. This is a working baseline with modest discrimination, not established production readiness. Earlier full-dataset exploration, repeated prompts across hosts, and possible near duplicates or related host organizations limit claims of completely untouched evaluation. The score is not an absolute citation probability or a causal content-editing effect.
+The default model is `data/trad_ml_scorer/v2/model.joblib`; pass `--model data/lr/model.joblib` for the preserved v1 model. Models and intermediate source documents stay outside Git. See the [scorer guide](trad_ml_scorer/README.md) for full-corpus preparation, fitting, evaluation, and artifact verification commands. V2 returns parser quality status and abstains if no usable content is selected. Scores describe the sampled within-host top class among already-cited pages; they do not establish absolute citation probability or causal editing uplift.

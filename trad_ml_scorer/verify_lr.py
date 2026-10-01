@@ -9,15 +9,15 @@ import duckdb
 import joblib
 import numpy as np
 
-from lr_features import FEATURE_NAMES, extract_features, predict
-from prepare_lr_data import leakage_audit
+from trad_ml_scorer.lr_features import FEATURE_NAMES, extract_features, predict
+from trad_ml_scorer.prepare_lr_data import leakage_audit
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--input-dir", type=Path, default=Path("data/raw"))
     parser.add_argument("--data-dir", type=Path, default=Path("data/lr"))
-    parser.add_argument("--output-dir", type=Path, default=Path("trad_ml_scorer"))
+    parser.add_argument("--output-dir", type=Path, default=Path("trad_ml_scorer/v1"))
     args = parser.parse_args()
     records = [json.loads(line) for line in (args.data_dir / "records.jsonl").read_text().splitlines()]
     manifest = json.loads((args.data_dir / "manifest.json").read_text())
