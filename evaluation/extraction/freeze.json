@@ -1,0 +1,38 @@
+{
+  "stage": "before first heldout extraction",
+  "manifest_hash": "ad6bf81327b68b85242432fba0416f29e27510d03ed6e7b1fb0378410d2876d5",
+  "reference_hash": "4bc34255656df1f7d7f2af6029c07301d4ce1d9bc887d7c9f99c9f08caa99e7e",
+  "configuration": {
+    "schema_version": "1.0.0",
+    "seed": "snapshot-eval-v1-20261001",
+    "methods": [
+      "baseline",
+      "trafilatura",
+      "readability",
+      "conservative_dom",
+      "markdown_text"
+    ],
+    "max_payload_bytes": 10000000,
+    "timeout_seconds": 30,
+    "network": "disabled",
+    "annotation_policy": "Source-only AI-assisted reference anchors; no human gold claim",
+    "selection_policy": "Diagnostics only; no citation labels or prompts"
+  },
+  "extraction_fingerprints": {
+    "preprocessing/schema.py": "fcce8bfd4f532330234d12a5072fa2d7250504c231e823260310a4018a1e60e1",
+    "preprocessing/blocks.py": "b303be2ab983b7ee8c06adfa7439732bb669524ec3f49d9228e6dfb99efdb99b",
+    "preprocessing/quality.py": "8d01da9c7a1aec1b4176019eb8169a760aa177748fba19726dd546779a80e52f",
+    "preprocessing/offline.py": "dcb6bb1f5c4d8aa1bb3e25b6e7dbaf8d9adc54c5c5eaeadc7a11c207dacaf235",
+    "preprocessing/runner.py": "bac78d483a3dc35d3c746218d8990402c2b9dd13e99d0e43a37b224160a19e57",
+    "preprocessing/adapters/local.py": "c976815924c852553008daafbb1b3b30e90ad8cdc065f83c00bcef2ebc8437dd",
+    "preprocessing/adapters/external.py": "ee84bf0ac857e8a851583d8c452f5f8b067d743a94c154ccb7c2fad138af7a7a",
+    "preprocessing/node/package-lock.json": "cdc3c62c394c5ff43d4bc2798a1fbf7f0b2b687d74235b4326bf99faf5a772a9",
+    "preprocessing/node/worker.cjs": "ce3cc69b6510d44bb0bfad98f26a1ed1e402b37ef24c610ff12d13ec277413f2",
+    "scripts/analyze_content.py": "21f2c197a25ecd6c1f4d11d2090f7fefe94f2c0939ebea60e7261fa97c7d7c29",
+    "uv.lock": "e04153586e872c7171ff36759595231aa29e091a13ddbbe1d81942b54abd81fa"
+  },
+  "evaluation_sha256": "921056787e40e4fbf490a66e731537c8a08aa166402972504e45d11a7fedb7ab",
+  "development_reviewed": true,
+  "human_review": "not_performed",
+  "policy": "No extractor, reference, or scoring tuning after heldout execution. Report-only changes permitted."
+}

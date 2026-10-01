@@ -115,6 +115,29 @@ Deliverables:
 
 Exit gate: Report sample-size changes and parser-dependent conclusions explicitly. Do not overwrite the original findings without preserving their version and methodology.
 
+## Implementation checkpoint — 2026-10-01
+
+Latest decision: prioritize retention plus structure rather than main-content
+precision. `spec/downstream-document.md` defines the implemented conservative-DOM
+document/outline/chunk export. The initial export is evaluation-set only, with
+quality flags preserved and no silent fallback. Reader-LM tuning is deferred after
+the expanded-budget three-page diagnostic; reports are retained for review.
+
+The offline five-candidate benchmark, structured block adapters, source metadata
+inventory, resumable evaluation runner, synthetic structural checks, and comparison
+report are implemented. The evaluation manifest freezes 60 development and 40
+held-out hosts, with identical-payload groups kept within a split. Source-only
+AI-assisted references were frozen before candidate evaluation; they do not fulfill
+the human-gold acceptance gate. Configuration and evaluator fingerprints are in
+`evaluation/extraction/freeze.json`; results are in
+`analysis/extraction-evaluation.json` and `analysis/extraction-evaluation.html`.
+
+This delivers the evaluation-set implementation and measured comparison, not a
+completed corpus rollout. Diagnostic selection proposals are not human-validated.
+Remaining gates: human reference review, full-corpus runner/processing, validated
+selection, v2 feature migration, and the preprocessing impact report. Preserve the
+v1 analysis until these gates are met.
+
 ## Verification work
 
 Introduce meaningful tests for the new preprocessing layer:

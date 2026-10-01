@@ -1,5 +1,8 @@
 .venv/
+.venv-reader/
 .tools/
 data/
 __pycache__/
 .DS_Store
+node_modules/
+.pytest_cache/

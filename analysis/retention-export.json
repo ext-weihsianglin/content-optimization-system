@@ -1,0 +1,27 @@
+{
+  "policy": "retention-first-v1",
+  "scope": "Frozen 100-snapshot evaluation set only; not full-corpus migration",
+  "documents": 100,
+  "blocks": 28539,
+  "chunks": 2383,
+  "status_counts": {
+    "selected": 87,
+    "source_insufficient": 5,
+    "needs_review": 8
+  },
+  "method_counts": {
+    "markdown_text": 8,
+    "none": 5,
+    "conservative_dom": 87
+  },
+  "oversized_chunks": 17,
+  "target_characters": 6000,
+  "chunk_policy": "Soft character target, not a token budget. Tables, code, and entire nested-list trees are never split or truncated. Every selected block occurs in exactly one chunk.",
+  "inputs": {
+    "data/processed/eval-v2/results.jsonl": "4811bcece415adf058b62a3a2ab7f960beba29c6735daccbeb613efe8baf053c",
+    "data/processed/eval-v2/source_features.parquet": "2ded7050a2701cb87414641f7a2ac35b55c1c60fe1f50df7614cc8cbb102ef1f",
+    "/Users/ext-weihsiang.lin/Documents/profound/content-optimization-system/preprocessing/downstream.py": "36aaf935d929cf76176ec95769fab49cb72d4e79a81c8eb81eae5ed5de41da2e",
+    "preprocessing/select.py": "e15d75348bb6a9de18a97690c64aac89101b49a733ff3d8aa6e34caf50902af4",
+    "preprocessing/blocks.py": "b303be2ab983b7ee8c06adfa7439732bb669524ec3f49d9228e6dfb99efdb99b"
+  }
+}

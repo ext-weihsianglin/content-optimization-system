@@ -1,0 +1,70 @@
+{
+  "version": 1,
+  "purpose": "Controlled structural tests; synthetic documents are not held-out real-page accuracy evidence.",
+  "cases": [
+    {
+      "id": "article-with-boilerplate",
+      "format": "html",
+      "payload": "<html><head><title>Reservoir inspection</title></head><body><nav><p>Subscribe to the weekly advertising newsletter for special partner offers.</p></nav><article><header><h1>Reservoir inspection protocol</h1></header><p>Engineers inspect the reservoir every 14 days and record water pressure at three marked checkpoints. Each observation includes the sensor serial number, inspection time, and the name of the technician who performed the measurement.</p><h2>Pressure limits</h2><p>The acceptable operating pressure is 35 kPa; readings above 42 kPa require a documented shutdown. The maintenance team verifies abnormal readings using a second calibrated gauge before restarting the equipment.</p><p>Records must remain available for 24 months so that independent reviewers can compare seasonal variations and identify deteriorating seals. Technicians keep the original measurements even when a follow-up inspection produces a different result.</p></article><footer><p>All partner advertising offers expire at the end of this month.</p></footer></body></html>",
+      "required": ["inspect the reservoir every 14 days", "acceptable operating pressure is 35 kPa", "readings above 42 kPa", "Records must remain available for 24 months"],
+      "unwanted": ["Subscribe to the weekly advertising newsletter", "All partner advertising offers expire"],
+      "structure": {"heading": "Pressure limits"}
+    },
+    {
+      "id": "product-table-spans",
+      "format": "html",
+      "payload": "<html><head><title>Sensor pack specifications</title></head><body><main><h1>Sensor pack specifications</h1><p>The sensor packs below provide different battery lifetimes and operating ranges. Each price includes the mounting kit, installation guide, and a calibration certificate. Customers should choose the model that meets the expected ambient temperature rather than relying only on battery capacity.</p><table><caption>Operating specifications</caption><thead><tr><th rowspan='2' scope='col'>Model</th><th colspan='2' scope='colgroup'>Limits</th></tr><tr><th scope='col'>Temperature</th><th scope='col'>Battery</th></tr></thead><tbody><tr><th scope='row'>Arctic</th><td>-20 °C</td><td>48 hours</td></tr><tr><th scope='row'>Desert</th><td>60 °C</td><td>36 hours</td></tr></tbody></table><p>Battery measurements assume one sample per minute. Increasing the sampling rate reduces the available operating time. Field technicians should confirm the selected configuration before leaving the sensor unattended at a remote monitoring location.</p></main></body></html>",
+      "required": ["Each price includes the mounting kit", "Arctic", "-20 °C", "48 hours", "Desert", "60 °C", "36 hours"],
+      "unwanted": [],
+      "structure": {"table_cells": [{"text":"Model","row":0,"column":0,"rowspan":2,"colspan":1,"is_header":true},{"text":"Limits","row":0,"column":1,"rowspan":1,"colspan":2,"is_header":true},{"text":"Arctic","row":2,"column":0,"is_header":true},{"text":"48 hours","row":2,"column":2,"is_header":false}]}
+    },
+    {
+      "id": "nested-list-and-code",
+      "format": "html",
+      "payload": "<html><body><article><h1>Offline setup guide</h1><p>This guide configures an offline package mirror for a workstation that cannot contact external services. The operator verifies the checksum before installation and stores the signed manifest next to the archived package.</p><ol><li>Verify the archive.<ul><li>Compare its checksum with the signed manifest.</li><li>Reject packages with a missing signature.</li></ul></li><li>Run the local installer.</li></ol><pre><code>def calibrate(value):\n    return value * 1.25\n</code></pre><p>The calibration function multiplies the measured value by 1.25 without rounding the result. Save the original reading alongside the calibrated output. This makes it possible to audit earlier calculations when a replacement sensor uses a different correction factor.</p><p>The installer must not download additional packages during setup. Any missing dependency should result in an explicit error and leave the existing environment unchanged until the operator provides a complete archive.</p></article></body></html>",
+      "required": ["Compare its checksum with the signed manifest", "Reject packages with a missing signature", "The installer must not download additional packages"],
+      "unwanted": [],
+      "structure": {"code":"def calibrate(value):\n    return value * 1.25\n", "nested_list":true}
+    },
+    {
+      "id": "misleading-tiny-main",
+      "format": "html",
+      "payload": "<html><head><title>Reservoir service schedule</title></head><body><main><p>Account settings</p></main><div class='content'><h1>Reservoir service schedule</h1><p>Replace the intake filter every 90 days even if no visible debris has accumulated. The filter housing must be depressurized before opening, and the replacement cartridge must match the part number printed on the maintenance label.</p><p>Inspect the outlet seals every 180 days and record any evidence of leakage. A seal that becomes brittle should be replaced immediately rather than waiting for the next scheduled maintenance visit. Keep the removed component for inspection if its condition suggests an unexpected material failure.</p><p>Complete a full pressure test every 365 days using the approved procedure. The annual report includes readings taken before and after servicing, the replacement parts installed, and the technician's written confirmation that all protective covers were restored.</p></div></body></html>",
+      "required": ["Replace the intake filter every 90 days", "Inspect the outlet seals every 180 days", "Complete a full pressure test every 365 days"],
+      "unwanted": ["Account settings"],
+      "structure": {"heading":"Reservoir service schedule"}
+    },
+    {
+      "id": "multiple-useful-sections",
+      "format": "html",
+      "payload": "<html><body><section><article><h2>Basic service</h2><p>The basic service costs 19 dollars per month and includes two inspection visits each year. Customers receive a written report after every visit, including the readings observed and any recommended maintenance work. Replacement parts are quoted separately before the technician starts a repair.</p></article><article><h2>Extended service</h2><p>The extended service costs 39 dollars per month and includes six inspection visits each year. It also provides a telephone support line during business hours. Emergency visits outside the scheduled inspections require a separate appointment and are subject to technician availability.</p></article></section><p>Both plans can be cancelled with 30 days notice. The provider returns any unused prepaid fees after deducting charges for completed inspection visits. A cancellation does not remove the customer's access to reports from earlier visits.</p></body></html>",
+      "required": ["basic service costs 19 dollars per month", "extended service costs 39 dollars per month", "Both plans can be cancelled with 30 days notice"],
+      "unwanted": [],
+      "structure": {"heading":"Extended service"}
+    },
+    {
+      "id": "multilingual-prose",
+      "format": "html",
+      "payload": "<html lang='ja'><body><article><h1>交換と点検</h1><p>フィルターは90日ごとに交換してください。圧力が42 kPaを超えた場合は装置を停止してください。</p><p>वारंटी की अवधि 24 महीने है। मूल खरीद की रसीद सुरक्षित रखें।</p><p>La garantie couvre les défauts de fabrication pendant 24 mois. Conservez la facture originale et le numéro de série pour toute demande de réparation. Le service technique peut demander une photographie de l'étiquette avant d'autoriser le retour du produit.</p><p>Die Wartung erfolgt alle 90 Tage. Dokumentieren Sie die gemessenen Werte und bewahren Sie die ursprünglichen Prüfberichte auf. Verwenden Sie nur die auf dem Typenschild angegebenen Ersatzteile und beachten Sie die schriftlichen Hinweise des Herstellers.</p></article></body></html>",
+      "required": ["フィルターは90日ごとに交換してください。", "वारंटी की अवधि 24 महीने है।", "pendant 24 mois", "Die Wartung erfolgt alle 90 Tage"],
+      "unwanted": [],
+      "structure": {"heading":"交換と点検"}
+    },
+    {
+      "id": "markdown-table-and-code",
+      "format": "markdown",
+      "payload": "# Local maintenance\n\nReplace the sensor after 24 months of operation.\n\n| Model | Capacity |\n| --- | --- |\n| Alpha | 12 litres |\n| Beta | 18 litres |\n\n1. Verify the label.\n   - Keep the receipt.\n2. Record the reading.\n\n```python\nvalue = 42\nprint(value)\n```\n",
+      "required": ["Replace the sensor after 24 months of operation", "Alpha", "12 litres", "Beta", "18 litres", "Keep the receipt"],
+      "unwanted": [],
+      "structure": {"code":"value = 42\nprint(value)\n", "heading":"Local maintenance"}
+    },
+    {
+      "id": "short-valid-text",
+      "format": "text",
+      "payload": "Service hours: Monday to Friday, 09:00–17:00.\nEmergency telephone: 555-0124.\n",
+      "required": ["Monday to Friday, 09:00–17:00", "Emergency telephone: 555-0124"],
+      "unwanted": [],
+      "structure": {}
+    }
+  ]
+}
