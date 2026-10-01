@@ -1,0 +1,321 @@
+{
+  "selected": {
+    "variant": "prompt_plus_page",
+    "C": 0.01,
+    "validation": {
+      "rows": 947,
+      "hosts": 97,
+      "positive_rate": 0.498416050686378,
+      "roc_auc": 0.6518376449598573,
+      "average_precision": 0.6443478540802222,
+      "log_loss": 0.6540929322865024,
+      "brier_score": 0.23146176481943462,
+      "accuracy_at_0_5": 0.6071805702217529,
+      "confusion_matrix": [
+        [
+          298,
+          177
+        ],
+        [
+          195,
+          277
+        ]
+      ],
+      "mean_within_host_auc": 0.6739747995418099,
+      "paired_hosts": 97
+    }
+  },
+  "candidates": [
+    {
+      "variant": "page_only",
+      "C": 0.01,
+      "validation": {
+        "rows": 947,
+        "hosts": 97,
+        "positive_rate": 0.498416050686378,
+        "roc_auc": 0.5985414808206958,
+        "average_precision": 0.5964193598044366,
+        "log_loss": 0.6732402835161324,
+        "brier_score": 0.24061554123010853,
+        "accuracy_at_0_5": 0.5617740232312566,
+        "confusion_matrix": [
+          [
+            259,
+            216
+          ],
+          [
+            199,
+            273
+          ]
+        ],
+        "mean_within_host_auc": 0.6350171821305842,
+        "paired_hosts": 97
+      }
+    },
+    {
+      "variant": "page_only",
+      "C": 0.1,
+      "validation": {
+        "rows": 947,
+        "hosts": 97,
+        "positive_rate": 0.498416050686378,
+        "roc_auc": 0.5982515611061553,
+        "average_precision": 0.5957732586690953,
+        "log_loss": 0.673497661238669,
+        "brier_score": 0.2407657932171531,
+        "accuracy_at_0_5": 0.5691657866948258,
+        "confusion_matrix": [
+          [
+            257,
+            218
+          ],
+          [
+            190,
+            282
+          ]
+        ],
+        "mean_within_host_auc": 0.6327835051546391,
+        "paired_hosts": 97
+      }
+    },
+    {
+      "variant": "page_only",
+      "C": 1.0,
+      "validation": {
+        "rows": 947,
+        "hosts": 97,
+        "positive_rate": 0.498416050686378,
+        "roc_auc": 0.5983407671721677,
+        "average_precision": 0.5957973905668901,
+        "log_loss": 0.6735308833552944,
+        "brier_score": 0.24078371953279126,
+        "accuracy_at_0_5": 0.5681098204857444,
+        "confusion_matrix": [
+          [
+            257,
+            218
+          ],
+          [
+            191,
+            281
+          ]
+        ],
+        "mean_within_host_auc": 0.632680412371134,
+        "paired_hosts": 97
+      }
+    },
+    {
+      "variant": "page_only",
+      "C": 10.0,
+      "validation": {
+        "rows": 947,
+        "hosts": 97,
+        "positive_rate": 0.498416050686378,
+        "roc_auc": 0.598349687778769,
+        "average_precision": 0.5957773144198253,
+        "log_loss": 0.6735334319864722,
+        "brier_score": 0.240785178332096,
+        "accuracy_at_0_5": 0.5681098204857444,
+        "confusion_matrix": [
+          [
+            257,
+            218
+          ],
+          [
+            191,
+            281
+          ]
+        ],
+        "mean_within_host_auc": 0.6330927835051546,
+        "paired_hosts": 97
+      }
+    },
+    {
+      "variant": "prompt_plus_page",
+      "C": 0.01,
+      "validation": {
+        "rows": 947,
+        "hosts": 97,
+        "positive_rate": 0.498416050686378,
+        "roc_auc": 0.6518376449598573,
+        "average_precision": 0.6443478540802222,
+        "log_loss": 0.6540929322865024,
+        "brier_score": 0.23146176481943462,
+        "accuracy_at_0_5": 0.6071805702217529,
+        "confusion_matrix": [
+          [
+            298,
+            177
+          ],
+          [
+            195,
+            277
+          ]
+        ],
+        "mean_within_host_auc": 0.6739747995418099,
+        "paired_hosts": 97
+      }
+    },
+    {
+      "variant": "prompt_plus_page",
+      "C": 0.1,
+      "validation": {
+        "rows": 947,
+        "hosts": 97,
+        "positive_rate": 0.498416050686378,
+        "roc_auc": 0.6517707404103479,
+        "average_precision": 0.6429069996397379,
+        "log_loss": 0.654349560144309,
+        "brier_score": 0.23158632929634215,
+        "accuracy_at_0_5": 0.6092925026399155,
+        "confusion_matrix": [
+          [
+            298,
+            177
+          ],
+          [
+            193,
+            279
+          ]
+        ],
+        "mean_within_host_auc": 0.6707674684994273,
+        "paired_hosts": 97
+      }
+    },
+    {
+      "variant": "prompt_plus_page",
+      "C": 1.0,
+      "validation": {
+        "rows": 947,
+        "hosts": 97,
+        "positive_rate": 0.498416050686378,
+        "roc_auc": 0.6520561998215878,
+        "average_precision": 0.6429925281881431,
+        "log_loss": 0.6543999230647736,
+        "brier_score": 0.23160989423585654,
+        "accuracy_at_0_5": 0.6082365364308342,
+        "confusion_matrix": [
+          [
+            297,
+            178
+          ],
+          [
+            193,
+            279
+          ]
+        ],
+        "mean_within_host_auc": 0.6710767468499428,
+        "paired_hosts": 97
+      }
+    },
+    {
+      "variant": "prompt_plus_page",
+      "C": 10.0,
+      "validation": {
+        "rows": 947,
+        "hosts": 97,
+        "positive_rate": 0.498416050686378,
+        "roc_auc": 0.6520606601248884,
+        "average_precision": 0.6429918581584637,
+        "log_loss": 0.6544060264078897,
+        "brier_score": 0.23161272598749702,
+        "accuracy_at_0_5": 0.6082365364308342,
+        "confusion_matrix": [
+          [
+            297,
+            178
+          ],
+          [
+            193,
+            279
+          ]
+        ],
+        "mean_within_host_auc": 0.6710767468499428,
+        "paired_hosts": 97
+      }
+    }
+  ],
+  "best_per_variant": {
+    "page_only": {
+      "variant": "page_only",
+      "C": 0.01,
+      "validation": {
+        "rows": 947,
+        "hosts": 97,
+        "positive_rate": 0.498416050686378,
+        "roc_auc": 0.5985414808206958,
+        "average_precision": 0.5964193598044366,
+        "log_loss": 0.6732402835161324,
+        "brier_score": 0.24061554123010853,
+        "accuracy_at_0_5": 0.5617740232312566,
+        "confusion_matrix": [
+          [
+            259,
+            216
+          ],
+          [
+            199,
+            273
+          ]
+        ],
+        "mean_within_host_auc": 0.6350171821305842,
+        "paired_hosts": 97
+      }
+    },
+    "prompt_plus_page": {
+      "variant": "prompt_plus_page",
+      "C": 0.01,
+      "validation": {
+        "rows": 947,
+        "hosts": 97,
+        "positive_rate": 0.498416050686378,
+        "roc_auc": 0.6518376449598573,
+        "average_precision": 0.6443478540802222,
+        "log_loss": 0.6540929322865024,
+        "brier_score": 0.23146176481943462,
+        "accuracy_at_0_5": 0.6071805702217529,
+        "confusion_matrix": [
+          [
+            298,
+            177
+          ],
+          [
+            195,
+            277
+          ]
+        ],
+        "mean_within_host_auc": 0.6739747995418099,
+        "paired_hosts": 97
+      }
+    }
+  },
+  "constant_validation": {
+    "rows": 947,
+    "hosts": 97,
+    "positive_rate": 0.498416050686378,
+    "roc_auc": 0.5,
+    "average_precision": 0.498416050686378,
+    "log_loss": 0.6931485612887746,
+    "brier_score": 0.25000069026769417,
+    "accuracy_at_0_5": 0.5015839493136219,
+    "confusion_matrix": [
+      [
+        475,
+        0
+      ],
+      [
+        472,
+        0
+      ]
+    ],
+    "mean_within_host_auc": 0.5,
+    "paired_hosts": 97
+  },
+  "selection_metric": "validation log loss",
+  "model_sha256": "24514c61fb6bdea7cd818dab5edb046906d0360b7a15062d8e36d4a911dd7f4e",
+  "versions": {
+    "python": "3.14.8",
+    "sklearn": "1.9.1",
+    "numpy": "2.5.3"
+  }
+}

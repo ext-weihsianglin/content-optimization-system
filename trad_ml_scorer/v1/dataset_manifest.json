@@ -1,0 +1,118 @@
+{
+  "feature_version": "lr-handcrafted-v1",
+  "feature_names": [
+    "coverage_title",
+    "coverage_headings",
+    "coverage_body",
+    "coverage_intro",
+    "coverage_url_path",
+    "log_prompt_words",
+    "prompt_question",
+    "prompt_comparison",
+    "prompt_how_to",
+    "log_word_count",
+    "log_title_words",
+    "log_heading_count",
+    "log_h1_count",
+    "log_list_items",
+    "log_table_count",
+    "headings_per_1000_words",
+    "list_items_per_1000_words",
+    "has_table",
+    "has_list",
+    "has_main",
+    "has_article",
+    "has_jsonld",
+    "has_article_schema",
+    "removed_text_fraction",
+    "focus_text_fraction",
+    "script_char_ratio",
+    "path_depth",
+    "path_homepage",
+    "path_editorial",
+    "path_commerce",
+    "path_support_docs",
+    "empty_title",
+    "sparse_body",
+    "failure_page",
+    "recognized_html"
+  ],
+  "seed": 42,
+  "split_method": "Python random.Random(42) shuffle of sorted unique normalized hostnames; first 80% train, next 10% validation, remaining test",
+  "raw_rows": 9700,
+  "eligible_rows": 9447,
+  "splits": {
+    "train": {
+      "rows": 7561,
+      "hosts": 773,
+      "positive": 3755,
+      "clean_rows": 6939
+    },
+    "validation": {
+      "rows": 947,
+      "hosts": 97,
+      "positive": 472,
+      "clean_rows": 867
+    },
+    "test": {
+      "rows": 939,
+      "hosts": 97,
+      "positive": 468,
+      "clean_rows": 856
+    }
+  },
+  "exclusions_overlapping": {
+    "text_shared_across_hosts": 46,
+    "blank_prompt": 91,
+    "conflicting_url_labels": 76,
+    "html_shared_across_hosts": 25,
+    "exact_duplicate": 28
+  },
+  "leakage_audit": {
+    "hostname": {
+      "train__validation": 0,
+      "train__test": 0,
+      "validation__test": 0
+    },
+    "href": {
+      "train__validation": 0,
+      "train__test": 0,
+      "validation__test": 0
+    },
+    "html_sha256": {
+      "train__validation": 0,
+      "train__test": 0,
+      "validation__test": 0
+    },
+    "text_sha256": {
+      "train__validation": 0,
+      "train__test": 0,
+      "validation__test": 0
+    },
+    "record_id": {
+      "train__validation": 0,
+      "train__test": 0,
+      "validation__test": 0
+    },
+    "prompt_hash": {
+      "train__validation": 60,
+      "train__test": 48,
+      "validation__test": 13
+    }
+  },
+  "clean_policy": "Per-snapshot recognized HTML, no heuristic failure or <=30-body-token flag, >=100 extracted words; evaluation subset only",
+  "source_files": {
+    "citations_part_001.parquet": "815aca4d97e8143f3a5eeb1da9373855664699734b6bdee45f2a4dc74bec079f",
+    "citations_part_002.parquet": "8437f3ac54554ece8939eeb82fb1f4275f81d3b4505dce59de21592517844976",
+    "citations_part_003.parquet": "061f47a4999814ec779d1ca87ea2e51d20f42261240e15a0bfa13a2e3698e71f",
+    "citations_part_004.parquet": "5ac0d42caaa1eaf7457ddf2c342af4ebbe6910f883d050b4658f7368a0e53c7d",
+    "citations_part_005.parquet": "ede6525f3d69cd81e9a41f588bb1b76e648e68bba9fa94649ef56d74cede09ae"
+  },
+  "extractor_hashes": {
+    "prepare_lr_data.py": "f9d3758ddf86a27a7fd113e0a8bda3380bc3aa2365b5cc975f208393efa851e7",
+    "lr_features.py": "d7a3a6f5bf49b92bb956d9912b1c8ad768927b321a04a9068f1b2c9b8068d13e",
+    "analyze_content.py": "21f2c197a25ecd6c1f4d11d2090f7fefe94f2c0939ebea60e7261fa97c7d7c29",
+    "analyze_quality.py": "a62f3b8e7e8c4b8af4e27f60c70a1ba550d234c2b72c3d9b8dd2d8221b11859d"
+  },
+  "features_sha256": "aadd1e4218817465122fd626dedb6125fc9dea21333628cf7924452c65bd4230"
+}

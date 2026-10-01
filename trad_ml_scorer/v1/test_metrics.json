@@ -1,0 +1,207 @@
+{
+  "model_sha256": "24514c61fb6bdea7cd818dab5edb046906d0360b7a15062d8e36d4a911dd7f4e",
+  "threshold": 0.5,
+  "models": {
+    "selected": {
+      "all": {
+        "rows": 939,
+        "hosts": 97,
+        "positive_rate": 0.4984025559105431,
+        "roc_auc": 0.6687625891447546,
+        "average_precision": 0.6624317407882434,
+        "log_loss": 0.6479420894404013,
+        "brier_score": 0.22846693144101984,
+        "accuracy_at_0_5": 0.6144834930777423,
+        "confusion_matrix": [
+          [
+            302,
+            169
+          ],
+          [
+            193,
+            275
+          ]
+        ],
+        "mean_within_host_auc": 0.6789236111111112,
+        "paired_hosts": 96
+      },
+      "clean": {
+        "rows": 856,
+        "hosts": 94,
+        "positive_rate": 0.5011682242990654,
+        "roc_auc": 0.6706626706626707,
+        "average_precision": 0.6647107330075142,
+        "log_loss": 0.6467433347678277,
+        "brier_score": 0.22797960860238423,
+        "accuracy_at_0_5": 0.6144859813084113,
+        "confusion_matrix": [
+          [
+            263,
+            164
+          ],
+          [
+            166,
+            263
+          ]
+        ],
+        "mean_within_host_auc": 0.6723148148148147,
+        "paired_hosts": 90
+      },
+      "host_bootstrap_95_percent": {
+        "roc_auc": {
+          "low": 0.6288262721156355,
+          "high": 0.7026159280933549,
+          "replicates": 500
+        },
+        "log_loss": {
+          "low": 0.6303865195646343,
+          "high": 0.6663045498121731,
+          "replicates": 500
+        },
+        "brier_score": {
+          "low": 0.22049266968409595,
+          "high": 0.2372828487292544,
+          "replicates": 500
+        }
+      }
+    },
+    "page_only": {
+      "all": {
+        "rows": 939,
+        "hosts": 97,
+        "positive_rate": 0.4984025559105431,
+        "roc_auc": 0.6189322590596477,
+        "average_precision": 0.615569954448334,
+        "log_loss": 0.6689645155717306,
+        "brier_score": 0.23863081185353877,
+        "accuracy_at_0_5": 0.5942492012779552,
+        "confusion_matrix": [
+          [
+            275,
+            196
+          ],
+          [
+            185,
+            283
+          ]
+        ],
+        "mean_within_host_auc": 0.6628124999999999,
+        "paired_hosts": 96
+      },
+      "clean": {
+        "rows": 856,
+        "hosts": 94,
+        "positive_rate": 0.5011682242990654,
+        "roc_auc": 0.625582068205019,
+        "average_precision": 0.6194868435980941,
+        "log_loss": 0.6669548869366304,
+        "brier_score": 0.2376280484646844,
+        "accuracy_at_0_5": 0.594626168224299,
+        "confusion_matrix": [
+          [
+            234,
+            193
+          ],
+          [
+            154,
+            275
+          ]
+        ],
+        "mean_within_host_auc": 0.663675925925926,
+        "paired_hosts": 90
+      }
+    },
+    "prompt_plus_page": {
+      "all": {
+        "rows": 939,
+        "hosts": 97,
+        "positive_rate": 0.4984025559105431,
+        "roc_auc": 0.6687625891447546,
+        "average_precision": 0.6624317407882434,
+        "log_loss": 0.6479420894404013,
+        "brier_score": 0.22846693144101984,
+        "accuracy_at_0_5": 0.6144834930777423,
+        "confusion_matrix": [
+          [
+            302,
+            169
+          ],
+          [
+            193,
+            275
+          ]
+        ],
+        "mean_within_host_auc": 0.6789236111111112,
+        "paired_hosts": 96
+      },
+      "clean": {
+        "rows": 856,
+        "hosts": 94,
+        "positive_rate": 0.5011682242990654,
+        "roc_auc": 0.6706626706626707,
+        "average_precision": 0.6647107330075142,
+        "log_loss": 0.6467433347678277,
+        "brier_score": 0.22797960860238423,
+        "accuracy_at_0_5": 0.6144859813084113,
+        "confusion_matrix": [
+          [
+            263,
+            164
+          ],
+          [
+            166,
+            263
+          ]
+        ],
+        "mean_within_host_auc": 0.6723148148148147,
+        "paired_hosts": 90
+      }
+    },
+    "constant": {
+      "all": {
+        "rows": 939,
+        "hosts": 97,
+        "positive_rate": 0.4984025559105431,
+        "roc_auc": 0.5,
+        "average_precision": 0.4984025559105431,
+        "log_loss": 0.6931483792377217,
+        "brier_score": 0.25000059924354817,
+        "accuracy_at_0_5": 0.5015974440894568,
+        "confusion_matrix": [
+          [
+            471,
+            0
+          ],
+          [
+            468,
+            0
+          ]
+        ],
+        "mean_within_host_auc": 0.5,
+        "paired_hosts": 96
+      },
+      "clean": {
+        "rows": 856,
+        "hosts": 94,
+        "positive_rate": 0.5011682242990654,
+        "roc_auc": 0.5,
+        "average_precision": 0.5011682242990654,
+        "log_loss": 0.6931856894419202,
+        "brier_score": 0.25001925406272746,
+        "accuracy_at_0_5": 0.49883177570093457,
+        "confusion_matrix": [
+          [
+            427,
+            0
+          ],
+          [
+            429,
+            0
+          ]
+        ],
+        "mean_within_host_auc": 0.5,
+        "paired_hosts": 90
+      }
+    }
+  }
+}

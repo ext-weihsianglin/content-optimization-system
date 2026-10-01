@@ -252,3 +252,22 @@ For any direction, a trial-sized success criterion is an end-to-end draft with t
 The top/bottom labels describe relative performance within a hostname. Both classes already appeared in answer-engine citations. The supplied schema contains prompts, labels, URLs, hostnames, and HTML, but no cleaned Markdown, citation counts, exposure denominators, engine identifiers, or observation dates.
 
 Treat associations as exploratory hypotheses. Page purpose, query intent, language, scrape failures, shared templates, and repeated URLs can distort comparisons. An observed association does not show that changing the feature increases citations. A content prototype should ground its factual claims in supplied source material and trace its editing rules to the analysis. Measuring citation uplift requires a separate prospective evaluation.
+
+## Traditional ML scorer
+
+The current **v2 scorer uses the retention-first parser as its source of truth**. LR code, plans, visual reports, and feature explanations live in [`trad_ml_scorer/`](trad_ml_scorer/README.md), with frozen original results in [`trad_ml_scorer/v1/`](trad_ml_scorer/v1/report.md) and retention-based results in [`trad_ml_scorer/v2/`](trad_ml_scorer/v2/report.md). See the [v2 HTML report](trad_ml_scorer/v2/report.html) for feature importance and sensitivity charts.
+
+The full corpus is parsed once per exact payload-plus-URL snapshot. Queries and labels are joined afterward; original metadata, structured blocks, sections, lists, and table headers provide features. V2 reuses v1's hostname assignments and reports both its own eligible population and refitted comparisons on common rows. Training transformations and regularization/feature-variant selection use train and validation respectively. Test results are explicitly a **reused v1 host benchmark**, not new independent confirmation.
+
+Run from the repository root:
+
+```sh
+uv sync --locked
+uv run python -m trad_ml_scorer.predict_lr \
+  --prompt "How to choose running shoes" \
+  --html-file /path/to/page.html \
+  --url https://example.com/shoes
+uv run python -m pytest tests/test_lr.py tests/test_retention_scorer.py -q
+```
+
+The default model is `data/trad_ml_scorer/v2/model.joblib`; pass `--model data/lr/model.joblib` for the preserved v1 model. Models and intermediate source documents stay outside Git. See the [scorer guide](trad_ml_scorer/README.md) for full-corpus preparation, fitting, evaluation, and artifact verification commands. V2 returns parser quality status and abstains if no usable content is selected. Scores describe the sampled within-host top class among already-cited pages; they do not establish absolute citation probability or causal editing uplift.

@@ -1,0 +1,12 @@
+{
+  "checks": [
+    "zero hostname/URL/HTML/nonempty-text/record overlap",
+    "dataset and model hashes match frozen selection",
+    "selection minimizes validation log loss",
+    "imputer statistics match training data only",
+    "scaler statistics and sample count match training data only",
+    "six raw-snapshot feature and saved-model inference parity checks"
+  ],
+  "raw_parity_examples": 6,
+  "status": "passed"
+}

@@ -1,0 +1,240 @@
+{
+  "intercept": -0.005248923061123472,
+  "features": [
+    {
+      "feature": "log_heading_count",
+      "coefficient": 0.2630894029357275,
+      "odds_ratio_per_training_sd": 1.3009430218781055
+    },
+    {
+      "feature": "path_homepage",
+      "coefficient": 0.23900459443051286,
+      "odds_ratio_per_training_sd": 1.2699843714253796
+    },
+    {
+      "feature": "coverage_title",
+      "coefficient": 0.21796261545908424,
+      "odds_ratio_per_training_sd": 1.2435405775564605
+    },
+    {
+      "feature": "prompt_question",
+      "coefficient": -0.15338479481903824,
+      "odds_ratio_per_training_sd": 0.8577995814625995
+    },
+    {
+      "feature": "mean_section_coverage",
+      "coefficient": 0.13252857175510926,
+      "odds_ratio_per_training_sd": 1.1417116363284523
+    },
+    {
+      "feature": "format_html",
+      "coefficient": 0.12930215324896618,
+      "odds_ratio_per_training_sd": 1.138033932871908
+    },
+    {
+      "feature": "prompt_comparison",
+      "coefficient": 0.12415530933679401,
+      "odds_ratio_per_training_sd": 1.132191697286719
+    },
+    {
+      "feature": "path_commerce",
+      "coefficient": 0.11713324641103193,
+      "odds_ratio_per_training_sd": 1.1242692245497063
+    },
+    {
+      "feature": "sparse_body",
+      "coefficient": 0.10582861369888263,
+      "odds_ratio_per_training_sd": 1.111631341795601
+    },
+    {
+      "feature": "log_list_items",
+      "coefficient": 0.10257210181748791,
+      "odds_ratio_per_training_sd": 1.1080171890829056
+    },
+    {
+      "feature": "prompt_how_to",
+      "coefficient": -0.09338517735415817,
+      "odds_ratio_per_training_sd": 0.9108425967789529
+    },
+    {
+      "feature": "path_editorial",
+      "coefficient": -0.07734557238864456,
+      "odds_ratio_per_training_sd": 0.9255699469168058
+    },
+    {
+      "feature": "has_article_schema",
+      "coefficient": -0.07401015583922155,
+      "odds_ratio_per_training_sd": 0.9286622624487668
+    },
+    {
+      "feature": "coverage_table_headers",
+      "coefficient": 0.07220273724919435,
+      "odds_ratio_per_training_sd": 1.0748732388190465
+    },
+    {
+      "feature": "coverage_body",
+      "coefficient": -0.06790309039201449,
+      "odds_ratio_per_training_sd": 0.9343510167806466
+    },
+    {
+      "feature": "log_word_count",
+      "coefficient": 0.06440187575607026,
+      "odds_ratio_per_training_sd": 1.066520921550991
+    },
+    {
+      "feature": "log_paragraph_count",
+      "coefficient": -0.06389753218901328,
+      "odds_ratio_per_training_sd": 0.9381011197742574
+    },
+    {
+      "feature": "has_list",
+      "coefficient": -0.061389626544975914,
+      "odds_ratio_per_training_sd": 0.9404567414710334
+    },
+    {
+      "feature": "has_table",
+      "coefficient": 0.05455331840301382,
+      "odds_ratio_per_training_sd": 1.0560687828136002
+    },
+    {
+      "feature": "path_depth",
+      "coefficient": -0.05137295027199174,
+      "odds_ratio_per_training_sd": 0.9499243299236043
+    },
+    {
+      "feature": "coverage_intro",
+      "coefficient": 0.05019842927832961,
+      "odds_ratio_per_training_sd": 1.0514797200388437
+    },
+    {
+      "feature": "comparison_x_table_header_coverage",
+      "coefficient": -0.04405151691542794,
+      "odds_ratio_per_training_sd": 0.9569046594268037
+    },
+    {
+      "feature": "has_jsonld",
+      "coefficient": -0.04060397588996679,
+      "odds_ratio_per_training_sd": 0.960209320702154
+    },
+    {
+      "feature": "path_support_docs",
+      "coefficient": -0.03948358817677072,
+      "odds_ratio_per_training_sd": 0.9612857303126174
+    },
+    {
+      "feature": "log_code_count",
+      "coefficient": -0.036115735738445225,
+      "odds_ratio_per_training_sd": 0.9645286565867367
+    },
+    {
+      "feature": "empty_title",
+      "coefficient": 0.03315293797191345,
+      "odds_ratio_per_training_sd": 1.0337086204526489
+    },
+    {
+      "feature": "log_h1_count",
+      "coefficient": -0.02799502441628029,
+      "odds_ratio_per_training_sd": 0.9723932050130104
+    },
+    {
+      "feature": "retained_text_fraction",
+      "coefficient": -0.02759469717715674,
+      "odds_ratio_per_training_sd": 0.972782558429305
+    },
+    {
+      "feature": "log_title_words",
+      "coefficient": -0.027072784142957787,
+      "odds_ratio_per_training_sd": 0.9732903988387275
+    },
+    {
+      "feature": "log_prompt_words",
+      "coefficient": 0.02330856964473335,
+      "odds_ratio_per_training_sd": 1.0235823372600814
+    },
+    {
+      "feature": "headings_per_1000_words",
+      "coefficient": -0.01780569356266123,
+      "odds_ratio_per_training_sd": 0.9823518911113329
+    },
+    {
+      "feature": "log_source_script_count",
+      "coefficient": -0.015745804928754634,
+      "odds_ratio_per_training_sd": 0.9843775121669748
+    },
+    {
+      "feature": "missingindicator_headings_per_1000_words",
+      "coefficient": 0.01497001927217913,
+      "odds_ratio_per_training_sd": 1.015082631243431
+    },
+    {
+      "feature": "missingindicator_list_items_per_1000_words",
+      "coefficient": 0.01497001927217913,
+      "odds_ratio_per_training_sd": 1.015082631243431
+    },
+    {
+      "feature": "missingindicator_retained_text_fraction",
+      "coefficient": 0.01497001927217913,
+      "odds_ratio_per_training_sd": 1.015082631243431
+    },
+    {
+      "feature": "log_ordered_steps",
+      "coefficient": -0.01260341278780216,
+      "odds_ratio_per_training_sd": 0.9874756776008584
+    },
+    {
+      "feature": "coverage_h1",
+      "coefficient": -0.01249138670910491,
+      "odds_ratio_per_training_sd": 0.9875863068253923
+    },
+    {
+      "feature": "list_items_per_1000_words",
+      "coefficient": -0.00956146526576408,
+      "odds_ratio_per_training_sd": 0.9904841002033941
+    },
+    {
+      "feature": "best_section_coverage",
+      "coefficient": 0.008990569717471735,
+      "odds_ratio_per_training_sd": 1.009031106280589
+    },
+    {
+      "feature": "how_to_x_ordered_steps",
+      "coefficient": -0.008573795725867393,
+      "odds_ratio_per_training_sd": 0.9914628544422275
+    },
+    {
+      "feature": "matching_section_fraction",
+      "coefficient": -0.00663964475749803,
+      "odds_ratio_per_training_sd": 0.9933823489799658
+    },
+    {
+      "feature": "log_table_count",
+      "coefficient": 0.006498442761994007,
+      "odds_ratio_per_training_sd": 1.006519603453507
+    },
+    {
+      "feature": "needs_review",
+      "coefficient": -0.0054869485863821435,
+      "odds_ratio_per_training_sd": 0.9945280772215062
+    },
+    {
+      "feature": "possible_error_response",
+      "coefficient": -0.00510783728341873,
+      "odds_ratio_per_training_sd": 0.9949051855351907
+    },
+    {
+      "feature": "coverage_headings",
+      "coefficient": 0.0045283275260273445,
+      "odds_ratio_per_training_sd": 1.0045385958947806
+    },
+    {
+      "feature": "best_section_position",
+      "coefficient": 0.004349961135509413,
+      "odds_ratio_per_training_sd": 1.004359435949826
+    },
+    {
+      "feature": "best_section_heading_coverage",
+      "coefficient": 0.0030113874893635826,
+      "odds_ratio_per_training_sd": 1.0030159262715361
+    }
+  ]
+}
