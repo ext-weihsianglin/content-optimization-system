@@ -1,4 +1,4 @@
-"""Hosted models only; roles belong in adapter configuration, not source text."""
+"""Versioned hosted and local model adapters over frozen textual inputs."""
 
 from pathlib import Path
 
@@ -16,8 +16,8 @@ def load_config(path=None):
     for name, model in config["models"].items():
         model["serializer_version"] = SERIALIZER_VERSION
         model["path_normalizer_version"] = PATH_VERSION
-        if model["provider"] not in {"openai", "voyage", "openrouter"}:
-            raise ValueError(f"Unsupported hosted provider: {name}")
+        if model["provider"] not in {"openai", "voyage", "openrouter", "mlx"}:
+            raise ValueError(f"Unsupported embedding provider: {name}")
         if model["dimensions"] < 1 or model["max_input_bytes"] < config["page_bytes"] + 256:
             raise ValueError(f"Invalid model capacity: {name}")
     return config

@@ -17,10 +17,20 @@ dependencies = [
     "scipy==1.18.1",
     "trafilatura>=2.2.0",
     "umap-learn>=0.5.12",
+    "tiktoken>=0.14.0",
+    "tokenizers>=0.23.2",
+]
+
+[project.optional-dependencies]
+local-embeddings = [
+    "voyage-4-nano-mlx ; platform_machine == 'arm64' and sys_platform == 'darwin'",
 ]
 
 [tool.uv]
 package = false
+
+[tool.uv.sources]
+voyage-4-nano-mlx = { git = "https://github.com/sanjay920/voyage-4-nano-mlx", rev = "5001811de8d5ab39bcdab1c9b40b925d8d7d3983" }
 
 [dependency-groups]
 dev = [

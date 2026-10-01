@@ -223,3 +223,29 @@ def prepare(input_root, output, config, *, raw_root=None, limit=None):
                 "artifacts": {name: file_hash(output / name) for name in ("units.parquet", "associations.parquet")}}
     write_json(output / "manifest.json", manifest)
     return manifest
+
+
+def reuse_inputs(source, output, config):
+    """Fork only frozen input artifacts into a new model/execution configuration."""
+    import shutil
+    from .storage import read_json
+    source, output = Path(source), Path(output)
+    if output.exists() and any(output.iterdir()):
+        raise ValueError("Input reuse requires an empty output directory")
+    manifest = read_json(source / "manifest.json")
+    for name in ("units.parquet", "associations.parquet"):
+        if file_hash(source / name) != manifest["artifacts"][name]:
+            raise ValueError("Frozen input artifact changed")
+    if manifest["serializer_version"] != SERIALIZER_VERSION or any(
+        config[key] != manifest["configuration"][key] for key in ("chunk_bytes", "page_bytes", "counting_policy")):
+        raise ValueError("Input recipe changed; prepare a new input version")
+    output.mkdir(parents=True, exist_ok=True)
+    names = ("units.parquet", "associations.parquet")
+    for name in names:
+        shutil.copyfile(source / name, output / name)
+    result = {key: manifest[key] for key in ("schema_version", "serializer_version", "upstream", "units", "records", "statuses", "views", "scope")}
+    result.update(configuration=config, status="prepared", models={},
+                  artifacts={name:file_hash(output / name) for name in names},
+                  input_origin={"manifest_hash":file_hash(source / "manifest.json"), "path":str(source.resolve())})
+    write_json(output / "manifest.json", result)
+    return result

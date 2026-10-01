@@ -139,7 +139,23 @@ For the full corpus, use PR #2's shared prepared cache as `--input` (on this mac
 
 If an upstream evaluation export omits prompts, add `--raw-root data/raw` to `prepare`. Hydration verifies the raw file hash and source-row payload/URL before reading original prompts and labels. Preparation refuses incomplete upstream runs or broken provenance/joins. `--limit` includes both selected and abstained snapshots; unavailable units stay explicit.
 
-Set `OPENAI_API_KEY`, `VOYAGE_API_KEY`, or `OPENROUTER_API_KEY` in the environment for the corresponding adapter. Never put keys in configuration. For Qwen, copy `representations/config.json`, pin `provider_order` to a verified OpenRouter route, and pass the copy to `prepare --config`. Queries get the documented Qwen instruction; Voyage uses query/document modes; OpenAI uses the same embedding interface for both roles. API routing and dimensions must be verified on the chosen endpoint.
+The current default scope is hosted OpenAI (`OPENAI_API_KEY`) and local Voyage nano on Apple silicon. Voyage large and hosted Qwen adapters remain available in historical/custom configurations but are deferred. Never put keys in configuration. For Qwen, copy `representations/config.json`, pin `provider_order` to a verified OpenRouter route, and pass the copy to `prepare --config`. Queries get the documented Qwen instruction; Voyage uses query/document modes; OpenAI uses the same embedding interface for both roles. API routing and dimensions must be verified on the chosen endpoint.
+
+Shared persistence and local inference are described in [embedding storage](spec/embedding-storage.md). The default cache is discovered in the main checkout's `data/representations/shared-store`, so worktrees reuse the same vectors. Batch-size, timeout and concurrency changes do not invalidate saved embeddings. Existing paid run-local vectors migrate automatically on resume.
+
+```sh
+uv sync --extra local-embeddings
+uv run --extra local-embeddings python -m scripts.download_voyage_nano
+uv run --extra local-embeddings python -m representations cache-status
+uv run python -m representations cache-backup \
+  --cache-root /path/to/shared-store --output /path/to/new-backup
+uv run python -m representations reuse-inputs \
+  --run /path/to/frozen-input-run --output /path/to/new-model-run --config /path/to/config.json
+uv run --extra local-embeddings python -m representations embed \
+  --run /path/to/new-model-run --model voyage-nano
+```
+
+Local nano requires the official checkpoint at `<main checkout>/data/models/voyage-4-nano`, its `source.json`/checksum manifest, and the pinned backend from `uv.lock`. An explicit `model_path` in a custom config can override the location. It checks token limits before inference; no silent truncation is allowed. See [local pilot](analysis/embedding-voyage-local-pilot.json) and [two-model evidence smoke](analysis/embedding-model-comparison-smoke.html). The latter covers 20 snapshots and does not establish which model is better.
 
 The first input policy uses lossless UTF-8 byte ceilings (4,096-byte sections; 7,000-byte full-page inputs), rather than claiming tokenizer counts. This conservative policy avoids local model/tokenizer downloads and fits the shortest candidate context with instruction headroom. Oversized page/outline/title/path views retain all chunks and a separately marked byte-weighted pooled vector. Prompts exceeding the common ceiling abstain. No input is silently truncated.
 

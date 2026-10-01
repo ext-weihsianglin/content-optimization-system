@@ -149,6 +149,56 @@ credentials/preflight, reviewed model selection,
 and full-corpus processing remain pending. Do not restart embedding API work just
 to reproduce the static report; use cached vectors and the report builder.
 
+## Shared embedding store and active full-corpus execution
+
+User chose a shared durable cache instead of a vector DB, and limited execution to
+OpenAI hosted text embeddings plus local Voyage nano/MLX. Qwen-8B and Voyage large
+are deferred; large does not have published local weights. The nano checkpoint is
+official, revision `67fabc9bef010dabc5f6024aa1b1b6b93410426f`, with a pinned community
+MLX backend revision `5001811de8d5ab39bcdab1c9b40b925d8d7d3983` and BF16 compute.
+MLX uses the Apple M4 Pro GPU through Metal, explicitly selected by the adapter.
+
+Shared store: `<main checkout>/data/representations/shared-store`. Stable semantic
+identities exclude batch/concurrency/timeout settings. SQLite provides lookup and
+job history; immutable checksummed shards preserve completed batches. Model locks
+prevent duplicate writers; fully cached readers can export concurrently. Legacy
+paid vectors migrate without API calls. Recovery, portable backups, cache status,
+input reuse and disk-backed exports are implemented. See `spec/embedding-storage.md`.
+Do not rerun parsing or launch duplicate inference jobs; check `cache-status` and
+live processes first. Large data/checkpoints/exports remain ignored by Git.
+
+Full-corpus measurements: 323,751 unique inputs, 86,942,039 OpenAI tokens,
+88,924,281 Voyage text tokens / 90,883,231 including retrieval prefixes. No input
+exceeds model context. OpenAI list-price estimate is $11.30 before cache reuse;
+actual usage is recorded per batch. Float32 unique vectors need 3.98 GB OpenAI /
+2.65 GB Voyage, plus exports/indexes/backups. The tokenizer vocabularies for Voyage
+large and nano were verified byte-identical. `analysis/embedding-corpus-scale-v2.json`
+is a cache snapshot taken before later inference, not live progress.
+
+The 512-section local pilot measured 29.14 inputs/s, 4,575.54 tokens/s, and 1.48 GB
+peak MLX memory. Extrapolation suggests several hours; inputs and cache/export work
+vary. A completed 20-snapshot two-model smoke aligns all 20 records for both models
+and includes six exploratory maps. It does not establish a relevance winner.
+Reports: `analysis/embedding-model-comparison-smoke.html` and companions;
+`analysis/embedding-voyage-local-pilot.json`.
+
+The user explicitly authorized full OpenAI speed and overnight MLX inference.
+Active full runs live under the main checkout's shared directory:
+- `data/representations/runs/retention-full-v1`: OpenAI, batch 128, concurrency 4.
+- `data/representations/runs/retention-voyage-nano-v1`: local MLX, batch 32,
+  concurrency 1, 8 GB allocation cap and 16K padded-token batch cap.
+- Voyage detached log: `data/representations/jobs/voyage-nano-full-v1.log`.
+
+At launch OpenAI ran under tool-managed process 95457; Voyage was restarted as a
+proper detached session (uv PID 3323, parent 1). These PIDs are historical hints,
+not current state. A first shell-background Voyage launch did not remain alive;
+no full-corpus progress was lost. The detached run was verified writing batches
+with `device: metal_gpu` in usage. Monitor using:
+`uv run --extra local-embeddings python -m representations cache-status`.
+Latest verification: 143 tests and 12 subtests passed; explorer script checks pass.
+Full-job completion, alignment/PCA and full-corpus quality analysis are pending;
+check live state before asserting completion or scheduling follow-up work.
+
 ## Reader-LM experiment and stop decision
 
 No hosted Jina API access. Downloaded `jinaai/reader-lm-0.5b` at pinned revision

@@ -184,3 +184,7 @@ Image vectors may join by verified snapshot/product identity. Only a documented 
 - [Official OpenAI embedding guide](https://developers.openai.com/api/docs/guides/embeddings)
 
 Check chosen endpoint capabilities before corpus execution. The model comparison determines fitness for this dataset.
+
+## Shared persistence and current execution scope
+
+See [embedding-storage.md](embedding-storage.md) for immutable sharded vectors, SQLite lookup/job coordination, stable semantic identity, legacy migration, recovery and backup. The current user-directed scope is OpenAI API plus local Voyage nano on MLX; Voyage large is deferred because local weights are not published, and Qwen-8B is deferred. Original-space vectors remain available for repeated projection and evaluation without new inference.

@@ -67,10 +67,13 @@ class RepresentationTests(unittest.TestCase):
         self.root = Path(self.tmp.name)
         self.source, self.run = self.root / "source", self.root / "run"
         fixture(self.source)
+        self.cache_environment = patch.dict('os.environ', {'EMBEDDING_CACHE_ROOT': str(self.root / 'shared-cache')})
+        self.cache_environment.start()
         self.config = load_config()
         self.config["models"] = {"test": {**self.config["models"]["openai-large"], "model": "test-only", "dimensions": 8, "concurrency": 1}}
 
     def tearDown(self):
+        self.cache_environment.stop()
         self.tmp.cleanup()
 
     def prepared(self):
@@ -224,9 +227,9 @@ class RepresentationTests(unittest.TestCase):
         other = self.root / "failed"
         prepare(self.source, other, self.config)
         provider.embed = lambda *args: (_ for _ in ()).throw(ProviderError("invalid_input"))
-        status = embed(other, "test", provider=provider)
+        status = embed(other, "test", provider=provider, cache_root=self.root / "failure-cache")
         self.assertEqual(status["status"], "complete_with_failures")
-        status = embed(other, "test", provider=FakeProvider(), resume=True, retry_failed=True)
+        status = embed(other, "test", provider=FakeProvider(), resume=True, retry_failed=True, cache_root=self.root / "failure-cache")
         self.assertEqual(status["status"], "complete")
 
     def test_alignment_missing_is_not_zero(self):

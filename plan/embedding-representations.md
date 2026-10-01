@@ -167,3 +167,7 @@ Reserve modality/asset/product references now. Product-image acquisition, histor
 ## PR #2 shared-corpus integration
 
 Completed the saved `downstream-document-v1` adapter: consume shared compressed documents and records without rerunning parsing; preserve original source chunks, quality flags, duplicate-row provenance, exclusions, and scorer splits. Full-corpus input serialization and a bounded hosted OpenAI alignment/PCA/UMAP smoke validate integration. Full-corpus API execution, human relevance/model comparison, and visual embeddings remain separate next steps. Existing grouped ablation analysis is exploratory cross-validation; it does not reproduce the scorer's frozen train/validation/test experiment.
+
+## Shared storage and whole-corpus sizing
+
+Implemented stable semantic cache identities, shared SQLite/shards, immutable batch publication, writer exclusion with cached readers, legacy migration, orphan recovery, portable backups and disk-backed run exports. Default model scope is now OpenAI API and locally pinned Voyage nano/MLX. Full-corpus sizing uses model tokenizers; local nano throughput is measured separately from corpus-scale estimates. Only the new inference job contributes new API usage; changing projections or runner batch settings reuses vectors.
