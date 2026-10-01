@@ -171,3 +171,12 @@ Completed the saved `downstream-document-v1` adapter: consume shared compressed 
 ## Shared storage and whole-corpus sizing
 
 Implemented stable semantic cache identities, shared SQLite/shards, immutable batch publication, writer exclusion with cached readers, legacy migration, orphan recovery, portable backups and disk-backed run exports. Default model scope is now OpenAI API and locally pinned Voyage nano/MLX. Full-corpus sizing uses model tokenizers; local nano throughput is measured separately from corpus-scale estimates. Only the new inference job contributes new API usage; changing projections or runner batch settings reuses vectors.
+
+## OpenAI corpus postprocessing checkpoint
+
+Completed full-corpus alignment plus seven separate 32D training-only field fits
+and transformed coordinates. Document title and H1 now have independent subview
+fits. Source split/exclusion/duplicate provenance accompanies each fit. Original
+vectors are lazily loaded, and large fits use seeded randomized SVD. Named package
+references and the compact corpus summary are available; 32D is a baseline, not
+a validated optimum. MLX continues independently.

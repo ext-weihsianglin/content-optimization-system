@@ -65,3 +65,14 @@ memory, and explicit context checks before the backend's truncating tokenizer.
 MLX is an optional Apple-silicon dependency. Checkpoint files are checksum-verified.
 Voyage large has no published local weights and remains deferred; Qwen-8B is also
 deferred. Local nano is not a substitute measurement of Voyage large.
+
+## Completed OpenAI feature package
+
+The full OpenAI run stores query-to-field alignment, seven independent 32-dimensional
+training-fit PCA artifacts (title and H1 separate), fit manifests, and a named field
+bundle at `features/openai-v1.json`. Coordinates join `units.parquet` by unit ID,
+then record associations by snapshot/query IDs. All original vectors remain intact.
+Training excludes upstream-ineligible/mixed-split units and exact held-out content;
+all successful field units are transformed. Large fits use seeded randomized SVD.
+These are reusable representations and descriptive coverage, not a validated
+relevance model or optimal dimension choice.

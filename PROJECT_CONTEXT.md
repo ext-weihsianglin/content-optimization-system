@@ -123,7 +123,7 @@ compressed documents, preserves source chunks and retained `needs_review` conten
 and carries original scorer IDs, row provenance, exclusions, and existing splits.
 All 9,551 snapshots / 9,700 records validated; 377,460 logical embedding units were
 serialized to this worktree's `data/representations/retention-corpus-v1`.
-Full-corpus API embeddings have not run. Serializer is now `blocks-v2`.
+Full-corpus OpenAI embeddings are now complete (see the later checkpoint). Serializer is `blocks-v2`.
 A new live 20-snapshot retention smoke completed 674 unique OpenAI requests,
 produced 732 vectors, and aligned all 20 records; page/query/path exploratory
 PCA/UMAP projections and a query-first report are saved. Resume used the cache.
@@ -198,6 +198,39 @@ with `device: metal_gpu` in usage. Monitor using:
 Latest verification: 143 tests and 12 subtests passed; explorer script checks pass.
 Full-job completion, alignment/PCA and full-corpus quality analysis are pending;
 check live state before asserting completion or scheduling follow-up work.
+
+## Completed OpenAI full-corpus features
+
+OpenAI inference finished in 28.6 minutes: 323,751 unique inputs, 376,337 exported
+logical vectors, zero failures. Original vectors persist in the shared store and
+`data/representations/runs/retention-full-v1/vectors/`.
+
+Full-corpus alignment and PCA now completed without new API calls. Alignment has
+9,700 rows, 9,555 available and 145 unavailable; quality flags/source references
+remain visible. Seven separate 32D PCA fits/transforms: query, document title, H1,
+outline, page, section, path. Fit uses original eligible train-only sources;
+held-out exact-content repeats are excluded. Mixed-split queries stay outside the
+fit. Large fits use seeded randomized SVD (power 3), recorded in metadata.
+
+Training/projected unit counts: query 7,076/9,011; title 7,332/9,364;
+H1 8,335/11,964; outline 7,329/9,392; page 7,478/9,501;
+section 213,388/287,293; path 7,309/9,360. The 32D fits retain roughly 32–39% of
+variance and are initial feature baselines, not optimized dimensionality choices.
+Original-space cosine remains authoritative; different field PCA bases cannot be
+compared by cosine. Human relevance/model selection and predictive benchmarking
+with these features remain pending.
+
+Shared package entry: `data/representations/runs/retention-full-v1/features/openai-v1.json`.
+This maps each named field to coordinate Parquet and saved PCA fits. Source units,
+record associations, fit exclusions and checksums accompany the run. Checked-in
+compact summary: `analysis/embedding-openai-corpus.json`. Full query-first report:
+`data/representations/runs/retention-full-v1/reports/openai-corpus.html` (~45 MB,
+ignored by Git). Latest verification: 144 tests and 12 subtests; explorer scripts
+pass, including field separation and held-out perturbation invariance.
+
+Voyage MLX continues in its detached GPU process. Check cache-status/live processes
+for its current progress; do not launch a duplicate. The earlier active-job notes
+are historical, and OpenAI no longer needs an inference restart.
 
 ## Reader-LM experiment and stop decision
 

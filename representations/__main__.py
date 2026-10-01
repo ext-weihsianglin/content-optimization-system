@@ -17,6 +17,13 @@ def main():
     prepare.add_argument("--config")
     prepare.add_argument("--raw-root")
     prepare.add_argument("--limit", type=int)
+    fits = sub.add_parser("training-manifests")
+    fits.add_argument("--run", required=True)
+    fits.add_argument("--model", default="openai-large")
+    summary = sub.add_parser("corpus-summary")
+    summary.add_argument("--run", required=True)
+    summary.add_argument("--model", default="openai-large")
+    summary.add_argument("--output", required=True)
     status = sub.add_parser("cache-status")
     status.add_argument("--cache-root")
     backup = sub.add_parser("cache-backup")
@@ -45,6 +52,7 @@ def main():
         if name == "project":
             cmd.add_argument("--view", choices=["page", "path", "query", "outline", "title", "section"], default="page")
             cmd.add_argument("--components", type=int, default=32)
+            cmd.add_argument("--subview", help="Optional subview prefix, e.g. document_title or h1")
             cmd.add_argument("--fit-manifest")
             cmd.add_argument("--exploratory", action="store_true")
             cmd.add_argument("--umap", action="store_true")
@@ -63,6 +71,12 @@ def main():
             from .inputs import prepare
             result = prepare(args.input, args.output, load_config(args.config), raw_root=args.raw_root, limit=args.limit)
             result = {k: result[k] for k in ("units", "records", "views", "statuses", "scope")}
+        elif args.command == "training-manifests":
+            from .corpus import training_manifests
+            result = training_manifests(args.run, args.model)
+        elif args.command == "corpus-summary":
+            from .corpus import summarize
+            result = summarize(args.run, args.model, args.output)
         elif args.command == "cache-status":
             from .cache import cache_status, default_cache_root
             result = cache_status(args.cache_root or default_cache_root('.'))
@@ -85,7 +99,7 @@ def main():
             result = align(args.run, args.model)
         elif args.command == "project":
             from .projection import project
-            result = project(args.run, args.model, args.view, args.components, fit_manifest=args.fit_manifest, exploratory=args.exploratory, umap=args.umap)
+            result = project(args.run, args.model, args.view, args.components, fit_manifest=args.fit_manifest, exploratory=args.exploratory, umap=args.umap, subview=args.subview)
         elif args.command == "apply":
             from .projection import apply_pca
             apply_pca(args.run, args.model, args.projection, args.output)

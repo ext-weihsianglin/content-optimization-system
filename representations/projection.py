@@ -11,26 +11,29 @@ from .runner import load_vectors, run_lock
 from .storage import atomic_bytes, content_identity, digest, file_hash, read_json, read_rows, write_json, write_rows
 
 
-def view_units(run, vectors, view):
+def view_units(run, vectors, view, subview=None):
     return [u for u in read_rows(Path(run) / "units.parquet")
-            if u["view"] == view and u["unit_id"] in vectors and not u["subview"].endswith(":chunk")]
+            if u["view"] == view and u["unit_id"] in vectors and not u["subview"].endswith(":chunk")
+            and (subview is None or u["subview"].startswith(subview))]
 
 
-def fit_pca(matrix, components):
+def fit_pca(matrix, components, seed=42):
     if components < 1 or components > min(matrix.shape[1], len(matrix) - 1):
         raise ValueError("PCA components must fit feature count and sample rank")
     if not np.isfinite(matrix).all() or np.allclose(matrix, matrix[0]):
         raise ValueError("PCA requires finite, nonconstant training vectors")
-    pca = PCA(n_components=components, svd_solver="full", whiten=False)
+    solver = "randomized" if len(matrix) >= 1000 else "full"
+    pca = PCA(n_components=components, svd_solver=solver, whiten=False,
+              random_state=seed, iterated_power=3)
     pca.fit(matrix)
     return pca
 
 
-def project(run, model_name, view="page", components=32, *, fit_manifest=None, exploratory=False, umap=False):
+def project(run, model_name, view="page", components=32, *, fit_manifest=None, exploratory=False, umap=False, subview=None):
     run = Path(run)
     with run_lock(run):
         vectors, manifest = load_vectors(run, model_name)
-        units = view_units(run, vectors, view)
+        units = view_units(run, vectors, view, subview)
         lookup = {u["unit_id"]: u for u in units}
         if not units:
             raise ValueError("No successful vectors for requested view")
@@ -66,11 +69,15 @@ def project(run, model_name, view="page", components=32, *, fit_manifest=None, e
         else:
             fit_ids = sorted(lookup)
         matrix = np.stack([vectors[uid] for uid in fit_ids])
-        pca = fit_pca(matrix, components)
+        pca = fit_pca(matrix, components, manifest["configuration"]["seed"])
+        del matrix
         all_ids = sorted(lookup)
         full = np.stack([vectors[uid] for uid in all_ids])
         transformed = pca.transform(full)
+        if not umap:
+            del full
         metadata = {"model_config_id": manifest["models"][model_name]["config_id"], "view": view,
+                    "subview": subview, "solver": pca.svd_solver, "iterated_power": pca.iterated_power,
                     "serializer_version": manifest["serializer_version"],
                     "seed": manifest["configuration"]["seed"], "umap_requested": umap,
                     "scope": "exploratory_all_available" if exploratory else "training",
@@ -119,6 +126,6 @@ def apply_pca(run, model_name, projection_folder, output):
     if metadata["serializer_version"] != manifest["serializer_version"]:
         raise ValueError("Projection serializer is incompatible")
     fitted = np.load(folder / "pca.npz", allow_pickle=False)
-    units = view_units(run, vectors, metadata["view"])
+    units = view_units(run, vectors, metadata["view"], metadata.get("subview"))
     coords = (np.stack([vectors[u["unit_id"]] for u in units]) - fitted["mean"]) @ fitted["components"].T
     write_rows(output, [{"unit_id": u["unit_id"], "coordinates": xy.tolist()} for u, xy in zip(units, coords)])

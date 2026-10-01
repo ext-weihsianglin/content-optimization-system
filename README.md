@@ -161,6 +161,19 @@ The first input policy uses lossless UTF-8 byte ceilings (4,096-byte sections; 7
 
 `embed --max-requests 12` bounds new API work for a smoke test. Run `--resume --retry-failed` to explicitly retry failed requests; compatible successful requests are cached. A bounded run stays marked partial. `align` may inspect partial coverage; model selection and corpus conclusions require completed, reviewed inputs.
 
+The completed OpenAI corpus has seven independent 32-dimensional training-fit projections: query, document title, H1, outline, page, section, and URL path. The [corpus summary](analysis/embedding-openai-corpus.json) records coverage, fit sizes, and explained variance. Shared artifacts are under `<main checkout>/data/representations/runs/retention-full-v1`; `features/openai-v1.json` maps named fields to their coordinate and fit files. Alignment covers all 9,700 rows, with 9,555 usable query–section matches. The full evidence HTML is stored in that run's `reports/` directory; it is large and ignored by Git.
+
+```sh
+uv run python -m representations training-manifests --run /path/to/run --model openai-large
+uv run python -m representations project --run /path/to/run --model openai-large \
+  --view title --subview document_title --components 32 \
+  --fit-manifest /path/to/run/fit-manifests/document_title.json
+uv run python -m representations corpus-summary --run /path/to/run \
+  --model openai-large --output /path/to/summary.json
+```
+
+Training manifests reuse original hostname splits, exclude upstream-ineligible and mixed-split source units, and remove exact held-out content from the fit. Coordinates are produced for all available units, including retained flagged sources. Large fits use seeded randomized SVD, with solver/power recorded; vectors load lazily to avoid duplicating the full corpus in RAM. The 32-dimensional output is an initial representation baseline, not a validated optimum. Use original-space vectors for query–field cosine; separate field PCA spaces are not comparable.
+
 For predictive PCA, supply a JSON `--fit-manifest` containing `scope: "training"`, `unit_ids`, and `heldout_unit_ids`. Fitting rejects overlapping IDs/hostnames and known duplicate content. `project --exploratory` explicitly fits available corpus vectors for visualization. Keep these maps separate from held-out predictive features. Use `apply --projection <folder> --output <parquet>` to transform compatible runs without refitting.
 
 Review manifests contain editable relevance grades (0–3) and fixed query/candidate identities. Complete all candidate grades before `evaluate --annotations <review.json> --output <metrics.json>`. Metrics describe the judged pools, not whole-corpus recall. `analyze --output <analysis.json>` runs grouped structural/path/alignment ablations and fold-fitted PCA; it requires sufficient independent hosts and both labels. It excludes label-conflicted URLs, averages repeated snapshots/queries explicitly, and reports uncertainty. Small smoke tests do not establish citation uplift.

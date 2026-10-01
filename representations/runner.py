@@ -1,6 +1,7 @@
 """Resumable hosted requests backed by shared shards and atomic run exports."""
 
-from collections import defaultdict
+from collections import defaultdict, OrderedDict
+from collections.abc import Mapping
 from concurrent.futures import ThreadPoolExecutor, wait, FIRST_COMPLETED
 from contextlib import contextmanager
 import fcntl
@@ -294,6 +295,31 @@ def export_vectors(run, cfgid, config, units, store, locations, failures):
     return index
 
 
+class SavedVectors(Mapping):
+    """Normalize rows on demand; keep a small cache instead of copying every vector."""
+    def __init__(self, arrays, index):
+        self.arrays = arrays
+        self.rows = {row["unit_id"]: row["row"] for row in index if row["status"] == "success"}
+        self.cache = OrderedDict()
+
+    def __len__(self):
+        return len(self.rows)
+
+    def __iter__(self):
+        return iter(self.rows)
+
+    def __contains__(self, uid):
+        return uid in self.rows
+
+    def __getitem__(self, uid):
+        if uid not in self.cache:
+            self.cache[uid] = normalized(self.arrays[self.rows[uid]])
+            if len(self.cache) > 1024:
+                self.cache.popitem(last=False)
+        self.cache.move_to_end(uid)
+        return self.cache[uid]
+
+
 def load_vectors(run, model_name):
     manifest = load_run(run)
     info = manifest["models"].get(model_name)
@@ -304,4 +330,4 @@ def load_vectors(run, model_name):
     index = read_json(folder / "index.json")
     if sum(row["status"] == "success" for row in index) != len(arrays):
         raise ValueError("Vector index cardinality mismatch")
-    return {row["unit_id"]: normalized(arrays[row["row"]]) for row in index if row["status"] == "success"}, manifest
+    return SavedVectors(arrays, index), manifest
