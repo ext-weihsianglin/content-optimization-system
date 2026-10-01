@@ -1,0 +1,66 @@
+{
+  "scope": "Hand-authored development fixtures, not held-out structure accuracy.",
+  "href": "https://example.test/",
+  "cases": [
+    {
+      "id": "inline-code",
+      "html": "<p>Run <code>pip install example</code> now.</p>",
+      "expected_markdown": "Run `pip install example` now."
+    },
+    {
+      "id": "deletion",
+      "html": "<p>Price <del>$100</del> $80.</p>",
+      "expected_markdown": "Price ~~$100~~ $80."
+    },
+    {
+      "id": "hard-break",
+      "html": "<p>First line<br>Second line</p>",
+      "expected_markdown": "First line\\\nSecond line"
+    },
+    {
+      "id": "definition",
+      "html": "<dl><dt>API</dt><dd>Application programming interface</dd></dl>",
+      "expected_markdown": "<dl><dt>API</dt><dd>Application programming interface</dd></dl>"
+    },
+    {
+      "id": "separator",
+      "html": "<p>First paragraph</p><hr><p>Second paragraph</p>",
+      "expected_markdown": "First paragraph\n\n---\n\nSecond paragraph"
+    },
+    {
+      "id": "inline-image",
+      "html": "<p>Look <img src=\"/diagram.png\" alt=\"Diagram\"> here.</p>",
+      "expected_markdown": "Look ![Diagram](<https://example.test/diagram.png>) here."
+    },
+    {
+      "id": "code-backticks",
+      "html": "<p><code>`x` and ``y``</code></p>",
+      "expected_markdown": "``` `x` and ``y`` ```"
+    },
+    {
+      "id": "code-emphasis",
+      "html": "<p><em>Use <code>a`b</code> now</em></p>",
+      "expected_markdown": "*Use ``a`b`` now*"
+    },
+    {
+      "id": "code-whitespace",
+      "html": "<p><code>  x\n y  </code></p>",
+      "expected_markdown": "<code>  x\n y  </code>"
+    },
+    {
+      "id": "empty-alt-image",
+      "html": "<p>Look <img src=\"/diagram.png\" alt=\"\"> here.</p>",
+      "expected_markdown": "Look ![](<https://example.test/diagram.png>) here."
+    },
+    {
+      "id": "whitespace-code",
+      "html": "<p><code>   </code></p>",
+      "expected_markdown": "<code>   </code>"
+    },
+    {
+      "id": "complex-table",
+      "html": "<table><tr><th colspan=\"2\">Cost</th></tr><tr><td>A</td><td>B</td></tr></table>",
+      "expected_markdown": "<table><tr><th colspan=\"2\">Cost</th></tr><tr><td>A</td><td>B</td></tr></table>"
+    }
+  ]
+}

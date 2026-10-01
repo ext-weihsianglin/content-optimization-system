@@ -21,6 +21,8 @@ the 100-snapshot structured export; full-corpus migration is not yet performed.
 Report index:
 
 - `analysis/extraction-evaluation.html`: completed five-method benchmark.
+- `analysis/inline-fidelity-v2/README.md`: issue #10 structured inline fidelity fix,
+  development markdownify comparison, and separate held-out diagnostics.
 - `analysis/reader-lm-review.html`: stopped Reader-LM run, matched completed-page comparison.
 - `analysis/reader-lm-pilot.html`: three development examples with expanded context/output budgets.
 - `analysis/reader-lm-progress.html`: partial run ledger, **not** a final ranking.

@@ -45,7 +45,11 @@ def structure_chunks(snapshot_id, method, blocks, target_characters=6000):
         text = blocks_to_text(pending)
         markdown = blocks_to_markdown(pending)
         identities = [block["block_id"] for block in pending]
-        chunks.append({"chunk_id": stable_hash(["retention-first-v1", snapshot_id, method, target_characters, identities]), "snapshot_id": snapshot_id, "method": method, "order": len(chunks), "block_ids": identities, "heading_path": context, "text": text, "markdown": markdown, "characters": len(markdown), "oversized": len(markdown) > target_characters})
+        versions = sorted({block["schema_version"] for block in pending if "schema_version" in block})
+        identity = ["retention-first-v1", snapshot_id, method, target_characters, identities]
+        if versions:
+            identity.append(versions)
+        chunks.append({"chunk_id": stable_hash(identity), "snapshot_id": snapshot_id, "method": method, "order": len(chunks), "block_ids": identities, "block_schema_versions": versions, "heading_path": context, "text": text, "markdown": markdown, "characters": len(markdown), "oversized": len(markdown) > target_characters})
 
     for group in groups:
         combined = pending + group["blocks"]

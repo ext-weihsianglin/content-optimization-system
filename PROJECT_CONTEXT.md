@@ -196,3 +196,21 @@ not resample. Use new output directories instead of overwriting frozen artifacts
 JSONL must be read by file iteration, not `str.splitlines()` (embedded Unicode line
 separators caused a real parsing bug). Large generated reports use escaped previews;
 their truncation does not affect full-output anchor scoring.
+
+## Issue #10 follow-up: structured inline fidelity (2026-10-01)
+
+`deck/markdownify-fix` adds `dom-blocks-v2`: source-referenced inline nodes,
+code/deletion/hard-break/media serialization, definition containers, thematic
+breaks, table cell inline annotations and version-aware chunk identities.
+Frozen outputs and original analysis remain unchanged. New parser outputs require
+versioned exports; corpus caches/features/models were not regenerated.
+
+Evidence and reproduction: `analysis/inline-fidelity-v2/README.md`, with development
+and held-out reports in separate subdirectories. Markdownify 1.2.3 was evaluated on
+12 hand-authored development fixtures only; its default code whitespace handling
+and spanning-table output prevent direct replacement. It remains a development
+comparison dependency. Held-out diagnostic: 37 HTML snapshots, 32 evaluable;
+required anchors 126/129 and unwanted 46/50 unchanged; 22,412 valid declared
+locations, zero invalid. Sparse AI-assisted anchors do not establish semantic
+accuracy. Native inline source locations remain explicitly unavailable rather
+than claiming generated HTML paths. Final suite: 141 tests / 12 subtests passed.
