@@ -1,7 +1,7 @@
 # Encoder P1 scorer and component rewards for P2
 
-Status: implementation authorized; teacher-model selection pending user discussion,
-2026-10-01. Implementation sequence and gates:
+Status: implementation authorized; the user approved GPT-5 at medium reasoning
+for the 12-case teacher smoke on 2026-10-01. Implementation sequence and gates:
 [delivery plan](encoder-reward-scorer-plan.md).
 
 ## Objective and scope

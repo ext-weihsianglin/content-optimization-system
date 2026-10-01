@@ -1,15 +1,20 @@
 # Teacher curation, encoder distillation, and P2 evaluation plan
 
-Status: implementation authorized; Phase 1 offline preparation started, 2026-10-01. Contract and evidence:
+Status: implementation authorized; Phase 1 offline preparation complete and GPT-5
+smoke complete awaiting human review, 2026-10-01. Contract and evidence:
 [encoder reward scorer spec](encoder-reward-scorer.md).
 
 The initial plan was submitted in PR #12. The user subsequently authorized
 implementation and explicitly reserved teacher-model choice for discussion.
-No teacher is selected and no calls have been made. Offline curation, response
+The user approved GPT-5 at medium reasoning for all 12 smoke cases with a $10
+bounded run budget. GPT-5.6 Luna/Sol were unavailable to the current API key;
+there was no automatic model substitution. Offline curation, response
 contracts, draft rubrics, smoke packets, and controlled edit pairs are available in
 [encoder_scorer](../encoder_scorer/README.md); see the
 [preparation report](../analysis/teacher-curation-v1.html). Training and later phases
-remain gated on reviewed teacher evidence.
+remain gated on reviewed teacher evidence. The [smoke review](../analysis/teacher-gpt5-smoke-v1.md)
+records 11 valid body labels, one unavailable stage, rejected attempts, and cost;
+completion of the smoke does not satisfy the phase 1 reliability gate.
 
 ## Phase 1 — Curate supervision from stronger models
 
@@ -151,7 +156,8 @@ the flow produces useful edits without hiding grounding or coverage failures.
 
 ## Decisions to resolve during implementation
 
-- Teacher choice, execution budget, and data-handling constraints after the smoke test.
+- Teacher reliability and any comparison-model choice after reviewing the approved
+  GPT-5 smoke; expansion budget and data-handling constraints before bulk annotation.
 - Approved factual-material scope versus original-page fidelity.
 - Backend/hardware and long-document policy after token profiling.
 - Numerical rubric reliability, reward robustness, and promotion thresholds before

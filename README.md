@@ -208,7 +208,8 @@ and [teacher curation → ModernBERT → LR benchmarking → demo dogfood plan](
 These are review proposals; they do not change the default scorer.
 
 Offline teacher-pilot preparation is now available in [encoder_scorer/](encoder_scorer/README.md).
-Teacher-model choice is pending user input; no teacher calls or student training have run.
+The user approved GPT-5 at medium reasoning for the 12-case smoke. Student training
+remains gated on reviewed teacher evidence; see the [teacher checkpoint](evaluation/teacher/STATUS.md).
 
 The current **v2 scorer uses the retention-first parser as its source of truth**. LR code, plans, visual reports, and feature explanations live in [`trad_ml_scorer/`](trad_ml_scorer/README.md), with frozen original results in [`trad_ml_scorer/v1/`](trad_ml_scorer/v1/report.md) and retention-based results in [`trad_ml_scorer/v2/`](trad_ml_scorer/v2/report.md). See the [v2 HTML report](trad_ml_scorer/v2/report.html) for feature importance and sensitivity charts.
 

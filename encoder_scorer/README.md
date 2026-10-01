@@ -1,8 +1,12 @@
 # Encoder scorer experiments
 
-Phase 1 offline preparation is implemented. **Teacher selection is reserved for
-the user; no teacher model has been selected and no API calls have been made.**
-Student training and later benchmarking/dogfood have not started.
+Phase 1 offline preparation is implemented. The user approved **GPT-5 at medium
+reasoning** for the 12-case smoke annotation. The run is complete: 12 requirements/title labels
+each and 11 body labels passed validation; one body stage remains unavailable.
+Review [actual judgments](../analysis/teacher-gpt5-smoke-v1.html) and
+[findings/costs](../analysis/teacher-gpt5-smoke-v1.md). Student training and later
+benchmarking/dogfood have not started. GPT-5.6 Luna/Sol model endpoints returned
+404 with the available key; no model was substituted before user approval.
 
 Specification: [component scorer](../spec/encoder-reward-scorer.md).
 Sequence: [delivery plan](../spec/encoder-reward-scorer-plan.md).
@@ -71,9 +75,48 @@ separate provenance file. These controls are not reviewed preferences or quality
 labels. Prose removal and moving a source passage first may or may not harm/improve
 an answer; a reviewer must judge them. Original-page packs check fidelity only.
 
-Model/provider adapters, usage/cost ledgers, response persistence, reviewer adjudication, and
-human review remain to be implemented after the user chooses the teacher setup.
-No API/model defaults are embedded in this package.
+The OpenAI adapter saves requests, visible responses, usage, latency, validation,
+and at most one repair per stage. Teacher model selection is an explicit CLI argument.
+Reviewer adjudication and human review remain pending. No student training is enabled.
+
+## Run the approved teacher smoke
+
+```sh
+uv run python -m encoder_scorer.annotate \
+  --packets data/encoder_scorer/teacher-v1/smoke-packets \
+  --output data/encoder_scorer/teacher-v1/gpt5-smoke-new \
+  --model gpt-5 --effort medium --budget-usd 10
+uv run python -m encoder_scorer.annotation_report \
+  --run data/encoder_scorer/teacher-v1/gpt5-smoke-new \
+  --packets data/encoder_scorer/teacher-v1/smoke-packets \
+  --output analysis/teacher-gpt5-smoke-new
+```
+
+Requires `OPENAI_API_KEY`; credentials and source-bearing call traces remain local.
+Requests use strict JSON schemas, `store: false`, no tools, and explicit output caps.
+The token-count endpoint counts actual input/instructions; a conservative schema
+and overhead allowance is added to the pre-call reservation. No content is truncated
+to fit. Usage-based costs use standard uncached input/output rates, including billed
+reasoning output tokens; they are conservative estimates, not billing invoices.
+
+Three model passes run per case: requirements, body, and title. Evidence support
+abstains deterministically because these packets contain no separate evidence pack;
+it must not be presented as a teacher grounding judgment. Returned snapshot identities
+are saved, alongside the requested alias. No cross-model or human reliability claim
+is made by a single-teacher smoke run.
+
+Use `--stop-after 1` to inspect the first case without changing the frozen 12-case
+plan, then rerun the identical command with `--resume` and no stop flag. Completed
+valid responses are reused. Ambiguous transport failures are retained for inspection.
+The default does not retry them; `--allow-transport-retry` permits one bounded retry,
+retaining the unknown call's full cost reservation. `--concurrency 2` processes two
+cases at a time with atomic shared budget reservations. A code revision can reuse validated calls via
+`--seed-from` with identical inputs/model/rubric/settings, recording parent manifest
+and trace hashes. The first actual run was carried into `gpt5-smoke-v2` after a
+tuple/list configuration-serialization fix; its initial three calls were reused.
+The final run uses `gpt5-smoke-v3`, seeded from v2 after its title call timed out;
+the recorded timeout was retried once, and five valid calls were reused. Both earlier
+run directories and code snapshots remain local for provenance.
 
 ## Demo integration inventory
 
@@ -88,9 +131,11 @@ must survive integration.
 ## Verification
 
 ```sh
-uv run python -m pytest tests/test_teacher_curation.py -q
+uv run python -m pytest tests/test_teacher_curation.py tests/test_teacher_annotation.py -q
 ```
 
 Tests cover label-blind deterministic curation, split isolation, query-first input
 separation, atomic nested structures, invalid evidence and requirement references,
 numeric score validation, and abstention for omitted content/missing evidence packs.
+Provider tests cover exact resume and migration, bounded repairs/retries, incomplete
+responses, durable cost accounting, and concurrent spend-cap enforcement.

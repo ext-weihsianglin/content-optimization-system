@@ -144,9 +144,10 @@ under `trad_ml_scorer/`; original analysis and frozen v1/v2 are preserved.
 ## Encoder scorer workstream checkpoint
 
 The user authorized the teacher-curation → ModernBERT → LR benchmark → demo dogfood
-plan, then explicitly asked to discuss teacher-model choice before selection.
-**No teacher model has been selected; do not choose one or make teacher calls until
-the user supplies that choice.** OpenAI key presence was verified without exposing it.
+plan, explicitly reserved teacher-model choice, and then approved **GPT-5 at medium
+reasoning** for the 12-case smoke. GPT-5.6 Luna/Sol API model endpoints were unavailable
+with the current key; no substitute was used before approval. Returned snapshot:
+`gpt-5-2025-08-07`. API credentials stay in environment variables, never artifacts.
 
 On branch `deck/scorers-llm-classifiers`, `encoder_scorer/` implements offline,
 label-blind curation, stage-separated packets, strict evidence validation, and
@@ -155,12 +156,26 @@ Local ignored artifacts: `data/encoder_scorer/teacher-v1/`. Source caches are re
 from the main repository's `data/trad_ml_scorer/v2/`; they were not changed.
 120 distinct development hosts: 96 train / 24 validation; 12 train-only smoke cases,
 30 queued independent reviews, 18 unlabeled edit pairs across 3 training parents.
-No test documents loaded. Four smoke views have omitted blocks; token budgeting
-awaits teacher choice. No annotations or human reviews have occurred. Independent
+No test documents loaded. Four smoke views have omitted blocks. Independent
 curation and packet replay is byte-identical. Preparation report:
 `analysis/teacher-curation-v1.html` / `.json`; plan: `spec/encoder-reward-scorer-plan.md`.
-Verification: 124 tests / 12 subtests passed with locked worktree-local Python and
-Node dependencies installed offline. No environments or raw caches are committed.
+
+The OpenAI adapter uses strict Responses schemas, `store: false`, actual input-token
+counting plus schema allowance, a $10/72-call cap, durable request/response/usage
+traces, and at most two attempts per stage. Valid calls are reused. Unknown transport
+cost stays reserved; an explicit retry flag permits one recovery. The final smoke
+run is `data/encoder_scorer/teacher-v1/gpt5-smoke-v3/`, carrying forward v1/v2 calls
+with manifest/trace hashes. Earlier run directories and code snapshots remain local.
+Smoke complete: 12 processed, 12 valid requirements/title stages each, 11 valid body
+stages / 1 unavailable (GPT-4o). 42 attempts: 35 valid, 6 rejected, 1 recovered timeout.
+Conservative cost ledger $1.9832. Review `analysis/teacher-gpt5-smoke-v1.html` and
+`.md` before expanding; requirements for static pages, partial-view absence,
+source-quality abstention, exact quotes, and title negative controls need review.
+Grounding support is a deterministic missing-evidence abstention, not a teacher
+judgment. No human review, independent model comparison, or student training yet.
+Verification: 133 tests / 12 subtests passed with locked dependencies installed
+offline. No environments or raw caches are committed. PR #12:
+`https://github.com/ext-weihsianglin/content-optimization-system/pull/12`.
 
 The adjacent `profound/demo-webapp` is Content Studio (Next.js/FastAPI). Its inspected
 main checkout exposes `/api/analyze` and `/api/draft` in `backend/app/main.py` with
