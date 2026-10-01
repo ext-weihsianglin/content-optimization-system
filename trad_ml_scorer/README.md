@@ -203,3 +203,37 @@ candidate wins. The v6 saved model is an audit copy of the refitted baseline;
 for inference keep using `data/trad_ml_scorer/v5/model.joblib`. No embeddings or
 projection fitting were added. Await the other session's field embeddings before
 another semantic-feature comparison.
+
+## Fixed-prompt HTML-edit interpretation
+
+The [companion report](interpretation/fixed_prompt/report.html)
+([Markdown](interpretation/fixed_prompt/report.md)) replots retained v5 importance
+for the editing use case without retraining or changing frozen experiment reports.
+It separates HTML-only and prompt×HTML signals from pure prompt, fixed URL and
+parser/source diagnostic features. Pure prompt terms act as a query-specific
+intercept and cancel in paired log-odds changes; they remain in probability scoring.
+
+Its primary view measures coherent HTML edits with prompt and URL fixed, reparses
+and recomputes all features, and attributes each score change exactly as
+`sum(beta * (z_after - z_before))`, including missing indicators. It also retains a
+clearly labelled across-query predictive-importance view; hiding prompt bars alone
+does not create conditional importance. Validation has only one mixed-label
+same-prompt/same-host group, too little for reliable within-query ranking estimates.
+
+On 40 hash-selected validation HTML pages, applicable edits had mean predicted
+probability changes of -.93 points for title←existing H1 (26 pages), +.11 points
+for moving a relevant paragraph earlier (21), and +.02 points for paragraph splitting
+(4). These are model responses, not observed citation gains. The first two host
+bootstrap intervals cross zero; four hosts are too few for a useful third interval.
+All applied edits preserve the visible body word multiset and insert no new facts;
+editorial review is still required for semantic/context preservation.
+
+```sh
+uv run python -m trad_ml_scorer.analyze_fixed_prompt --input-dir data/raw
+uv run python -m trad_ml_scorer.build_fixed_prompt_report
+```
+
+The analysis refuses to replace existing results. The report includes model/data
+provenance, edit applicability, serialization controls, exact attribution, and advice
+on grouped conditional permutation, coherent edit distributions, SHAP/PDP/ALE limits
+and prospective evaluation. No test data, new model fit or embeddings are involved.

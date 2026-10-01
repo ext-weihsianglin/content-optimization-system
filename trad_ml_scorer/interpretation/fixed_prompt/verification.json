@@ -1,0 +1,22 @@
+{
+  "status": "passed",
+  "tests": 127,
+  "subtests": 12,
+  "html_pages": 40,
+  "applicable_edits": 51,
+  "model_sha256": "24f2351951bae3be9e36c42fdccc6bc966335db8350edb36ccf11782a6ba5ec8",
+  "analysis_sha256": "a2140a814ecf61ad57e30cf0022987cb162e301afb3637309928724eca495486",
+  "analysis_code_hashes": {
+    "trad_ml_scorer/fixed_prompt_edits.py": "275ea3c30cad3cd5edbd46cb08b6d452051ffd98aa516560aa2fad2323826abb",
+    "trad_ml_scorer/analyze_fixed_prompt.py": "87878b99cb96abdab2dc8410c70c31d94a708d13bf8175683f9ea5881021e7cb",
+    "trad_ml_scorer/build_fixed_prompt_report.py": "d10a854b41138ab90530db735adb6f39271ba781a3770884b72d4a425d1f82e4"
+  },
+  "checks": [
+    "exact LR contribution sums",
+    "zero prompt and URL deltas",
+    "zero serialization-control drift",
+    "unchanged model fingerprint",
+    "four embedded plots",
+    "raw/cache parity and body-word preservation asserted during extraction"
+  ]
+}

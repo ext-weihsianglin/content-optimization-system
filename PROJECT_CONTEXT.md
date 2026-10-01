@@ -234,3 +234,24 @@ Prepared v6 caches are shared and SHA-verified under the main repository's ignor
 `data/trad_ml_scorer/v6`. Reuse v5 for inference; v6 bundles are experiment artifacts.
 No embedding work was duplicated. Continue with per-field embeddings when the
 other session supplies provenance and fold-local projection/benchmark details.
+
+## Fixed-prompt interpretation follow-up
+
+The user wants editing-oriented importance with the prompt fixed. See
+`trad_ml_scorer/interpretation/fixed_prompt/report.html` and `.md`. This is a
+companion analysis of retained v5, not v7 or a new fit. Prompt-only terms cancel
+in paired log-odds differences but still affect baseline probabilities. URL stays
+fixed too; document and prompt×document effects are shown separately from context.
+
+The report analyzes coherent, body-word-preserving edits on 40 validation HTML
+snapshots, reparses all features, and verifies exact additive logit attribution
+including missing indicators. Pure prompt/URL contributions are zero. Serialization
+controls had zero score drift. Title←H1 mean score delta -.93 pp (26 applicable),
+relevant-paragraph-first +.11 pp (21), paragraph split +.02 pp (4). No demonstrated
+citation uplift; intervals for first two span zero, third sample too small.
+
+Validation contains only one mixed-label same-prompt/same-host group, so do not
+claim reliable empirical conditional ranking importance. The filtered global
+permutation plot is explicitly still across-query predictive importance. Prefer
+real fixed-query edit contrasts, paired distributions and joint-family reasoning;
+require grounded review and prospective evaluation before optimizing citations.
