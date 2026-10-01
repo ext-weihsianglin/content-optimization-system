@@ -1,0 +1,375 @@
+{
+  "permutation": [
+    {
+      "feature": "coverage_title",
+      "mean_log_loss_increase": 0.015838402569988325,
+      "shuffle_sd": 0.0032373596002064683
+    },
+    {
+      "feature": "log_heading_count",
+      "mean_log_loss_increase": 0.013242016943435781,
+      "shuffle_sd": 0.004130115030370405
+    },
+    {
+      "feature": "path_homepage",
+      "mean_log_loss_increase": 0.009643170138708742,
+      "shuffle_sd": 0.0029047558548608104
+    },
+    {
+      "feature": "prompt_comparison",
+      "mean_log_loss_increase": 0.005045260709505625,
+      "shuffle_sd": 0.001849572390308059
+    },
+    {
+      "feature": "focus_text_fraction",
+      "mean_log_loss_increase": 0.003733093673941279,
+      "shuffle_sd": 0.0016723129707290991
+    },
+    {
+      "feature": "prompt_question",
+      "mean_log_loss_increase": 0.003185162153935724,
+      "shuffle_sd": 0.0018274064468821486
+    },
+    {
+      "feature": "log_list_items",
+      "mean_log_loss_increase": 0.0031800612063276816,
+      "shuffle_sd": 0.0017578630117582852
+    },
+    {
+      "feature": "path_commerce",
+      "mean_log_loss_increase": 0.0027934865871583115,
+      "shuffle_sd": 0.0015452765708245508
+    },
+    {
+      "feature": "recognized_html",
+      "mean_log_loss_increase": 0.0020257013450314535,
+      "shuffle_sd": 0.0009924799490691613
+    },
+    {
+      "feature": "path_editorial",
+      "mean_log_loss_increase": 0.0016549439177974432,
+      "shuffle_sd": 0.0010573977397863317
+    },
+    {
+      "feature": "has_list",
+      "mean_log_loss_increase": 0.0016327654626871024,
+      "shuffle_sd": 0.0009969177548326067
+    },
+    {
+      "feature": "path_depth",
+      "mean_log_loss_increase": 0.0016133770075158482,
+      "shuffle_sd": 0.0010733400728420719
+    },
+    {
+      "feature": "prompt_how_to",
+      "mean_log_loss_increase": 0.0015125022811403488,
+      "shuffle_sd": 0.0016767093138398937
+    },
+    {
+      "feature": "coverage_intro",
+      "mean_log_loss_increase": 0.0012215629627357893,
+      "shuffle_sd": 0.0005408498378259644
+    },
+    {
+      "feature": "coverage_url_path",
+      "mean_log_loss_increase": 0.0009117923700982633,
+      "shuffle_sd": 0.000982380588776321
+    },
+    {
+      "feature": "has_article_schema",
+      "mean_log_loss_increase": 0.0006050738602604818,
+      "shuffle_sd": 0.0011595534837379844
+    },
+    {
+      "feature": "list_items_per_1000_words",
+      "mean_log_loss_increase": 0.0004646903114928177,
+      "shuffle_sd": 0.00021617777450741256
+    },
+    {
+      "feature": "has_article",
+      "mean_log_loss_increase": 0.0004337218671964386,
+      "shuffle_sd": 0.0004650485756906589
+    },
+    {
+      "feature": "removed_text_fraction",
+      "mean_log_loss_increase": 0.0002837211041053944,
+      "shuffle_sd": 0.0008889049290267074
+    },
+    {
+      "feature": "log_table_count",
+      "mean_log_loss_increase": 0.0002146959517150419,
+      "shuffle_sd": 0.0003155243245431701
+    },
+    {
+      "feature": "headings_per_1000_words",
+      "mean_log_loss_increase": 0.0002107085974003183,
+      "shuffle_sd": 0.00013610388373315528
+    },
+    {
+      "feature": "has_table",
+      "mean_log_loss_increase": 0.00015775642465762536,
+      "shuffle_sd": 0.0007327491648273261
+    },
+    {
+      "feature": "log_h1_count",
+      "mean_log_loss_increase": 0.00010130644471731954,
+      "shuffle_sd": 0.0007158373698586411
+    },
+    {
+      "feature": "coverage_body",
+      "mean_log_loss_increase": 6.549004630939474e-05,
+      "shuffle_sd": 6.951950828341522e-05
+    },
+    {
+      "feature": "path_support_docs",
+      "mean_log_loss_increase": 4.985164501844682e-05,
+      "shuffle_sd": 0.000547606099614549
+    },
+    {
+      "feature": "log_word_count",
+      "mean_log_loss_increase": 3.0520867395374594e-05,
+      "shuffle_sd": 3.194470682716093e-05
+    },
+    {
+      "feature": "coverage_headings",
+      "mean_log_loss_increase": 8.48243611452452e-06,
+      "shuffle_sd": 4.255915229121998e-05
+    },
+    {
+      "feature": "has_main",
+      "mean_log_loss_increase": -3.5639779995966235e-05,
+      "shuffle_sd": 6.048698106592626e-05
+    },
+    {
+      "feature": "script_char_ratio",
+      "mean_log_loss_increase": -6.831242474684141e-05,
+      "shuffle_sd": 0.00010699087176998456
+    },
+    {
+      "feature": "failure_page",
+      "mean_log_loss_increase": -0.0001408110440563178,
+      "shuffle_sd": 6.748108912862e-05
+    },
+    {
+      "feature": "log_prompt_words",
+      "mean_log_loss_increase": -0.00021090814050885864,
+      "shuffle_sd": 0.0003394175075112532
+    },
+    {
+      "feature": "log_title_words",
+      "mean_log_loss_increase": -0.000224904822874968,
+      "shuffle_sd": 0.00027453603296023803
+    },
+    {
+      "feature": "empty_title",
+      "mean_log_loss_increase": -0.0003471023466540157,
+      "shuffle_sd": 0.0006490899798312481
+    },
+    {
+      "feature": "sparse_body",
+      "mean_log_loss_increase": -0.0005545213785130916,
+      "shuffle_sd": 0.0015346150076478583
+    },
+    {
+      "feature": "has_jsonld",
+      "mean_log_loss_increase": -0.001000166249407904,
+      "shuffle_sd": 0.0004992838510443387
+    }
+  ],
+  "family_ablation": [
+    {
+      "family": "alignment",
+      "validation_log_loss": 0.66356784517101,
+      "delta": 0.009474912884507525
+    },
+    {
+      "family": "prompt",
+      "validation_log_loss": 0.6587722816359172,
+      "delta": 0.004679349349414719
+    },
+    {
+      "family": "content_size",
+      "validation_log_loss": 0.6581479978051555,
+      "delta": 0.004055065518653089
+    },
+    {
+      "family": "structure",
+      "validation_log_loss": 0.6547596554160037,
+      "delta": 0.0006667231295012233
+    },
+    {
+      "family": "html_metadata",
+      "validation_log_loss": 0.6534422747971725,
+      "delta": -0.0006506574893299089
+    },
+    {
+      "family": "url",
+      "validation_log_loss": 0.6620501246597862,
+      "delta": 0.007957192373283739
+    },
+    {
+      "family": "quality",
+      "validation_log_loss": 0.6536489182709779,
+      "delta": -0.0004440140155245187
+    }
+  ],
+  "partial_dependence": [
+    {
+      "feature": "coverage_title",
+      "grid": [
+        0.0,
+        0.07142857142857142,
+        0.125,
+        0.16666666666666666,
+        0.2,
+        0.2222222222222222,
+        0.25,
+        0.2857142857142857,
+        0.3333333333333333,
+        0.4,
+        0.42857142857142855,
+        0.5,
+        0.6,
+        0.6666666666666666
+      ],
+      "mean_probability": [
+        0.443504089023167,
+        0.4603105983304057,
+        0.4729789678484049,
+        0.48285860531187663,
+        0.4907734941780779,
+        0.49605354318905226,
+        0.5026554956770376,
+        0.5111434482174233,
+        0.5224526197908991,
+        0.5382502106405345,
+        0.545001356900484,
+        0.5618085307691483,
+        0.5851120986857383,
+        0.6004584564255578
+      ]
+    },
+    {
+      "feature": "log_heading_count",
+      "grid": [
+        0.6931471805599453,
+        1.0986122886681098,
+        1.6094379124341003,
+        1.9459101490553132,
+        2.1972245773362196,
+        2.3978952727983707,
+        2.5649493574615367,
+        2.70805020110221,
+        2.833213344056216,
+        2.9444389791664403,
+        3.044522437723423,
+        3.1354942159291497,
+        3.258096538021482,
+        3.332204510175204,
+        3.4657359027997265,
+        3.5553480614894135,
+        3.6888794541139363,
+        3.8918202981106265,
+        4.1588830833596715
+      ],
+      "mean_probability": [
+        0.400234623605343,
+        0.419508112218957,
+        0.44413904755163797,
+        0.4605260559496432,
+        0.47282670068810795,
+        0.4826754568737874,
+        0.4908868371626166,
+        0.49792642313045904,
+        0.504085616505567,
+        0.5095590178512477,
+        0.5144830808570361,
+        0.5189572038495723,
+        0.5249832278834505,
+        0.5286229906962107,
+        0.535174739698244,
+        0.5395659555329937,
+        0.5460993391551432,
+        0.5560015401194615,
+        0.5689712140841064
+      ]
+    },
+    {
+      "feature": "path_homepage",
+      "grid": [
+        0.0,
+        1.0
+      ],
+      "mean_probability": [
+        0.5023001703440041,
+        0.8664613731632792
+      ]
+    },
+    {
+      "feature": "prompt_comparison",
+      "grid": [
+        0.0,
+        1.0
+      ],
+      "mean_probability": [
+        0.48737526609643916,
+        0.5494156185698115
+      ]
+    },
+    {
+      "feature": "focus_text_fraction",
+      "grid": [
+        0.17765273311897106,
+        0.4904444269307101,
+        0.6583398644750725,
+        0.7523045141118339,
+        0.8155080213903744,
+        0.8621309062509387,
+        0.8897842472065717,
+        0.9152894232087346,
+        0.935746088517657,
+        0.9521178637200737,
+        0.9650174093688738,
+        0.9758933841438241,
+        0.9842896366203132,
+        0.9899857295381844,
+        0.9940436796823295,
+        0.9973774800457592,
+        0.9998759039313057,
+        1.0
+      ],
+      "mean_probability": [
+        0.5746497197448821,
+        0.5432492765398258,
+        0.5262540727361389,
+        0.5167180080751105,
+        0.5102981133943727,
+        0.5055608624890308,
+        0.5027508243803758,
+        0.5001590946574328,
+        0.49808047829251545,
+        0.49641704731578346,
+        0.4951065052117362,
+        0.49400163054562296,
+        0.4931487247067059,
+        0.49257013685853007,
+        0.49215796172598847,
+        0.4918193506837981,
+        0.49156559450155735,
+        0.4915529906439111
+      ]
+    },
+    {
+      "feature": "prompt_question",
+      "grid": [
+        0.0,
+        1.0
+      ],
+      "mean_probability": [
+        0.5616228061759934,
+        0.48356572859760333
+      ]
+    }
+  ],
+  "note": "Validation-only diagnostics, not used for further selection. Shuffle SD is not a confidence interval. Correlation may mask importance; one-feature perturbations can create implausible combinations. Not causal."
+}
