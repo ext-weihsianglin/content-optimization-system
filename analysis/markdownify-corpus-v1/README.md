@@ -66,7 +66,9 @@ precision/recall, citation uplift or verified frontier-model ingestion.
 
 The full-corpus results and independent verification are reported in
 `corpus/results.json` and `corpus/report.html`. The versioned local export is
-`data/processed/markdownify-corpus-v1-complete/` in this isolated worktree. Raw data,
+`/Users/ext-weihsiang.lin/Documents/profound/data/content-optimization-system/processed/markdownify-corpus-v1-complete/`.
+This worktree's ignored `data/` symlink points to the shared project data directory,
+so the original relative paths still resolve. Raw data,
 full documents and caches stay outside Git; the committed corpus report contains
 only aggregate evidence and explicitly bounded, escaped previews.
 

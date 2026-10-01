@@ -41,6 +41,12 @@ source boundaries; custom converters preserve code whitespace and table/definiti
 HTML where Markdown is lossy. Native Markdown/text keeps native parsing. Full-corpus
 extraction is independently versioned; existing frozen evaluation outputs stay intact.
 
+Persistent local data lives at
+`/Users/ext-weihsiang.lin/Documents/profound/data/content-optimization-system/`.
+Use `raw/` for source snapshots and versioned `processed/` directories for exports
+and checkpoints. See `AGENTS.md` for cross-session storage and resume conventions.
+This worktree's ignored `data/` symlink resolves to that shared directory.
+
 ```sh
 uv sync --locked
 uv run --offline python -m preprocessing.corpus \

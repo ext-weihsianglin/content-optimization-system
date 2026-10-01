@@ -225,8 +225,9 @@ conversion is removed from the active path; structured provenance remains separa
 `conservative_dom` still names the retention-region policy. New blocks (including
 native plain text) declare `dom-blocks-v3`; chunk identities include that version.
 
-Complete new export in the isolated `deck/markdownify-fix` worktree:
-`data/processed/markdownify-corpus-v1-complete/`. All 9,700 rows reference 9,551 exact
+Complete new export in the shared local data volume:
+`/Users/ext-weihsiang.lin/Documents/profound/data/content-optimization-system/processed/markdownify-corpus-v1-complete/`.
+All 9,700 rows reference 9,551 exact
 payload-plus-URL snapshots; the 149 additional references were preserved. Zero
 extraction errors/timeouts. Statuses: 9,167 selected, 334 needs review, 47 source
 insufficient, 3 unsupported. 3,309,747 blocks / 278,479 chunks / 2,448 oversized chunks.
@@ -244,3 +245,16 @@ CLI: `python -m preprocessing.corpus` (offline, versioned, bounded, resumable) a
 Final regression suite: 154 tests / 12 subtests passed. Four-worker complete run
 (including indexing): 1,191.539 seconds. Models/features were not retrained or
 regenerated; that remains separate from this completed extraction request.
+
+## Shared persistent data volume (2026-10-01)
+
+The user designated `/Users/ext-weihsiang.lin/Documents/profound/data` as the golden
+local data volume. This project's namespace is `content-optimization-system/`.
+Five original Parquet inputs were copied into its `raw/` and verified byte-for-byte
+with SHA-256; their existing repository location was left untouched. This worktree's
+entire `data/processed/` (including completed exports and interrupted-run journals)
+was moved into the shared namespace. Its ignored `data/` is now a symlink to that
+namespace. The completed corpus manifest is unchanged. Other worktrees were not
+modified. Existing manifest paths describe the original extraction environment;
+the shared paths above identify the current storage location. Follow `AGENTS.md`
+for unique run directories, identity-checked resume, and cross-session discovery.
