@@ -1,0 +1,339 @@
+{
+  "annotation_type": "ai_source_only",
+  "documents": [
+    {
+      "snapshot_id": "fa9b696d6668fcc73a7d037c18f38dff9cdb4cf47b24518ba93f670d20e6a167",
+      "evaluable": true,
+      "required": [
+        {"text": "A Global Perspective on Anti-Money Laundering (AML) Regulations and Compliance in 2023", "kind": "heading", "reason": "Identifies the report's subject and year."},
+        {"text": "report suspicious activity of transactions worth more than USD 10,000, and to identify wallet owners when sending more than $3,000", "kind": "numeric", "reason": "Preserves the US proposal's transaction thresholds as stated in the report."},
+        {"text": "FINTRAC serves as the primary Canadian regulatory body for AML compliance", "kind": "content", "reason": "Covers the Canadian regulatory framework beyond the US discussion."},
+        {"text": "AI-powered systems can be used to identify potential money laundering transactions in real time and flag them for further investigation.", "kind": "content", "reason": "Captures a concrete emerging-technology application."},
+        {"text": "Ultimate beneficial ownership (UBO) identifies the individuals who ultimately own or control a legal entity, such as a corporation or trust", "kind": "content", "reason": "Preserves a central definition from the later trends section."}
+      ],
+      "unwanted": [],
+      "notes": "Expanded the single truncated sample using the full source-block payload. Anchors span regional regulation, technology, and ownership transparency. No unambiguous unrelated boilerplate selected; report references and publisher context are not automatically unwanted. Source claims are preserved, not independently fact-checked. Partial AI reference anchors, not whole-document gold.",
+      "reviewer_type": "ai_source_only"
+    },
+    {
+      "snapshot_id": "0f17a722be9e1af05af9cd79bb836d9c106a7b780116ab6a4af23f163f16e145",
+      "evaluable": true,
+      "required": [
+        {"text": "Douglas & Pirtleville August 2025 Product and Pricing Guide", "kind": "heading", "reason": "Establishes the pricing guide's location and effective edition."},
+        {"text": "Excess usage is $10 per additional 50 GB block, except for Unlimited Data Plan subscribers.", "kind": "numeric", "reason": "Retains the usage-based price and its exception without table or footnote markers."},
+        {"text": "All Cox Internet plans include 1.25 TB (1,280 GB) per month of data usage.", "kind": "numeric", "reason": "Captures a material usage allowance from the pricing qualifications."},
+        {"text": "Cox Homelife smart home service plan requires Panoramic Wifi and compatible equipment purchase.", "kind": "content", "reason": "Covers prerequisites for a different service category."}
+      ],
+      "unwanted": [
+        {"text": "©2024 Cox Communications, Inc. All rights reserved.", "reason": "Copyright boilerplate repeated in the guide."}
+      ],
+      "notes": "Read the full source-block payload beyond the truncated TV sample. Prose anchors avoid dot leaders and footnote markers; whitespace is normalized. Service limitations and pricing footnotes are useful main content, not blanket boilerplate.",
+      "reviewer_type": "ai_source_only"
+    },
+    {
+      "snapshot_id": "199ef31174f08dc3d4676da17dd23ceba97b4aba32055e85aa43d7f62e3ccf6c",
+      "evaluable": false,
+      "required": [],
+      "unwanted": [{"text": "not-implemented", "reason": "Placeholder for unavailable source content."}],
+      "notes": "The full source-block file contains only not-implemented. No document content is available to annotate.",
+      "reviewer_type": "ai_source_only"
+    },
+    {
+      "snapshot_id": "7aa94af2424a4d5769a159676c4ad9fbd739f4c66b15c8142aae89e4a2ab943f",
+      "evaluable": false,
+      "required": [],
+      "unwanted": [
+        {"text": "LYFE Marketing, Copyright All Rights Reserved © 2025", "reason": "Footer copyright."},
+        {"text": "LYFE Marketing Agency is a full-service social media management company. Drive traffic and sales with our social media management services.", "reason": "Generic agency footer description, not the missing article."}
+      ],
+      "notes": "Page-not-found title; full source blocks contain service navigation and footer material only. No free-business-advertising article is present.",
+      "reviewer_type": "ai_source_only"
+    },
+    {
+      "snapshot_id": "5833358fb9f155c356d6c3ebc790e87d0aadd66a66d216ab80c6ce927382898e",
+      "evaluable": false,
+      "required": [],
+      "unwanted": [{"text": "This page was not found...", "reason": "Missing-page error message."}],
+      "notes": "Full source contains only Sorry. and a page-not-found message; no crypto-tax comparison content.",
+      "reviewer_type": "ai_source_only"
+    },
+    {
+      "snapshot_id": "84b5520cc3cedf18b48062e5fc0e715f88a8504581635ee51580e33f3e7a26fb",
+      "evaluable": false,
+      "required": [],
+      "unwanted": [{"text": "The request URI is invalid.", "reason": "HTTP error content rather than the requested contact page."}],
+      "notes": "Full source confirms HTTP 400 InvalidUri with request diagnostics only. Contact information is absent.",
+      "reviewer_type": "ai_source_only"
+    },
+    {
+      "snapshot_id": "a8d8d9e87adfb5f8b9fc486b56689459ad7b8af950c697d80508fb49168a11d5",
+      "evaluable": true,
+      "required": [
+        {"text": "230 critères validés : cet opérateur se hisse parmi les meilleurs réseaux mobiles de France", "kind": "heading", "reason": "Preserves the article's specific subject and headline result."},
+        {"text": "Derrière Orange , sacré meilleur réseau mobile de France pour la 14e année consécutive, on retrouve SFR .", "kind": "numeric", "reason": "Identifies the operators and comparative ranking."},
+        {"text": "Cette progression constante est le fruit d’investissements dans le déploiement de la 4G/5G", "kind": "content", "reason": "Explains the reported improvement."},
+        {"text": "Là où SFR parvient à véritablement se démarquer, c'est dans les transports publics .", "kind": "content", "reason": "Covers the transport-use finding in the later article section."}
+      ],
+      "unwanted": [
+        {"text": "Coup de théâtre : la fin de Windows 10 repoussée, votre PC pourrait bénéficier d'un sursis", "reason": "Cross-promotion of an unrelated article."},
+        {"text": "Notre call center est actuellement fermé. Demandez un rappel gratuit.", "reason": "Callback solicitation outside the article."}
+      ],
+      "notes": "French source wording preserved. Network-report findings are distinguished from recent-news widgets and sales callbacks.",
+      "reviewer_type": "ai_source_only"
+    },
+    {
+      "snapshot_id": "f9903b99361e565a9edc4ebbaf19032bb792f738b86216d2dfd87e2053310608",
+      "evaluable": true,
+      "required": [
+        {"text": "MarathonBet has 25 sports categories to wager on", "kind": "numeric", "reason": "Preserves the reviewed sportsbook's market breadth."},
+        {"text": "System bets are similar to multis in that you can make multiple market selections", "kind": "content", "reason": "Covers the explanation of betting types."},
+        {"text": "For example, credit cards will take longer than eWallets to receive withdrawals, though they may be more convenient.", "kind": "content", "reason": "Captures a payment-method comparison."},
+        {"text": "However, the lack of 24/7 support is disappointing, as service hours are between 10AM and 6 PM daily.", "kind": "numeric", "reason": "Retains a concrete limitation and support hours."}
+      ],
+      "unwanted": [{"text": "By visiting our website, you are declaring that you are 18+ and agree to our Terms and Conditions", "reason": "Sitewide age/terms banner rather than review content."}],
+      "notes": "Product-review descriptions and limitations are main content. No external validation of the review's claims was performed.",
+      "reviewer_type": "ai_source_only"
+    },
+    {
+      "snapshot_id": "3a78297d1c2e7c542d2d3b1aa7362f5d2744c35fb633e28318a96bb030e27525",
+      "evaluable": true,
+      "required": [
+        {"text": "Comparing Google Cloud Dataflow with Talend and Weld", "kind": "heading", "reason": "Identifies all three tools being compared."},
+        {"text": "Dataflow pipelines are defined programmatically in Java or Python (Apache Beam).", "kind": "content", "reason": "Captures Dataflow's development model."},
+        {"text": "Talend offers a robust feature set with a large number of connectors, supporting both ELT and ETL capabilities", "kind": "content", "reason": "Preserves Talend's substantive capabilities."},
+        {"text": "weld offers a straightforward and competitive pricing model, starting at $99 for 2 million active rows", "kind": "numeric", "reason": "Covers Weld and its stated pricing basis."}
+      ],
+      "unwanted": [{"text": "Want to try a better alternative? Try Weld for free today.", "reason": "Standalone trial CTA after the comparison conclusion."}],
+      "notes": "Checked full-source context for the final CTA. Vendor-authored feature comparisons remain useful main content; the isolated trial solicitation is excluded.",
+      "reviewer_type": "ai_source_only"
+    },
+    {
+      "snapshot_id": "ef5eeef6b63f3d6455a5324c8f8b7f628966130cde4c9daa30bf876c810a9894",
+      "evaluable": false,
+      "required": [],
+      "unwanted": [],
+      "notes": "Full source blocks contain a generic FAQ introduction and question headings but no answers. Inspected raw .txt HTML: sampled accordion items end with empty comment placeholders after their question controls. Insufficient substantive source evidence to judge FAQ answers; not excluded for length. Questions are not labeled unwanted merely because answers are missing.",
+      "reviewer_type": "ai_source_only"
+    },
+    {
+      "snapshot_id": "79b35c75bbcec6110534d8044f5857eb5834c90376e9c288f2ba1dd70f9e4084",
+      "evaluable": true,
+      "required": [
+        {"text": "AI photo editing is much easier, faster, and more scalable than manual editing, while still allowing creative input.", "kind": "content", "reason": "Answers the page's central comparison question."},
+        {"text": "Manual photo editing gives you full control, but it’s time-consuming, especially when you’re working with hundreds of images.", "kind": "content", "reason": "Preserves the manual-editing tradeoff from the full source."},
+        {"text": "Consistency – Avoid human error or burnout when editing big batches.", "kind": "content", "reason": "Captures a distinct claimed benefit."},
+        {"text": "Customizable – Tools like Imagen let you tweak edits after AI processing.", "kind": "content", "reason": "Explains retained creative control after automation."}
+      ],
+      "unwanted": [
+        {"text": "We use Third party cookies to bring you the best web experience, analyze visitor activity and assist with our marketing efforts.", "reason": "Cookie banner."},
+        {"text": "On every page on the website, you can navigate to the next clickable area by using the TAB key.", "reason": "Accessibility interface instructions unrelated to the FAQ answer."}
+      ],
+      "notes": "Full source separates the short substantive answer from other FAQ links, blog previews, and accessibility text. Short answer remains evaluable.",
+      "reviewer_type": "ai_source_only"
+    },
+    {
+      "snapshot_id": "066936b050f84332e1ecbbab7e6ae3db290a2b2861e7db3e8d9a9c16095c19c2",
+      "evaluable": true,
+      "required": [
+        {"text": "Bank Book Management centralizes and automates tracking, reconciliation, and reporting of bank transactions", "kind": "content", "reason": "Defines the product module's purpose."},
+        {"text": "Integrate with over 12,000 financial institutions through Plaid and Finicity, or use a CSV import for additional connections.", "kind": "numeric", "reason": "Captures integration breadth and an alternative import method."},
+        {"text": "Transactions are automatically imported from your connected bank accounts, and the software matches them to your accounting entries for accurate reconciliation.", "kind": "content", "reason": "Explains the reconciliation workflow."},
+        {"text": "Gravity Software employs bank-grade encryption and advanced security protocols to protect your financial data.", "kind": "content", "reason": "Covers the stated security protections."}
+      ],
+      "unwanted": [{"text": "If you decline, your information won’t be tracked when you visit this website.", "reason": "Cookie-consent preference explanation."}],
+      "notes": "Product descriptions and factual FAQ answers are useful content even though the page markets software.",
+      "reviewer_type": "ai_source_only"
+    },
+    {
+      "snapshot_id": "337cb41acecbb1bbc83c4119231ee10367c4d058541655db66fe2a12ece70627",
+      "evaluable": true,
+      "required": [
+        {"text": "Regain control of your traffic, from bots to agentic AI", "kind": "content", "reason": "Hero copy states the product's scope."},
+        {"text": "With 50+ integrations, DataDome runs anywhere in the cloud.", "kind": "numeric", "reason": "Preserves a concrete integration claim."},
+        {"text": "Compatible with all tech stacks including multi-cloud, multi-CDN, and your favorite third-party tools.", "kind": "content", "reason": "Captures deployment compatibility from the short substantive body."}
+      ],
+      "unwanted": [
+        {"text": "Book a demo", "reason": "Repeated navigation and hero button label."},
+        {"text": "Tell me more", "reason": "Repeated publication-card control with no substantive information."}
+      ],
+      "notes": "Full source is sparse but contains meaningful homepage product copy, so it is evaluable. Two anchors share the only detailed integration paragraph; no missing feature details are inferred.",
+      "reviewer_type": "ai_source_only"
+    },
+    {
+      "snapshot_id": "72a4cda82118bd4570a542a287fe6a02215013dad84cd8d5fe7727e454038023",
+      "evaluable": true,
+      "required": [
+        {"text": "Prime Time Shuttle provides Nashville International Airport with a quick, dependable, and seamless airport transportation service.", "kind": "content", "reason": "Describes service coverage in a substantive airport section."},
+        {"text": "With the Prime Time Shuttle, your reliable, punctual, and professional transportation is ready to and from Denver International Airport.", "kind": "content", "reason": "Preserves a geographically distinct service offering."},
+        {"text": "Get picked up on-demand with just the click of a button.", "kind": "content", "reason": "Explains an app service capability, rather than a button label."},
+        {"text": "Avoid entering your payment information each time by safely and securely saving it to your account.", "kind": "content", "reason": "Describes the account's saved-payment feature."}
+      ],
+      "unwanted": [{"text": "Set on Map", "reason": "Location-picker interface control in the booking navigation."}],
+      "notes": "Expanded source inspection distinguishes large airport-picker lists from descriptive coverage sections and app features. Testimonials are not required. Repeated generic airport copy limits distinct informative sections; no home-pickup details inferred from the title alone.",
+      "reviewer_type": "ai_source_only"
+    },
+    {
+      "snapshot_id": "306fd2c63f9d78c52552a261bdf5b47958db32e74d4ba4841151d1fdc616a79f",
+      "evaluable": true,
+      "required": [
+        {"text": "2025 Season Passholders can renew their Season Passes for 2026 right now!", "kind": "numeric", "reason": "Retains the homepage's time-specific pass-renewal announcement."},
+        {"text": "Lace up your running shoes and join us April 24-26, 2026 for the very first Run Dollywood Race Weekend!", "kind": "numeric", "reason": "Captures a named event and dates."},
+        {"text": "Buy a Dollywood 1-Day Adult Ticket and get a second day at no extra cost!", "kind": "numeric", "reason": "Preserves the concrete ticket offer central to this homepage."},
+        {"text": "priority park access, complimentary Dollywood TimeSaver passes, complimentary transportation to the parks and so much more!", "kind": "content", "reason": "Covers substantive resort-package privileges."}
+      ],
+      "unwanted": [{"text": "Subscribe to our newsletter, special offers and promotional emails.", "reason": "Generic newsletter subscription solicitation."}],
+      "notes": "Homepage promotions describe the actual destination's products and events and therefore count as main content. Newsletter and menu labels are distinct from those offers.",
+      "reviewer_type": "ai_source_only"
+    },
+    {
+      "snapshot_id": "42cc22024745d097a5c522d1baa1ccbbc73c516a34f74a785db786013f03663e",
+      "evaluable": true,
+      "required": [
+        {"text": "direkte Sonnenstrahlung auf die Haut zu vermeiden und unter anderem Sonnenschutzmittel auf die unbedeckte Haut aufzutragen.", "kind": "content", "reason": "Preserves the introduction's practical sun-protection advice."},
+        {"text": "die ultraviolette (UV) Strahlung der Sonne in Wärme umwandeln oder die UV-Strahlung absorbieren, streuen und reflektieren.", "kind": "content", "reason": "Captures the described protective mechanisms."},
+        {"text": "UV-Filter, die in kosmetischen Mitteln verwendet werden, müssen in der Europäischen Union ein Bewertungsverfahren durchlaufen", "kind": "content", "reason": "Retains the substantive assessment requirement."}
+      ],
+      "unwanted": [
+        {"text": "Merken Artikel nicht gemerkt Durch Klicken der Merkliste hinzufügen.", "reason": "Bookmark widget instructions."},
+        {"text": "Das BfR kurz für Bundesinstitut für Risikobewertung bietet Ihnen verschiedene Newsletter in deutscher und englischer Sprache.", "reason": "Generic newsletter promotion."}
+      ],
+      "notes": "Full source blocks contain a useful explanatory introduction but no expanded FAQ answers. Evaluable for that introduction; all three anchors necessarily come from it. Accordion questions and open/close controls are not substituted for absent answers. German wording preserved.",
+      "reviewer_type": "ai_source_only"
+    },
+    {
+      "snapshot_id": "ef6330a55c050472d62a50c8762e1953a0d0a97522cf1355577868ddad5e6b91",
+      "evaluable": true,
+      "required": [
+        {"text": "Sweep parmi les meilleurs logiciels ESG selon le cabinet d’études indépendant Verdantix", "kind": "heading", "reason": "Identifies the article's subject and evaluating organization."},
+        {"text": "Parmi les 38 solutions évaluées, notre plateforme ressort fait partie des mieux notées.", "kind": "numeric", "reason": "Preserves the size of the comparison and the stated outcome, including source wording."},
+        {"text": "Collecte de données ESG : simplifie et automatise la collecte des indicateurs ESG.", "kind": "content", "reason": "Captures one concrete evaluated capability."},
+        {"text": "Enfin, Sweep offre la possibilité d’aligner son reporting sur des cadres obligatoires et volontaires", "kind": "content", "reason": "Covers the later explanation of reporting flexibility."}
+      ],
+      "unwanted": [{"text": "En soumettant ce formulaire, vous acceptez nos conditions et notre politique de confidentialité .", "reason": "Gated-download form consent rather than article content."}],
+      "notes": "French vendor-authored article remains substantive. Claims about the study are annotated as source claims; the study itself was not fetched.",
+      "reviewer_type": "ai_source_only"
+    },
+    {
+      "snapshot_id": "0bbd5a7e6de4fbba7d700f6f402ce2b05d650567a4b14df12b39166fc3f071db",
+      "evaluable": true,
+      "required": [
+        {"text": "Previous victims of fraud. Among the victims of identity theft, 69% have been targeted more than once", "kind": "numeric", "reason": "Preserves the article's quantitative rationale for a higher-risk group."},
+        {"text": "Financial transaction monitoring: Link your credit card and bank accounts with the provider to track spending activity", "kind": "content", "reason": "Explains a protection-service capability."},
+        {"text": "Manually review your credit card and bank statements. Check for fraudulent transactions by using your mobile banking app or paper statements.", "kind": "content", "reason": "Covers the self-protection alternative."},
+        {"text": "However, it doesn't offer dedicated ID protection features.", "kind": "content", "reason": "Retains the explicit IdentityWorks limitation in the product-comparison paragraph."}
+      ],
+      "unwanted": [{"text": "Your Social Security number is a “golden ticket” for identity thieves. Learn how to keep it secure.", "reason": "Related-article teaser outside the article body."}],
+      "notes": "Selected explanatory and comparison content from articleContent rather than the related-article area. The final anchor's referent is IdentityWorks in its source paragraph. Pricing promotions inside the article are not required.",
+      "reviewer_type": "ai_source_only"
+    },
+    {
+      "snapshot_id": "04281ad8f8795886781fe7fef71b371204c3fdf0243004cb88d42a77ca940cdf",
+      "evaluable": true,
+      "required": [
+        {"text": "Vidico’s 10x Approach—we maximize output with scalable production systems and asset banks, ensuring consistency and performance across all channels.", "kind": "content", "reason": "Captures the first agency's described approach."},
+        {"text": "The Social Shepherd has emerged as a leading Social Creative specialist agency in the United States", "kind": "content", "reason": "Covers a separate named agency in the list."},
+        {"text": "Choosing a full service creative agency means fewer vendors, simpler billing, and more integrated planning.", "kind": "content", "reason": "Preserves agency-selection guidance beyond individual profiles."},
+        {"text": "Many creative advertising agencies charge project-based rates ranging from $5,000 to $100,000+.", "kind": "numeric", "reason": "Captures the article's budget range."}
+      ],
+      "unwanted": [
+        {"text": "Join 9,390+ marketers and founders leveling up their video strategy!", "reason": "Newsletter solicitation after the article and references."},
+        {"text": "20 Best Medical Ads & Healthcare Commercials (2025)", "reason": "Related-article promotion outside the main list."}
+      ],
+      "notes": "Full-source tail confirms the newsletter and related-link context. Named agency profiles and general selection/pricing advice are retained despite the publisher's commercial interest.",
+      "reviewer_type": "ai_source_only"
+    },
+    {
+      "snapshot_id": "b75f86047613d552db48ab4f8135378322772f8d8921b1500288b5b0701f68cb",
+      "evaluable": true,
+      "required": [
+        {"text": "Situated in Mumbai, Yellow Seed was established in 2012 by directors Aashutosh Subhashchandra Katre and Asif Nazir Upadhye.", "kind": "numeric", "reason": "Captures a named agency's location, founding year, and founders."},
+        {"text": "Content Ninja excels in marketing automation, SEO-optimized blogging, inbound marketing, and demand generation", "kind": "content", "reason": "Covers another agency's service specialization."},
+        {"text": "Arrange meetings with the content marketing firms to discuss their proposed strategies, reporting methods, and any other queries you might have.", "kind": "content", "reason": "Preserves practical selection guidance."},
+        {"text": "Effective reports should include metrics like website traffic, engagement rates, lead generation numbers, and an analysis of the ROI.", "kind": "content", "reason": "Captures the FAQ's useful reporting criteria."}
+      ],
+      "unwanted": [
+        {"text": "Short-form video content is reshaping digital marketing in 2025.", "reason": "Preview of a separate short-form-video article."},
+        {"text": "Our writers are experts in crafting high-performing content for leading brands.", "reason": "Lead-generation popup copy identified by popup-onscroll context."}
+      ],
+      "notes": "Agency contact details within profiles are not automatically boilerplate. Required anchors span profiles, selection advice, and reporting expectations; unrelated article previews and popup copy are excluded.",
+      "reviewer_type": "ai_source_only"
+    },
+    {
+      "snapshot_id": "e288beae63c9ac723358dd764e0d720217cc601aa1d474ca697de70277e1f830",
+      "evaluable": true,
+      "required": [
+        {"text": "The global HR software market is projected to grow from $25.9 billion in 2022 to $35.7 billion by 2028", "kind": "numeric", "reason": "Preserves the article's market-size forecast."},
+        {"text": "Workday continues to dominate the HR software space with its cutting-edge cloud-based applications", "kind": "content", "reason": "Covers the Workday profile using the article's wording."},
+        {"text": "SAP SuccessFactors remains a leader in the global HRIS market, delivering a comprehensive suite of HR tools", "kind": "content", "reason": "Covers a second named provider."},
+        {"text": "Ceridian has recently expanded its product line to include AI-driven predictive analytics for better workforce optimization and decision-making.", "kind": "content", "reason": "Captures a distinct product-development claim in another profile."}
+      ],
+      "unwanted": [
+        {"text": "Ready is the execution layer for modern GTM — replacing databases, cold outreach, and noise with outcomes.", "reason": "Generic publisher marketing copy outside the HRIS article."},
+        {"text": "After piloting various data vendors, it was easy to see that ReadyContacts is a cut above.", "reason": "Publisher testimonial unrelated to HRIS provider analysis."}
+      ],
+      "notes": "Whitespace normalized. Unattributed revenue headings and isolated table cells are avoided because the bounded sample lacks their row/provider context; named prose profiles provide clear source evidence.",
+      "reviewer_type": "ai_source_only"
+    },
+    {
+      "snapshot_id": "985d36a88d8a86b512af5af39c9213574575a17c528d2f021f1158601d4f366c",
+      "evaluable": true,
+      "required": [
+        {"text": "Be clear and concise with your email campaign — list the discount in the subject line.", "kind": "content", "reason": "Captures actionable promotional-email advice."},
+        {"text": "Alternatively, you can provide a free shipping promo code with no order minimums.", "kind": "content", "reason": "Preserves a concrete holiday offer tactic."},
+        {"text": "Segmenting your email lists will help you send more targeted and relevant emails", "kind": "content", "reason": "Covers audience segmentation."},
+        {"text": "Use responsive email template designs for mobile marketing and optimized images to render important information properly across various devices and screen sizes.", "kind": "content", "reason": "Covers technical presentation guidance from a different tips section."}
+      ],
+      "unwanted": [
+        {"text": "Enjoying what you're reading? Get more of it in our weekly newsletter.", "reason": "Newsletter signup form heading."},
+        {"text": "What is Email Marketing Strategy: A Data-Driven Guide for 2022", "reason": "Cross-link to another article rather than this article's advice."}
+      ],
+      "notes": "Main-body instructional prose is retained. Promotional plan limits are not used as article statistics merely because they contain numbers.",
+      "reviewer_type": "ai_source_only"
+    },
+    {
+      "snapshot_id": "0797f300eb2304c4cd238bd4c337ea2fddaae9d3f80775e091d5ac5473692dc1",
+      "evaluable": true,
+      "required": [
+        {"text": "by 2027, we expect renewables to meet 100 percent of our electricity needs.", "kind": "numeric", "reason": "Preserves the article's dated electricity target as a stated expectation."},
+        {"text": "Today, onshore wind power is the cheapest energy source available in Denmark and much of the United States.", "kind": "content", "reason": "Captures the economic rationale for wind investment."},
+        {"text": "Over the past nine years, the facilities of the old shipyard have generated 3,000 new jobs", "kind": "numeric", "reason": "Retains the concrete industrial-transition example."},
+        {"text": "In Denmark, we have established 13 public-private climate partnerships representing all branches of Danish business", "kind": "numeric", "reason": "Covers the policy's cross-sector cooperation mechanism."}
+      ],
+      "unwanted": [
+        {"text": "By using this website, you agree to our use of cookies.", "reason": "Sitewide cookie notice."},
+        {"text": "By submitting your email, you agree to the Privacy Policy and Terms of Use and to receive email correspondence from us.", "reason": "Newsletter consent text."}
+      ],
+      "notes": "Historical article expectations are preserved as source content, not presented as current outcomes. Subscription modules and unrelated news carousels are not required.",
+      "reviewer_type": "ai_source_only"
+    },
+    {
+      "snapshot_id": "a6abb57116cf8e01ef797763a677c649cf70731d59b290b7a385f28a44a341d0",
+      "evaluable": true,
+      "required": [
+        {"text": "In 2020, more than 1,200 regulatory bodies issued a combined 250+ regulatory updates every day, on average.", "kind": "numeric", "reason": "Captures the article's quantitative regulatory-change motivation."},
+        {"text": "Quantivate Compliance Management helps organizations stay ahead of regulatory change with automated alerts and workflow management.", "kind": "content", "reason": "Covers the first proposed solution."},
+        {"text": "A centralized digital database of contracts, policies, financials, third-party information, and other types of data or documentation", "kind": "content", "reason": "Identifies the data scope of the second solution."},
+        {"text": "Uniting analytics and reporting activities under one platform enables organizations to develop data-driven action plans to address any GRC challenges.", "kind": "content", "reason": "Covers the third solution's rationale."}
+      ],
+      "unwanted": [{"text": "Solutions & Services GRC Solutions GRC Suite ERM Solution Compliance Solution Operational Resilience Management Solution", "reason": "Repeated desktop/mobile global-navigation menu."}],
+      "notes": "Anchors cover all three proposed solutions. Product-specific explanations are retained as main content rather than removed simply for mentioning the vendor.",
+      "reviewer_type": "ai_source_only"
+    },
+    {
+      "snapshot_id": "fa572562accda653da503c2d2534bce45513a8f6e0e6ec3756f057f7457aae86",
+      "evaluable": true,
+      "required": [
+        {"text": "with a term between 12 and 84 months and a loan amount from $3,000 to $100,000.", "kind": "numeric", "reason": "Preserves the product's term and principal ranges."},
+        {"text": "Please note that college student loan debt is not eligible for this type of personal loan.", "kind": "content", "reason": "Captures a material eligibility restriction."},
+        {"text": "For $16,000 borrowed over 36 months at 12.99% Annual Percentage Rate (APR), the monthly payment is $539.", "kind": "numeric", "reason": "Retains the concrete repayment example."},
+        {"text": "To qualify for a customer relationship discount, you must have a qualifying Wells Fargo consumer checking account", "kind": "content", "reason": "Preserves a meaningful qualification from the detailed terms."}
+      ],
+      "unwanted": [
+        {"text": "Opens a modal dialog for footnote 1", "reason": "Accessibility/UI control wording embedded alongside useful rate content."},
+        {"text": "Customer service and FAQs Find routing and account numbers", "reason": "Generic quick-help navigation rather than debt-consolidation information."}
+      ],
+      "notes": "Loan terms, examples, and eligibility footnotes are useful main content. Only explicit modal-control wording and general navigation are unwanted; financial disclosures are not blanket boilerplate.",
+      "reviewer_type": "ai_source_only"
+    }
+  ]
+}

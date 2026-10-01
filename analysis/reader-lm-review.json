@@ -1,0 +1,688 @@
+{
+  "decision": "Do not resume this configuration unchanged",
+  "completed": 35,
+  "html_completed": 23,
+  "evaluable_completed": 10,
+  "split_counts": {
+    "dev": 6,
+    "heldout": 4
+  },
+  "stratum_counts": {
+    "table": 10
+  },
+  "input_truncated": 4,
+  "output_capped": 16,
+  "evaluable_output_capped": 10,
+  "median_seconds_html": 30.904126,
+  "comparisons": [
+    {
+      "method": "reader_lm",
+      "retention_numerator": 10,
+      "retention_denominator": 41,
+      "leakage_numerator": 1,
+      "leakage_denominator": 14
+    },
+    {
+      "method": "baseline",
+      "retention_numerator": 41,
+      "retention_denominator": 41,
+      "leakage_numerator": 7,
+      "leakage_denominator": 14
+    },
+    {
+      "method": "trafilatura",
+      "retention_numerator": 37,
+      "retention_denominator": 41,
+      "leakage_numerator": 3,
+      "leakage_denominator": 14
+    },
+    {
+      "method": "readability",
+      "retention_numerator": 36,
+      "retention_denominator": 41,
+      "leakage_numerator": 0,
+      "leakage_denominator": 14
+    },
+    {
+      "method": "conservative_dom",
+      "retention_numerator": 39,
+      "retention_denominator": 41,
+      "leakage_numerator": 14,
+      "leakage_denominator": 14
+    }
+  ],
+  "examples": [
+    {
+      "snapshot_id": "86a642c4ddce25ea899dacabd2c2d0e2ee3363b87856bf9824b0fe1789d0c3bc",
+      "hostname": "www.visitphoenix.com",
+      "split": "dev",
+      "diagnostics": {
+        "source_tokens": 66620,
+        "input_tokens": 65528,
+        "input_truncated": true,
+        "assistant_prefix_removed": true,
+        "finish_reason": "length",
+        "output_capped": true,
+        "usage": {
+          "prompt_tokens": 65528,
+          "completion_tokens": 2048,
+          "total_tokens": 67576,
+          "prompt_tokens_details": {
+            "cached_tokens": 15
+          }
+        },
+        "source_mapping": "Generated output is not assumed to be a faithful copy"
+      },
+      "most_repeated_long_paragraph": [
+        "When you think about Arizona, wine might not be the first thing that comes to mind. However, Arizona wine makers such as Arizona Stronghold and Pillsbury Wine Company have been making strides in",
+        52
+      ],
+      "output_preview": "Where to Go Wine Tasting in Arizona\n\nWhen you think about Arizona, wine might not be the first thing that comes to mind. However, Arizona wine makers such as Arizona Stronghold and Pillsbury Wine Company have been making strides in\n\nWhen you think about Arizona, wine might not be the first thing that comes to mind. However, Arizona wine makers such as Arizona Stronghold and Pillsbury Wine Company have been making strides in\n\nWhen you think about Arizona, wine might not be the first thing that comes to mind. However, Arizona wine makers such as Arizona Stronghold and Pillsbury Wine Company have been making strides in\n\nWhen you think about Arizona, wine might not be the first thing that comes to mind. However, Arizona wine makers such as Arizona Stronghold and Pillsbury Wine Company have been making strides in\n\nWhen you think about Arizona, wine might not be the first thing that comes to mind. However, Arizona wine makers such as Arizona Stronghold and Pillsbury Wine Company have been making strides in\n\nWhen you think about Arizona, wine might not be the first thing that comes to mind. However, Arizona wine makers such as Arizona Stronghold and Pillsbury Wine Company have been making strides in\n\nWhen you think about Arizona, wine might not be the first thing that comes to mind. However, Arizona wine makers such as Arizona Stronghold and Pillsbury Wine Company have been making strides in\n\nWhen you think about Arizona, wine might not be the first thing that comes to mind. However, Arizona wine makers such as Arizona Stronghold and Pillsbury Wine Company have been making strides in\n\nWhen you think about Arizona, wine might not be the first thing that comes to mind. However, Arizona wine makers such as Arizona Stronghold and Pillsbury Wine Company have been making strides in\n",
+      "annotations": {
+        "snapshot_id": "86a642c4ddce25ea899dacabd2c2d0e2ee3363b87856bf9824b0fe1789d0c3bc",
+        "evaluable": true,
+        "required": [
+          {
+            "text": "Tip: If you're looking for a more local stop, sip and sample at Peoria's Winery 101, home to Gallifant Cellars and Southpaw Cellars.",
+            "kind": "content",
+            "reason": "Retains the local wine-tasting recommendation and named wineries."
+          },
+          {
+            "text": "Page Springs Cellars 1500 Page Springs Road, Cornville (928) 639-3004",
+            "kind": "content",
+            "reason": "Preserves a northern Arizona venue with its practical address and phone details."
+          },
+          {
+            "text": "Sonoita Vineyards 290 Elgin Canelo Road, Elgin (520) 455-5893",
+            "kind": "content",
+            "reason": "Covers a different wine region's venue listing."
+          },
+          {
+            "text": "In the far southeast corner of Arizona, just about three hours from Phoenix, you’ll find Willcox",
+            "kind": "numeric",
+            "reason": "Retains the southeast destination and approximate travel time."
+          }
+        ],
+        "unwanted": [
+          {
+            "text": "Your browser is not supported for this experience. We recommend using Chrome, Firefox, Edge, or Safari.",
+            "reason": "Browser compatibility warning."
+          },
+          {
+            "text": "Dive into the cocktail scene of downtown Phoenix, Arizona, with our curated list of the city's…",
+            "reason": "Separate cocktail-article teaser outside the wine-tasting guide."
+          }
+        ],
+        "notes": "Venue table cells are useful main content. Selected geographically varied entries and travel context; sitewide travel-guide promotions are not required.",
+        "reviewer_type": "ai_source_only"
+      }
+    },
+    {
+      "snapshot_id": "a8d8d9e87adfb5f8b9fc486b56689459ad7b8af950c697d80508fb49168a11d5",
+      "hostname": "selectra.info",
+      "split": "dev",
+      "diagnostics": {
+        "source_tokens": 30962,
+        "input_tokens": 30978,
+        "input_truncated": false,
+        "assistant_prefix_removed": true,
+        "finish_reason": "length",
+        "output_capped": true,
+        "usage": {
+          "prompt_tokens": 30978,
+          "completion_tokens": 2048,
+          "total_tokens": 33026,
+          "prompt_tokens_details": {
+            "cached_tokens": 17
+          }
+        },
+        "source_mapping": "Generated output is not assumed to be a faithful copy"
+      },
+      "most_repeated_long_paragraph": [
+        "Il est enfin disponible ! L'Arcep a dévoilé son Observatoire annuel sur la qualité des services mobiles en métropole, et l'identité de ce dauphin des télécoms n'en finit pas de surprendre. Pourtant, cette distinction est méritée à plus d'un titre. Le deuxième meilleur réseau mobile de France est disponible à partir de 5,99 € par mois. De quoi profiter de l'été à prix malin !",
+        2
+      ],
+      "output_preview": "Il est enfin disponible ! L'Arcep a dévoilé son Observatoire annuel sur la qualité des services mobiles en métropole, et l'identité de ce dauphin des télécoms n'en finit pas de surprendre. Pourtant, cette distinction est méritée à plus d'un titre. Le deuxième meilleur réseau mobile de France est disponible à partir de 5,99 € par mois. De quoi profiter de l'été à prix malin !\n\nImage 1: Floriane Wittner\n\nPar Floriane Wittner\n\nRédactrice actualités télécoms\n\nPublié le 06/07/2025\n\n3 min de lecture\n\nIl est enfin disponible ! L'Arcep a dévoilé son Observatoire annuel sur la qualité des services mobiles en métropole, et l'identité de ce dauphin des télécoms n'en finit pas de surprendre. Pourtant, cette distinction est méritée à plus d'un titre. Le deuxième meilleur réseau mobile de France est disponible à partir de 5,99 € par mois. De quoi profiter de l'été à prix malin !\n\n09 71 07 91 57\n\nDes résultats concrets sur les usages mobiles\n\nImage 2: service client sfr\n\nL’enquête menée par l'Arcep porte comme toujours sur les appels voix, les SMS, l’internet mobile et même les appels voix passés via WhatsApp. Dans cette dernière catégorie, SFR se hisse premier ex æquo sur la qualité des appels !\n\nLes débits de téléchargement et de téléversement pour SFR s’améliorent de 3 à 6 points par rapport à 2023, le plaçant en deuxième position. La navigation web est également très bonne, avec un temps de chargement de moins de 5 secondes.\n\nLe streaming vidéo suit la même tendance, où SFR se classe deuxième ex æquo. C’est le reflet tangible de la qualité réseau fournie par l'opérateur au carré rouge.\n\nImage 3: taux debits descendants sfr\n\nEnvie de souscrire une offre mobile SFR ? Découvrez les offres disponibles et laissez-vous guider afin de profiter de l'offre partenaire la plus adaptée à vos ",
+      "annotations": {
+        "snapshot_id": "a8d8d9e87adfb5f8b9fc486b56689459ad7b8af950c697d80508fb49168a11d5",
+        "evaluable": true,
+        "required": [
+          {
+            "text": "230 critères validés : cet opérateur se hisse parmi les meilleurs réseaux mobiles de France",
+            "kind": "heading",
+            "reason": "Preserves the article's specific subject and headline result."
+          },
+          {
+            "text": "Derrière Orange , sacré meilleur réseau mobile de France pour la 14e année consécutive, on retrouve SFR .",
+            "kind": "numeric",
+            "reason": "Identifies the operators and comparative ranking."
+          },
+          {
+            "text": "Cette progression constante est le fruit d’investissements dans le déploiement de la 4G/5G",
+            "kind": "content",
+            "reason": "Explains the reported improvement."
+          },
+          {
+            "text": "Là où SFR parvient à véritablement se démarquer, c'est dans les transports publics .",
+            "kind": "content",
+            "reason": "Covers the transport-use finding in the later article section."
+          }
+        ],
+        "unwanted": [
+          {
+            "text": "Coup de théâtre : la fin de Windows 10 repoussée, votre PC pourrait bénéficier d'un sursis",
+            "reason": "Cross-promotion of an unrelated article."
+          },
+          {
+            "text": "Notre call center est actuellement fermé. Demandez un rappel gratuit.",
+            "reason": "Callback solicitation outside the article."
+          }
+        ],
+        "notes": "French source wording preserved. Network-report findings are distinguished from recent-news widgets and sales callbacks.",
+        "reviewer_type": "ai_source_only"
+      }
+    },
+    {
+      "snapshot_id": "50f7d7f63d2a234a98be83b5c13bcbc887d7e1f9321921f26afc724ea8d9b6a6",
+      "hostname": "www.humboldt-institut.org",
+      "split": "dev",
+      "diagnostics": {
+        "source_tokens": 78144,
+        "input_tokens": 65528,
+        "input_truncated": true,
+        "assistant_prefix_removed": false,
+        "finish_reason": "length",
+        "output_capped": true,
+        "usage": {
+          "prompt_tokens": 65528,
+          "completion_tokens": 2048,
+          "total_tokens": 67576,
+          "prompt_tokens_details": {
+            "cached_tokens": 17
+          }
+        },
+        "source_mapping": "Generated output is not assumed to be a faithful copy"
+      },
+      "most_repeated_long_paragraph": [
+        "<div class=\"clear\"></div> </div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></",
+        1
+      ],
+      "output_preview": "<div class=\"clear\"></div> </div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></di",
+      "annotations": {
+        "snapshot_id": "50f7d7f63d2a234a98be83b5c13bcbc887d7e1f9321921f26afc724ea8d9b6a6",
+        "evaluable": true,
+        "required": [
+          {
+            "text": "Das Institut ist ganzjährig geöffnet und bietet Intensivkurse und Teilzeitkurse für alle Niveaustufen von A1 bis C2 an.",
+            "kind": "content",
+            "reason": "Explains year-round availability and supported proficiency levels."
+          },
+          {
+            "text": "In seiner Sprachschule in Berlin-Mitte bietet das Humboldt-Institut Deutschkurse als Intensivkurse mit 30 Unterrichtseinheiten pro Woche",
+            "kind": "numeric",
+            "reason": "Captures the intensive course's weekly teaching volume."
+          },
+          {
+            "text": "Die Schüler wohnen im Gästehaus in Einzel- oder Zweibettzimmern, die alle mit einem Bad (Dusche und WC) ausgestattet sind.",
+            "kind": "content",
+            "reason": "Preserves concrete accommodation information."
+          },
+          {
+            "text": "Nachdem wir Ihre Anmeldung erhalten haben, senden wir Ihnen zusammen mit der Kursbestätigung eine Einladung zum Deutschkurs zu.",
+            "kind": "content",
+            "reason": "Covers the registration document used in the visa process."
+          }
+        ],
+        "unwanted": [
+          {
+            "text": "Melden Sie sich für unseren Newsletter rund um die Deutschkurse und Schulen des Humboldt-Instituts an:",
+            "reason": "Newsletter signup solicitation."
+          }
+        ],
+        "notes": "German wording retained. Consulted full-source course and accommodation sections to replace ambiguous sampled dates with contextualized facts.",
+        "reviewer_type": "ai_source_only"
+      }
+    },
+    {
+      "snapshot_id": "a9e162f9690f2eb127afe6a383fb2b342e424988e2ebf82727c92cfdf5aef5d5",
+      "hostname": "www.digitalocean.com",
+      "split": "dev",
+      "diagnostics": {
+        "source_tokens": 24271,
+        "input_tokens": 24287,
+        "input_truncated": false,
+        "assistant_prefix_removed": true,
+        "finish_reason": "length",
+        "output_capped": true,
+        "usage": {
+          "prompt_tokens": 24287,
+          "completion_tokens": 2048,
+          "total_tokens": 26335,
+          "prompt_tokens_details": {
+            "cached_tokens": 15
+          }
+        },
+        "source_mapping": "Generated output is not assumed to be a faithful copy"
+      },
+      "most_repeated_long_paragraph": [
+        "Note: Pricing and product information are correct as of May 3, 2024, and subject to change.",
+        1
+      ],
+      "output_preview": "Note: Pricing and product information are correct as of May 3, 2024, and subject to change.\n\nThe virtual machine market is witnessing an uptrend, driven by the rapid growth of cloud computing technologies and the increasing demand for scalable computing resources. With a market size value of USD 11,277.6 million in 2023, the virtual machine market is projected to experience a compound annual growth rate (CAGR) of 15.1% from 2023 to 2030, reaching a revenue forecast of USD 30,122.3 million by 2030.\n\nWithin this thriving market, among many hyperscalers, Microsoft Azure offers a suite of cloud services, including Azure virtual machines (Azure VMs). As businesses increasingly adopt cloud resources and migrate their applications and data to the cloud, understanding virtual machine pricing is essential for effective cloud cost optimization and budgeting. Cloud costs can quickly escalate if not monitored and optimized correctly, leading to unexpected expenses and potential financial strain. This article digs into the details of Azure VM pricing, exploring pricing models, pricing factors, cost estimation tools, optimization strategies, and best practices.\n\nKey takeaways:\n\nAzure VM pricing uses complex structures with separate charges for compute, storage, networking, licensing, and various additional features across multiple VM families and payment models that make cost prediction extremely challenging.\n\nDigitalOcean Droplets offer transparent, all-inclusive pricing starting at $4/month with compute, storage, and bandwidth included in single predictable prices with no hidden fees or separate charges for network traffic within reasonable limits.\n\nAzure requires careful planning and monitoring to avoid unexpected costs from idle resources, egress fees, premium storage charges, an",
+      "annotations": {
+        "snapshot_id": "a9e162f9690f2eb127afe6a383fb2b342e424988e2ebf82727c92cfdf5aef5d5",
+        "evaluable": true,
+        "required": [
+          {
+            "text": "Azure offers reserved instances involving upfront payments for a one-year or three-year commitment.",
+            "kind": "numeric",
+            "reason": "Captures the reservation model and commitment durations."
+          },
+          {
+            "text": "The pricing for Azure VMs is influenced by local infrastructure costs, regional demand, and data residency requirements.",
+            "kind": "content",
+            "reason": "Explains regional pricing factors."
+          },
+          {
+            "text": "By including these costs, organizations can devise a strategy for Azure cost optimization and prevent unexpected expenses from overlooked service dependencies.",
+            "kind": "content",
+            "reason": "Covers inclusion of additional services in cost estimation."
+          },
+          {
+            "text": "Common unexpected Azure VM costs include data egress charges for outbound network traffic, charges for stopped but not deallocated VMs",
+            "kind": "content",
+            "reason": "Retains concrete hidden-cost examples from the FAQ."
+          }
+        ],
+        "unwanted": [
+          {
+            "text": "Sign up and get $200 in credit for your first 60 days with DigitalOcean.*",
+            "reason": "Signup incentive rather than VM pricing explanation."
+          }
+        ],
+        "notes": "The article includes vendor comparison material; that material is not automatically classified as boilerplate. Required anchors focus on distinct substantive pricing sections.",
+        "reviewer_type": "ai_source_only"
+      }
+    },
+    {
+      "snapshot_id": "f9903b99361e565a9edc4ebbaf19032bb792f738b86216d2dfd87e2053310608",
+      "hostname": "www.bestbettingsites.com",
+      "split": "dev",
+      "diagnostics": {
+        "source_tokens": 26178,
+        "input_tokens": 26194,
+        "input_truncated": false,
+        "assistant_prefix_removed": true,
+        "finish_reason": "length",
+        "output_capped": true,
+        "usage": {
+          "prompt_tokens": 26194,
+          "completion_tokens": 2048,
+          "total_tokens": 28242,
+          "prompt_tokens_details": {
+            "cached_tokens": 18
+          }
+        },
+        "source_mapping": "Generated output is not assumed to be a faithful copy"
+      },
+      "most_repeated_long_paragraph": [
+        "Sports Markets and Betting Types",
+        1
+      ],
+      "output_preview": "Sports Markets and Betting Types\n\nMarathonBet has 25 sports categories to wager on which is a very satisfying number that is consistent with other top local bookmakers. Many of these sports are stocked with a large selection of tournaments, events and leagues. There are even categories for major events such as the Olympics or the Super Bowl.\n\nSome of the featured well-stocked and popular MarathonBet sports include football, tennis, basketball, ice hockey, the Big Four US major sports leagues, golf and motorsports such as Formula 1. Below, we’ve listed some of the most popular sports and leagues to bet on at MarathonBet.\n\n<table><tbody><tr><th colspan=\"5\">The Most Popular Sports Markets at Marathonbet</th></tr><tr><th></th><th></th><th></th><th></th><th></th></tr><tr><th>Football (195)</th><th>Basketball (58)</th><th>Ice Hockey (20)</th><th>Tennis (24)</th><th>Handball (25)</th></tr><tr><td>Champions League</td><td>NBA</td><td>NHL</td><td>Australian Open</td><td>European Champions League</td></tr><tr><td>Premier League</td><td>NCAA</td><td>KHL</td><td>ATP Challenger</td><td>European League</td></tr><tr><td>UEFA Europa League</td><td>Euro League</td><td>VHL</td><td>UTR Pro Series</td><td>Danish Premier League</td></tr><tr><td>Serie A</td><td></td><td>Germany DEL</td><td>ITF. France Grenoble</td><td>French Star League</td></tr><tr><td>Bundesliga</td><td></td><td>Austria EBEL</td><td>ATP 250 Murray River Open</td><td>German Bundesliga</td></tr><tr><td>Ligue 1</td><td></td><td>Czech Republic. Extraliga</td><td>ITF Spain. Manacor</td><td>Spanish Liga ASOBAL</td></tr></tbody></table>\n\nAs is the case with all betting sites, football is the most popular sport to wager on at this site. The English Premier League, Italian Serie A and the FIFA World Cup generate huge bettor attenti",
+      "annotations": {
+        "snapshot_id": "f9903b99361e565a9edc4ebbaf19032bb792f738b86216d2dfd87e2053310608",
+        "evaluable": true,
+        "required": [
+          {
+            "text": "MarathonBet has 25 sports categories to wager on",
+            "kind": "numeric",
+            "reason": "Preserves the reviewed sportsbook's market breadth."
+          },
+          {
+            "text": "System bets are similar to multis in that you can make multiple market selections",
+            "kind": "content",
+            "reason": "Covers the explanation of betting types."
+          },
+          {
+            "text": "For example, credit cards will take longer than eWallets to receive withdrawals, though they may be more convenient.",
+            "kind": "content",
+            "reason": "Captures a payment-method comparison."
+          },
+          {
+            "text": "However, the lack of 24/7 support is disappointing, as service hours are between 10AM and 6 PM daily.",
+            "kind": "numeric",
+            "reason": "Retains a concrete limitation and support hours."
+          }
+        ],
+        "unwanted": [
+          {
+            "text": "By visiting our website, you are declaring that you are 18+ and agree to our Terms and Conditions",
+            "reason": "Sitewide age/terms banner rather than review content."
+          }
+        ],
+        "notes": "Product-review descriptions and limitations are main content. No external validation of the review's claims was performed.",
+        "reviewer_type": "ai_source_only"
+      }
+    },
+    {
+      "snapshot_id": "2607e42bac7ad3eba2c86fab5ad8b4c8ec4c7c136068b15b6c8b95f94b05a7a2",
+      "hostname": "contentmavericks.com",
+      "split": "dev",
+      "diagnostics": {
+        "source_tokens": 58287,
+        "input_tokens": 58303,
+        "input_truncated": false,
+        "assistant_prefix_removed": true,
+        "finish_reason": "length",
+        "output_capped": true,
+        "usage": {
+          "prompt_tokens": 58303,
+          "completion_tokens": 2048,
+          "total_tokens": 60351,
+          "prompt_tokens_details": {
+            "cached_tokens": 18
+          }
+        },
+        "source_mapping": "Generated output is not assumed to be a faithful copy"
+      },
+      "most_repeated_long_paragraph": [
+        "Enter your email to get the \"Content Distribution Checklist\" I used to get 80,000+ traffic to one piece of content in 60 days.",
+        52
+      ],
+      "output_preview": "Image 1: image\n\nAlmost there!\n\nEnter your email to get the \"Google Sheets Content Calendar Template\" I use to plan my content (with pre-filled data).\n\nEnter your email to get the \"Content Performance Tracking Guide\" to track your true content marketing ROI.\n\nEnter your email to get the \"$100,000 Blog Post\" case study with the step-by-step strategy I used to make $100,000 with $688.71 ad spend.\n\nEnter your email to get the \"Content Distribution Checklist\" I used to get 80,000+ traffic to one piece of content in 60 days.\n\nEnter your email to get the \"$100,000 Blog Post\" case study with the step-by-step strategy I used to make $100,000 with $688.71 ad spend.\n\nEnter your email to get the \"Content Distribution Checklist\" I used to get 80,000+ traffic to one piece of content in 60 days.\n\nEnter your email to get the \"Content Distribution Checklist\" I used to get 80,000+ traffic to one piece of content in 60 days.\n\nEnter your email to get the \"Content Distribution Checklist\" I used to get 80,000+ traffic to one piece of content in 60 days.\n\nEnter your email to get the \"Content Distribution Checklist\" I used to get 80,000+ traffic to one piece of content in 60 days.\n\nEnter your email to get the \"Content Distribution Checklist\" I used to get 80,000+ traffic to one piece of content in 60 days.\n\nEnter your email to get the \"Content Distribution Checklist\" I used to get 80,000+ traffic to one piece of content in 60 days.\n\nEnter your email to get the \"Content Distribution Checklist\" I used to get 80,000+ traffic to one piece of content in 60 days.\n\nEnter your email to get the \"Content Distribution Checklist\" I used to get 80,000+ traffic to one piece of content in 60 days.\n\nEnter your email to get the \"Content Distribution Checklist\" I used to get 80,000+ traffic to one piece of cont",
+      "annotations": {
+        "snapshot_id": "2607e42bac7ad3eba2c86fab5ad8b4c8ec4c7c136068b15b6c8b95f94b05a7a2",
+        "evaluable": true,
+        "required": [
+          {
+            "text": "We spent 70 hours comparing the top 50 to find the seven best you can use to automate your ads.",
+            "kind": "numeric",
+            "reason": "Retains the article's stated comparison scope."
+          },
+          {
+            "text": "Revealbot is best for those who advertise on Meta, Google, TikTok, and Snapchat.",
+            "kind": "content",
+            "reason": "Identifies the first tool's intended advertising platforms."
+          },
+          {
+            "text": "Madgicx will work better when you’re rolling with higher budgets, as the AI won’t have enough data with low budgets.",
+            "kind": "content",
+            "reason": "Preserves a material limitation of a different tool."
+          },
+          {
+            "text": "AdZooma is best for people running PPC ads on Google or Bing.",
+            "kind": "content",
+            "reason": "Covers another recommendation and its use case."
+          }
+        ],
+        "unwanted": [
+          {
+            "text": "\"I offered him $100,000... for six months... to execute his content strategy for AppSumo.\"",
+            "reason": "Testimonial for a separate featured content-strategy product, not the ad-tool comparison."
+          }
+        ],
+        "notes": "Inspected full-source ending to confirm the testimonial belongs to the separate featured-product promotion.",
+        "reviewer_type": "ai_source_only"
+      }
+    },
+    {
+      "snapshot_id": "e132b6049dadacf8fefda4a0a0ee0e0cb88b0109689e5b1a70ed16b7c33fa424",
+      "hostname": "vwo.com",
+      "split": "heldout",
+      "diagnostics": {
+        "source_tokens": 59658,
+        "input_tokens": 59674,
+        "input_truncated": false,
+        "assistant_prefix_removed": true,
+        "finish_reason": "length",
+        "output_capped": true,
+        "usage": {
+          "prompt_tokens": 59674,
+          "completion_tokens": 2048,
+          "total_tokens": 61722,
+          "prompt_tokens_details": {
+            "cached_tokens": 19
+          }
+        },
+        "source_mapping": "Generated output is not assumed to be a faithful copy"
+      },
+      "most_repeated_long_paragraph": [
+        "I've worked as a writer and editor in the B2B SaaS space for over 6 years. I read and write on all things CRO and experience optimization. I'm a chai fanatic and a paranoid parent. When I'm not copyediting or working on marketing projects, I love to spend my time reading. Besides B2B content, my passion lies in modern, behavioral astrology. I'm a dreamer and wish to write stories for children someday.",
+        19
+      ],
+      "output_preview": "eCommerce personalization software enables businesses to deliver personalized recommendations, dynamic content, and seamless shopping experiences. It enhances customer experience by making interactions more relevant, reducing buying process friction, and increasing engagement. Personalization also boosts sales by driving conversions, upselling, and fostering loyalty.\n\nImage 1: Niti Sharma\n\nI've worked as a writer and editor in the B2B SaaS space for over 6 years. I read and write on all things CRO and experience optimization. I'm a chai fanatic and a paranoid parent. When I'm not copyediting or working on marketing projects, I love to spend my time reading. Besides B2B content, my passion lies in modern, behavioral astrology. I'm a dreamer and wish to write stories for children someday :)\n\nI've worked as a writer and editor in the B2B SaaS space for over 6 years. I read and write on all things CRO and experience optimization. I'm a chai fanatic and a paranoid parent. When I'm not copyediting or working on marketing projects, I love to spend my time reading. Besides B2B content, my passion lies in modern, behavioral astrology. I'm a dreamer and wish to write stories for children someday.\n\nI've worked as a writer and editor in the B2B SaaS space for over 6 years. I read and write on all things CRO and experience optimization. I'm a chai fanatic and a paranoid parent. When I'm not copyediting or working on marketing projects, I love to spend my time reading. Besides B2B content, my passion lies in modern, behavioral astrology. I'm a dreamer and wish to write stories for children someday.\n\nI've worked as a writer and editor in the B2B SaaS space for over 6 years. I read and write on all things CRO and experience optimization. I'm a chai fanatic and a paranoid parent. When I",
+      "annotations": {
+        "snapshot_id": "e132b6049dadacf8fefda4a0a0ee0e0cb88b0109689e5b1a70ed16b7c33fa424",
+        "evaluable": true,
+        "required": [
+          {
+            "text": "VWO empowers businesses to optimize experiences on multiple platforms for specific visitor segments without relying on the development team.",
+            "kind": "content",
+            "reason": "Covers VWO's personalization capabilities."
+          },
+          {
+            "text": "tailoring the experience for new visitors to achieve a 105% increase in sign-up page visits.",
+            "kind": "numeric",
+            "reason": "Retains the quantified JellyTelly example."
+          },
+          {
+            "text": "Nosto’s Personalized Search uses AI to dynamically adjust results based on preferences, behavior, and intent, helping shoppers quickly find what they want.",
+            "kind": "content",
+            "reason": "Preserves a distinct competitor's search capability."
+          },
+          {
+            "text": "Free: Up to 5k pageviews/month Paid: Starts from $225/month, billed annually",
+            "kind": "numeric",
+            "reason": "Preserves a comparison-table pricing and usage limit."
+          },
+          {
+            "text": "A robust tool should provide true omnichannel capabilities to tailor customer experiences seamlessly across all platforms.",
+            "kind": "content",
+            "reason": "Covers the tool-selection guidance."
+          }
+        ],
+        "unwanted": [
+          {
+            "text": "You might also love to read these on Website Personalization",
+            "reason": "Related-reading promotion outside the article."
+          },
+          {
+            "text": "Join our community of 10,000+ Marketing, Product & UX Folks today & never miss the latest",
+            "reason": "Newsletter/community signup promotion."
+          }
+        ],
+        "notes": "Comparison content, case-study metrics, and selection guidance retained; related-post and signup modules excluded.",
+        "reviewer_type": "ai_source_only"
+      }
+    },
+    {
+      "snapshot_id": "3e1e06f987225cc5a0eb6800be68242df5f6929e6ad7a890d8ce6660d398ad1c",
+      "hostname": "www.navyfederal.org",
+      "split": "heldout",
+      "diagnostics": {
+        "source_tokens": 37972,
+        "input_tokens": 37988,
+        "input_truncated": false,
+        "assistant_prefix_removed": true,
+        "finish_reason": "length",
+        "output_capped": true,
+        "usage": {
+          "prompt_tokens": 37988,
+          "completion_tokens": 2048,
+          "total_tokens": 40036,
+          "prompt_tokens_details": {
+            "cached_tokens": 18
+          }
+        },
+        "source_mapping": "Generated output is not assumed to be a faithful copy"
+      },
+      "most_repeated_long_paragraph": [
+        "As a Top VA lender,1 we at Navy Federal understand the unique needs of servicemembers, Veterans and their families, and can help you take advantage of the exclusive VA loan benefits you've earned. We’re here to help you through the home-buying experience by providing low VA home loan rates, resources and membership benefits.",
+        1
+      ],
+      "output_preview": "VA Loans Expertise\n\nAs a Top VA lender,1 we at Navy Federal understand the unique needs of servicemembers, Veterans and their families, and can help you take advantage of the exclusive VA loan benefits you've earned. We’re here to help you through the home-buying experience by providing low VA home loan rates, resources and membership benefits.\n\nVA Loans Offer Many Benefits. They're an excellent option if you qualify and are looking to buy a home.\n\nImage 1\n\nOptions With No Down Payment\n\nYou can buy a house now without waiting years to save with no-down-payment options.Footnote 4 Check your certificate of eligibility to start.\n\nImage 2\n\nNo Private Mortgage Insurance Required\n\nVA loans don't require Private Mortgage Insurance (PMI).\n\nImage 3\n\nSeller Contribution of Up to 4%\n\nThe seller is allowed to contribute up to 4% of the value of the home toward your qualifying closing costs, which could save you money.\n\nImage 4\n\nRefinance Options Available\n\nReady to apply? Sign in to get started.\n\nApply Now for a VA Home Loan\n\nNot a member? Join today.\n\nOur U.S.-based member service reps are here for you 24/7. Reach us online, over the phone or at a branch. Contact us. If you're ready to apply for a mortgage or want to check the status of your loan, please call us at 1-888-842-6328.\n\nVisit Our Home Buying Center\n\nOur Home Buying Center has everything you need to de-stress your next address. Learn about your loan options, the benefits of a preapproval letter and different ways you could save money.\n\nLearn More\n\nFind a Real Estate AgentFootnote 5\n\nFinding the right home starts with finding the right real estate agent. Use RealtyPlus® to connect with a top-performing real estate agent in your area. Plus, you could earn cash back. Exclusively for Navy Federal members.Footnote 6\n\nLearn M",
+      "annotations": {
+        "snapshot_id": "3e1e06f987225cc5a0eb6800be68242df5f6929e6ad7a890d8ce6660d398ad1c",
+        "evaluable": true,
+        "required": [
+          {
+            "text": "You can buy a house now without waiting years to save with no-down-payment options.",
+            "kind": "content",
+            "reason": "Preserves the product's down-payment benefit."
+          },
+          {
+            "text": "The seller is allowed to contribute up to 4% of the value of the home toward your qualifying closing costs",
+            "kind": "numeric",
+            "reason": "Retains the seller-contribution limit and purpose."
+          },
+          {
+            "text": "To demonstrate eligibility, you’ll need to provide a valid Certificate of Eligibility (COE).",
+            "kind": "content",
+            "reason": "Captures required eligibility documentation."
+          },
+          {
+            "text": "A VA loan of $300,000 for 15 years at 4.875% interest and 5.558% APR will result in a monthly payment of $2,352.",
+            "kind": "numeric",
+            "reason": "Preserves the worked loan-payment example, including principal, term, rate and APR."
+          }
+        ],
+        "unwanted": [
+          {
+            "text": "To continue enjoying all the features of Navy Federal Online, please use a compatible browser. Confirm your browser capability.",
+            "reason": "Browser compatibility UI notice."
+          },
+          {
+            "text": "The Navy Federal Credit Union privacy and security polices do not apply to the linked site.",
+            "reason": "External-link modal boilerplate, not loan terms."
+          }
+        ],
+        "notes": "Loan-specific footnotes are substantive, including the payment example; they are not blanket boilerplate. The example excludes taxes and insurance and is subject to the qualifications in its source paragraph. The unrelated cashback paragraph is truncated in the sample and is not used.",
+        "reviewer_type": "ai_source_only"
+      }
+    },
+    {
+      "snapshot_id": "3a78297d1c2e7c542d2d3b1aa7362f5d2744c35fb633e28318a96bb030e27525",
+      "hostname": "weld.app",
+      "split": "heldout",
+      "diagnostics": {
+        "source_tokens": 77626,
+        "input_tokens": 65528,
+        "input_truncated": true,
+        "assistant_prefix_removed": true,
+        "finish_reason": "length",
+        "output_capped": true,
+        "usage": {
+          "prompt_tokens": 65528,
+          "completion_tokens": 2048,
+          "total_tokens": 67576,
+          "prompt_tokens_details": {
+            "cached_tokens": 18
+          }
+        },
+        "source_mapping": "Generated output is not assumed to be a faithful copy"
+      },
+      "most_repeated_long_paragraph": [
+        "You’re comparing, , , , . Each of these tools has its own strengths:",
+        1
+      ],
+      "output_preview": "You’re comparing, , , , . Each of these tools has its own strengths:\n\n[\"$\",\"ul\",null,{\"className\":\"mb-4 ml-6 mt-4 list-disc\",\"children\":[[\"$\",\"li\",null,{\"children\":[\"$\",\"$L13\",null,{\"className\":\"block text-xs hover:underline\",\"href\":\"/data-extraction\",\"children\":\"Data Extraction\"}]}],[\"$\",\"li\",null,{\"children\":[\"$\",\"$L13\",null,{\"className\":\"block text-xs hover:underline\",\"href\":\"/data-transformation\",\"children\":\"Data Transformations\"}]}],[\"$\",\"li\",null,{\"children\":[\"$\",\"$L13\",null,{\"className\":\"block text-xs hover:underline\",\"href\":\"/data-activation\",\"children\":\"Reverse ETL\"}]}],[\"$\",\"li\",null,{\"children\":[\"$\",\"$L13\",null,{\"className\":\"block text-xs hover:underline\",\"href\":\"/security\",\"children\":\"Security\"}]}],[\"$\",\"li\",null,{\"children\":[\"$\",\"$L13\",null,{\"className\":\"block text-xs hover:underline\",\"href\":\"https://weld.app/docs/api-reference\",\"target\":\"_blank\",\"rel\":\"noopener noreferrer\",\"children\":\"Full API Reference\"}]}]]}],[\"$\",\"div\",null,{\"children\":[[\"$\",\"h4\",null,{\"className\":\"mb-2 text-xs font-light leading-tight text-gray-400\",\"children\":\"Popular extensions\"}],[\"$\",\"ul\",null,{\"className\":\"space-y-2\",\"children\":[[\"$\",\"li\",null,{\"children\":[\"$\",\"$L13\",null,{\"className\":\"block text-xs hover:underline\",\"href\":\"/connectors/google-ads\",\"children\":\"Google Ads\"}]}],[\"$\",\"li\",null,{\"children\":[\"$\",\"$L13\",null,{\"className\":\"block text-xs hover:underline\",\"href\":\"/connectors/facebook-ads\",\"children\":\"Facebook Ads\"}]}],[\"$\",\"li\",null,{\"children\":[\"$\",\"$L13\",null,{\"className\":\"block text-xs hover:underline\",\"href\":\"/connectors/tiktok-ads\",\"children\":\"TikTok Ads\"}]}],[\"$\",\"li\",null,{\"children\":[\"$\",\"$L13\",null,{\"className\":\"block text-xs hover:underline\",\"href\":\"/connectors/amazon-ads\",\"children\":\"Amazon Ads\"}]}],[\"$\",\"li\",null,{\"children\":[\"$\",\"$L13\",null,{\"className\":\"block ",
+      "annotations": {
+        "snapshot_id": "3a78297d1c2e7c542d2d3b1aa7362f5d2744c35fb633e28318a96bb030e27525",
+        "evaluable": true,
+        "required": [
+          {
+            "text": "Comparing Google Cloud Dataflow with Talend and Weld",
+            "kind": "heading",
+            "reason": "Identifies all three tools being compared."
+          },
+          {
+            "text": "Dataflow pipelines are defined programmatically in Java or Python (Apache Beam).",
+            "kind": "content",
+            "reason": "Captures Dataflow's development model."
+          },
+          {
+            "text": "Talend offers a robust feature set with a large number of connectors, supporting both ELT and ETL capabilities",
+            "kind": "content",
+            "reason": "Preserves Talend's substantive capabilities."
+          },
+          {
+            "text": "weld offers a straightforward and competitive pricing model, starting at $99 for 2 million active rows",
+            "kind": "numeric",
+            "reason": "Covers Weld and its stated pricing basis."
+          }
+        ],
+        "unwanted": [
+          {
+            "text": "Want to try a better alternative? Try Weld for free today.",
+            "reason": "Standalone trial CTA after the comparison conclusion."
+          }
+        ],
+        "notes": "Checked full-source context for the final CTA. Vendor-authored feature comparisons remain useful main content; the isolated trial solicitation is excluded.",
+        "reviewer_type": "ai_source_only"
+      }
+    },
+    {
+      "snapshot_id": "0cbc8a5e12709367e63cdd9579bfee14bdabd85e758cf0b1e3ed29a2f61481aa",
+      "hostname": "blog.blazingcdn.com",
+      "split": "heldout",
+      "diagnostics": {
+        "source_tokens": 20115,
+        "input_tokens": 20131,
+        "input_truncated": false,
+        "assistant_prefix_removed": true,
+        "finish_reason": "length",
+        "output_capped": true,
+        "usage": {
+          "prompt_tokens": 20131,
+          "completion_tokens": 2048,
+          "total_tokens": 22179,
+          "prompt_tokens_details": {
+            "cached_tokens": 18
+          }
+        },
+        "source_mapping": "Generated output is not assumed to be a faithful copy"
+      },
+      "most_repeated_long_paragraph": [
+        "Image 1: Latency Maps and PoP Counts",
+        1
+      ],
+      "output_preview": "Image 1: Latency Maps and PoP Counts\n\nCDN Network Providers: Unraveling the Intricacies of Latency Maps and PoP Counts\n\nAmidst today's digital revolution, where milliseconds can decide the success of an online transaction and smooth streaming experiences are sacred for global audiences, the art and science behind Content Delivery Networks (CDNs) have never been more critical. Exploring the interplay between latency maps and Points of Presence (PoPs) not only provides insight into raw performance numbers but also sheds light on strategic infrastructure investments made by leading CDN network providers. In this in-depth analysis, we demystify how latency assessments and PoP counts contribute to the overall efficiency of a CDN, and why these metrics can have a profound impact across various industries ranging from media to gaming and software.\n\nRather than starting with generic statements, picture your user base spread out over continents, facing varied network conditions—each millisecond's delay translates to a potential loss in revenue or engagement. Your customers demand real-time interaction and rapid content delivery, and the decision of which CDN partner to entrust with your digital assets may mean the difference between virality and stagnation. This article unpacks all these nuances through detailed comparisons, real-life performance data, and analyses driven by the very latest research from industry thought leaders and the top articles published in 2025.\n\nUnderstanding the CDN Landscape: Fundamentals of Latency and PoP Distribution\n\nTo truly appreciate the network behind content delivery, one must first grasp the underlying building blocks. In the realm of CDNs, two metrics stand out as indispensable indicators of performance: latency and PoP counts. Latency, often",
+      "annotations": {
+        "snapshot_id": "0cbc8a5e12709367e63cdd9579bfee14bdabd85e758cf0b1e3ed29a2f61481aa",
+        "evaluable": true,
+        "required": [
+          {
+            "text": "Latency, often the silent killer of web performance, measures the delay between a request and the delivery of content.",
+            "kind": "content",
+            "reason": "Defines a central comparison metric."
+          },
+          {
+            "text": "Geographical Hotspots: Areas with consistently high latency indicate potential infrastructural bottlenecks or insufficient PoP coverage.",
+            "kind": "content",
+            "reason": "Explains how to interpret latency-map patterns."
+          },
+          {
+            "text": "When latency spikes in a particular region, traffic can be rerouted to nearby PoPs with lower loads, ensuring uninterrupted service.",
+            "kind": "content",
+            "reason": "Describes the article's operational use of real-time analytics."
+          },
+          {
+            "text": "Custom CDN setups allow businesses to integrate security, redundancy, and analytics tailored to their user demographics and usage patterns",
+            "kind": "content",
+            "reason": "Covers later customization considerations."
+          }
+        ],
+        "unwanted": [
+          {
+            "text": "An Unconventional Dive into the World of CDNs Imagine a bustling highway network, where every data...",
+            "reason": "Teaser for a separate related post."
+          }
+        ],
+        "notes": "Selected explanatory passages rather than inferring a numerical provider ranking from the title.",
+        "reviewer_type": "ai_source_only"
+      }
+    }
+  ],
+  "limitations": "Matched completed subset only, not the full evaluation split. All ten evaluable pages are from the table stratum. Source-only AI anchors are not human gold. Repetition counts are exact long-paragraph diagnostics, not validated failure classifiers. This run cannot separate model limitations from decoding/backend and input/output-budget effects."
+}

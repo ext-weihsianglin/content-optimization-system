@@ -1,0 +1,318 @@
+{
+  "annotation_type": "ai_source_only",
+  "documents": [
+    {
+      "snapshot_id": "6eb8e9c5b250a810e13a881e998843e83c46256c962d54c8b6b3e091733e6027",
+      "evaluable": true,
+      "required": [
+        {"text": "taking vitamin C supplements on a regular basis might decrease cold symptoms and reduce the number of days a cold will last.", "kind": "content", "reason": "Preserves the qualified claim about regular vitamin C use."},
+        {"text": "zinc lozenges may speed recovery from the common cold if you take them for a few days at the start of a cold.", "kind": "content", "reason": "Captures the distinct zinc timing guidance."},
+        {"text": "If you take any medications, ask your health care provider if you should take your supplements and medications at different times.", "kind": "content", "reason": "Retains the medication interaction precaution."},
+        {"text": "On the other hand, taking iron at the same time as calcium can hinder iron absorption.", "kind": "content", "reason": "Covers nutrient interaction advice in the later answer."}
+      ],
+      "unwanted": [
+        {"text": "Like us today on Facebook Follow our posts on X at @NIH_ODS Connect with us on LinkedIn", "reason": "Social account promotion in the bulletin footer."}
+      ],
+      "notes": "Full source payload reviewed because the sample cuts off the second question. PDF whitespace normalized; selected source claims are not independently verified medical advice.",
+      "reviewer_type": "ai_source_only"
+    },
+    {
+      "snapshot_id": "91c4e9e227bdee07d52330d82a502d19749f733c113116d278c0c9c88a2e5a75",
+      "evaluable": true,
+      "required": [
+        {"text": "This framework also includes the application of a risk-based approach, customer due diligence (“CDD”) measures, reporting of suspicious transactions, policies and procedures, and record-keeping.", "kind": "content", "reason": "Summarizes the regulatory framework introduced in the report."},
+        {"text": "A bank statement (no older than 3 months) that shows the End-user’s address.", "kind": "numeric", "reason": "Retains a specific address-verification document and recency limit."},
+        {"text": "You are to pursue Identity Verification when you onboard a new Customer.", "kind": "content", "reason": "Captures the report's onboarding verification timing."},
+        {"text": "As per Chile’s regulations, you are required to retain data for not less than five (5) years.", "kind": "numeric", "reason": "Preserves the stated retention duration in the final section."}
+      ],
+      "unwanted": [
+        {"text": "Copyright © 2022 Shufti Pro", "reason": "Repeated page footer rather than substantive compliance content."}
+      ],
+      "notes": "Full six-page source payload reviewed; sample contains mainly front matter. Anchors represent the report's assertions, not independent legal verification. PDF whitespace normalized.",
+      "reviewer_type": "ai_source_only"
+    },
+    {
+      "snapshot_id": "cb888618d43203081764e2719eb2e0c3cd9e09b6b9dd52258b3ac169e5d2da64",
+      "evaluable": false,
+      "required": [],
+      "unwanted": [{"text": "not-implemented", "reason": "Capture placeholder, not document content."}],
+      "notes": "Full source block file contains only not-implemented. No strategy document text is available to judge.",
+      "reviewer_type": "ai_source_only"
+    },
+    {
+      "snapshot_id": "a8278623ae3389a3eb515295a1f43a28ae20804def99cffb3f705defdf1b9e73",
+      "evaluable": false,
+      "required": [],
+      "unwanted": [
+        {"text": "Sorry - we couldn't find that page.", "reason": "Error-page message rather than the requested fund-finance content."},
+        {"text": "Sign up to receive regular updates on Allvue's content, award wins, product releases, and more.", "reason": "Repeated site newsletter promotion."},
+        {"text": "Front Office Portfolio Management Research Management Trade Order Management Compliance Fund Finance", "reason": "Global product navigation surviving on the error page."}
+      ],
+      "notes": "Full source reviewed. Page-not-found response with extensive navigation and newsletter blocks; requested main content is absent.",
+      "reviewer_type": "ai_source_only"
+    },
+    {
+      "snapshot_id": "63013e86d4ca8d114547cb18152f508b361ce6978ecef7ad9e700166fd5663b4",
+      "evaluable": false,
+      "required": [],
+      "unwanted": [{"text": "The page you are looking for doesn't exist or has been moved.", "reason": "404 explanation without the requested product content."}],
+      "notes": "Full source contains only the page-not-found heading and explanation.",
+      "reviewer_type": "ai_source_only"
+    },
+    {
+      "snapshot_id": "accb8e04c4302511a8114e2ac743ef404cd169a67ddb3821dfa08064343a54e2",
+      "evaluable": false,
+      "required": [],
+      "unwanted": [{"text": "Skip to Main Content", "reason": "Accessibility navigation control, not water-park information."}],
+      "notes": "Full source contains only a skip link. The title identifies a destination, but no main-content evidence is present.",
+      "reviewer_type": "ai_source_only"
+    },
+    {
+      "snapshot_id": "50f7d7f63d2a234a98be83b5c13bcbc887d7e1f9321921f26afc724ea8d9b6a6",
+      "evaluable": true,
+      "required": [
+        {"text": "Das Institut ist ganzjährig geöffnet und bietet Intensivkurse und Teilzeitkurse für alle Niveaustufen von A1 bis C2 an.", "kind": "content", "reason": "Explains year-round availability and supported proficiency levels."},
+        {"text": "In seiner Sprachschule in Berlin-Mitte bietet das Humboldt-Institut Deutschkurse als Intensivkurse mit 30 Unterrichtseinheiten pro Woche", "kind": "numeric", "reason": "Captures the intensive course's weekly teaching volume."},
+        {"text": "Die Schüler wohnen im Gästehaus in Einzel- oder Zweibettzimmern, die alle mit einem Bad (Dusche und WC) ausgestattet sind.", "kind": "content", "reason": "Preserves concrete accommodation information."},
+        {"text": "Nachdem wir Ihre Anmeldung erhalten haben, senden wir Ihnen zusammen mit der Kursbestätigung eine Einladung zum Deutschkurs zu.", "kind": "content", "reason": "Covers the registration document used in the visa process."}
+      ],
+      "unwanted": [{"text": "Melden Sie sich für unseren Newsletter rund um die Deutschkurse und Schulen des Humboldt-Instituts an:", "reason": "Newsletter signup solicitation."}],
+      "notes": "German wording retained. Consulted full-source course and accommodation sections to replace ambiguous sampled dates with contextualized facts.",
+      "reviewer_type": "ai_source_only"
+    },
+    {
+      "snapshot_id": "2607e42bac7ad3eba2c86fab5ad8b4c8ec4c7c136068b15b6c8b95f94b05a7a2",
+      "evaluable": true,
+      "required": [
+        {"text": "We spent 70 hours comparing the top 50 to find the seven best you can use to automate your ads.", "kind": "numeric", "reason": "Retains the article's stated comparison scope."},
+        {"text": "Revealbot is best for those who advertise on Meta, Google, TikTok, and Snapchat.", "kind": "content", "reason": "Identifies the first tool's intended advertising platforms."},
+        {"text": "Madgicx will work better when you’re rolling with higher budgets, as the AI won’t have enough data with low budgets.", "kind": "content", "reason": "Preserves a material limitation of a different tool."},
+        {"text": "AdZooma is best for people running PPC ads on Google or Bing.", "kind": "content", "reason": "Covers another recommendation and its use case."}
+      ],
+      "unwanted": [{"text": "\"I offered him $100,000... for six months... to execute his content strategy for AppSumo.\"", "reason": "Testimonial for a separate featured content-strategy product, not the ad-tool comparison."}],
+      "notes": "Inspected full-source ending to confirm the testimonial belongs to the separate featured-product promotion.",
+      "reviewer_type": "ai_source_only"
+    },
+    {
+      "snapshot_id": "0cbc8a5e12709367e63cdd9579bfee14bdabd85e758cf0b1e3ed29a2f61481aa",
+      "evaluable": true,
+      "required": [
+        {"text": "Latency, often the silent killer of web performance, measures the delay between a request and the delivery of content.", "kind": "content", "reason": "Defines a central comparison metric."},
+        {"text": "Geographical Hotspots: Areas with consistently high latency indicate potential infrastructural bottlenecks or insufficient PoP coverage.", "kind": "content", "reason": "Explains how to interpret latency-map patterns."},
+        {"text": "When latency spikes in a particular region, traffic can be rerouted to nearby PoPs with lower loads, ensuring uninterrupted service.", "kind": "content", "reason": "Describes the article's operational use of real-time analytics."},
+        {"text": "Custom CDN setups allow businesses to integrate security, redundancy, and analytics tailored to their user demographics and usage patterns", "kind": "content", "reason": "Covers later customization considerations."}
+      ],
+      "unwanted": [{"text": "An Unconventional Dive into the World of CDNs Imagine a bustling highway network, where every data...", "reason": "Teaser for a separate related post."}],
+      "notes": "Selected explanatory passages rather than inferring a numerical provider ranking from the title.",
+      "reviewer_type": "ai_source_only"
+    },
+    {
+      "snapshot_id": "696b9dcb6816b9b1f13c3a046e83c17765196e103c2f517423fee212a3058901",
+      "evaluable": true,
+      "required": [
+        {"text": "The work must be done in order to eliminate a technological uncertainty related to the design, method, or capability of said business component.", "kind": "content", "reason": "Retains an eligibility criterion from the four-part test."},
+        {"text": "Companies with less than $5M in gross receipts and with less than 5 total years of gross receipts", "kind": "numeric", "reason": "Preserves the stated payroll-offset eligibility thresholds."},
+        {"text": "can apply up to $500,000/year against quarterly payroll taxes.", "kind": "numeric", "reason": "Captures the associated stated benefit limit."},
+        {"text": "Cloud Computing Costs – computing expenses related to hosting development or test environments used during software code iteration.", "kind": "content", "reason": "Covers an eligible expense category distinct from general benefits."}
+      ],
+      "unwanted": [{"text": "By using this website you accept our Terms Of Use and Privacy Policy.", "reason": "Site legal-use boilerplate."}],
+      "notes": "Tax assertions are annotated as source content only. The threshold and amount anchors are from the same substantive benefit item.",
+      "reviewer_type": "ai_source_only"
+    },
+    {
+      "snapshot_id": "3ef5548fa440e69013b21ad161b670b591d3bbb7eafe2620a301b59d394c42ec",
+      "evaluable": true,
+      "required": [
+        {"text": "The matrix columns show funds in your model portfolio with the rows listing individual stocks, bonds, and options within those funds.", "kind": "content", "reason": "Explains how to read the matrix."},
+        {"text": "Holding Matrix may show 12% for Microsoft if 5% of your portfolio is invested in Microsoft through Funds.", "kind": "numeric", "reason": "Preserves the indirect-exposure example."},
+        {"text": "We display only 10 funds in the Matrix. All additional funds are aggregated under an 'Other' column", "kind": "numeric", "reason": "Captures the display limit and overflow behavior."},
+        {"text": "International ETFs, Canadian Mutual Funds, and Closed-End Funds are not covered in this analysis.", "kind": "content", "reason": "Retains material coverage exclusions."}
+      ],
+      "unwanted": [{"text": "Getting Started Start Here! Command Bar & Search Right Sidebar", "reason": "Help-center sidebar navigation."}],
+      "notes": "The Amazon example inconsistently states 6.79% and 6.97%; avoided that example without correcting the source. Other independently useful sections remain evaluable.",
+      "reviewer_type": "ai_source_only"
+    },
+    {
+      "snapshot_id": "228354c132326fddb1fc63a22c194bc10afb02f97791d000c3158178b898f26a",
+      "evaluable": true,
+      "required": [
+        {"text": "enables logistics companies to quickly integrate and go live with new trading partners in 9 days or less.", "kind": "numeric", "reason": "Preserves the stated integration time."},
+        {"text": "The Order-to-Cash process includes every action from receiving a customer order to final payment.", "kind": "content", "reason": "Defines the workflow covered by this page."},
+        {"text": "Single Integration to Access a Broad Network – Integrate once and access thousands of partners without individual setups", "kind": "content", "reason": "Captures the integration model and network benefit."},
+        {"text": "EDI 820 Payment Order: Confirms payment intent and details, minimizing processing times.", "kind": "content", "reason": "Retains a specific transaction type and its function."}
+      ],
+      "unwanted": [],
+      "notes": "Full source contains a coherent product page. No clearly separate navigation, footer, or unrelated promotion was present; the product CTA was not forced into unwanted.",
+      "reviewer_type": "ai_source_only"
+    },
+    {
+      "snapshot_id": "6deb78fc6bbbb15077880827720f87176a99363d461a883cd1f72dadad64c4d6",
+      "evaluable": true,
+      "required": [
+        {"text": "Custom Sweatshirts", "kind": "heading", "reason": "Identifies the short product-category page."},
+        {"text": "You can make your own crewneck sweatshirts, hoodies, zip-hoodie, quarter-zip hoodie, or even fleece pullovers", "kind": "content", "reason": "Lists the supported customizable garment types."},
+        {"text": "Our Design Lab also makes it easy to create personalized sweatshirts complete with names and/or numbers.", "kind": "content", "reason": "Preserves a concrete personalization capability."}
+      ],
+      "unwanted": [{"text": "Discounts apply in the Cart", "reason": "Cart discount banner condition outside the category description."}],
+      "notes": "Full source reviewed. Short but valid category content is evaluable; two content anchors come from the only descriptive paragraph. Category links are not mistaken for additional prose sections.",
+      "reviewer_type": "ai_source_only"
+    },
+    {
+      "snapshot_id": "70bdd2bf8da0a6c7fc65403fa4c6aff724bc5726c02332419e51c72ab3841392",
+      "evaluable": true,
+      "required": [
+        {"text": "NADA is The Voice of the Dealer, representing more than 16,000 new-car dealers", "kind": "numeric", "reason": "Captures the organization's identity and represented constituency."},
+        {"text": "NADA Show 2026 kicks off Tuesday, Feb. 3, in Las Vegas.", "kind": "numeric", "reason": "Preserves the homepage's featured event details."},
+        {"text": "NADA Members can search and download over 70 guides on various topics in PDF format.", "kind": "numeric", "reason": "Identifies the scope and format of a member resource."},
+        {"text": "Hosted by NADA education leaders Camron Wilson and Michael Hayes, Dealer Driven showcases the best in dealership training and development.", "kind": "content", "reason": "Covers the separate podcast offering and its hosts."}
+      ],
+      "unwanted": [{"text": "Customized settings", "reason": "Settings control unrelated to the homepage's organizational information."}],
+      "notes": "Full homepage source reviewed. Its own events, member resources, and podcast are meaningful homepage content, not automatically excluded as cross-promotion.",
+      "reviewer_type": "ai_source_only"
+    },
+    {
+      "snapshot_id": "13044732d8d71e1142ab476f865238567c3d039c4fb55db97049baa6c644571b",
+      "evaluable": true,
+      "required": [
+        {"text": "Box.co.uk is your trusted source for premium electronics, from high-end gaming computers to powerful laptops and everything in between.", "kind": "content", "reason": "Preserves the store's stated product scope."},
+        {"text": "HP 15s-fq5021na Intel® Core™ i5-1235U 8GB RAM 256GB SSD 15.6\" Windows 11 Home Laptop", "kind": "numeric", "reason": "Retains an actual featured laptop and its specifications."},
+        {"text": "XFX Speedster SWFT 210 CORE Radeon RX 7600 8GB GDDR6 Graphics Card", "kind": "numeric", "reason": "Covers a different featured hardware category."},
+        {"text": "LG 27SR50F-W 27\" IPS Full HD Smart Monitor with Web OS, Built in Apps and Speakers", "kind": "numeric", "reason": "Preserves a third product's identity and functional specifications."}
+      ],
+      "unwanted": [{"text": "Copyright © 1996-2025 Fivetech LTD | Terms and Conditions", "reason": "Global copyright and terms footer."}],
+      "notes": "Full source reviewed. Store description ends mid-sentence after the selected complete sentence. Product listings are useful homepage content; isolated price blocks were not joined into invented anchors.",
+      "reviewer_type": "ai_source_only"
+    },
+    {
+      "snapshot_id": "2b65288cf3d68e57a2444482ff6c4b92794493768c981fb231bf61e95dbdf75e",
+      "evaluable": true,
+      "required": [
+        {"text": "44のパワフルなオンラインPDFツール, 会員登録不要、永久に無料！", "kind": "numeric", "reason": "States the tool count and free, registration-free offering."},
+        {"text": "PDFをOffice、iWork などに変換します。", "kind": "heading", "reason": "Identifies the main document conversion capability."},
+        {"text": "PDFパスワード解除", "kind": "content", "reason": "Preserves a distinct utility offered in the tool catalog."},
+        {"text": "HEIC JPG 変換", "kind": "content", "reason": "Represents the separate image-format conversion offering."}
+      ],
+      "unwanted": [],
+      "notes": "Full source reviewed. This is a valid compact tool catalog, not an empty shell. Short Japanese capability labels are the main content even though they also link to tools; the usual English word-length target does not fit. No clear unwanted prose was available.",
+      "reviewer_type": "ai_source_only"
+    },
+    {
+      "snapshot_id": "983cd919d25c09f509b5b55d8ec362936bc9deb2ce242fcf6c07c4a05e0465b5",
+      "evaluable": true,
+      "required": [
+        {"text": "背景をぼかす前に、最新のAI技術を使って画像内のオブジェクトや人物を細部まで識別します。", "kind": "content", "reason": "Explains subject detection before background blurring."},
+        {"text": "PNGファイルとして、背景をぼかした 画像をダウンロード します。", "kind": "content", "reason": "Retains the output format in the usage instructions."},
+        {"text": "特に、複数の画像を編集する必要がある場合、このオプションは多くの時間を節約することができます。 ニーズに応じて、Photoroomは背景をぼかすAPIソリューションも提供しています。", "kind": "content", "reason": "Covers batch-workflow value and the API option."},
+        {"text": "いいえ、今では、写真編集で素晴らしい結果を出すために高価な機材は必要ありません。", "kind": "content", "reason": "Preserves the FAQ answer about equipment requirements."}
+      ],
+      "unwanted": [{"text": "Easily create a unique logo with AI. Photoroom’s AI logo generator simplifies the process, in seconds.", "reason": "Generic promotion of a separate logo-generation tool, not background-blur guidance."}],
+      "notes": "Japanese text and source-internal spacing retained. Consulted full-source ending to distinguish the relevant blur FAQ from unrelated feature promotions. Japanese sentence lengths replace English word-count targets.",
+      "reviewer_type": "ai_source_only"
+    },
+    {
+      "snapshot_id": "bf7818fc4de71c25e283b6dfaaa2c939ded981cb4494e5ea11d65a449691bfff",
+      "evaluable": true,
+      "required": [
+        {"text": "By responding to DSARs in a timely and efficient manner, organizations can build trust with their customers", "kind": "content", "reason": "Explains a substantive business benefit of request handling."},
+        {"text": "For more sensitive requests, however, you may want a more robust method of identity verification.", "kind": "content", "reason": "Preserves the caveat on using email for verification."},
+        {"text": "A good practice is to collect this information with a dropdown menu consisting of the sorts of rights requests you expect to receive", "kind": "content", "reason": "Retains actionable form-design guidance for request type."},
+        {"text": "Depending upon the law at hand, DSARs must be fulfilled within 30 to 45 days.", "kind": "numeric", "reason": "Captures the stated response interval and its qualification."}
+      ],
+      "unwanted": [{"text": "DSAR Response Letter: How to Respond to a Subject Rights Request", "reason": "Separate related-article title, not this article's form-design explanation."}],
+      "notes": "Anchors preserve the article's own qualified legal statements without independently validating them.",
+      "reviewer_type": "ai_source_only"
+    },
+    {
+      "snapshot_id": "1e16356cd7c3efe20712030e89e4b9b0476bde81694e4e93530366a540c82fdc",
+      "evaluable": true,
+      "required": [
+        {"text": "Using a tiered, per-agent pricing model, Zendesk provides options ranging from basic automation tools for smaller teams", "kind": "content", "reason": "Captures Zendesk's pricing structure and smaller-team offering."},
+        {"text": "Ada provides pricing options tailored to businesses of various sizes. Costs are based on the number of conversations and the features you need.", "kind": "content", "reason": "Preserves a contrasting pricing basis for another product."},
+        {"text": "Tidio combines live chat and automated support to offer round-the-clock customer service.", "kind": "content", "reason": "Retains a third product's service model."},
+        {"text": "The prices listed are based on annual billing (as of March 2025). Most platforms include free trials ranging from 14 to 30 days.", "kind": "numeric", "reason": "Retains the comparison's date, billing qualification, and trial range."}
+      ],
+      "unwanted": [{"text": "The Domain has been successfully submitted. We will contact you ASAP.", "reason": "Submission-form confirmation UI unrelated to the comparison."}],
+      "notes": "Selected named-product passages to avoid ambiguous sampled feature bullets and table cells lacking row context.",
+      "reviewer_type": "ai_source_only"
+    },
+    {
+      "snapshot_id": "218bcc7afabe69e4ed8b9f06c58e2b2a2d2e27bd7fe78f1d6848334110f16673",
+      "evaluable": true,
+      "required": [
+        {"text": "Docebo is a comprehensive learning platform designed to support every stage of employee development from onboarding to reskilling.", "kind": "content", "reason": "Preserves one platform's stated development scope."},
+        {"text": "Udemy Business is a great fit for organizations that want to offer learning with flexibility and breadth", "kind": "content", "reason": "Captures a different platform's intended fit."},
+        {"text": "D2L Brightspace is a robust learning platform. It drives skill development and turns training into a retention strategy.", "kind": "content", "reason": "Retains another comparison entry's positioning."},
+        {"text": "Tovuti delivers a highly engaging eLearning experience, though some users say it could benefit from stronger self-service resources for admins and learners.", "kind": "content", "reason": "Preserves a useful limitation as well as a product benefit."}
+      ],
+      "unwanted": [{"text": "How to implement adaptive learning in 3 easy steps", "reason": "Separate article linked from the related-posts area."}],
+      "notes": "Inspected full-source ending to establish the related-post boundary. Required passages name their platforms, avoiding unattributed sampled feature bullets.",
+      "reviewer_type": "ai_source_only"
+    },
+    {
+      "snapshot_id": "63aed612f624869414ba9e51c272abef242c4af5a452b569692b80c73a894a4b",
+      "evaluable": true,
+      "required": [
+        {"text": "If your disposable income is considered insufficient to afford your monthly payment, you may be turned down for a loan", "kind": "content", "reason": "Captures one concrete reason for denial."},
+        {"text": "Generally speaking, you should strive to use 30% or less of your total credit.", "kind": "numeric", "reason": "Preserves the article's qualified utilization guideline."},
+        {"text": "If you decide to ask someone to cosign, be sure they’re aware of all the risks involved.", "kind": "content", "reason": "Retains a material caution in the proposed cosigner strategy."},
+        {"text": "Many lenders often allow you to see if you’re prequalified for a loan, which won’t impact your credit score at all.", "kind": "content", "reason": "Covers the article's prequalification option."}
+      ],
+      "unwanted": [{"text": "What Is a Prepayment Penalty on a Personal Loan?", "reason": "Separate article card in the related-articles area, outside the loan-denial guidance."}],
+      "notes": "Financial statements are retained as source assertions. Full-source ending distinguishes the page's FAQ from related-article cards. The article disclaimer was not used as unwanted because it qualifies the guidance.",
+      "reviewer_type": "ai_source_only"
+    },
+    {
+      "snapshot_id": "0245a9f5adabce1d3d2b21eac2bcaa20bdc1a6b581417a957e7760e9713d95a5",
+      "evaluable": true,
+      "required": [
+        {"text": "Choosing the best ERP for large companies is not simple. It requires careful thought about scalability, integration, industry needs, and long-term support.", "kind": "content", "reason": "Preserves the central selection considerations."},
+        {"text": "Oracle Fusion Cloud ERP offers a complete, cloud-native suite integrating financials, procurement, risk, and project management.", "kind": "content", "reason": "Captures the Oracle entry's functional scope."},
+        {"text": "Workday excels in finance and HR, providing a unified platform for financials, workforce planning, and talent management.", "kind": "content", "reason": "Retains the Workday comparison entry."},
+        {"text": "NetSuite, from Oracle, is a leading cloud-native ERP platform known for flexibility, global financials, and built-in CRM and e-commerce capabilities.", "kind": "content", "reason": "Covers another named ERP and its distinguishing capabilities."}
+      ],
+      "unwanted": [{"text": "Is Global Shop Solutions a Good ERP for Oil, Gas, and Energy Businesses?", "reason": "Linked title in the separate related-article cards."}],
+      "notes": "Full-source ending confirms related-article cards are separate from the large-company ERP comparison.",
+      "reviewer_type": "ai_source_only"
+    },
+    {
+      "snapshot_id": "cf1279210939fe7b866a87fbdfcab7e00b8cc2b9fca24b5f8f499b4ab4c7a436",
+      "evaluable": true,
+      "required": [
+        {"text": "Invisalign ® Comprehensive Package with 3 years and 3 additional sets of aligners", "kind": "heading", "reason": "Preserves a specific package enhancement and its quantities."},
+        {"text": "Invisalign Virtual Care AI clinically analyzes patient progress photos and tracks aligner fit to ensure treatment remains on track", "kind": "content", "reason": "Captures remote-monitoring functionality."},
+        {"text": "Modifying patient treatment plans is faster than ever with ClinCheck Live Update for 3D Controls.", "kind": "content", "reason": "Identifies the treatment-plan update enhancement."},
+        {"text": "Smart Debond uses artificial intelligence to assist with virtually removing wires and brackets from scan models with braces.", "kind": "content", "reason": "Covers the distinct retainer-preparation feature."}
+      ],
+      "unwanted": [{"text": "© 2025 Invisalign.com", "reason": "Copyright footer."}],
+      "notes": "Full source reviewed. Repeated carousel/video descriptions do not require duplicate anchors. The EX30 comparison footnote is substantive qualification, not unwanted boilerplate.",
+      "reviewer_type": "ai_source_only"
+    },
+    {
+      "snapshot_id": "f459a9c9814357f362619d960518c7ae45e05e25123d361b8953ff8d7399a0bf",
+      "evaluable": true,
+      "required": [
+        {"text": "It makes for a great investment with a 117% average retention value at resale.", "kind": "numeric", "reason": "Retains the GG Marmont Shoulder Bag's stated resale figure."},
+        {"text": "The Gucci Neo Vintage Flap Belt Bag has a 111% average retention value on the secondary market.", "kind": "numeric", "reason": "Captures the second bag's explicit model and resale metric."},
+        {"text": "more than worth your money, with a 107% average retention value on the resale market.", "kind": "numeric", "reason": "Retains the Super Mini entry's distinct retention figure."},
+        {"text": "its camera messanger bag has a retention value of 110%.", "kind": "numeric", "reason": "Preserves the camera messenger entry's figure and original spelling."},
+        {"text": "a vintage Gucci belt bag with the GG canvas has an average retention value of 105%.", "kind": "numeric", "reason": "Covers the fifth bag's stated resale value."}
+      ],
+      "unwanted": [],
+      "notes": "Full web-story source reviewed to establish adjacent bag headings. All five entries covered. Preserved the source typo messanger. No clear unrelated boilerplate; the final retailer sentence is an integrated story CTA.",
+      "reviewer_type": "ai_source_only"
+    },
+    {
+      "snapshot_id": "d46ebe3518f9ab607295cabdbcdd8ed937380c89676e6b0c2038627fed4298d4",
+      "evaluable": true,
+      "required": [
+        {"text": "Mexico’s Riviera Maya comprises a 130 km (80 mi) stretch of Caribbean coastline on the Yucatan Peninsula in Mexico.", "kind": "numeric", "reason": "Preserves the geographic scope of the hotel list."},
+        {"text": "this eco-chic refuge comprises just 41 thatched-roof villas with plunge pools, outdoor showers, hammocks", "kind": "numeric", "reason": "Captures the Viceroy entry's accommodation scale and features."},
+        {"text": "Hotel Esencia is a majestic 50-acre estate at the midpoint between Tulum and Playa del Carmen.", "kind": "numeric", "reason": "Retains a different property's size and location."},
+        {"text": "All 124 guest rooms and suites offer ocean views (some also have private plunge pools).", "kind": "numeric", "reason": "Preserves a concrete accommodation feature of the St Regis entry."}
+      ],
+      "unwanted": [{"text": "Click to email a link to a friend (Opens in new window) Email", "reason": "Sharing control outside the hotel descriptions."}],
+      "notes": "Hotel-specific booking perks were not automatically marked unwanted because they may inform the article's readers. Selected anchors span geographic context and three different properties.",
+      "reviewer_type": "ai_source_only"
+    }
+  ]
+}

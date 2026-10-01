@@ -1,0 +1,18 @@
+{
+  "method": "reader_lm",
+  "model": "jinaai/reader-lm-0.5b",
+  "revision": "46cb69fff9d100f9c3c2a135d59f365fb99a0121",
+  "model_path": "data/models/reader-lm-0.5b",
+  "endpoint": "http://127.0.0.1:8087/v1/completions",
+  "max_input_tokens": 65536,
+  "max_output_tokens": 2048,
+  "temperature": 0.0,
+  "repetition_penalty": 1.08,
+  "repetition_context_size": 67584,
+  "timeout_seconds": 600,
+  "input_policy": "Raw saved HTML, prefix-token truncation when over the local budget; no DOM cleaning or live fetching",
+  "prompt_policy": "Model-card user-message chat template with add_generation_prompt=false",
+  "precision": "Original unquantized bfloat16 safetensors, MLX backend",
+  "license": "CC-BY-NC-4.0",
+  "evaluation_policy": "Add-on after the original heldout results were known; references and scoring unchanged. Not a newly blinded test."
+}

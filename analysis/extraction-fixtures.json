@@ -1,0 +1,763 @@
+{
+  "type": "synthetic_structural_fixtures",
+  "limitations": "Eight hand-authored controlled inputs. These engineering checks are not held-out real-page structure accuracy or human-reviewed corpus quality. Fixtures were defined before their candidate outputs were inspected.",
+  "groups": [
+    {
+      "subset": "all",
+      "method": "baseline",
+      "supported_cases": 8,
+      "required_hits": 27,
+      "required_total": 32,
+      "unwanted_hits": 1,
+      "unwanted_total": 3,
+      "structural_passed": 0,
+      "structural_total": 12
+    },
+    {
+      "subset": "all",
+      "method": "trafilatura",
+      "supported_cases": 6,
+      "required_hits": 22,
+      "required_total": 24,
+      "unwanted_hits": 0,
+      "unwanted_total": 3,
+      "structural_passed": 4,
+      "structural_total": 10
+    },
+    {
+      "subset": "all",
+      "method": "readability",
+      "supported_cases": 6,
+      "required_hits": 24,
+      "required_total": 24,
+      "unwanted_hits": 0,
+      "unwanted_total": 3,
+      "structural_passed": 9,
+      "structural_total": 10
+    },
+    {
+      "subset": "all",
+      "method": "conservative_dom",
+      "supported_cases": 6,
+      "required_hits": 24,
+      "required_total": 24,
+      "unwanted_hits": 1,
+      "unwanted_total": 3,
+      "structural_passed": 10,
+      "structural_total": 10
+    },
+    {
+      "subset": "all",
+      "method": "markdown_text",
+      "supported_cases": 2,
+      "required_hits": 8,
+      "required_total": 8,
+      "unwanted_hits": 0,
+      "unwanted_total": 0,
+      "structural_passed": 2,
+      "structural_total": 2
+    },
+    {
+      "subset": "html",
+      "method": "baseline",
+      "supported_cases": 6,
+      "required_hits": 19,
+      "required_total": 24,
+      "unwanted_hits": 1,
+      "unwanted_total": 3,
+      "structural_passed": 0,
+      "structural_total": 10
+    },
+    {
+      "subset": "html",
+      "method": "trafilatura",
+      "supported_cases": 6,
+      "required_hits": 22,
+      "required_total": 24,
+      "unwanted_hits": 0,
+      "unwanted_total": 3,
+      "structural_passed": 4,
+      "structural_total": 10
+    },
+    {
+      "subset": "html",
+      "method": "readability",
+      "supported_cases": 6,
+      "required_hits": 24,
+      "required_total": 24,
+      "unwanted_hits": 0,
+      "unwanted_total": 3,
+      "structural_passed": 9,
+      "structural_total": 10
+    },
+    {
+      "subset": "html",
+      "method": "conservative_dom",
+      "supported_cases": 6,
+      "required_hits": 24,
+      "required_total": 24,
+      "unwanted_hits": 1,
+      "unwanted_total": 3,
+      "structural_passed": 10,
+      "structural_total": 10
+    },
+    {
+      "subset": "html",
+      "method": "markdown_text",
+      "supported_cases": 0,
+      "required_hits": 0,
+      "required_total": 0,
+      "unwanted_hits": 0,
+      "unwanted_total": 0,
+      "structural_passed": 0,
+      "structural_total": 0
+    },
+    {
+      "subset": "non_html",
+      "method": "baseline",
+      "supported_cases": 2,
+      "required_hits": 8,
+      "required_total": 8,
+      "unwanted_hits": 0,
+      "unwanted_total": 0,
+      "structural_passed": 0,
+      "structural_total": 2
+    },
+    {
+      "subset": "non_html",
+      "method": "trafilatura",
+      "supported_cases": 0,
+      "required_hits": 0,
+      "required_total": 0,
+      "unwanted_hits": 0,
+      "unwanted_total": 0,
+      "structural_passed": 0,
+      "structural_total": 0
+    },
+    {
+      "subset": "non_html",
+      "method": "readability",
+      "supported_cases": 0,
+      "required_hits": 0,
+      "required_total": 0,
+      "unwanted_hits": 0,
+      "unwanted_total": 0,
+      "structural_passed": 0,
+      "structural_total": 0
+    },
+    {
+      "subset": "non_html",
+      "method": "conservative_dom",
+      "supported_cases": 0,
+      "required_hits": 0,
+      "required_total": 0,
+      "unwanted_hits": 0,
+      "unwanted_total": 0,
+      "structural_passed": 0,
+      "structural_total": 0
+    },
+    {
+      "subset": "non_html",
+      "method": "markdown_text",
+      "supported_cases": 2,
+      "required_hits": 8,
+      "required_total": 8,
+      "unwanted_hits": 0,
+      "unwanted_total": 0,
+      "structural_passed": 2,
+      "structural_total": 2
+    }
+  ],
+  "results": [
+    {
+      "fixture": "article-with-boilerplate",
+      "format": "html",
+      "method": "baseline",
+      "status": "ok",
+      "supported": true,
+      "required_hits": 4,
+      "required_total": 4,
+      "unwanted_hits": 0,
+      "unwanted_total": 2,
+      "structural_checks": {
+        "heading": false
+      },
+      "runtime_ms": 360.103
+    },
+    {
+      "fixture": "article-with-boilerplate",
+      "format": "html",
+      "method": "trafilatura",
+      "status": "ok",
+      "supported": true,
+      "required_hits": 4,
+      "required_total": 4,
+      "unwanted_hits": 0,
+      "unwanted_total": 2,
+      "structural_checks": {
+        "heading": true
+      },
+      "runtime_ms": 169.586
+    },
+    {
+      "fixture": "article-with-boilerplate",
+      "format": "html",
+      "method": "readability",
+      "status": "ok",
+      "supported": true,
+      "required_hits": 4,
+      "required_total": 4,
+      "unwanted_hits": 0,
+      "unwanted_total": 2,
+      "structural_checks": {
+        "heading": true
+      },
+      "runtime_ms": 242.48
+    },
+    {
+      "fixture": "article-with-boilerplate",
+      "format": "html",
+      "method": "conservative_dom",
+      "status": "ok",
+      "supported": true,
+      "required_hits": 4,
+      "required_total": 4,
+      "unwanted_hits": 0,
+      "unwanted_total": 2,
+      "structural_checks": {
+        "heading": true
+      },
+      "runtime_ms": 0.879
+    },
+    {
+      "fixture": "article-with-boilerplate",
+      "format": "html",
+      "method": "markdown_text",
+      "status": "unsupported_format",
+      "supported": false,
+      "required_hits": 0,
+      "required_total": 0,
+      "unwanted_hits": 0,
+      "unwanted_total": 0,
+      "structural_checks": {},
+      "runtime_ms": 0.007
+    },
+    {
+      "fixture": "product-table-spans",
+      "format": "html",
+      "method": "baseline",
+      "status": "ok",
+      "supported": true,
+      "required_hits": 7,
+      "required_total": 7,
+      "unwanted_hits": 0,
+      "unwanted_total": 0,
+      "structural_checks": {
+        "table_cell_0": false,
+        "table_cell_1": false,
+        "table_cell_2": false,
+        "table_cell_3": false
+      },
+      "runtime_ms": 0.56
+    },
+    {
+      "fixture": "product-table-spans",
+      "format": "html",
+      "method": "trafilatura",
+      "status": "ok",
+      "supported": true,
+      "required_hits": 7,
+      "required_total": 7,
+      "unwanted_hits": 0,
+      "unwanted_total": 0,
+      "structural_checks": {
+        "table_cell_0": false,
+        "table_cell_1": false,
+        "table_cell_2": false,
+        "table_cell_3": false
+      },
+      "runtime_ms": 2.799
+    },
+    {
+      "fixture": "product-table-spans",
+      "format": "html",
+      "method": "readability",
+      "status": "ok",
+      "supported": true,
+      "required_hits": 7,
+      "required_total": 7,
+      "unwanted_hits": 0,
+      "unwanted_total": 0,
+      "structural_checks": {
+        "table_cell_0": true,
+        "table_cell_1": true,
+        "table_cell_2": true,
+        "table_cell_3": true
+      },
+      "runtime_ms": 11.346
+    },
+    {
+      "fixture": "product-table-spans",
+      "format": "html",
+      "method": "conservative_dom",
+      "status": "ok",
+      "supported": true,
+      "required_hits": 7,
+      "required_total": 7,
+      "unwanted_hits": 0,
+      "unwanted_total": 0,
+      "structural_checks": {
+        "table_cell_0": true,
+        "table_cell_1": true,
+        "table_cell_2": true,
+        "table_cell_3": true
+      },
+      "runtime_ms": 1.19
+    },
+    {
+      "fixture": "product-table-spans",
+      "format": "html",
+      "method": "markdown_text",
+      "status": "unsupported_format",
+      "supported": false,
+      "required_hits": 0,
+      "required_total": 0,
+      "unwanted_hits": 0,
+      "unwanted_total": 0,
+      "structural_checks": {},
+      "runtime_ms": 0.005
+    },
+    {
+      "fixture": "nested-list-and-code",
+      "format": "html",
+      "method": "baseline",
+      "status": "ok",
+      "supported": true,
+      "required_hits": 3,
+      "required_total": 3,
+      "unwanted_hits": 0,
+      "unwanted_total": 0,
+      "structural_checks": {
+        "code_whitespace": false,
+        "nested_list": false
+      },
+      "runtime_ms": 0.381
+    },
+    {
+      "fixture": "nested-list-and-code",
+      "format": "html",
+      "method": "trafilatura",
+      "status": "ok",
+      "supported": true,
+      "required_hits": 3,
+      "required_total": 3,
+      "unwanted_hits": 0,
+      "unwanted_total": 0,
+      "structural_checks": {
+        "code_whitespace": false,
+        "nested_list": true
+      },
+      "runtime_ms": 1.576
+    },
+    {
+      "fixture": "nested-list-and-code",
+      "format": "html",
+      "method": "readability",
+      "status": "ok",
+      "supported": true,
+      "required_hits": 3,
+      "required_total": 3,
+      "unwanted_hits": 0,
+      "unwanted_total": 0,
+      "structural_checks": {
+        "code_whitespace": true,
+        "nested_list": true
+      },
+      "runtime_ms": 8.484
+    },
+    {
+      "fixture": "nested-list-and-code",
+      "format": "html",
+      "method": "conservative_dom",
+      "status": "ok",
+      "supported": true,
+      "required_hits": 3,
+      "required_total": 3,
+      "unwanted_hits": 0,
+      "unwanted_total": 0,
+      "structural_checks": {
+        "code_whitespace": true,
+        "nested_list": true
+      },
+      "runtime_ms": 0.731
+    },
+    {
+      "fixture": "nested-list-and-code",
+      "format": "html",
+      "method": "markdown_text",
+      "status": "unsupported_format",
+      "supported": false,
+      "required_hits": 0,
+      "required_total": 0,
+      "unwanted_hits": 0,
+      "unwanted_total": 0,
+      "structural_checks": {},
+      "runtime_ms": 0.004
+    },
+    {
+      "fixture": "misleading-tiny-main",
+      "format": "html",
+      "method": "baseline",
+      "status": "ok",
+      "supported": true,
+      "required_hits": 0,
+      "required_total": 3,
+      "unwanted_hits": 1,
+      "unwanted_total": 1,
+      "structural_checks": {
+        "heading": false
+      },
+      "runtime_ms": 0.304
+    },
+    {
+      "fixture": "misleading-tiny-main",
+      "format": "html",
+      "method": "trafilatura",
+      "status": "ok",
+      "supported": true,
+      "required_hits": 3,
+      "required_total": 3,
+      "unwanted_hits": 0,
+      "unwanted_total": 1,
+      "structural_checks": {
+        "heading": true
+      },
+      "runtime_ms": 1.382
+    },
+    {
+      "fixture": "misleading-tiny-main",
+      "format": "html",
+      "method": "readability",
+      "status": "ok",
+      "supported": true,
+      "required_hits": 3,
+      "required_total": 3,
+      "unwanted_hits": 0,
+      "unwanted_total": 1,
+      "structural_checks": {
+        "heading": false
+      },
+      "runtime_ms": 6.246
+    },
+    {
+      "fixture": "misleading-tiny-main",
+      "format": "html",
+      "method": "conservative_dom",
+      "status": "ok",
+      "supported": true,
+      "required_hits": 3,
+      "required_total": 3,
+      "unwanted_hits": 1,
+      "unwanted_total": 1,
+      "structural_checks": {
+        "heading": true
+      },
+      "runtime_ms": 0.438
+    },
+    {
+      "fixture": "misleading-tiny-main",
+      "format": "html",
+      "method": "markdown_text",
+      "status": "unsupported_format",
+      "supported": false,
+      "required_hits": 0,
+      "required_total": 0,
+      "unwanted_hits": 0,
+      "unwanted_total": 0,
+      "structural_checks": {},
+      "runtime_ms": 0.004
+    },
+    {
+      "fixture": "multiple-useful-sections",
+      "format": "html",
+      "method": "baseline",
+      "status": "ok",
+      "supported": true,
+      "required_hits": 1,
+      "required_total": 3,
+      "unwanted_hits": 0,
+      "unwanted_total": 0,
+      "structural_checks": {
+        "heading": false
+      },
+      "runtime_ms": 0.275
+    },
+    {
+      "fixture": "multiple-useful-sections",
+      "format": "html",
+      "method": "trafilatura",
+      "status": "ok",
+      "supported": true,
+      "required_hits": 1,
+      "required_total": 3,
+      "unwanted_hits": 0,
+      "unwanted_total": 0,
+      "structural_checks": {
+        "heading": false
+      },
+      "runtime_ms": 1.018
+    },
+    {
+      "fixture": "multiple-useful-sections",
+      "format": "html",
+      "method": "readability",
+      "status": "ok",
+      "supported": true,
+      "required_hits": 3,
+      "required_total": 3,
+      "unwanted_hits": 0,
+      "unwanted_total": 0,
+      "structural_checks": {
+        "heading": true
+      },
+      "runtime_ms": 6.769
+    },
+    {
+      "fixture": "multiple-useful-sections",
+      "format": "html",
+      "method": "conservative_dom",
+      "status": "ok",
+      "supported": true,
+      "required_hits": 3,
+      "required_total": 3,
+      "unwanted_hits": 0,
+      "unwanted_total": 0,
+      "structural_checks": {
+        "heading": true
+      },
+      "runtime_ms": 0.447
+    },
+    {
+      "fixture": "multiple-useful-sections",
+      "format": "html",
+      "method": "markdown_text",
+      "status": "unsupported_format",
+      "supported": false,
+      "required_hits": 0,
+      "required_total": 0,
+      "unwanted_hits": 0,
+      "unwanted_total": 0,
+      "structural_checks": {},
+      "runtime_ms": 0.004
+    },
+    {
+      "fixture": "multilingual-prose",
+      "format": "html",
+      "method": "baseline",
+      "status": "ok",
+      "supported": true,
+      "required_hits": 4,
+      "required_total": 4,
+      "unwanted_hits": 0,
+      "unwanted_total": 0,
+      "structural_checks": {
+        "heading": false
+      },
+      "runtime_ms": 0.34
+    },
+    {
+      "fixture": "multilingual-prose",
+      "format": "html",
+      "method": "trafilatura",
+      "status": "ok",
+      "supported": true,
+      "required_hits": 4,
+      "required_total": 4,
+      "unwanted_hits": 0,
+      "unwanted_total": 0,
+      "structural_checks": {
+        "heading": true
+      },
+      "runtime_ms": 1.343
+    },
+    {
+      "fixture": "multilingual-prose",
+      "format": "html",
+      "method": "readability",
+      "status": "ok",
+      "supported": true,
+      "required_hits": 4,
+      "required_total": 4,
+      "unwanted_hits": 0,
+      "unwanted_total": 0,
+      "structural_checks": {
+        "heading": true
+      },
+      "runtime_ms": 6.473
+    },
+    {
+      "fixture": "multilingual-prose",
+      "format": "html",
+      "method": "conservative_dom",
+      "status": "ok",
+      "supported": true,
+      "required_hits": 4,
+      "required_total": 4,
+      "unwanted_hits": 0,
+      "unwanted_total": 0,
+      "structural_checks": {
+        "heading": true
+      },
+      "runtime_ms": 0.906
+    },
+    {
+      "fixture": "multilingual-prose",
+      "format": "html",
+      "method": "markdown_text",
+      "status": "unsupported_format",
+      "supported": false,
+      "required_hits": 0,
+      "required_total": 0,
+      "unwanted_hits": 0,
+      "unwanted_total": 0,
+      "structural_checks": {},
+      "runtime_ms": 0.007
+    },
+    {
+      "fixture": "markdown-table-and-code",
+      "format": "markdown",
+      "method": "baseline",
+      "status": "ok",
+      "supported": true,
+      "required_hits": 6,
+      "required_total": 6,
+      "unwanted_hits": 0,
+      "unwanted_total": 0,
+      "structural_checks": {
+        "heading": false,
+        "code_whitespace": false
+      },
+      "runtime_ms": 0.19
+    },
+    {
+      "fixture": "markdown-table-and-code",
+      "format": "markdown",
+      "method": "trafilatura",
+      "status": "unsupported_format",
+      "supported": false,
+      "required_hits": 0,
+      "required_total": 0,
+      "unwanted_hits": 0,
+      "unwanted_total": 0,
+      "structural_checks": {},
+      "runtime_ms": 0.006
+    },
+    {
+      "fixture": "markdown-table-and-code",
+      "format": "markdown",
+      "method": "readability",
+      "status": "unsupported_format",
+      "supported": false,
+      "required_hits": 0,
+      "required_total": 0,
+      "unwanted_hits": 0,
+      "unwanted_total": 0,
+      "structural_checks": {},
+      "runtime_ms": 0.003
+    },
+    {
+      "fixture": "markdown-table-and-code",
+      "format": "markdown",
+      "method": "conservative_dom",
+      "status": "unsupported_format",
+      "supported": false,
+      "required_hits": 0,
+      "required_total": 0,
+      "unwanted_hits": 0,
+      "unwanted_total": 0,
+      "structural_checks": {},
+      "runtime_ms": 0.003
+    },
+    {
+      "fixture": "markdown-table-and-code",
+      "format": "markdown",
+      "method": "markdown_text",
+      "status": "ok",
+      "supported": true,
+      "required_hits": 6,
+      "required_total": 6,
+      "unwanted_hits": 0,
+      "unwanted_total": 0,
+      "structural_checks": {
+        "heading": true,
+        "code_whitespace": true
+      },
+      "runtime_ms": 1.189
+    },
+    {
+      "fixture": "short-valid-text",
+      "format": "text",
+      "method": "baseline",
+      "status": "ok",
+      "supported": true,
+      "required_hits": 2,
+      "required_total": 2,
+      "unwanted_hits": 0,
+      "unwanted_total": 0,
+      "structural_checks": {},
+      "runtime_ms": 0.112
+    },
+    {
+      "fixture": "short-valid-text",
+      "format": "text",
+      "method": "trafilatura",
+      "status": "unsupported_format",
+      "supported": false,
+      "required_hits": 0,
+      "required_total": 0,
+      "unwanted_hits": 0,
+      "unwanted_total": 0,
+      "structural_checks": {},
+      "runtime_ms": 0.003
+    },
+    {
+      "fixture": "short-valid-text",
+      "format": "text",
+      "method": "readability",
+      "status": "unsupported_format",
+      "supported": false,
+      "required_hits": 0,
+      "required_total": 0,
+      "unwanted_hits": 0,
+      "unwanted_total": 0,
+      "structural_checks": {},
+      "runtime_ms": 0.002
+    },
+    {
+      "fixture": "short-valid-text",
+      "format": "text",
+      "method": "conservative_dom",
+      "status": "unsupported_format",
+      "supported": false,
+      "required_hits": 0,
+      "required_total": 0,
+      "unwanted_hits": 0,
+      "unwanted_total": 0,
+      "structural_checks": {},
+      "runtime_ms": 0.002
+    },
+    {
+      "fixture": "short-valid-text",
+      "format": "text",
+      "method": "markdown_text",
+      "status": "ok",
+      "supported": true,
+      "required_hits": 2,
+      "required_total": 2,
+      "unwanted_hits": 0,
+      "unwanted_total": 0,
+      "structural_checks": {},
+      "runtime_ms": 0.018
+    }
+  ]
+}
