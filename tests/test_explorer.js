@@ -18,10 +18,18 @@ function element(tag = 'div') {
     addEventListener(name,fn){this.events[name]=fn},
     querySelectorAll(tag){return this.children.filter(el=>el.tag===tag)}};
 }
-const elements=Object.fromEntries(ids.map(id=>[id,element(['map','host','label','quality','point'].includes(id)?'select':'div')]));
+const elements=Object.fromEntries(ids.map(id=>[id,element(['map','host','label','quality','point','query','page-select','evidence-model'].includes(id)?'select':'div')]));
 elements.data.textContent=JSON.stringify(data);
 const document={getElementById:id=>{assert(elements[id],id);return elements[id]},createElement:element,createElementNS:(_,tag)=>element(tag)};
 vm.runInNewContext(script,{document,JSON,URL});
+function allText(el){return el.textContent+' '+el.children.map(allText).join(' ')}
+assert.equal(elements.query.children.length,data.queries.length);
+assert(allText(elements['page-summary']).includes('Original dataset label'));
+assert(allText(elements.scores).includes('URL path'));
+assert(allText(elements.supporting).includes('Best matching section'));
+const excluded=data.queries.find(q=>q.results.every(r=>r.extraction_status!=='selected'));
+if(excluded){elements.query.value=excluded.unit_id;elements.query.events.change();assert(allText(elements.scores).includes('not selected for content analysis'))}
+elements.query.value=data.queries[0].unit_id;elements.query.events.change();
 assert.equal(elements.plot.children.length,data.maps[0].points.length);
 const last=data.maps[0].points.at(-1).unit_id;
 elements.point.value=last;elements.point.events.change();
@@ -32,4 +40,4 @@ elements.host.value=host;elements.host.events.change();
 assert(elements.plot.children.length>0);
 elements.host.value='';elements.host.events.change();
 assert(elements.plot.children.length>0);
-console.log('PASS: initial map, point detail, map switch, hostname filtering, and offline script contract.');
+console.log('PASS: query selection, readable evidence/scores, exclusions, optional maps, filtering, and offline scripts.');
