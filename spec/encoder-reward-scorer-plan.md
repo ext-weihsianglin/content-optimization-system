@@ -24,6 +24,18 @@ The [fresh markdownify smoke](../analysis/teacher-markdownify-gpt5-smoke-v1.md) 
 has 9 valid body labels and three failed stages. Human/rubric review remains the
 next gate; pilot and full-corpus annotation have not started.
 
+Harness follow-up: consult the demo-webapp's merged keyed-response design before
+another paid run; see [source review](../analysis/teacher-harness-demo-webapp-review.md).
+The proposed next version should put frozen requirements in required schema slots,
+offer deterministic evidence candidates from the exact Markdown-aware input, and
+resolve selected evidence into block IDs and source quotes in backend code. Model
+output should contain judgments and evidence selections rather than copied source
+metadata. Preflight schema size and retain explicit failures/abstentions; do not
+relax evidence validation to accept a guessed ID or a rewritten quote. Evidence
+selection still needs semantic review. Static-page requirement framing and omitted
+content rules remain separate rubric work. This is a proposal, not an implemented
+contract or a new annotation run; preserve the completed smoke as historical evidence.
+
 ## Phase 1 — Curate supervision from stronger models
 
 Distillation begins with collecting and reviewing teacher judgments; student

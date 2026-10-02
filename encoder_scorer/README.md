@@ -3,7 +3,10 @@
 The approved GPT-5 medium smoke on the markdownify packages is complete: 12 valid
 requirements/title stages each and 9 valid body stages. Three body failures remain
 unlabeled after bounded repair. Review [latest judgments](../analysis/teacher-markdownify-gpt5-smoke-v1.html)
-and [findings/costs](../analysis/teacher-markdownify-gpt5-smoke-v1.md). No human review,
+and [findings/costs](../analysis/teacher-markdownify-gpt5-smoke-v1.md). The
+[plain-language review](../analysis/teacher-markdownify-gpt5-smoke-v1-eli5.html)
+explains the scores and failures with all 12 cases, exact evidence, and trace links.
+It is a separate presentation of the frozen results; no labels were changed. No human review,
 student training or bulk expansion. Factual support lacks separate evidence packs.
 
 The [historical GPT-5 report](../analysis/teacher-gpt5-smoke-v1.html) used older LR v2
@@ -122,6 +125,9 @@ are saved, alongside the requested alias. No cross-model or human reliability cl
 is made by a single-teacher smoke run.
 
 The adapter rejects historical plain-block packets; use the new markdownify package.
+The [demo harness review](../analysis/teacher-harness-demo-webapp-review.md) proposes
+fixed requirement slots and backend-resolved evidence to reduce ID/quote failures.
+That contract change has not been implemented; the smoke uses the original schemas.
 Use `--stop-after 1` to inspect the first case without changing the frozen 12-case
 plan, then rerun the identical command with `--resume` and no stop flag. Completed
 valid responses are reused. Ambiguous transport failures are retained for inspection.
