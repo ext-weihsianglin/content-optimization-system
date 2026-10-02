@@ -52,3 +52,17 @@ requirements for static pages, resolve partial-view and exact-quote failures, cu
 separate evidence packs, and review controlled edit pairs. Set numerical reliability
 and manipulation gates before expanding annotation or training ModernBERT. Any
 additional teacher choice remains subject to discussion with the user.
+
+## Source audit after latest main integration
+
+The completed smoke used the older LR v2 cache; it did **not** use the shared
+`processed/markdownify-corpus-v1-complete` export. The current body serializer sends
+plain block text and structure, omitting document/inline Markdown. All 12 snapshot
+and raw-payload identities match the new corpus, but document checksums differ in
+all 12 cases and plain-block teacher packets differ in 7 cases. See the
+[source audit](../../analysis/teacher-source-markdownify-audit-v1.json).
+
+Rebuild a new versioned curation/packet run from the shared markdownify export with
+an explicit inline Markdown policy before additional annotation. Preserve this
+completed smoke as old-source development evidence. This audit made no new model
+calls and does not certify the rest of the corpus.

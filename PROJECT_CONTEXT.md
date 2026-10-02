@@ -285,6 +285,20 @@ under `trad_ml_scorer/`; original analysis and frozen v1/v2 are preserved.
 
 ## Encoder scorer workstream checkpoint
 
+Source audit after merging latest `origin/main` (`864e663`) on 2026-10-01:
+**the completed GPT-5 smoke used the older LR v2 documents, not the shared
+markdownify corpus**. Requests serialize `blocks[].text` and structure; neither
+`document.markdown` nor `inline_markdown` enters the teacher body. All 12 snapshots
+and raw-payload hashes match the shared export, but all document checksums differ;
+7 of 12 plain-block packets change with the new documents. Five unchanged packets
+include four native Markdown inputs and the three-block interstitial. Audit:
+`analysis/teacher-source-markdownify-audit-v1.json`. Before further annotation,
+build a new versioned curation/packet run from the shared
+`processed/markdownify-corpus-v1-complete` export and explicitly preserve its inline
+Markdown representation. Keep the old smoke/labels as old-source development
+evidence. No replacement packets or teacher calls were made during this audit.
+
+
 The user authorized the teacher-curation → ModernBERT → LR benchmark → demo dogfood
 plan, explicitly reserved teacher-model choice, and then approved **GPT-5 at medium
 reasoning** for the 12-case smoke. GPT-5.6 Luna/Sol API model endpoints were unavailable

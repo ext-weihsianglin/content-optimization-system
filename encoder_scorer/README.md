@@ -8,6 +8,15 @@ Review [actual judgments](../analysis/teacher-gpt5-smoke-v1.html) and
 benchmarking/dogfood have not started. GPT-5.6 Luna/Sol model endpoints returned
 404 with the available key; no model was substituted before user approval.
 
+Source audit after latest main integration: this completed smoke used the **older
+LR v2 cache**, not the shared `processed/markdownify-corpus-v1-complete` export.
+The body serializer sends plain block text and structure, omitting inline Markdown.
+Seven of twelve packets change when rebuilt from the new documents. See the
+[source audit](../analysis/teacher-source-markdownify-audit-v1.json). The commands
+below reproduce the historical preparation; future annotation needs a new versioned
+curation/packet run from the shared markdownify corpus with an explicit inline
+Markdown policy. Preserve the old artifacts and labels.
+
 Specification: [component scorer](../spec/encoder-reward-scorer.md).
 Sequence: [delivery plan](../spec/encoder-reward-scorer-plan.md).
 Rubric: [development v1](../evaluation/teacher/rubric.md).
