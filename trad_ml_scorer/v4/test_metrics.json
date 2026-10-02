@@ -1,0 +1,71 @@
+{
+  "benchmark_status": "Repeated development comparisons; test is a reused historical benchmark, not independent confirmation.",
+  "selected": {
+    "rows": 947,
+    "hosts": 97,
+    "positive_rate": 0.498416050686378,
+    "roc_auc": 0.6790365744870652,
+    "average_precision": 0.6758268162330919,
+    "log_loss": 0.6405471058647452,
+    "brier_score": 0.22519585293810615,
+    "accuracy_at_0_5": 0.6356916578669483,
+    "confusion_matrix": [
+      [
+        312,
+        163
+      ],
+      [
+        182,
+        290
+      ]
+    ],
+    "mean_within_host_auc": 0.6965406643757159,
+    "paired_hosts": 97
+  },
+  "v2_same_rows": {
+    "rows": 947,
+    "hosts": 97,
+    "positive_rate": 0.498416050686378,
+    "roc_auc": 0.6768911685994646,
+    "average_precision": 0.6784965154024745,
+    "log_loss": 0.6414832669482862,
+    "brier_score": 0.22561111734090922,
+    "accuracy_at_0_5": 0.6209081309398099,
+    "confusion_matrix": [
+      [
+        311,
+        164
+      ],
+      [
+        195,
+        277
+      ]
+    ],
+    "mean_within_host_auc": 0.685864833906071,
+    "paired_hosts": 97
+  },
+  "host_bootstrap_95_percent": {
+    "roc_auc": {
+      "low": 0.6397716442377293,
+      "high": 0.7166948494723883,
+      "replicates": 1000
+    },
+    "log_loss": {
+      "low": 0.6200924416193431,
+      "high": 0.6625945372360109,
+      "replicates": 1000
+    },
+    "brier_score": {
+      "low": 0.2155473085229238,
+      "high": 0.23532432360454142,
+      "replicates": 1000
+    }
+  },
+  "paired_auc_delta": {
+    "estimate": 0.0021454058876005933,
+    "low": -0.015169741261354248,
+    "high": 0.017745322792806377,
+    "replicates": 1000
+  },
+  "model_sha256": "c5fc12fa3edbd1d3e8e9e6530071a496bf1bbde9f8e3b7c1b7dae1314cb7ac89"
+}

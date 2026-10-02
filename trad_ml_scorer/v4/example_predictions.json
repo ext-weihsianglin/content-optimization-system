@@ -1,0 +1,98 @@
+[
+  {
+    "record_id": "31e54667cf9c2b7b3490b7bc330c2bdc5d2cade909ac2e780dbc787fa7c28271",
+    "split": "train",
+    "p_is_cited_high": 0.628722669245971,
+    "selection": {
+      "policy": "retention-first-v1",
+      "human_validated": false,
+      "quality_flags": [],
+      "status": "selected",
+      "method": "conservative_dom",
+      "reasons": [
+        "Preserve content and structure before downstream relevance decisions; flagged content remains available. Boilerplate is expected."
+      ]
+    },
+    "feature_version": "lr-frontier-v4"
+  },
+  {
+    "record_id": "e31021e056e88a97ff840f04c02211a17b91664de9f81b25fcb4b908e35239e7",
+    "split": "train",
+    "p_is_cited_high": 0.374500152215625,
+    "selection": {
+      "policy": "retention-first-v1",
+      "human_validated": false,
+      "quality_flags": [],
+      "status": "selected",
+      "method": "conservative_dom",
+      "reasons": [
+        "Preserve content and structure before downstream relevance decisions; flagged content remains available. Boilerplate is expected."
+      ]
+    },
+    "feature_version": "lr-frontier-v4"
+  },
+  {
+    "record_id": "a8d657c7bd7009eb42288fe9b3e2cd6229eec0c62388ec302db154dcb15b1990",
+    "split": "train",
+    "p_is_cited_high": 0.3942418268350806,
+    "selection": {
+      "policy": "retention-first-v1",
+      "human_validated": false,
+      "quality_flags": [],
+      "status": "selected",
+      "method": "conservative_dom",
+      "reasons": [
+        "Preserve content and structure before downstream relevance decisions; flagged content remains available. Boilerplate is expected."
+      ]
+    },
+    "feature_version": "lr-frontier-v4"
+  },
+  {
+    "record_id": "a1c46c527fa922bf6102669d9ec2f996e6ce707d83b1e670f6d54c0e413a9e43",
+    "split": "validation",
+    "p_is_cited_high": 0.7129026185548659,
+    "selection": {
+      "policy": "retention-first-v1",
+      "human_validated": false,
+      "quality_flags": [],
+      "status": "selected",
+      "method": "conservative_dom",
+      "reasons": [
+        "Preserve content and structure before downstream relevance decisions; flagged content remains available. Boilerplate is expected."
+      ]
+    },
+    "feature_version": "lr-frontier-v4"
+  },
+  {
+    "record_id": "40342c6c7df3ae583abe6593cbbb5eb88e62d85534d867392d8d1201deee444c",
+    "split": "validation",
+    "p_is_cited_high": 0.7504253831073807,
+    "selection": {
+      "policy": "retention-first-v1",
+      "human_validated": false,
+      "quality_flags": [],
+      "status": "selected",
+      "method": "conservative_dom",
+      "reasons": [
+        "Preserve content and structure before downstream relevance decisions; flagged content remains available. Boilerplate is expected."
+      ]
+    },
+    "feature_version": "lr-frontier-v4"
+  },
+  {
+    "record_id": "6a262ad2ee3da83f37bb7005465c291914121804551f7cf9b3539a05cbaff75c",
+    "split": "validation",
+    "p_is_cited_high": 0.5889733185693393,
+    "selection": {
+      "policy": "retention-first-v1",
+      "human_validated": false,
+      "quality_flags": [],
+      "status": "selected",
+      "method": "conservative_dom",
+      "reasons": [
+        "Preserve content and structure before downstream relevance decisions; flagged content remains available. Boilerplate is expected."
+      ]
+    },
+    "feature_version": "lr-frontier-v4"
+  }
+]

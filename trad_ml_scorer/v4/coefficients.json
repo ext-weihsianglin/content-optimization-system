@@ -1,0 +1,378 @@
+[
+  {
+    "feature": "path_homepage",
+    "coefficient": 0.2625115637148236
+  },
+  {
+    "feature": "path_query_precision",
+    "coefficient": 0.21901056300459162
+  },
+  {
+    "feature": "prompt_question",
+    "coefficient": -0.1469929777647217
+  },
+  {
+    "feature": "format_html",
+    "coefficient": 0.14103197907724083
+  },
+  {
+    "feature": "prompt_comparison",
+    "coefficient": 0.12529988627258726
+  },
+  {
+    "feature": "mean_section_coverage",
+    "coefficient": 0.1245942157276009
+  },
+  {
+    "feature": "log_list_items",
+    "coefficient": 0.12020522972749492
+  },
+  {
+    "feature": "path_commerce",
+    "coefficient": 0.11890183344023769
+  },
+  {
+    "feature": "log_heading_count",
+    "coefficient": 0.1180458537363047
+  },
+  {
+    "feature": "top_three_section_coverage",
+    "coefficient": -0.11315942021986901
+  },
+  {
+    "feature": "title_query_saturated_tf",
+    "coefficient": 0.10353965662305145
+  },
+  {
+    "feature": "headings_per_1000_words",
+    "coefficient": 0.10027787247788551
+  },
+  {
+    "feature": "prompt_how_to",
+    "coefficient": -0.0946866319672641
+  },
+  {
+    "feature": "coverage_h1",
+    "coefficient": -0.08405820830498154
+  },
+  {
+    "feature": "sparse_body",
+    "coefficient": 0.08289452354415448
+  },
+  {
+    "feature": "title_query_dice",
+    "coefficient": 0.08272442061348273
+  },
+  {
+    "feature": "unique_word_fraction",
+    "coefficient": -0.0809430638299148
+  },
+  {
+    "feature": "headings_query_precision",
+    "coefficient": -0.07798344237045407
+  },
+  {
+    "feature": "coverage_table_headers",
+    "coefficient": 0.07625400569790332
+  },
+  {
+    "feature": "first_query_match_position",
+    "coefficient": 0.07220099964990272
+  },
+  {
+    "feature": "path_query_saturated_tf",
+    "coefficient": -0.07204069212996382
+  },
+  {
+    "feature": "headings_query_bigram",
+    "coefficient": -0.07082642241098634
+  },
+  {
+    "feature": "headings_query_saturated_tf",
+    "coefficient": 0.07010853238146067
+  },
+  {
+    "feature": "coverage_intro",
+    "coefficient": 0.06775299923404039
+  },
+  {
+    "feature": "path_editorial",
+    "coefficient": -0.06684934551436685
+  },
+  {
+    "feature": "body_query_bigram",
+    "coefficient": 0.0656595573435567
+  },
+  {
+    "feature": "query_match_density",
+    "coefficient": -0.06395017129057633
+  },
+  {
+    "feature": "has_article_schema",
+    "coefficient": -0.06318253912376522
+  },
+  {
+    "feature": "log_link_count",
+    "coefficient": 0.0611622575340018
+  },
+  {
+    "feature": "best_section_coverage",
+    "coefficient": 0.060644839855578295
+  },
+  {
+    "feature": "title_query_precision",
+    "coefficient": 0.06035624601451364
+  },
+  {
+    "feature": "list_items_per_1000_words",
+    "coefficient": -0.059988379577189506
+  },
+  {
+    "feature": "has_list",
+    "coefficient": -0.056519535393579685
+  },
+  {
+    "feature": "paragraph_log_p90_words",
+    "coefficient": 0.056464667567152675
+  },
+  {
+    "feature": "comparison_x_table_header_coverage",
+    "coefficient": -0.05498898056079517
+  },
+  {
+    "feature": "section_coverage_std",
+    "coefficient": -0.05423688026606156
+  },
+  {
+    "feature": "short_paragraph_fraction",
+    "coefficient": -0.05301517627394758
+  },
+  {
+    "feature": "has_jsonld",
+    "coefficient": -0.052935639813217555
+  },
+  {
+    "feature": "has_table",
+    "coefficient": 0.051221751946583204
+  },
+  {
+    "feature": "empty_title",
+    "coefficient": 0.0508352218229737
+  },
+  {
+    "feature": "log_paragraph_count",
+    "coefficient": -0.044493630437012655
+  },
+  {
+    "feature": "body_query_dice",
+    "coefficient": -0.041831334397315824
+  },
+  {
+    "feature": "paragraph_log_median_words",
+    "coefficient": 0.039827474569552046
+  },
+  {
+    "feature": "table_word_fraction",
+    "coefficient": 0.03752533334656469
+  },
+  {
+    "feature": "path_query_dice",
+    "coefficient": -0.03722053963525744
+  },
+  {
+    "feature": "section_coverage_fraction_0_8",
+    "coefficient": 0.03704384913127591
+  },
+  {
+    "feature": "description_query_saturated_tf",
+    "coefficient": 0.035966468919285684
+  },
+  {
+    "feature": "path_support_docs",
+    "coefficient": -0.03268877256041257
+  },
+  {
+    "feature": "coverage_title",
+    "coefficient": 0.030357833388821955
+  },
+  {
+    "feature": "retained_text_fraction",
+    "coefficient": -0.02970914628317691
+  },
+  {
+    "feature": "log_prompt_words",
+    "coefficient": 0.029639637878793708
+  },
+  {
+    "feature": "best_section_heading_coverage",
+    "coefficient": 0.026064206544959608
+  },
+  {
+    "feature": "headings_query_dice",
+    "coefficient": 0.02543210854434517
+  },
+  {
+    "feature": "question_heading_fraction",
+    "coefficient": -0.025239383264842048
+  },
+  {
+    "feature": "body_query_precision",
+    "coefficient": 0.024291956189067942
+  },
+  {
+    "feature": "log_word_count",
+    "coefficient": 0.023013441456996967
+  },
+  {
+    "feature": "log_code_count",
+    "coefficient": -0.021973789483126095
+  },
+  {
+    "feature": "title_query_bigram",
+    "coefficient": -0.021441311678361535
+  },
+  {
+    "feature": "coverage_body",
+    "coefficient": -0.02139916773559386
+  },
+  {
+    "feature": "body_query_saturated_tf",
+    "coefficient": -0.02088395052756597
+  },
+  {
+    "feature": "code_word_fraction",
+    "coefficient": -0.0203971430554496
+  },
+  {
+    "feature": "how_to_x_ordered_steps",
+    "coefficient": -0.019786311009179647
+  },
+  {
+    "feature": "description_query_precision",
+    "coefficient": 0.018702017997013164
+  },
+  {
+    "feature": "log_h1_count",
+    "coefficient": -0.01858163728834476
+  },
+  {
+    "feature": "best_section_position",
+    "coefficient": 0.01698634930890354
+  },
+  {
+    "feature": "path_depth",
+    "coefficient": -0.01599942768171105
+  },
+  {
+    "feature": "section_coverage_fraction_0_5",
+    "coefficient": 0.01384817839577816
+  },
+  {
+    "feature": "log_ordered_steps",
+    "coefficient": -0.013531254929422334
+  },
+  {
+    "feature": "description_query_dice",
+    "coefficient": 0.013251476873423184
+  },
+  {
+    "feature": "missingindicator_headings_per_1000_words",
+    "coefficient": 0.012204082253604937
+  },
+  {
+    "feature": "missingindicator_list_items_per_1000_words",
+    "coefficient": 0.012204082253604937
+  },
+  {
+    "feature": "missingindicator_retained_text_fraction",
+    "coefficient": 0.012204082253604937
+  },
+  {
+    "feature": "needs_review",
+    "coefficient": -0.012161804279301724
+  },
+  {
+    "feature": "best_section_log_words",
+    "coefficient": 0.011481027610092273
+  },
+  {
+    "feature": "heading_word_fraction",
+    "coefficient": -0.011378022248138645
+  },
+  {
+    "feature": "log_table_count",
+    "coefficient": -0.010986473866863553
+  },
+  {
+    "feature": "numeric_word_fraction",
+    "coefficient": -0.009472247012129956
+  },
+  {
+    "feature": "log_title_words",
+    "coefficient": 0.009255577247007292
+  },
+  {
+    "feature": "log_source_script_count",
+    "coefficient": -0.008728235916579249
+  },
+  {
+    "feature": "path_query_bigram",
+    "coefficient": 0.008561776626344178
+  },
+  {
+    "feature": "description_query_bigram",
+    "coefficient": 0.007124659805637437
+  },
+  {
+    "feature": "missingindicator_best_section_coverage",
+    "coefficient": 0.006513808420181198
+  },
+  {
+    "feature": "missingindicator_mean_section_coverage",
+    "coefficient": 0.006513808420181198
+  },
+  {
+    "feature": "missingindicator_matching_section_fraction",
+    "coefficient": 0.006513808420181198
+  },
+  {
+    "feature": "missingindicator_best_section_heading_coverage",
+    "coefficient": 0.006513808420181198
+  },
+  {
+    "feature": "missingindicator_best_section_position",
+    "coefficient": 0.006513808420181198
+  },
+  {
+    "feature": "section_coverage_fraction_1_0",
+    "coefficient": 0.006494355292950785
+  },
+  {
+    "feature": "paragraph_word_fraction",
+    "coefficient": 0.006288079446879226
+  },
+  {
+    "feature": "coverage_headings",
+    "coefficient": -0.005331724130110533
+  },
+  {
+    "feature": "matching_section_fraction",
+    "coefficient": 0.005127259256087242
+  },
+  {
+    "feature": "links_per_1000_words",
+    "coefficient": -0.003104176120641671
+  },
+  {
+    "feature": "possible_error_response",
+    "coefficient": 0.0004247522112566334
+  },
+  {
+    "feature": "duplicate_heading_fraction",
+    "coefficient": 0.0
+  },
+  {
+    "feature": "list_item_word_fraction",
+    "coefficient": 0.0
+  }
+]
