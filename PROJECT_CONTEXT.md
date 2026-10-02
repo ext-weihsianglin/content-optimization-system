@@ -282,3 +282,39 @@ Calculations, provenance and the 142-feature inventory are in an expandable HTML
 appendix. Edit `trad_ml_scorer/fixed_prompt_report_template.md` and run the report
 builder to keep Markdown and standalone HTML synchronized. Presentation only;
 source evidence and model artifacts remain unchanged.
+
+## V7 original-space embedding prototype
+
+User paused editing interpretation and supplied the Markdownify/OpenAI artifact
+pair under `/Users/ext-weihsiang.lin/Documents/profound/data/content-optimization-system/`:
+`processed/markdownify-corpus-v1-complete` and
+`representations/runs/markdownify-openai-v1`. Read `features/openai-v1.json` there.
+No new embedding requests. Separate field PCA32 fits are incompatible coordinate
+bases for cross-field cosine and are whole-training, not CV-fold-local; not used.
+
+V7 uses ten cached original-3072D query similarities: title, best H1, outline,
+pooled whole page, URL path; section-chunk max/top3mean/median/Q25/Q75. Source-file
+hash + row joins match snapshot, payload, prompt, host, URL, label, and split for
+all 9432 v5 eligible rows (7540/945/947). No additional exclusions or host overlap;
+page/section embeddings available for every eligible row. SHA-verified matching
+corpus/artifacts, including 4.7GB vectors. Independently recomputed 200 scores on
+20 validation records; max absolute error 1.19e-7. Optional missing fields retained.
+
+Predeclared plan: `trad_ml_scorer/v7/plan.md`. Same four training-host folds seed137,
+five C values for three semantic variants, fixed v5 C=.01 reference. Train-fold-only
+imputation/scaling/LR; choose semantic variant/C by training CV alone.
+Results (CV / validation AUC): v5 .66185/.67435; 5 similarities .64523/.63331;
+10 similarities .64590/.63411; 10 + 45 existing prompt/doc context .67440/.66443.
+Last is the selected semantic prototype (C=.001), replaces all 51 v5 lexical
+promptXdoc features. Validation paired delta vs v5 -.00992, 95% host-bootstrap
+[-.03369,+.01348]. No promotion, new test predictions/metrics, or edit interpretation.
+Test identities/availability were audited, not evaluated. Context-only ablation
+not run; Markdownify vs retention parser difference prevents embedding-only claims.
+
+See `trad_ml_scorer/v7/report.html` / `.md`, results.json, validation_predictions.json.
+Code: semantic_features.py, prepare_semantic.py, semantic_experiment.py,
+build_semantic_report.py. All 133 tests + 12 subtests pass. Fitted models require
+precomputed named features; this is an offline prototype, not a new HTML endpoint.
+Prepared cache + models reused locally from `data/trad_ml_scorer/v7/`; SHA-verified
+copy at main repo `data/trad_ml_scorer/v7/` with shared-cache-sha256.json. No need to
+redo data prep. Work isolated on `feat/lr-semantic-v7`, leaving v5/v6 PR unchanged.

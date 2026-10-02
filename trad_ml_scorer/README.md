@@ -239,3 +239,30 @@ The analysis refuses to replace existing results. The report includes model/data
 provenance, edit applicability, serialization controls, exact attribution, and advice
 on grouped conditional permutation, coherent edit distributions, SHAP/PDP/ALE limits
 and prospective evaluation. No test data, new model fit or embeddings are involved.
+
+## V7 embedding-similarity prototype
+
+The user paused page-edit interpretation to prototype semantic features. See
+[v7/report.html](v7/report.html) ([Markdown](v7/report.md)) and the frozen
+[v7/plan.md](v7/plan.md). The supplied Markdownify/OpenAI bundle joins all 9,432
+eligible records by source-file hash/row, with exact snapshot/prompt/payload/split
+checks. Ten original-3072D cosine features compare prompts with five page fields
+and five section-chunk summaries. No API calls or PCA fitting are needed.
+
+Three variants compare five semantic fields, ten similarities, and ten similarities
+plus 45 existing prompt/doc context features. This last variant replaces all 51
+lexical prompt–document features from v5. It wins semantic training CV (AUC .67440)
+but has validation AUC .66443 versus v5 .67435. Pure ten-similarity LR reaches
+validation .63411. No default-model promotion, test evaluation or edit advice.
+
+Reuse `data/trad_ml_scorer/v7/` (features, manifest, joined IDs, four fitted bundles).
+A SHA-verified shared copy lives in the main repository's ignored
+`data/trad_ml_scorer/v7/`; no need to redo prep in another local session. Model
+bundles take precomputed features in their saved order; there is no new live
+HTML/embedding endpoint. Run `uv run python -m trad_ml_scorer.build_semantic_report`
+to rebuild the standalone HTML. Tests: `uv run python -m pytest -q`.
+
+The per-field 32D PCA axes are independent, so their coordinates must not be used
+for cross-field cosine. Any future learned shared projection must fit inside each
+CV training fold. This prototype changes parser and representation together;
+context uses frozen retention features alongside Markdownify embeddings.
