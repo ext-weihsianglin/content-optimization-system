@@ -266,3 +266,7 @@ The per-field 32D PCA axes are independent, so their coordinates must not be use
 for cross-field cosine. Any future learned shared projection must fit inside each
 CV training fold. This prototype changes parser and representation together;
 context uses frozen retention features alongside Markdownify embeddings.
+
+**Adoption update:** The user selected v7 `semantic_context` as the direction for
+continued development. See [v7/decision.md](v7/decision.md) for the decision and
+its distinction from the frozen experimental outcome above.

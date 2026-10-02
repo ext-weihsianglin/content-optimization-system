@@ -318,3 +318,9 @@ precomputed named features; this is an offline prototype, not a new HTML endpoin
 Prepared cache + models reused locally from `data/trad_ml_scorer/v7/`; SHA-verified
 copy at main repo `data/trad_ml_scorer/v7/` with shared-cache-sha256.json. No need to
 redo data prep. Work isolated on `feat/lr-semantic-v7`, leaving v5/v6 PR unchanged.
+
+User approved v7 as the next scorer development direction and requested a PR.
+Use semantic_context C=.001 as the working experimental baseline; see
+`trad_ml_scorer/v7/decision.md`. This does not retroactively change the frozen
+validation result or claim v7 outperformed v5. Existing generic CLI default is
+unchanged; live HTML-to-semantic inference is not part of this prototype.
