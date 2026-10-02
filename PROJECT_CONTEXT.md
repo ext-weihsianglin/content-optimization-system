@@ -285,6 +285,15 @@ under `trad_ml_scorer/`; original analysis and frozen v1/v2 are preserved.
 
 ## Encoder scorer workstream checkpoint
 
+Session ownership (2026-10-02): this `scorers-LLM-classifiers` session now focuses
+on the LLM judge: semantic rubric/edit review and complementary analyze scores in
+the webapp. ModernBERT classifier implementation is handed off to a separate
+session through issue #18:
+`https://github.com/ext-weihsianglin/content-optimization-system/issues/18`.
+The ticket contains input/host policies, original-label training, LR comparators,
+evaluation gates, artifact paths and the delivery plan. Do not begin classifier
+training or treat judge distillation as a dependency of that separate workstream.
+
 Scope revision (2026-10-02): two independent workstreams supersede the original
 serial teacher-distillation -> ModernBERT -> LR -> webapp sequence. A: train a
 ModernBERT citation-category classifier on original binary labels, targeting

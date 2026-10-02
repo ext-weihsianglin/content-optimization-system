@@ -5,6 +5,11 @@ serial teacher curation -> encoder distillation -> LR benchmark -> webapp plan.
 See the [specification](encoder-reward-scorer.md). No student training or webapp
 integration has run; completed judge evidence remains frozen.
 
+Ownership: this session executes workstream B (LLM judge). Workstream A is handed
+off to a separate session via [ModernBERT issue #18](https://github.com/ext-weihsianglin/content-optimization-system/issues/18).
+The classifier outline below remains the shared design; its implementation and
+benchmark work are tracked by that ticket.
+
 | Workstream | Objective | Supervision / evaluation | First delivery |
 | --- | --- | --- | --- |
 | A: ModernBERT classifier | Improve estimated P(top-cited category \| prompt, document, hostname) over incumbent LR | Original citation-category labels; paired host-held-out comparison | Frozen classifier and LR comparison report |

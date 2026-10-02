@@ -9,6 +9,9 @@ later efficiency experiment; it does not gate the binary classifier. Current cod
 and evidence below implement the judge preparation/smoke harness, not a trained
 ModernBERT classifier or a shipped webapp judge.
 
+This session focuses on the LLM judge. ModernBERT classifier implementation is
+tracked separately in [issue #18](https://github.com/ext-weihsianglin/content-optimization-system/issues/18).
+
 The runtime `teacher-selection-v1` harness is now implemented in `selection.py`.
 Provider schemas constrain evidence IDs and use required keyed assessments for
 frozen requirements. Backend code copies complete selected source blocks exactly
