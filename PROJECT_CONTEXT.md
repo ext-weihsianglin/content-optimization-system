@@ -275,3 +275,10 @@ annotations. Model, coefficients, edit outcomes and frozen v1–v6 results uncha
 no fitting, corpus preparation, or test evaluation rerun. All 130 tests and 12
 subtests pass, including extractor inventory, prompt invariance of doc features,
 document invariance of prompt features, and fixed-context attribution checks.
+
+The dependency-audit report now uses an ELI5 narrative: purpose and score meaning,
+real edits and their outcomes, a guide to every chart, and concrete next steps.
+Calculations, provenance and the 142-feature inventory are in an expandable HTML
+appendix. Edit `trad_ml_scorer/fixed_prompt_report_template.md` and run the report
+builder to keep Markdown and standalone HTML synchronized. Presentation only;
+source evidence and model artifacts remain unchanged.
