@@ -28,6 +28,16 @@ raw data, full exports, caches, environments, and model weights outside Git.
 
 ## Working conventions
 
+- Persistent shared project data lives at
+  `/Users/ext-weihsiang.lin/Documents/profound/data/content-optimization-system`.
+  Look there before preparing or downloading data. Keep versioned exports and
+  immutable completed runs; verify an existing `data` symlink before using it.
+  The complete markdownify export is `processed/markdownify-corpus-v1-complete`.
+  Its extraction identity is recorded in `manifest.json` and `run_identity.json`.
+  Do not overwrite old corpus/vector runs or resume them with changed input recipes.
+- Local Voyage MLX was explicitly stopped by the user. Preserve its cache and
+  do not resume without direction. Current downstream work uses OpenAI embeddings.
+
 - Always use `uv` for Python environments, dependencies, tests, and scripts.
   Use `.tools/uv` when `uv` is not on PATH.
 - Favor fast, bounded experiments and inspect actual outputs before expensive runs.

@@ -5,5 +5,7 @@ data/
 /data
 __pycache__/
 .DS_Store
+.uv-cache/
+.numba-cache/
 node_modules/
 .pytest_cache/
