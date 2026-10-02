@@ -14,8 +14,9 @@ def build(curation, packets, output, edits=None):
     manifest = json.loads(curation.read_text())
     packet_manifest = json.loads((packets / "manifest.json").read_text())
     prepared = [json.loads(line) for line in (packets / "packets.jsonl").open()]
-    summary = {"status": "Offline preparation complete; awaiting user teacher-model choice",
-               "teacher_model": None, "model_calls": 0, "teacher_labels": 0,
+    status = "Offline preparation complete; " + manifest["teacher_status"]
+    summary = {"status": status,
+               "teacher_model": manifest.get("teacher_model"), "model_calls": 0, "teacher_labels": 0,
                "human_reviewed_cases": 0, "test_documents_loaded": manifest["test_documents_loaded"],
                "curation_manifest_sha256": sha256(curation.read_bytes()),
                "source_records_sha256": manifest["source_records_sha256"],
@@ -31,6 +32,8 @@ def build(curation, packets, output, edits=None):
                "code_sha256": {str(p): sha256(p.read_bytes()) for p in sorted(Path("encoder_scorer").glob("*.py"))},
                "cases": [{k: c[k] for k in ("record_id", "snapshot_id", "split", "document_sha256", "strata", "smoke", "independent_review")}
                          for c in manifest["cases"]]}
+    summary["source_path"] = manifest.get("source_path")
+    summary["source_run_identity"] = manifest.get("source_run_identity")
     if edits is not None:
         summary["controlled_edits"] = json.loads(edits.read_text())
         if summary["controlled_edits"]["input_packets_sha256"] != packet_manifest["packets_sha256"]:
@@ -46,7 +49,7 @@ def build(curation, packets, output, edits=None):
         previews.append(f"<article><h3>{escape(item['packet']['query'])}</h3>"
                         f"<p>Title: {escape(item['title'] or '(missing)')}</p>"
                         f"<p>Body view: {len(coverage['included_block_ids'])}/{coverage['original_block_count']} blocks; "
-                        f"{escape(coverage['scope'])}</p><pre>{escape(excerpt)}</pre>"
+                        f"{escape(coverage['scope'])}</p><pre>{escape(excerpt).replace(' ', '&#32;').replace(chr(9), '&#9;')}</pre>"
                         f"<small>Record: {escape(item['record_id'])}</small></article>")
     limitations = "".join(f"<li>{escape(s)}</li>" for s in summary["limitations"])
     document = """<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -66,6 +69,9 @@ The title is supplied only in its separate consistency pass.</p>""" + f"<p>{len(
         ed = summary["controlled_edits"]
         section = f"<h2>Controlled edits</h2><p>{ed['pairs']} blinded, unlabeled pairs across {ed['parent_cases']} training cases.</p><p>" + escape(", ".join(ed["edit_types"])) + "</p><p>Mutation intent is hidden from the comparison judge. These edits have no reviewed preference labels; original-page evidence tests fidelity only.</p>"
         document = document.replace("<h2>Smoke queue previews</h2>", section + "<h2>Smoke queue previews</h2>")
+    if manifest.get("source_run_identity"):
+        document = document.replace("Teacher model awaits user choice.", "GPT-5 approved; this package has not been annotated.")
+        document = document.replace("frozen retention-first LR v2 cached documents", "verified saved markdownify corpus; inline Markdown preserved, code whitespace exact, tables structured")
     output.parent.mkdir(parents=True, exist_ok=True)
     output.with_suffix(".json").write_text(json.dumps(summary, ensure_ascii=False, indent=2) + "\n")
     output.with_suffix(".html").write_text(document + "\n")

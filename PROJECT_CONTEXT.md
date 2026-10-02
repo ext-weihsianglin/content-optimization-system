@@ -285,6 +285,27 @@ under `trad_ml_scorer/`; original analysis and frozen v1/v2 are preserved.
 
 ## Encoder scorer workstream checkpoint
 
+Current preparation (supersedes the historical source audit below): the user declared
+the shared markdownify corpus the source of truth and requested package recreation.
+New persistent package root:
+`/Users/ext-weihsiang.lin/Documents/profound/data/content-optimization-system/processed/encoder-scorer/teacher-markdownify-v2-ready/`.
+Contains `curation/manifest.json`, `pilot-packets/packets.jsonl` (120),
+`smoke-packets/packets.jsonl` (12; 6 full / 6 partial), and 18 pairs in `edit-pairs/`.
+Same 96 train / 24 validation hosts, 12 smoke IDs and 30 review IDs; no reselection.
+All source/index/document hashes and extraction identity verified; no test documents
+loaded. New body recipe `teacher-blocks-markdownify-v2` preserves saved inline
+Markdown in v3 HTML block text, exact code whitespace and structured tables; native
+formats use native block text. Quality flags and omissions remain explicit. Future
+packet construction and annotation reject the older source format. LR v2 metadata
+serves only as the frozen split/raw-row join reference. Old-source annotations are
+not transferred. No new model calls. Preparation report:
+`analysis/teacher-markdownify-packages-v2.html` / `.json`; independent rebuild at
+`teacher-markdownify-v2-replay` is byte-identical. The earlier `teacher-markdownify-v2`
+folder is preflight preparation, not the ready package; use `-ready` for execution.
+Validation: 238 tests / 12 subtests passed; all 120 packets checked against saved
+source representations, quality flags, block ancestry and complete omission accounting.
+
+
 Source audit after merging latest `origin/main` (`864e663`) on 2026-10-01:
 **the completed GPT-5 smoke used the older LR v2 documents, not the shared
 markdownify corpus**. Requests serialize `blocks[].text` and structure; neither

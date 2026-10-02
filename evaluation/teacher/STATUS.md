@@ -1,5 +1,27 @@
 # Teacher-supervision pilot checkpoint
 
+**Current preparation:** recreated from the shared markdownify corpus, the source
+of truth going forward. [Inspect source previews and provenance](../../analysis/teacher-markdownify-packages-v2.html).
+Persistent root:
+`/Users/ext-weihsiang.lin/Documents/profound/data/content-optimization-system/processed/encoder-scorer/teacher-markdownify-v2-ready/`.
+
+- Same 120 pilot cases: 96 train / 24 validation, with 12 smoke and 30 review IDs.
+- 120 ready pilot packets; 12 smoke packets: 6 full / 6 partial, none empty.
+- 18 blinded, unlabeled controls across 3 full-body training parents.
+- Saved inline Markdown preserved in HTML v3 content blocks; exact code whitespace,
+  table structure, quality flags and all omitted block IDs retained.
+- Corpus indexes, selected documents, raw-row joins and extraction identity verified.
+  No re-extraction, no test documents loaded. Independent replay is byte-identical.
+- No new teacher calls, no transferred old-source labels, no human reviews.
+  GPT-5 remains the approved smoke teacher; this package has not been annotated.
+- Source packets and new calls use version guards to reject the older input format.
+
+Validation: 238 tests / 12 subtests passed; source formatting, exact code/table
+content, packet coverage and byte-identical independent replay were checked.
+
+The checkpoint below describes **historical LR v2-source preparation and labels**.
+They remain unchanged and do not label the new markdownify packets.
+
 Phase 1 offline preparation is complete. The user approved GPT-5 at medium
 reasoning for the 12-case smoke, with a $10 bounded budget. Returned snapshot:
 `gpt-5-2025-08-07`. Teacher judgments are development evidence awaiting human

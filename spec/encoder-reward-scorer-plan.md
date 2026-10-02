@@ -16,6 +16,11 @@ remain gated on reviewed teacher evidence. The [smoke review](../analysis/teache
 records 11 valid body labels, one unavailable stage, rejected attempts, and cost;
 completion of the smoke does not satisfy the phase 1 reliability gate.
 
+The markdownify corpus is now the source of truth for future annotation. Recreated
+120-case pilot and 12-case smoke packages preserve the frozen case/split/queue IDs;
+see the [new preparation report](../analysis/teacher-markdownify-packages-v2.html).
+The earlier GPT-5 labels concern LR v2 source documents and are not transferred.
+
 ## Phase 1 — Curate supervision from stronger models
 
 Distillation begins with collecting and reviewing teacher judgments; student

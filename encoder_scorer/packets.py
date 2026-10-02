@@ -24,12 +24,25 @@ STAGE_INSTRUCTIONS = {
     "support": "Assess important page claims only against the separately supplied evidence pack. No pack means unassessable, not unsupported. Self-assertion and link presence do not establish support. Original-page evidence establishes fidelity, not external truth.",
 }
 
+MARKDOWN_RECIPE = "teacher-blocks-markdownify-v2"
+
+
+def block_text(block, markdownify):
+    if markdownify and block.get("schema_version") == "dom-blocks-v3" and block["type"] not in {"code", "table"}:
+        if not isinstance(block.get("inline_markdown"), str):
+            if not block.get("text"):
+                return ""  # Structural containers carry content through their children.
+            raise ValueError("Markdownify block lacks saved inline Markdown")
+        return block["inline_markdown"]
+    return block.get("text", "")
+
 
 def body_view(doc, max_chars=60000):
     """Keep top-level block trees atomic; a char bound is not a token budget."""
     if max_chars < 1:
         raise ValueError("max_chars must be positive")
     blocks = doc["blocks"]
+    markdownify = doc.get("representation", {}).get("serializer") == "markdownify-structured-v1"
     by_id = {b["block_id"]: b for b in blocks}
     if len(by_id) != len(blocks):
         raise ValueError("Duplicate block IDs")
@@ -44,7 +57,7 @@ def body_view(doc, max_chars=60000):
         groups.setdefault(root["block_id"], []).append(block)
     kept, omitted, used = [], [], 0
     for group in groups.values():
-        view = [{"block_id": b["block_id"], "type": b["type"], "text": b.get("text", ""),
+        view = [{"block_id": b["block_id"], "type": b["type"], "text": block_text(b, markdownify),
                  "parent_id": b.get("parent_id"), "heading_level": b.get("heading_level"),
                  "table": deepcopy(b.get("table"))} for b in group]
         # Table metadata may contain URLs; only text/cell structure is needed here.
@@ -69,13 +82,19 @@ def body_view(doc, max_chars=60000):
                 "included_block_ids": [b["block_id"] for b in kept], "omitted_block_ids": omitted,
                 "scope": "full_retained_body" if not omitted else "partial_retained_body",
                 "token_budget": None}
+    if markdownify:
+        coverage["serialization"] = MARKDOWN_RECIPE
     return kept, coverage
 
 
 def prepare_packet(doc, query, max_chars=60000):
     blocks, coverage = body_view(doc, max_chars)
-    return {"query": query, "blocks": blocks, "coverage": coverage,
-            "evidence_pack": {"kind": "none", "blocks": []}}
+    packet = {"query": query, "blocks": blocks, "coverage": coverage,
+              "evidence_pack": {"kind": "none", "blocks": []}}
+    if coverage.get("serialization") == MARKDOWN_RECIPE:
+        packet["source_quality"] = {"status": doc["selection"]["status"],
+                                    "flags": doc["selection"].get("quality_flags", [])}
+    return packet
 
 
 def request(stage, packet, rubric, requirements=None, title=None):
@@ -97,6 +116,12 @@ def build(manifest_path, source, output, rubric_path, smoke_only=False, max_char
     if output.exists():
         raise FileExistsError("Use a new packet directory")
     manifest = json.loads(manifest_path.read_text())
+    corpus_manifest_path = source / "manifest.json"
+    corpus_manifest = json.loads(corpus_manifest_path.read_text())
+    if corpus_manifest.get("pipeline_version") != "retention-markdownify-corpus-v1" or corpus_manifest.get("status") != "complete":
+        raise ValueError("New teacher packets require the completed markdownify corpus")
+    if manifest["source_manifest_sha256"] != sha256(corpus_manifest_path.read_bytes()):
+        raise ValueError("Curation references a different corpus")
     rubric = rubric_path.read_text()
     cases = [c for c in manifest["cases"] if not smoke_only or c["smoke"]]
     prepared = []
@@ -108,6 +133,10 @@ def build(manifest_path, source, output, rubric_path, smoke_only=False, max_char
         if sha256(raw) != case["document_sha256"]:
             raise ValueError("Document changed after curation")
         doc = json.loads(gzip.decompress(raw))
+        if doc["snapshot_id"] != case["snapshot_id"] or doc["source"]["payload_hash"] != case["html_sha256"]:
+            raise ValueError("Curation/source identity mismatch")
+        if doc.get("representation", {}).get("serializer") != "markdownify-structured-v1":
+            raise ValueError("Document is not from the markdownify export")
         packet = prepare_packet(doc, case["prompt"], max_chars)
         # Caller stores provenance separately: none enters request() teacher inputs.
         prepared.append({"record_id": case["record_id"], "split": case["split"],
@@ -121,11 +150,15 @@ def build(manifest_path, source, output, rubric_path, smoke_only=False, max_char
     with (output / "packets.jsonl").open("w") as stream:
         for item in prepared:
             stream.write(json.dumps(item, ensure_ascii=False) + "\n")
-    summary = {"version": "teacher-packets-v1", "curation_sha256": sha256(manifest_path.read_bytes()),
+    summary = {"version": "teacher-packets-v2", "serialization": MARKDOWN_RECIPE,
+               "source_path": str(source.resolve()), "source_manifest_sha256": sha256(corpus_manifest_path.read_bytes()),
+               "source_run_identity": corpus_manifest["run_identity"],
+               "curation_sha256": sha256(manifest_path.read_bytes()),
                "rubric_sha256": sha256(rubric.encode()), "cases": len(prepared),
                "full_body_cases": sum(not p["packet"]["coverage"]["omitted_block_ids"] for p in prepared),
                "empty_body_cases": sum(not p["packet"]["blocks"] for p in prepared),
-               "teacher_model": None, "model_calls": 0, "token_counts": "pending approved teacher tokenizer",
+               "teacher_model": manifest.get("teacher_model"), "model_calls": 0,
+               "token_counts": "Counted at execution before any generation; no API calls during preparation",
                "packets_sha256": sha256((output / "packets.jsonl").read_bytes())}
     (output / "manifest.json").write_text(json.dumps(summary, indent=2) + "\n")
     return summary

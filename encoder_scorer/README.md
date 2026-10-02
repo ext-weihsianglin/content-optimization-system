@@ -8,14 +8,14 @@ Review [actual judgments](../analysis/teacher-gpt5-smoke-v1.html) and
 benchmarking/dogfood have not started. GPT-5.6 Luna/Sol model endpoints returned
 404 with the available key; no model was substituted before user approval.
 
-Source audit after latest main integration: this completed smoke used the **older
-LR v2 cache**, not the shared `processed/markdownify-corpus-v1-complete` export.
-The body serializer sends plain block text and structure, omitting inline Markdown.
-Seven of twelve packets change when rebuilt from the new documents. See the
-[source audit](../analysis/teacher-source-markdownify-audit-v1.json). The commands
-below reproduce the historical preparation; future annotation needs a new versioned
-curation/packet run from the shared markdownify corpus with an explicit inline
-Markdown policy. Preserve the old artifacts and labels.
+**Current source of truth:** the completed shared markdownify corpus. Recreated
+packages are ready at
+`/Users/ext-weihsiang.lin/Documents/profound/data/content-optimization-system/processed/encoder-scorer/teacher-markdownify-v2-ready/`.
+See the [preparation report](../analysis/teacher-markdownify-packages-v2.html).
+They contain 120 pilot packets, 12 smoke packets (6 full / 6 partial), and 18 blinded
+edit pairs. No labels have been transferred and no new teacher calls made.
+The [source audit](../analysis/teacher-source-markdownify-audit-v1.json) describes the
+historical mismatch; old packets, labels, and reports remain separate.
 
 Specification: [component scorer](../spec/encoder-reward-scorer.md).
 Sequence: [delivery plan](../spec/encoder-reward-scorer-plan.md).
@@ -23,44 +23,48 @@ Rubric: [development v1](../evaluation/teacher/rubric.md).
 
 ## Offline curation and packet preparation
 
-Use an existing frozen LR v2 cache; do not prepare the corpus again. All scripts
-below use the Python standard library. Raw/source packets stay under ignored `data/`.
-Outputs refuse replacement; reruns must use new paths.
+Use saved markdownify documents; never rerun extraction to build teacher inputs.
+`repackage` preserves the frozen 120 pilot record IDs, host splits and queues. LR v2
+records supply only verified row/split references, never page content. The joins
+verify raw-file hash/source row, snapshot, payload hash, hostname, URL and prompt.
+Document/index checksums and extraction run identity are checked before preparation.
+No test document is opened. All output directories must be new.
 
 ```sh
-uv run --no-project python -m encoder_scorer.curate \
-  --source ../../data/trad_ml_scorer/v2 \
-  --output data/encoder_scorer/teacher-v1/curation
-uv run --no-project python -m encoder_scorer.packets \
-  --manifest data/encoder_scorer/teacher-v1/curation/manifest.json \
-  --source ../../data/trad_ml_scorer/v2 \
-  --output data/encoder_scorer/teacher-v1/smoke-packets --smoke-only
-uv run --no-project python -m encoder_scorer.edits \
-  --packets data/encoder_scorer/teacher-v1/smoke-packets/packets.jsonl \
-  --output data/encoder_scorer/teacher-v1/edit-pairs
-uv run --no-project python -m encoder_scorer.report \
-  --curation data/encoder_scorer/teacher-v1/curation/manifest.json \
-  --packets data/encoder_scorer/teacher-v1/smoke-packets \
-  --edits data/encoder_scorer/teacher-v1/edit-pairs/manifest.json \
-  --output analysis/teacher-curation-v1
+SCORER_CORPUS=/Users/ext-weihsiang.lin/Documents/profound/data/content-optimization-system/processed/markdownify-corpus-v1-complete
+SCORER_RUN=/Users/ext-weihsiang.lin/Documents/profound/data/content-optimization-system/processed/encoder-scorer/teacher-markdownify-new
+uv run --offline python -m encoder_scorer.repackage \
+  --reference data/encoder_scorer/teacher-v1/curation/manifest.json \
+  --split-source ../../data/trad_ml_scorer/v2 \
+  --corpus "$SCORER_CORPUS" --output "$SCORER_RUN/curation"
+uv run --offline python -m encoder_scorer.packets \
+  --manifest "$SCORER_RUN/curation/manifest.json" --source "$SCORER_CORPUS" \
+  --output "$SCORER_RUN/pilot-packets"
+uv run --offline python -m encoder_scorer.packets \
+  --manifest "$SCORER_RUN/curation/manifest.json" --source "$SCORER_CORPUS" \
+  --output "$SCORER_RUN/smoke-packets" --smoke-only
+uv run --offline python -m encoder_scorer.edits \
+  --packets "$SCORER_RUN/smoke-packets/packets.jsonl" --output "$SCORER_RUN/edit-pairs"
 ```
 
-Use the repository's `.tools/uv` if needed. In this worktree, the shared executable
-is `../../.tools/uv`; `../../data/` is read only to these commands. No links or
-environment modifications are needed. A different machine needs an artifact transfer.
+In this worktree use `../../.tools/uv` if `uv` is absent from PATH. A different
+machine needs an artifact transfer. Persistent source packages stay outside Git.
+The earlier curation command/report reproduces historical LR v2 preparation only;
+it is not the source for future annotation.
 
-The candidate pool contains at most one eligible record per development hostname,
-prioritizing rare metadata strata before loading cached documents. Then a greedy
-coverage policy selects 96 training and 24 validation cases. It never uses labels
-to select or opens test documents. This deliberately varied pilot is not a random
-sample, a human-reviewed dataset, or held-out evidence. Citation labels remain in
-the original LR cache and may be joined for later training through frozen IDs.
+Recipe `teacher-blocks-markdownify-v2` sends saved `inline_markdown` as block `text`
+for content-bearing v3 HTML blocks. Code keeps exact text whitespace; tables retain
+structured cells, headers and spans; empty containers keep their child relationships.
+Native formats keep their saved native block text. The packet is a block-addressable
+Markdown view, not a byte-identical copy of the whole convenience `document.markdown`.
+Evidence quotes must match the exact representation sent to the teacher. Source
+quality status/flags stay attached. Embedded source links/images can remain; explicit
+provenance and browser title are withheld from body assessment.
 
-Packets preserve complete top-level block trees within a character bound, retain
-tables, and report every omitted block ID. This is a preparation guard, not a model
-token budget. Adjust budgeting after the approved teacher tokenizer is known; freeze
-a new packet version rather than replace the existing one. Source text can contain
-brand names or embedded URLs; only explicit identity/provenance fields are withheld.
+Whole block trees remain atomic under the 60,000-character bound. Every omitted
+block ID is recorded; no block is shortened. This is not a token budget. Six new
+smoke views are partial because inline Markdown increases the serialized size.
+Tokenizer budgeting occurs in the approved adapter before paid generation.
 
 ## Annotation stages and validation
 
@@ -92,12 +96,12 @@ Reviewer adjudication and human review remain pending. No student training is en
 
 ```sh
 uv run python -m encoder_scorer.annotate \
-  --packets data/encoder_scorer/teacher-v1/smoke-packets \
-  --output data/encoder_scorer/teacher-v1/gpt5-smoke-new \
+  --packets "$SCORER_RUN/smoke-packets" \
+  --output "$SCORER_RUN/gpt5-smoke-new" \
   --model gpt-5 --effort medium --budget-usd 10
 uv run python -m encoder_scorer.annotation_report \
-  --run data/encoder_scorer/teacher-v1/gpt5-smoke-new \
-  --packets data/encoder_scorer/teacher-v1/smoke-packets \
+  --run "$SCORER_RUN/gpt5-smoke-new" \
+  --packets "$SCORER_RUN/smoke-packets" \
   --output analysis/teacher-gpt5-smoke-new
 ```
 
@@ -114,6 +118,7 @@ it must not be presented as a teacher grounding judgment. Returned snapshot iden
 are saved, alongside the requested alias. No cross-model or human reliability claim
 is made by a single-teacher smoke run.
 
+The adapter rejects historical plain-block packets; use the new markdownify package.
 Use `--stop-after 1` to inspect the first case without changing the frozen 12-case
 plan, then rerun the identical command with `--resume` and no stop flag. Completed
 valid responses are reused. Ambiguous transport failures are retained for inspection.
@@ -140,7 +145,7 @@ must survive integration.
 ## Verification
 
 ```sh
-uv run python -m pytest tests/test_teacher_curation.py tests/test_teacher_annotation.py -q
+uv run python -m pytest tests/test_teacher_curation.py tests/test_teacher_annotation.py tests/test_teacher_markdownify.py -q
 ```
 
 Tests cover label-blind deterministic curation, split isolation, query-first input

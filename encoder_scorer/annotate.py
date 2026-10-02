@@ -13,7 +13,7 @@ import threading
 
 from encoder_scorer.contracts import SCHEMA_VERSION, validate_response
 from encoder_scorer.curate import canonical, sha256
-from encoder_scorer.packets import request
+from encoder_scorer.packets import MARKDOWN_RECIPE, request
 
 # Standard text prices checked against official model cards on 2026-10-01.
 # Cached input is charged at the full input rate here for a conservative estimate.
@@ -233,6 +233,8 @@ def run(packets_dir, output, model, review_model=None, review_count=0, effort="m
         raise ValueError("Independent comparison needs a different explicit model")
     packets_path = packets_dir / "packets.jsonl"
     packet_manifest = json.loads((packets_dir / "manifest.json").read_text())
+    if packet_manifest.get("serialization") != MARKDOWN_RECIPE or not packet_manifest.get("source_run_identity"):
+        raise ValueError("New annotations require versioned markdownify packets; old-source labels remain separate")
     if sha256(packets_path.read_bytes()) != packet_manifest["packets_sha256"]:
         raise ValueError("Packets changed after preparation")
     items = [json.loads(line) for line in packets_path.open()][:max_cases]
@@ -285,7 +287,7 @@ def run(packets_dir, output, model, review_model=None, review_count=0, effort="m
             "cost_is_estimate": True, "human_reviewed_cases": 0,
             "returned_models": sorted({t["returned_model"] for t in traces if t.get("returned_model")}),
             "limitations": ["Teacher labels awaiting human review; no reliability certification or student training",
-                            "Four prepared smoke views are partial; scores concern available views",
+                            f"{sum(bool(i['packet']['coverage']['omitted_block_ids']) for i in items)} prepared smoke views are partial; scores concern available views",
                             "Evidence support abstains deterministically because no evidence pack was supplied"]})
     return results
 

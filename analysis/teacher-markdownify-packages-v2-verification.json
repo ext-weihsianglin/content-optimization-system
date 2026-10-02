@@ -1,0 +1,37 @@
+{
+  "package_path": "/Users/ext-weihsiang.lin/Documents/profound/data/content-optimization-system/processed/encoder-scorer/teacher-markdownify-v2-ready",
+  "source_of_truth": "/Users/ext-weihsiang.lin/Documents/profound/data/content-optimization-system/processed/markdownify-corpus-v1-complete",
+  "source_run_identity": "1ee4dfc2f06d020f198ae84cbfea0c5bfdedea3cec8223484d2ebd980e60a22e",
+  "source_manifest_sha256": "48b4d9a837dee1bf33af258e7acf460f5712a047f8479c8b14672f6a9b52f0a5",
+  "case_counts": {
+    "train": 96,
+    "validation": 24,
+    "smoke": 12,
+    "review": 30,
+    "edit_pairs": 18
+  },
+  "full_body_views": {
+    "pilot": 75,
+    "smoke": 6
+  },
+  "verification": {
+    "markdown_blocks": 13299,
+    "blocks_with_preserved_formatting": 6316,
+    "exact_code_blocks": 48,
+    "structured_tables": 82
+  },
+  "quality_statuses": {
+    "selected": 87,
+    "needs_review": 33
+  },
+  "independent_replay": "byte-identical curation, smoke, pilot and edit payloads/manifests",
+  "tests": "238 passed, 12 subtests passed",
+  "model_calls": 0,
+  "transferred_teacher_labels": 0,
+  "limitations": [
+    "60000-character body cap is not tokenizer budgeting",
+    "Tables retain structured cells; serialized view is not identical to whole convenience document Markdown",
+    "Native formats use native saved block text",
+    "No human semantic review or teacher reliability claim"
+  ]
+}
