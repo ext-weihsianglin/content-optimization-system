@@ -14,12 +14,13 @@ import threading
 from encoder_scorer.contracts import SCHEMA_VERSION, validate_response
 from encoder_scorer.curate import canonical, sha256
 from encoder_scorer.packets import MARKDOWN_RECIPE, request
+from encoder_scorer.selection import CONTRACT, EVIDENCE_GRANULARITY, assemble, prepare
 
 # Standard text prices checked against official model cards on 2026-10-01.
 # Cached input is charged at the full input rate here for a conservative estimate.
 PRICES = {"gpt-5": (1.25, 10.00), "gpt-5-mini": (0.25, 2.00),
           "gpt-5.6-luna": (0.20, 1.20), "gpt-5.6-terra": (2.00, 12.00), "gpt-5.6-sol": (4.00, 20.00)}
-OUTPUT_LIMITS = {"requirements": 2400, "body": 10000, "title": 5000}
+OUTPUT_LIMITS = {"requirements": 4000, "body": 10000, "title": 5000}
 
 
 def write_json(path, value):
@@ -78,7 +79,14 @@ def response_label(response):
                 texts.append(content["text"])
     if not texts:
         raise ValueError("Response contains no visible structured output")
-    return json.loads("".join(texts))
+    def unique_keys(pairs):
+        result = {}
+        for key, value in pairs:
+            if key in result and canonical(result[key]) != canonical(value):
+                raise ValueError("Conflicting duplicate JSON key: " + key)
+            result[key] = value
+        return result
+    return json.loads("".join(texts), object_pairs_hook=unique_keys)
 
 
 class Runner:
@@ -101,6 +109,7 @@ class Runner:
         return [json.loads(p.read_text()) for p in sorted((self.output / "traces").glob("*.json"))]
 
     def assess(self, record_id, model, stage, task, requirements=None):
+        task = prepare(task)
         body = api_payload(task, model, self.config["reasoning_effort"])
         body_hash = sha256(canonical(body).encode())
         existing = [t for t in self.traces() if t["record_id"] == record_id and t["model"] == model
@@ -117,7 +126,8 @@ class Runner:
             payload = dict(body)
             if attempt and existing[-1].get("execution_status") != "transport_error":
                 previous = existing[-1]
-                repair = {"validation_error": previous.get("validation_error"), "previous_output": previous.get("label"),
+                repair = {"validation_error": previous.get("validation_error"),
+                          "previous_output": previous.get("provider_selection", previous.get("label")),
                           "instruction": "Correct the validation failure. Do not invent evidence. Return a complete replacement matching the original schema."}
                 payload["input"] = canonical({"original_input": task["input"], "repair": repair})
             token_request = {k: payload[k] for k in ("model", "instructions", "input")}
@@ -153,7 +163,9 @@ class Runner:
                     trace["usage"] = usage
                     trace["estimated_cost_usd"] = estimated_cost(model, usage["input_tokens"], usage["output_tokens"])
                 try:
-                    label = response_label(response)
+                    selection = response_label(response)
+                    trace["provider_selection"] = selection
+                    label = assemble(task, selection)
                     trace["label"] = label
                     validate_response(stage, label, task["input"], requirements)
                     trace["validation_status"] = "valid"
@@ -254,6 +266,7 @@ def run(packets_dir, output, model, review_model=None, review_count=0, effort="m
               "budget_usd": budget, "max_calls": 2 * 3 * (len(items) + review_count),
               "max_input_tokens": 100000, "output_limits": OUTPUT_LIMITS, "prices": PRICES,
               "allow_transport_retry": allow_transport_retry, "concurrency": concurrency,
+              "provider_contract": CONTRACT, "evidence_granularity": EVIDENCE_GRANULARITY,
               "price_date": "2026-10-01", "price_policy": "uncached standard input/output estimate, not billing invoice",
               "code_sha256": {str(p): sha256(p.read_bytes()) for p in sorted(Path("encoder_scorer").glob("*.py"))}}
     if seed_from is not None:

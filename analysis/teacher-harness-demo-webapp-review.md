@@ -1,7 +1,14 @@
 # Reusing the demo-webapp source-reference harness
 
-Reviewed 2026-10-01 via authenticated GitHub PR/API reads. This is a design
-recommendation, not an implemented teacher change or a new annotation run.
+Reviewed 2026-10-01 via authenticated GitHub PR/API reads. This records the original
+design recommendation; implementation and run evidence are linked below.
+
+Follow-up: the user subsequently authorized implementation and smoke rerun.
+`encoder_scorer/selection.py` now implements `teacher-selection-v1` with keyed
+requirements and exact backend whole-block evidence copying. The sections below
+preserve the original source review/design rationale; new run reports record
+actual execution and measured validity separately in the
+[selection smoke findings](teacher-markdownify-gpt5-selection-smoke-v1.md).
 
 ## Finding
 

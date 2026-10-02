@@ -1,6 +1,20 @@
 # Encoder scorer experiments
 
-The approved GPT-5 medium smoke on the markdownify packages is complete: 12 valid
+The runtime `teacher-selection-v1` harness is now implemented in `selection.py`.
+Provider schemas constrain evidence IDs and use required keyed assessments for
+frozen requirements. Backend code copies complete selected source blocks exactly
+into canonical evidence; raw model selections are saved separately in traces.
+Partial views exclude globally missing/unfulfilled states. Canonical validation
+still checks score applicability, evidence presence and section membership.
+The changed contract completed a fresh smoke on the same saved Markdownify packets:
+**12/12 accepted body stages, 36/36 first-pass valid calls, zero retries, $1.50422125
+estimated cost**, using approved GPT-5 medium. Review the
+[new plain-language report](../analysis/teacher-markdownify-gpt5-selection-smoke-v1-eli5.html)
+and [comparison findings](../analysis/teacher-markdownify-gpt5-selection-smoke-v1.md).
+The run is `gpt5-smoke-selection-v1/` under the ready package root below.
+Historical results below remain frozen. No human review, training or expansion.
+
+The original GPT-5 medium smoke on the markdownify packages is complete: 12 valid
 requirements/title stages each and 9 valid body stages. Three body failures remain
 unlabeled after bounded repair. Review [latest judgments](../analysis/teacher-markdownify-gpt5-smoke-v1.html)
 and [findings/costs](../analysis/teacher-markdownify-gpt5-smoke-v1.md). The
@@ -125,9 +139,9 @@ are saved, alongside the requested alias. No cross-model or human reliability cl
 is made by a single-teacher smoke run.
 
 The adapter rejects historical plain-block packets; use the new markdownify package.
-The [demo harness review](../analysis/teacher-harness-demo-webapp-review.md) proposes
-fixed requirement slots and backend-resolved evidence to reduce ID/quote failures.
-That contract change has not been implemented; the smoke uses the original schemas.
+The [demo harness review](../analysis/teacher-harness-demo-webapp-review.md) informed
+the new fixed requirement slots and backend-resolved evidence. Historical smoke
+results use the original schemas; new run manifests name the selection contract.
 Use `--stop-after 1` to inspect the first case without changing the frozen 12-case
 plan, then rerun the identical command with `--resume` and no stop flag. Completed
 valid responses are reused. Ambiguous transport failures are retained for inspection.

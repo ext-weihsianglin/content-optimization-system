@@ -36,6 +36,17 @@ selection still needs semantic review. Static-page requirement framing and omitt
 content rules remain separate rubric work. This is a proposal, not an implemented
 contract or a new annotation run; preserve the completed smoke as historical evidence.
 
+Implementation follow-up: `teacher-selection-v1` now provides fixed requirement
+slots, enum-constrained evidence choices and exact backend whole-block copying,
+with schema preflight and separate candidate/support choices. Partial views exclude
+globally absent states. New requirements instructions address static-page framing.
+The same approved GPT-5 medium smoke completed in a fresh directory: all 12 cases
+passed three stages on their first attempt, 36/36 calls valid, $1.50422125 estimated
+cost. See [selection rerun findings](../analysis/teacher-markdownify-gpt5-selection-smoke-v1.md)
+and [plain-language review](../analysis/teacher-markdownify-gpt5-selection-smoke-v1-eli5.html).
+Original labels remain frozen. The preceding proposal describes the design history;
+semantic review, edit controls and evidence packs remain gates before expansion.
+
 ## Phase 1 — Curate supervision from stronger models
 
 Distillation begins with collecting and reviewing teacher judgments; student

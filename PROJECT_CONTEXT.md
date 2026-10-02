@@ -305,7 +305,26 @@ folder is preflight preparation, not the ready package; use `-ready` for executi
 Validation: 238 tests / 12 subtests passed; all 120 packets checked against saved
 source representations, quality flags, block ancestry and complete omission accounting.
 
-Latest GPT-5 smoke: `teacher-markdownify-v2-ready/gpt5-smoke-v1/` under the same
+Latest GPT-5 smoke: `teacher-markdownify-v2-ready/gpt5-smoke-selection-v1/`, using
+runtime `teacher-selection-v1`: enum-constrained evidence IDs, keyed frozen
+requirement slots, exact backend full-block copying, and partial-view state enums.
+Static-page requirements instructions no longer request conversational follow-up.
+Same 12 saved packets (six partial), same GPT-5 medium and $10 budget; new run,
+no old calls/labels reused. Returned `gpt-5-2025-08-07`: 12/12 valid requirements,
+body and title stages, all first-pass; 36 valid calls, zero invalid or transport
+retries. Estimated cost $1.50422125, input/output tokens 318,921/110,557. Requirements
+output cap increased 2,400 -> 4,000. Changes are not an isolated accuracy comparison.
+Reports: `analysis/teacher-markdownify-gpt5-selection-smoke-v1{.html,.json,.md}`
+and `-eli5.html` (opened in system browser). Twelve accepted cards and 38 local
+links verified; all actual request payloads replay, every copied passage matches
+actual input, and archived executed code hashes match manifest. Single-enum size
+preflight was strengthened afterward without changing these request payloads.
+252 tests / 12 subtests passed. Three formerly failed body cases now have labels;
+two partial intent grades abstain. All eight supplied titles still score 3. No
+human review, factual packs, training, pilot expansion or demo integration. Next
+review evidence relevance, checklist appropriateness, abstention and title controls.
+
+Original GPT-5 smoke: `teacher-markdownify-v2-ready/gpt5-smoke-v1/` under the same
 persistent root. GPT-5 medium, returned `gpt-5-2025-08-07`; 12 cases processed,
 12 valid requirements/title stages each, 9 valid body stages. Video automation,
 GPT-4o and visual-planning body stages remain unavailable after two attempts.
@@ -327,7 +346,8 @@ Consulted demo-webapp PR #3's merged harness for the block-ID failure follow-up:
 edit slots and backend-owned provenance, with constrained evidence choices for
 bounded schemas. Proposed teacher adaptation is recorded in the scorer plan:
 fixed requirement slots and deterministic evidence choices resolved to source quotes
-by the backend. No annotation contract changes or additional paid calls made.
+by the backend. This proposal is now implemented and smoke-tested as described
+above; the original source review and smoke evidence remain separate.
 
 
 Source audit after merging latest `origin/main` (`864e663`) on 2026-10-01:

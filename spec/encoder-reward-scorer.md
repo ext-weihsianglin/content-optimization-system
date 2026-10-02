@@ -121,6 +121,20 @@ span existence and ID validity mechanically. Untrusted source instructions must 
 change annotation rules. Failed, incomplete, or truncated calls remain explicit.
 Teacher self-confidence alone does not determine label reliability.
 
+The runtime provider contract `teacher-selection-v1` uses fixed required slots
+for frozen requirement assessments and packet-specific enums for evidence IDs.
+GPT-5 selects IDs; backend code copies the complete selected block's exact input
+text into canonical `{block_id, quote}` evidence. This deliberately uses whole-block
+evidence, not model-transcribed substrings. Candidate and support-pack choices
+remain separate. Partial body/title views exclude globally missing/unfulfilled
+states in the provider schema, while canonical local validation remains active.
+Unknown IDs, conflicting duplicate keys and oversized schemas fail visibly before
+acceptance; no guessed IDs, quote normalization or permissive schema fallback.
+Runtime requirements instructions evaluate static pages rather than requiring
+conversational follow-up. Saved packets, the original rubric and historical smoke
+are preserved; run manifests record the changed prompt/code hashes and contract.
+Mechanical validity does not establish that selected evidence supports the judgment.
+
 Use a second independent teacher or reviewer on a stratified subset and disagreements.
 Human review establishes a limited reviewed subset, not human gold for the whole
 dataset. No top/bottom labels or inspected test outcomes may influence the quality

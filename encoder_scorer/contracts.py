@@ -49,7 +49,13 @@ SUPPORT_SCHEMA = obj({"schema_version": enum(SCHEMA_VERSION),
 SCHEMAS = {"requirements": REQUIREMENTS_SCHEMA, "body": BODY_SCHEMA, "title": TITLE_SCHEMA, "support": SUPPORT_SCHEMA}
 
 
-def validate_structure(value, schema, path="response"):
+def validate_structure(value, schema, path="response", root=None):
+    root = schema if root is None else root
+    if "$ref" in schema:
+        prefix = "#/$defs/"
+        if not schema["$ref"].startswith(prefix):
+            raise ValueError(f"{path}: unsupported schema reference")
+        return validate_structure(value, root["$defs"][schema["$ref"][len(prefix):]], path, root)
     kind = schema["type"]
     kinds = kind if isinstance(kind, list) else [kind]
     valid = any((k == "null" and value is None) or (k == "integer" and type(value) is int)
@@ -65,10 +71,12 @@ def validate_structure(value, schema, path="response"):
         if set(value) != set(schema["properties"]):
             raise ValueError(f"{path}: missing or unexpected fields")
         for key, child in value.items():
-            validate_structure(child, schema["properties"][key], path + "." + key)
+            validate_structure(child, schema["properties"][key], path + "." + key, root)
     if isinstance(value, list):
+        if not schema.get("minItems", len(value)) <= len(value) <= schema.get("maxItems", len(value)):
+            raise ValueError(f"{path}: array outside allowed size")
         for i, child in enumerate(value):
-            validate_structure(child, schema["items"], f"{path}[{i}]")
+            validate_structure(child, schema["items"], f"{path}[{i}]", root)
 
 
 def validate_response(stage, response, packet, requirements=None):

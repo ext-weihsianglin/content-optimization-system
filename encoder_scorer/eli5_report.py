@@ -38,6 +38,7 @@ def build(report_path, packets_dir, run_dir, output):
     if len({x["record_id"] for x in labels}) != len(labels):
         raise ValueError("This view supports a single teacher per case")
     summary = report["summary"]
+    selection_contract = report.get("config", {}).get("provider_contract") == "teacher-selection-v1"
     valid = sum(x["stages"].get("body") is not None for x in labels)
     traces = [(p, json.loads(p.read_text())) for p in sorted((run_dir / "traces").glob("*.json"))]
 
@@ -85,9 +86,16 @@ def build(report_path, packets_dir, run_dir, output):
                          for _, t in case_traces if t["validation_status"] != "valid")
         view = "Some page content was left out" if partial else "All retained page blocks were included"
         note = "These accepted outputs passed format and quote checks. A person still needs to judge whether the ratings are fair." if not failed else "No body grade is accepted. This is a grading failure, not proof that the page is bad. The title check is separate."
+        brief = BRIEFS.get(rid[:12], "Review the teacher explanation below.")
+        if selection_contract:
+            body = label["stages"].get("body")
+            brief = (body["components"]["intent_fulfillment"]["reason"] if body
+                     else "No body judgment was accepted. Inspect the validation details below.")
+            note = ("The selected source IDs passed validation, and our code copied their exact full text. "
+                    "A person still needs to judge whether those passages support the scores.") if not failed else note
         cards.append(f"<article id='case-{index}' data-status='{status}'><div class='case-top'><span>CASE {index:02}</span>"
                      f"<span class='badge {status}'>{'Body judgment rejected' if failed else 'Body judgment accepted'}</span></div>"
-                     f"<h3>{escape(query)}</h3><p class='brief'>{escape(BRIEFS.get(rid[:12], 'Review the teacher explanation below.'))}</p>"
+                     f"<h3>{escape(query)}</h3><p class='brief'>{escape(brief)}</p>"
                      f"<p class='meta'>{escape(view)} · {len(coverage['included_block_ids'])}/{coverage['original_block_count']} blocks</p>"
                      f"<div class='ratings'>{''.join(ratings)}</div><p class='note'>{escape(note)}</p>"
                      f"<details><summary>What did GPT-5 expect this page to answer?</summary>{checklist}</details>"
@@ -120,6 +128,37 @@ body{margin:0;background:#f4f7f5;color:var(--ink);font:16px/1.6 system-ui,-apple
     html += link(report_path.with_suffix('.html'), 'Original detailed report') + " · " + link(report_path, 'Complete results JSON') + "</p><p>Cost is an estimate, not an invoice. Source-bearing trace links work on this computer.</p>"
     html += f"<small>Results checksum: {sha256(report_path.read_bytes())}</small></footer></main>"
     html += '''<script>document.querySelectorAll('[data-filter]').forEach(button=>button.addEventListener('click',()=>{const filter=button.dataset.filter;document.querySelectorAll('[data-status]').forEach(row=>row.hidden=filter!=='all'&&row.dataset.status!==filter);document.querySelectorAll('[data-filter]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));}));</script></body></html>'''
+    if selection_contract:
+        html = html.replace(
+            '<div class="box decision"><strong>The next step: fix the grading instructions before testing all pages.</strong><p>Some ratings look useful. But GPT-5 still mixes up quotes and asks static articles to act like chatbots. We keep those failed judgments out of the labels.</p></div>',
+            '<div class="box decision"><strong>Review the new grading harness.</strong>'
+            f'<p>{valid}/{len(labels)} pages have accepted body judgments. GPT-5 chooses source blocks; '
+            'our code copies their exact text. It also fills fixed requirement slots. '
+            'The next step is human review of whether the chosen evidence and grades make sense.</p>'
+            '<p>Original run: 9/12 accepted body judgments, 48 calls, about $2.46. '
+            f'New run: {valid}/{len(labels)}, {summary["generation_calls"]} calls, about ${summary["estimated_cost_usd"]:.2f}. '
+            'Instructions and evidence granularity changed; '
+            'this comparison does not prove better grading accuracy.</p></div>')
+        html = html.replace(
+            '“Accepted” means the output passed our format and exact-quote checks.',
+            '“Accepted” means the selected IDs and assembled labels passed validation. '
+            'Our code copied exact whole source blocks; GPT-5 did not transcribe quotes.')
+        html = html.replace(
+            'Formatting marks in quotes are part of the exact input. Matching a quote does not prove a fact is true.',
+            'These are complete source blocks copied by our code. GPT-5 selected their IDs. '
+            'A valid source passage does not prove that it supports the judgment or that its facts are true.')
+        html = html.replace(
+            '<li>Ask for information a static page should contain, rather than instructions to start a conversation.</li><li>When a quote fails, tell GPT-5 which quote and block failed. Keep exact checks instead of accepting guessed evidence.</li>',
+            '<li>Review whether the selected blocks actually support each judgment. Mechanical checks cannot decide this.</li>'
+            '<li>Check partial-page abstentions and whether the query-only checklist is appropriate. '
+            'Static-page framing and coverage constraints were tightened, but still need review.</li>')
+        html = html.replace('Original detailed report', 'Detailed report for this rerun')
+        html = html.replace('What we should fix next', 'What we should review next')
+        html = html.replace(
+            'The previous smoke used older inputs; its labels were not reused.',
+            'This rerun uses the same 12 Markdownify packets as the original run. '
+            'No old labels were reused; the historical LR v2-source run remains separate.')
+        html = html.replace('P1 SCORING · SMALL TEST · GPT-5', 'P1 SCORING · NEW HARNESS RERUN · GPT-5')
     output.write_text(html + "\n")
 
 

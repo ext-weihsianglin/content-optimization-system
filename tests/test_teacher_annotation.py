@@ -5,7 +5,7 @@ from pathlib import Path
 
 import pytest
 
-from encoder_scorer.annotate import Runner, api_payload, response_label
+from encoder_scorer.annotate import OUTPUT_LIMITS, Runner, api_payload, response_label
 from encoder_scorer.annotate import estimated_cost, seed_valid_traces
 from encoder_scorer.curate import canonical, sha256
 from encoder_scorer.packets import request
@@ -139,7 +139,8 @@ def test_parallel_budget_reservations_prevent_overspend(tmp_path):
             else:
                 time.sleep(.1)
             return super().post(endpoint, body)
-    reserve = estimated_cost("gpt-5", 50 + len(canonical(task()["response_schema"]).encode()) + 1024, 2400)
+    reserve = estimated_cost("gpt-5", 50 + len(canonical(task()["response_schema"]).encode()) + 1024,
+                             OUTPUT_LIMITS["requirements"])
     transport = SlowTransport([requirements()])
     runner = Runner(tmp_path / "run", config(reserve * 1.5), transport)
     with ThreadPoolExecutor(max_workers=2) as executor:
