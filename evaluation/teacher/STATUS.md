@@ -1,0 +1,94 @@
+# Teacher-supervision pilot checkpoint
+
+**Current preparation:** recreated from the shared markdownify corpus, the source
+of truth going forward. [Inspect source previews and provenance](../../analysis/teacher-markdownify-packages-v2.html).
+Persistent root:
+`/Users/ext-weihsiang.lin/Documents/profound/data/content-optimization-system/processed/encoder-scorer/teacher-markdownify-v2-ready/`.
+
+- Same 120 pilot cases: 96 train / 24 validation, with 12 smoke and 30 review IDs.
+- 120 ready pilot packets; 12 smoke packets: 6 full / 6 partial, none empty.
+- 18 blinded, unlabeled controls across 3 full-body training parents.
+- Saved inline Markdown preserved in HTML v3 content blocks; exact code whitespace,
+  table structure, quality flags and all omitted block IDs retained.
+- Corpus indexes, selected documents, raw-row joins and extraction identity verified.
+  No re-extraction, no test documents loaded. Independent replay is byte-identical.
+- Fresh GPT-5 medium smoke complete: 12 valid requirements/title stages each,
+  9 valid body stages; three body failures remain unlabeled. 48 attempts: 33 valid /
+  15 invalid, no transport failures. Conservative cost $2.45878. No old-source
+  label reuse, human review or training. No separately supplied factual-support pack.
+- Review [latest judgments](../../analysis/teacher-markdownify-gpt5-smoke-v1.html) and
+  [findings/failures](../../analysis/teacher-markdownify-gpt5-smoke-v1.md) before expansion.
+- Source packets and new calls use version guards to reject the older input format.
+
+Validation: 238 tests / 12 subtests passed; source formatting, exact code/table
+content, packet coverage and byte-identical independent replay were checked.
+
+The checkpoint below describes **historical LR v2-source preparation and labels**.
+They remain unchanged and do not label the new markdownify packets.
+
+Phase 1 offline preparation is complete. The user approved GPT-5 at medium
+reasoning for the 12-case smoke, with a $10 bounded budget. Returned snapshot:
+`gpt-5-2025-08-07`. Teacher judgments are development evidence awaiting human
+review. Phases 2–4 have not started.
+
+Smoke outcome: 12 cases processed; requirements/title 12 valid each, body 11 valid /
+1 unavailable. 42 attempts: 35 valid, 6 rejected, 1 timeout subsequently recovered.
+Conservative cost ledger: $1.9832 including the unknown-call reservation. Inspect
+[HTML smoke judgments](../../analysis/teacher-gpt5-smoke-v1.html) and
+[findings and review priorities](../../analysis/teacher-gpt5-smoke-v1.md).
+
+- Source: existing frozen LR v2 retention documents; no extraction rerun or source
+  cache mutation. Identity checked against cached payload metadata; document hashes
+  frozen at curation, without asserting independent raw-payload verification.
+- Candidate pool: 868 distinct development hosts. Curated cases: 96 train and 24
+  validation, all distinct hosts. No test document loaded; selection ignores labels.
+- Coverage: 113 HTML / 7 Markdown; 33 needs-review; 37 tables / 10 code cases.
+  This intentionally varied development sample is not a random corpus sample.
+- Smoke queue: 12 training cases, 8 full-body / 4 partial-body views. Omitted block
+  IDs are retained. Character budgeting is not tokenizer budgeting.
+- Independent review queue: 30 cases, not yet reviewed.
+- Controls: 18 blinded edit pairs across 3 full-body training parents. No preference
+  labels; mutation intent is stored separately. Original-source packs test fidelity
+  only. These post-parser edits do not establish raw-HTML robustness.
+- Verification: 133 tests and 12 subtests passed after installing locked Python and
+  Node dependencies locally from caches. Independent curation and packet replay is
+  byte-identical. Local documentation links and whitespace checks passed.
+
+Inspect [HTML preparation report](../../analysis/teacher-curation-v1.html) and
+[machine-readable summary](../../analysis/teacher-curation-v1.json).
+Source packets and curation/edit ledgers are ignored under
+`data/encoder_scorer/teacher-v1/`. Code and commands:
+[encoder_scorer README](../../encoder_scorer/README.md).
+
+The provider adapter saves exact requests, visible responses, input token counts,
+usage, timings, validation errors, and conservative cost estimates. Full source-bearing
+traces remain ignored under `data/encoder_scorer/teacher-v1/gpt5-smoke-v3/traces/`.
+Earlier `gpt5-smoke` and `gpt5-smoke-v2` directories retain execution lineage and
+code snapshots. Valid calls were reused, with parent manifest/trace hashes recorded.
+One ambiguous title timeout retained its full cost reservation and was recovered
+with an explicitly enabled bounded retry. No external source fetching occurred.
+
+Three model passes run per case: query requirements, body components, and title/body
+consistency. Evidence support is a deterministic abstention for all cases because
+no separate evidence pack was supplied. It is not a teacher factual-support judgment.
+No independent model comparison or human adjudication was run.
+
+Next: review the actual smoke judgments and invalid attempts. Refine ambiguous-query
+requirements for static pages, resolve partial-view and exact-quote failures, curate
+separate evidence packs, and review controlled edit pairs. Set numerical reliability
+and manipulation gates before expanding annotation or training ModernBERT. Any
+additional teacher choice remains subject to discussion with the user.
+
+## Source audit after latest main integration
+
+The completed smoke used the older LR v2 cache; it did **not** use the shared
+`processed/markdownify-corpus-v1-complete` export. The current body serializer sends
+plain block text and structure, omitting document/inline Markdown. All 12 snapshot
+and raw-payload identities match the new corpus, but document checksums differ in
+all 12 cases and plain-block teacher packets differ in 7 cases. See the
+[source audit](../../analysis/teacher-source-markdownify-audit-v1.json).
+
+Rebuild a new versioned curation/packet run from the shared markdownify export with
+an explicit inline Markdown policy before additional annotation. Preserve this
+completed smoke as old-source development evidence. This audit made no new model
+calls and does not certify the rest of the corpus.

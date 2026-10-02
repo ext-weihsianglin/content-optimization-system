@@ -283,6 +283,166 @@ absent; a separate machine needs an artifact transfer. Models and raw/prepared d
 are not committed. All LR code, manifests, report outputs and predictions belong
 under `trad_ml_scorer/`; original analysis and frozen v1/v2 are preserved.
 
+## Encoder scorer workstream checkpoint
+
+Session ownership (2026-10-02): this `scorers-LLM-classifiers` session now focuses
+on the LLM judge: semantic rubric/edit review and complementary analyze scores in
+the webapp. ModernBERT classifier implementation is handed off to a separate
+session through issue #18:
+`https://github.com/ext-weihsianglin/content-optimization-system/issues/18`.
+The ticket contains input/host policies, original-label training, LR comparators,
+evaluation gates, artifact paths and the delivery plan. Do not begin classifier
+training or treat judge distillation as a dependency of that separate workstream.
+
+Scope revision (2026-10-02): two independent workstreams supersede the original
+serial teacher-distillation -> ModernBERT -> LR -> webapp sequence. A: train a
+ModernBERT citation-category classifier on original binary labels, targeting
+P(top category | prompt, document, hostname), and compare against incumbent LR.
+Use the operational webapp v7 semantic_context scorer plus v5 reference; freeze
+population, host splits, input/serving contracts and unseen-host behavior. Include
+hostname-aware and content-only candidates; no judge labels are required.
+B: refine the LLM judge rubric using semantic evidence/edit review, and ship
+complementary per-query quality scores beside P1 in the webapp analyze phase.
+The judge can become direct P2 feedback later. Distillation is optional and does
+not block either delivery. See the rewritten spec/plan in `spec/encoder-reward-*`.
+
+Read-only GitHub inspection found demo-webapp main at PR #5 merge `6c2cae7`:
+`backend/app/main.py` analyze has measured P1 v7 alongside mocked Query alignment,
+Answer clarity and a heading heuristic. Plan a separate `judge` result with clear
+states, source evidence and applicability; judge failure should preserve P1.
+Draft internally calls analyze, so versioned caching/execution policy must prevent
+duplicate paid calls. The scorer discloses Markdownify context-contract issue #15.
+Open PR #8 is a GEPA plan using mean P1; judge objective changes require a separate
+reviewed integration. No webapp files, training runtime or paid calls changed in
+this scope revision.
+
+Current preparation (supersedes the historical source audit below): the user declared
+the shared markdownify corpus the source of truth and requested package recreation.
+New persistent package root:
+`/Users/ext-weihsiang.lin/Documents/profound/data/content-optimization-system/processed/encoder-scorer/teacher-markdownify-v2-ready/`.
+Contains `curation/manifest.json`, `pilot-packets/packets.jsonl` (120),
+`smoke-packets/packets.jsonl` (12; 6 full / 6 partial), and 18 pairs in `edit-pairs/`.
+Same 96 train / 24 validation hosts, 12 smoke IDs and 30 review IDs; no reselection.
+All source/index/document hashes and extraction identity verified; no test documents
+loaded. New body recipe `teacher-blocks-markdownify-v2` preserves saved inline
+Markdown in v3 HTML block text, exact code whitespace and structured tables; native
+formats use native block text. Quality flags and omissions remain explicit. Future
+packet construction and annotation reject the older source format. LR v2 metadata
+serves only as the frozen split/raw-row join reference. Old-source annotations are
+not transferred. A fresh GPT-5 markdownify smoke is now complete (details below). Preparation report:
+`analysis/teacher-markdownify-packages-v2.html` / `.json`; independent rebuild at
+`teacher-markdownify-v2-replay` is byte-identical. The earlier `teacher-markdownify-v2`
+folder is preflight preparation, not the ready package; use `-ready` for execution.
+Validation: 238 tests / 12 subtests passed; all 120 packets checked against saved
+source representations, quality flags, block ancestry and complete omission accounting.
+
+Latest GPT-5 smoke: `teacher-markdownify-v2-ready/gpt5-smoke-selection-v1/`, using
+runtime `teacher-selection-v1`: enum-constrained evidence IDs, keyed frozen
+requirement slots, exact backend full-block copying, and partial-view state enums.
+Static-page requirements instructions no longer request conversational follow-up.
+Same 12 saved packets (six partial), same GPT-5 medium and $10 budget; new run,
+no old calls/labels reused. Returned `gpt-5-2025-08-07`: 12/12 valid requirements,
+body and title stages, all first-pass; 36 valid calls, zero invalid or transport
+retries. Estimated cost $1.50422125, input/output tokens 318,921/110,557. Requirements
+output cap increased 2,400 -> 4,000. Changes are not an isolated accuracy comparison.
+Reports: `analysis/teacher-markdownify-gpt5-selection-smoke-v1{.html,.json,.md}`
+and `-eli5.html` (opened in system browser). Twelve accepted cards and 38 local
+links verified; all actual request payloads replay, every copied passage matches
+actual input, and archived executed code hashes match manifest. Single-enum size
+preflight was strengthened afterward without changing these request payloads.
+252 tests / 12 subtests passed. Three formerly failed body cases now have labels;
+two partial intent grades abstain. All eight supplied titles still score 3. No
+human review, factual packs, training, pilot expansion or demo integration. Next
+review evidence relevance, checklist appropriateness, abstention and title controls.
+
+Title clarification (2026-10-02): all four smoke cases without title metadata are
+PDF URLs whose original stored payloads are Markdown/text, not PDF bytes or HTML
+DOMs. Raw payload hashes were verified. The native inventory does not populate a
+separate title, although title-like body text is preserved. The user agreed to
+defer PDF/Markdown title inference; latest ELI5 wording is "No title metadata".
+Title consistency remains not applicable, not zero. Before training, quantify
+missing title metadata by source format and mask unavailable title targets.
+
+Original GPT-5 smoke: `teacher-markdownify-v2-ready/gpt5-smoke-v1/` under the same
+persistent root. GPT-5 medium, returned `gpt-5-2025-08-07`; 12 cases processed,
+12 valid requirements/title stages each, 9 valid body stages. Video automation,
+GPT-4o and visual-planning body stages remain unavailable after two attempts.
+48 calls: 33 valid / 15 invalid, no transport failures; cost estimate $2.45878.
+Failures: 10 exact-quote/block-span, 4 partial-view missing, 1 output cap. No human
+review or training. Evidence support still abstains locally (no separate pack).
+Reports: `analysis/teacher-markdownify-gpt5-smoke-v1.html` / `.json` / `.md`.
+Plain-language companion: `analysis/teacher-markdownify-gpt5-smoke-v1-eli5.html`,
+generated by `encoder_scorer/eli5_report.py` from the same frozen results and local
+packets/traces. All 12 cases and 50 local links checked; opened in the system browser.
+Automated visual inspection was blocked by the browser's file-URL policy.
+Run preserves all traces and matching code/rubric/packet provenance; older labels
+were not reused. Before pilot/full-corpus expansion, review static-page requirement
+framing, improve exact-quote repair diagnostics, rerun failures, and evaluate edits
+and separately supplied support packs. Human reliability gates remain unmet.
+
+Consulted demo-webapp PR #3's merged harness for the block-ID failure follow-up:
+`analysis/teacher-harness-demo-webapp-review.md`. It uses required nullable keyed
+edit slots and backend-owned provenance, with constrained evidence choices for
+bounded schemas. Proposed teacher adaptation is recorded in the scorer plan:
+fixed requirement slots and deterministic evidence choices resolved to source quotes
+by the backend. This proposal is now implemented and smoke-tested as described
+above; the original source review and smoke evidence remain separate.
+
+
+Source audit after merging latest `origin/main` (`864e663`) on 2026-10-01:
+**the completed GPT-5 smoke used the older LR v2 documents, not the shared
+markdownify corpus**. Requests serialize `blocks[].text` and structure; neither
+`document.markdown` nor `inline_markdown` enters the teacher body. All 12 snapshots
+and raw-payload hashes match the shared export, but all document checksums differ;
+7 of 12 plain-block packets change with the new documents. Five unchanged packets
+include four native Markdown inputs and the three-block interstitial. Audit:
+`analysis/teacher-source-markdownify-audit-v1.json`. Before further annotation,
+build a new versioned curation/packet run from the shared
+`processed/markdownify-corpus-v1-complete` export and explicitly preserve its inline
+Markdown representation. Keep the old smoke/labels as old-source development
+evidence. No replacement packets or teacher calls were made during this audit.
+
+
+The user authorized the teacher-curation → ModernBERT → LR benchmark → demo dogfood
+plan, explicitly reserved teacher-model choice, and then approved **GPT-5 at medium
+reasoning** for the 12-case smoke. GPT-5.6 Luna/Sol API model endpoints were unavailable
+with the current key; no substitute was used before approval. Returned snapshot:
+`gpt-5-2025-08-07`. API credentials stay in environment variables, never artifacts.
+
+On branch `deck/scorers-llm-classifiers`, `encoder_scorer/` implements offline,
+label-blind curation, stage-separated packets, strict evidence validation, and
+controlled edit pairs. `evaluation/teacher/rubric.md` is a development draft.
+Local ignored artifacts: `data/encoder_scorer/teacher-v1/`. Source caches are read
+from the main repository's `data/trad_ml_scorer/v2/`; they were not changed.
+120 distinct development hosts: 96 train / 24 validation; 12 train-only smoke cases,
+30 queued independent reviews, 18 unlabeled edit pairs across 3 training parents.
+No test documents loaded. Four smoke views have omitted blocks. Independent
+curation and packet replay is byte-identical. Preparation report:
+`analysis/teacher-curation-v1.html` / `.json`; plan: `spec/encoder-reward-scorer-plan.md`.
+
+The OpenAI adapter uses strict Responses schemas, `store: false`, actual input-token
+counting plus schema allowance, a $10/72-call cap, durable request/response/usage
+traces, and at most two attempts per stage. Valid calls are reused. Unknown transport
+cost stays reserved; an explicit retry flag permits one recovery. The final smoke
+run is `data/encoder_scorer/teacher-v1/gpt5-smoke-v3/`, carrying forward v1/v2 calls
+with manifest/trace hashes. Earlier run directories and code snapshots remain local.
+Smoke complete: 12 processed, 12 valid requirements/title stages each, 11 valid body
+stages / 1 unavailable (GPT-4o). 42 attempts: 35 valid, 6 rejected, 1 recovered timeout.
+Conservative cost ledger $1.9832. Review `analysis/teacher-gpt5-smoke-v1.html` and
+`.md` before expanding; requirements for static pages, partial-view absence,
+source-quality abstention, exact quotes, and title negative controls need review.
+Grounding support is a deterministic missing-evidence abstention, not a teacher
+judgment. No human review, independent model comparison, or student training yet.
+Verification: 133 tests / 12 subtests passed with locked dependencies installed
+offline. No environments or raw caches are committed. PR #12:
+`https://github.com/ext-weihsianglin/content-optimization-system/pull/12`.
+
+The adjacent `profound/demo-webapp` is Content Studio (Next.js/FastAPI). Its inspected
+main checkout exposes `/api/analyze` and `/api/draft` in `backend/app/main.py` with
+mock grades and deterministic edits. Workstream branches may be ahead; no demo or
+other worktree files were modified. v5/v6 LR evidence was local/uncommitted at the
+time of inspection; freeze its artifacts before using it as a benchmark comparator.
+
 ## Reader-LM experiment and stop decision
 
 No hosted Jina API access. Downloaded `jinaai/reader-lm-0.5b` at pinned revision

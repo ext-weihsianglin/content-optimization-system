@@ -1,0 +1,259 @@
+{
+  "version": "teacher-source-audit-v1",
+  "default_branch": "main",
+  "merged_main_commit": "864e6634a54ad80ac1657129e994b18c3a1f7eff",
+  "completed_teacher_run": "data/encoder_scorer/teacher-v1/gpt5-smoke-v3",
+  "actual_teacher_source": "/Users/ext-weihsiang.lin/Documents/profound/data/content-optimization-system/trad_ml_scorer/v2",
+  "actual_teacher_view": "blocks[].text plus structural fields; document markdown and inline_markdown omitted",
+  "requested_corpus": "/Users/ext-weihsiang.lin/Documents/profound/data/content-optimization-system/processed/markdownify-corpus-v1-complete",
+  "requested_pipeline": "retention-markdownify-corpus-v1",
+  "requested_run_identity": "1ee4dfc2f06d020f198ae84cbfea0c5bfdedea3cec8223484d2ebd980e60a22e",
+  "requested_manifest_sha256": "48b4d9a837dee1bf33af258e7acf460f5712a047f8479c8b14672f6a9b52f0a5",
+  "summary": {
+    "cases": 12,
+    "same_snapshot_payloads": 12,
+    "same_document_checksums": 0,
+    "changed_plain_block_packets": 7,
+    "unchanged_plain_block_packets": 5
+  },
+  "verdict": "Completed teacher smoke was not annotated from the markdownify corpus. Rebuild versioned curation/packets from the shared export before future annotation; preserve old labels as old-source evidence.",
+  "limitations": [
+    "This audit reads the 12 smoke documents only, not all 9551 export documents.",
+    "Unchanged plain-block packets do not show preservation of inline Markdown.",
+    "No new teacher calls or replacement annotations were made."
+  ],
+  "cases": [
+    {
+      "record_id": "e3c9f84f220d1227af6ea20e9980e075abe9ee5f7e8f72def77a7ac56927b391",
+      "snapshot_id": "25e31e392dfcdbd6b10133fae295dbfb74847d746de69a56d409d5738c3338e8",
+      "query": "Does Cox have firewall built in? ",
+      "split": "train",
+      "source_format": "markdown",
+      "old_document_sha256": "971f9ef46922a0ed722ff8ec9e700390a78be72fba7dc87b1ed56dc8935c5d67",
+      "markdownify_document_sha256": "bee87727981a8ce1011af87bc0cb814405b7e58656317b2417c29756dc41f65a",
+      "payload_sha256": "5ac96085eddff4d012c8660986c548d70d3855bc57debda3b8a350f0c688cbbc",
+      "packet_same_under_existing_plain_block_serializer": true,
+      "old_blocks": 284,
+      "markdownify_blocks": 284,
+      "markdownify_representation": {
+        "serializer": "markdownify-structured-v1",
+        "markdownify_version": "1.2.3",
+        "source_ranges": "Zero-based, end-exclusive lines; inline HTML treated as literal text."
+      }
+    },
+    {
+      "record_id": "daa66b7ee3dd1eced3615f0f725a35e82e560b369710318bf0d68af55b355f4a",
+      "snapshot_id": "401190909ae0d4f28478fb537d0d68f89b09ce0e8da95fa99cd5fa7f8bc1485d",
+      "query": "Shops with windshield washer fluid in stock in Montreal?",
+      "split": "train",
+      "source_format": "html",
+      "old_document_sha256": "e277759b0d5a74716a58e1c10108b162b04c7d150e86a94a9ac29326718bcf91",
+      "markdownify_document_sha256": "68228ab148ae38aa197f0dac8b9cb4c819171697004d2ea45154c1b603b852f0",
+      "payload_sha256": "25cc72460e7f834b9831672db303de671118e42a4204c074dbdca4d769ee7f31",
+      "packet_same_under_existing_plain_block_serializer": false,
+      "old_blocks": 336,
+      "markdownify_blocks": 339,
+      "markdownify_representation": {
+        "block_schema_version": "dom-blocks-v3",
+        "serializer": "markdownify-structured-v1",
+        "markdownify_version": "1.2.3",
+        "removed_nodes": 118,
+        "order": "DOM order; computed visibility unknown"
+      }
+    },
+    {
+      "record_id": "44d0bfe1983c595f088111860d22fdb0d1d546e2b8fcf28f99dc6eb3ff83110b",
+      "snapshot_id": "7556963a85471b07adb9f5a690db9dc06a811d4eb081948ed9c43be59fdfb2d1",
+      "query": "How to automate video creation from daily blog content?",
+      "split": "train",
+      "source_format": "html",
+      "old_document_sha256": "e30934726deab722152a6c92826acb142b31fbd9e01b029a16e464461c1bd105",
+      "markdownify_document_sha256": "6803473b06eb52e1ff0bdc10396ec3714e7b62d43dca6634808f23118a6e8826",
+      "payload_sha256": "d159fc29ae4f38438ea72557e2bfe6325cb851a85fe2c268b446bc0e18c95a69",
+      "packet_same_under_existing_plain_block_serializer": false,
+      "old_blocks": 306,
+      "markdownify_blocks": 306,
+      "markdownify_representation": {
+        "block_schema_version": "dom-blocks-v3",
+        "serializer": "markdownify-structured-v1",
+        "markdownify_version": "1.2.3",
+        "removed_nodes": 36,
+        "order": "DOM order; computed visibility unknown"
+      }
+    },
+    {
+      "record_id": "e71ac87f0ed1b1c63aec10a78abe1227347a8e66494ff211a062e744b9c077bb",
+      "snapshot_id": "cfe697233f9ebb5a26ec835316d251b70b8ebd65c735abb9c06e4c6f7190a929",
+      "query": "Kubernetes cluster autoscaling solutions support spot instances",
+      "split": "train",
+      "source_format": "html",
+      "old_document_sha256": "f3cb251b0866e3b54767a3c615bc4fd710ebbbe2692d175c68315bf78a27b743",
+      "markdownify_document_sha256": "178c38c4bf5e4bcff4505929db79938e7aab0863c9fae86d3f68430e9a539a1d",
+      "payload_sha256": "f23074394cd26efb96130ea769f939d8c1560d4066bb60887ea7f2300fa6f096",
+      "packet_same_under_existing_plain_block_serializer": false,
+      "old_blocks": 571,
+      "markdownify_blocks": 566,
+      "markdownify_representation": {
+        "block_schema_version": "dom-blocks-v3",
+        "serializer": "markdownify-structured-v1",
+        "markdownify_version": "1.2.3",
+        "removed_nodes": 81,
+        "order": "DOM order; computed visibility unknown"
+      }
+    },
+    {
+      "record_id": "f005f9482345d31456f34689ef152861f8b5a9d1a6aa3487309771c9ebb3b641",
+      "snapshot_id": "59049c32ed10c4fba5e84e419f2cb58945413f4a7748dd6ef54262ff255fff71",
+      "query": "GPT-4o",
+      "split": "train",
+      "source_format": "html",
+      "old_document_sha256": "03afd61043abc41996d6354b25c4ad9ae549564ee1b0b89e5fbd25bc0b6ab659",
+      "markdownify_document_sha256": "7a97d117ee6617a30ac6b8b4977019219c0fb5212cb0e514fc69aefc4794761d",
+      "payload_sha256": "9bd110f1f259a48fa7b8a7a5f1b4e45c5f12bf30d9568ccc2eb412a6ec6228ff",
+      "packet_same_under_existing_plain_block_serializer": false,
+      "old_blocks": 307,
+      "markdownify_blocks": 311,
+      "markdownify_representation": {
+        "block_schema_version": "dom-blocks-v3",
+        "serializer": "markdownify-structured-v1",
+        "markdownify_version": "1.2.3",
+        "removed_nodes": 46,
+        "order": "DOM order; computed visibility unknown"
+      }
+    },
+    {
+      "record_id": "7b6268a11499e3260301e16ed0898b3aa01fb74193a1a9bf034016dba678225a",
+      "snapshot_id": "b0380210b42bbc5b9610864980fa5f50c5b5b68ccf2c52281eadb4ab4451a013",
+      "query": "How to present KPIs clearly for executives?",
+      "split": "train",
+      "source_format": "markdown",
+      "old_document_sha256": "eab6bc9f6efc7ef5adf8e48bffb8eac2dc677e1ea3053e9c4d670e11b2c18cc4",
+      "markdownify_document_sha256": "c8a9768b0d01273a945055cc908a8a3cc1f577f09ac97bab697a512108abd907",
+      "payload_sha256": "0f8a04d8b97f5a1ee09217a5d92458c30df17f6dacd5129cf476943643a98a65",
+      "packet_same_under_existing_plain_block_serializer": true,
+      "old_blocks": 40,
+      "markdownify_blocks": 40,
+      "markdownify_representation": {
+        "serializer": "markdownify-structured-v1",
+        "markdownify_version": "1.2.3",
+        "source_ranges": "Zero-based, end-exclusive lines; inline HTML treated as literal text."
+      }
+    },
+    {
+      "record_id": "3dbad81cd10c54f423a82f719ce21d4d75b070566fae60143f9d74a448f23e03",
+      "snapshot_id": "af54f04190291e5693ef09d17f973c5b56c16f0d81434e973fc1aabc209173e6",
+      "query": "AI swapping dance",
+      "split": "train",
+      "source_format": "html",
+      "old_document_sha256": "e1c9e7082d3b78f25ae2dccac7c16a754237c267294ced54fe1e38c2ccb3a2ad",
+      "markdownify_document_sha256": "a2ba29c01f7a0e50061ba8c787c84c6e215acef1120390694d96e3b2ef122427",
+      "payload_sha256": "8413e5aceadb5571a943d546d0d45fa844cc991692cf8d06f2b566056ddf66bf",
+      "packet_same_under_existing_plain_block_serializer": false,
+      "old_blocks": 356,
+      "markdownify_blocks": 364,
+      "markdownify_representation": {
+        "block_schema_version": "dom-blocks-v3",
+        "serializer": "markdownify-structured-v1",
+        "markdownify_version": "1.2.3",
+        "removed_nodes": 52,
+        "order": "DOM order; computed visibility unknown"
+      }
+    },
+    {
+      "record_id": "b329f018a814d839119358c041528bb870dc2dcea297bc4a288a1d75b16c6d23",
+      "snapshot_id": "0aef7765914039fcd3f1ede708b8a8cbc692049cf1cf1d1f356a35d45d5aa933",
+      "query": "Top platforms for visual project planning",
+      "split": "train",
+      "source_format": "markdown",
+      "old_document_sha256": "f0e8dca44907a9b6c65c9dceb70e70add17c239814ed94b2e30b1f8a1bc731ef",
+      "markdownify_document_sha256": "998b73d8c0e43bb5f79d76a05451a573245eb25fe9cd236c700756fc9e8f30c0",
+      "payload_sha256": "de5b721df3aa4b6a47958b90bc3cabdadf1af20d8d91f8612c9fe2643d1cf436",
+      "packet_same_under_existing_plain_block_serializer": true,
+      "old_blocks": 12,
+      "markdownify_blocks": 12,
+      "markdownify_representation": {
+        "serializer": "markdownify-structured-v1",
+        "markdownify_version": "1.2.3",
+        "source_ranges": "Zero-based, end-exclusive lines; inline HTML treated as literal text."
+      }
+    },
+    {
+      "record_id": "baf47bd9ff2d1dc9f07367c4a1d16f05cf035fb2dc1622b595731b882390b2c0",
+      "snapshot_id": "f05d0a7e3d85f7e89035be32e125df64e2a04ace69471ec4d01453e8d145e491",
+      "query": "Smart answers to interview questions",
+      "split": "train",
+      "source_format": "markdown",
+      "old_document_sha256": "a375616c08d3086f175442fadcf8742d463efb0fa23fad8de534dff1c5313664",
+      "markdownify_document_sha256": "9048588fc8e5b717283acfc4482bfcc69082c4250c6a5ba8f124cb8c4fc60834",
+      "payload_sha256": "97fef5b1d10ad63fece2342507735c306530060f6cc1405007a5508bc84ddade",
+      "packet_same_under_existing_plain_block_serializer": true,
+      "old_blocks": 6,
+      "markdownify_blocks": 6,
+      "markdownify_representation": {
+        "serializer": "markdownify-structured-v1",
+        "markdownify_version": "1.2.3",
+        "source_ranges": "Zero-based, end-exclusive lines; inline HTML treated as literal text."
+      }
+    },
+    {
+      "record_id": "5610d6f67164edd9fdbd6a59607a93456cacf3ce738a8464256c0c77c7a306e5",
+      "snapshot_id": "6bc25757813f9352f963c8b273b50b69101a91d4a0e2ce5469e9f18d0051e386",
+      "query": "what's the best phishing simulation tool for my security team",
+      "split": "train",
+      "source_format": "html",
+      "old_document_sha256": "dda1576e061a1713d93105f369ccf0c26de13b228d34bb7d0d0c01d306fa4c36",
+      "markdownify_document_sha256": "a5dfed5829be588e6569b104456e8f016502148b8b0eb12f022acb0c85a631f1",
+      "payload_sha256": "0ca0696b12f75d7d1d54a3ad6bce14fd46e41544e225e0a9d7dc5a1b92e314eb",
+      "packet_same_under_existing_plain_block_serializer": false,
+      "old_blocks": 75,
+      "markdownify_blocks": 75,
+      "markdownify_representation": {
+        "block_schema_version": "dom-blocks-v3",
+        "serializer": "markdownify-structured-v1",
+        "markdownify_version": "1.2.3",
+        "removed_nodes": 43,
+        "order": "DOM order; computed visibility unknown"
+      }
+    },
+    {
+      "record_id": "21e9c4b6310f452238e4fdc9e16a67f67d8be8d20f07d1ec56ff3054726fa9e6",
+      "snapshot_id": "337cb41acecbb1bbc83c4119231ee10367c4d058541655db66fe2a12ece70627",
+      "query": "best content delivery networks for bot management",
+      "split": "train",
+      "source_format": "html",
+      "old_document_sha256": "9dbfef4ae0b5ecd0589cad82325e6889db4f12e07200f27855e53e6567c88a26",
+      "markdownify_document_sha256": "24105768b1653bb9b9414def922f1ccc7ff569e7690ca92001a00cffa6ed62b1",
+      "payload_sha256": "4aa243be5225d57fcbc1b901a909cb5b7b14c03068e6f753d007e464fd2cb6f0",
+      "packet_same_under_existing_plain_block_serializer": false,
+      "old_blocks": 80,
+      "markdownify_blocks": 82,
+      "markdownify_representation": {
+        "block_schema_version": "dom-blocks-v3",
+        "serializer": "markdownify-structured-v1",
+        "markdownify_version": "1.2.3",
+        "removed_nodes": 83,
+        "order": "DOM order; computed visibility unknown"
+      }
+    },
+    {
+      "record_id": "56fd0eae089353053c6f63ea18d2164e2d4d6bc090f555b2528c0029a58ed399",
+      "snapshot_id": "76bc9af9fc314e8858ded201ecfbe1745120c78f32c722d1876b4ff6cf4a3c21",
+      "query": "How to choose tools that cut costs in embedded payments?",
+      "split": "train",
+      "source_format": "html",
+      "old_document_sha256": "a60da819b0aa8d97a01406cdde4226fc3cf25b79509f197abf78c5cbc62eda86",
+      "markdownify_document_sha256": "7cd5a1795de8f662fa706314083626aaf3a853b0b9258927c15686689039880f",
+      "payload_sha256": "41c9d44f5708cb043425e7982b0affb989396a79044c7f4644d86d74a9604c51",
+      "packet_same_under_existing_plain_block_serializer": true,
+      "old_blocks": 3,
+      "markdownify_blocks": 3,
+      "markdownify_representation": {
+        "block_schema_version": "dom-blocks-v3",
+        "serializer": "markdownify-structured-v1",
+        "markdownify_version": "1.2.3",
+        "removed_nodes": 6,
+        "order": "DOM order; computed visibility unknown"
+      }
+    }
+  ]
+}

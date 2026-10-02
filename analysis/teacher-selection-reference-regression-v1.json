@@ -1,0 +1,64 @@
+{
+  "version": "selection-reference-regression-v1",
+  "historical_quote_failures": 8,
+  "outcomes": [
+    {
+      "record_id": "daa66b7ee3dd1eced3615f0f725a35e82e560b369710318bf0d68af55b355f4a",
+      "trace_sha256": "8b7b742d2c541d0eb4fdbab6349046faea58048f52fe3902ebd8883626ff9e20",
+      "original_error": "Evidence must quote an exact nonempty span from an available block",
+      "replay": "not_a_teacher_rerun_or_semantic_review",
+      "selection_replay": "still_rejected",
+      "selection_error": "response.requirement_assessments.R1.state: invalid enum"
+    },
+    {
+      "record_id": "44d0bfe1983c595f088111860d22fdb0d1d546e2b8fcf28f99dc6eb3ff83110b",
+      "trace_sha256": "38c541112d105f174058cc10ea4e5022fc50665364e633ec114a7a5e7e8070a6",
+      "original_error": "Evidence must quote an exact nonempty span from an available block",
+      "replay": "not_a_teacher_rerun_or_semantic_review",
+      "selection_replay": "mechanically_valid_with_backend_block_copy"
+    },
+    {
+      "record_id": "44d0bfe1983c595f088111860d22fdb0d1d546e2b8fcf28f99dc6eb3ff83110b",
+      "trace_sha256": "9280057fc2a0950db61b5d53b9fb7db2d906678e1d08639a63928f22237ed8e5",
+      "original_error": "Evidence must quote an exact nonempty span from an available block",
+      "replay": "not_a_teacher_rerun_or_semantic_review",
+      "selection_replay": "mechanically_valid_with_backend_block_copy"
+    },
+    {
+      "record_id": "7b6268a11499e3260301e16ed0898b3aa01fb74193a1a9bf034016dba678225a",
+      "trace_sha256": "c580024a43e8b9358adf479795f0b3479b5e66ce5ab44fb020c39d00ab76dbbf",
+      "original_error": "Evidence must quote an exact nonempty span from an available block",
+      "replay": "not_a_teacher_rerun_or_semantic_review",
+      "selection_replay": "mechanically_valid_with_backend_block_copy"
+    },
+    {
+      "record_id": "b329f018a814d839119358c041528bb870dc2dcea297bc4a288a1d75b16c6d23",
+      "trace_sha256": "1c41a5e0b90e988f59b9ddee90036f60a653aaf4fef35ca8dbf70b49ea3d53f8",
+      "original_error": "Evidence must quote an exact nonempty span from an available block",
+      "replay": "not_a_teacher_rerun_or_semantic_review",
+      "selection_replay": "mechanically_valid_with_backend_block_copy"
+    },
+    {
+      "record_id": "b329f018a814d839119358c041528bb870dc2dcea297bc4a288a1d75b16c6d23",
+      "trace_sha256": "1cc8cfd0d45d67a7f4d9c35d93ac0be03adc925571faf7b3989f7f0e6942aef3",
+      "original_error": "Evidence must quote an exact nonempty span from an available block",
+      "replay": "not_a_teacher_rerun_or_semantic_review",
+      "selection_replay": "mechanically_valid_with_backend_block_copy"
+    },
+    {
+      "record_id": "baf47bd9ff2d1dc9f07367c4a1d16f05cf035fb2dc1622b595731b882390b2c0",
+      "trace_sha256": "435636bc2334f83733beec7a067ee6238821d4ad6ef02f7b562b57eaed77d77e",
+      "original_error": "Evidence must quote an exact nonempty span from an available block",
+      "replay": "not_a_teacher_rerun_or_semantic_review",
+      "selection_replay": "mechanically_valid_with_backend_block_copy"
+    },
+    {
+      "record_id": "5610d6f67164edd9fdbd6a59607a93456cacf3ce738a8464256c0c77c7a306e5",
+      "trace_sha256": "45f32b1d8b6e72be53f25f49462dee1a47e590a94630844f3edca2e1447e0f18",
+      "original_error": "Evidence must quote an exact nonempty span from an available block",
+      "replay": "not_a_teacher_rerun_or_semantic_review",
+      "selection_replay": "mechanically_valid_with_backend_block_copy"
+    }
+  ],
+  "limit": "Replays ID selections from rejected historical judgments. Copied whole-block text does not establish selected evidence relevance or teacher accuracy."
+}

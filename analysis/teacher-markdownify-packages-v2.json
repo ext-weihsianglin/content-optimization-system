@@ -1,0 +1,2197 @@
+{
+  "status": "Offline preparation complete; approved_model_pending_new_annotation",
+  "teacher_model": "gpt-5",
+  "model_calls": 0,
+  "teacher_labels": 0,
+  "human_reviewed_cases": 0,
+  "test_documents_loaded": 0,
+  "curation_manifest_sha256": "6d3dd36782ce14796da4bc74371cbaeb271380a99c8025511b6efdbb27c8d4b3",
+  "source_records_sha256": "2cd474a547d486fdcb1f822a2b3687195ca24fe82d879dee9898fb91e736b59f",
+  "source_manifest_sha256": "48b4d9a837dee1bf33af258e7acf460f5712a047f8479c8b14672f6a9b52f0a5",
+  "host_splits_sha256": "01f57af79c227ad783111d3030fab08cee06fe37ef1829b975889e85ae6eaf3c",
+  "selected_counts": {
+    "split": {
+      "train": 96,
+      "validation": 24
+    },
+    "query_type": {
+      "comparison": 32,
+      "other": 25,
+      "procedure": 21,
+      "question": 42
+    },
+    "page_role": {
+      "commerce": 28,
+      "editorial": 16,
+      "homepage": 20,
+      "other": 19,
+      "support": 37
+    },
+    "status": {
+      "needs_review": 33,
+      "selected": 87
+    },
+    "source_format": {
+      "html": 113,
+      "markdown": 7
+    },
+    "length": {
+      "long": 33,
+      "medium": 50,
+      "short": 37
+    },
+    "tables": {
+      "absent": 83,
+      "present": 37
+    },
+    "code": {
+      "absent": 110,
+      "present": 10
+    }
+  },
+  "candidate_counts": {
+    "split": {
+      "train": 96,
+      "validation": 24
+    },
+    "query_type": {
+      "comparison": 32,
+      "other": 25,
+      "procedure": 21,
+      "question": 42
+    },
+    "page_role": {
+      "commerce": 28,
+      "editorial": 16,
+      "homepage": 20,
+      "other": 19,
+      "support": 37
+    },
+    "status": {
+      "needs_review": 33,
+      "selected": 87
+    },
+    "source_format": {
+      "html": 113,
+      "markdown": 7
+    },
+    "length": {
+      "long": 33,
+      "medium": 50,
+      "short": 37
+    },
+    "tables": {
+      "absent": 83,
+      "present": 37
+    },
+    "code": {
+      "absent": 110,
+      "present": 10
+    }
+  },
+  "smoke": {
+    "version": "teacher-packets-v2",
+    "serialization": "teacher-blocks-markdownify-v2",
+    "source_path": "/Users/ext-weihsiang.lin/Documents/profound/data/content-optimization-system/processed/markdownify-corpus-v1-complete",
+    "source_manifest_sha256": "48b4d9a837dee1bf33af258e7acf460f5712a047f8479c8b14672f6a9b52f0a5",
+    "source_run_identity": "1ee4dfc2f06d020f198ae84cbfea0c5bfdedea3cec8223484d2ebd980e60a22e",
+    "curation_sha256": "6d3dd36782ce14796da4bc74371cbaeb271380a99c8025511b6efdbb27c8d4b3",
+    "rubric_sha256": "11f2a9c29a86e8b17a143a4b675102bd3320a773f11d1a4d4c016e71f1e741a5",
+    "cases": 12,
+    "full_body_cases": 6,
+    "empty_body_cases": 0,
+    "teacher_model": "gpt-5",
+    "model_calls": 0,
+    "token_counts": "Counted at execution before any generation; no API calls during preparation",
+    "packets_sha256": "bfbeb0dc10ea3dbf57598eda9f8592dfeafda346d039005cdfedd3d61d15cce7"
+  },
+  "review_queue_count": 30,
+  "limitations": [
+    "Fixed development pilot recreated from prior selection, not a new sample or held-out evidence",
+    "Only selected development documents loaded; raw-file/index identities verified without re-extraction",
+    "Old-source teacher labels are not transferred; no teacher calls or human review",
+    "Source-format coverage is limited to the observed selected counts; no claim of full-format coverage",
+    "Character-limited views are not tokenizer-budgeted; 6 smoke views have omitted blocks",
+    "Heuristic curation intentionally oversamples rare strata and needs-review content",
+    "No teacher reliability, model training, LR comparison, or end-to-end dogfood completed"
+  ],
+  "code_sha256": {
+    "encoder_scorer/__init__.py": "18fda61b543dbde8949a1bc62db944aa210a96028e0f71f087188869e2f8606c",
+    "encoder_scorer/annotate.py": "cad97ec703880fc6d86095f8b6675a898e003ecb3473c26cd3e0ab795e245e53",
+    "encoder_scorer/annotation_report.py": "c395183e1c6771d32e108d488fd16263a100e4474aab5e6baaf5b0aa99c4853a",
+    "encoder_scorer/contracts.py": "fc22b17c98fa920a65bb417110519aaedbdda2fd018a17b677389b3534c4b697",
+    "encoder_scorer/curate.py": "2e28fd098257d51a1a903e28b6127bfa58fc7b13bfd9876a558bb314202917c3",
+    "encoder_scorer/edits.py": "fefdae86760498db17d2cc55efb5a2c864ccaea96bbe71668454d3407b8651d0",
+    "encoder_scorer/packets.py": "96b9d85c2585dc931333f73393d306d20bb40e0223b6df155e579ec2d445f296",
+    "encoder_scorer/repackage.py": "565b8c6ad3da9df7c2661360ead4f30c91d27d3002eadcb6330e3baff975e990",
+    "encoder_scorer/report.py": "d8d82e2b4cbf20ae1652e9d87e55a3c98124b6d01553b46b807f78c028c468fb"
+  },
+  "cases": [
+    {
+      "record_id": "c1f9e14642d9280aaf89d4ec0ea99293ca7e3104ebc1a7eb95a47183b49bc9e9",
+      "snapshot_id": "305c7cb195ea0cde812c79d5404c05173792677a4176e057472133b495e9dc6e",
+      "split": "train",
+      "document_sha256": "67ef417d1b6447ddcef90f8f2fc350bd0b590fabdb79a5ba17be4f8c068ba647",
+      "strata": {
+        "query_type": "comparison",
+        "page_role": "support",
+        "status": "selected",
+        "source_format": "html",
+        "length": "medium",
+        "tables": "absent",
+        "code": "present"
+      },
+      "smoke": false,
+      "independent_review": false
+    },
+    {
+      "record_id": "e3c9f84f220d1227af6ea20e9980e075abe9ee5f7e8f72def77a7ac56927b391",
+      "snapshot_id": "25e31e392dfcdbd6b10133fae295dbfb74847d746de69a56d409d5738c3338e8",
+      "split": "train",
+      "document_sha256": "bee87727981a8ce1011af87bc0cb814405b7e58656317b2417c29756dc41f65a",
+      "strata": {
+        "query_type": "question",
+        "page_role": "support",
+        "status": "selected",
+        "source_format": "markdown",
+        "length": "long",
+        "tables": "absent",
+        "code": "absent"
+      },
+      "smoke": true,
+      "independent_review": true
+    },
+    {
+      "record_id": "daa66b7ee3dd1eced3615f0f725a35e82e560b369710318bf0d68af55b355f4a",
+      "snapshot_id": "401190909ae0d4f28478fb537d0d68f89b09ce0e8da95fa99cd5fa7f8bc1485d",
+      "split": "train",
+      "document_sha256": "68228ab148ae38aa197f0dac8b9cb4c819171697004d2ea45154c1b603b852f0",
+      "strata": {
+        "query_type": "question",
+        "page_role": "commerce",
+        "status": "selected",
+        "source_format": "html",
+        "length": "medium",
+        "tables": "present",
+        "code": "present"
+      },
+      "smoke": true,
+      "independent_review": false
+    },
+    {
+      "record_id": "b81b7418b5049427b3f12aed3ba3400f48f24b774bcf56834970dc83bac08128",
+      "snapshot_id": "8450a45a1ec9195c80164730ee5e07cf2284ab99fadccfd91c655e3f27520d9f",
+      "split": "train",
+      "document_sha256": "6cc2bc7f2e7d5ab4ceb1e779c08830853be0dec366d8e77cd0b9dabf5d71fd33",
+      "strata": {
+        "query_type": "other",
+        "page_role": "support",
+        "status": "selected",
+        "source_format": "markdown",
+        "length": "medium",
+        "tables": "absent",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": false
+    },
+    {
+      "record_id": "44d0bfe1983c595f088111860d22fdb0d1d546e2b8fcf28f99dc6eb3ff83110b",
+      "snapshot_id": "7556963a85471b07adb9f5a690db9dc06a811d4eb081948ed9c43be59fdfb2d1",
+      "split": "train",
+      "document_sha256": "6803473b06eb52e1ff0bdc10396ec3714e7b62d43dca6634808f23118a6e8826",
+      "strata": {
+        "query_type": "procedure",
+        "page_role": "editorial",
+        "status": "selected",
+        "source_format": "html",
+        "length": "medium",
+        "tables": "present",
+        "code": "present"
+      },
+      "smoke": true,
+      "independent_review": false
+    },
+    {
+      "record_id": "dbf1b7bd777e682c27132554c54c96ebd2a74fbeb6bcfc128c279ac6e62efdeb",
+      "snapshot_id": "51e4d507155806ad4175f420a6d9b3fad5ccfc180ccb3f6021f506d457b7fba3",
+      "split": "train",
+      "document_sha256": "4ebf7130693488883e802e725e3451bdc267ea9e21190190934e76a9b87607ff",
+      "strata": {
+        "query_type": "other",
+        "page_role": "commerce",
+        "status": "selected",
+        "source_format": "markdown",
+        "length": "medium",
+        "tables": "absent",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": true
+    },
+    {
+      "record_id": "e71ac87f0ed1b1c63aec10a78abe1227347a8e66494ff211a062e744b9c077bb",
+      "snapshot_id": "cfe697233f9ebb5a26ec835316d251b70b8ebd65c735abb9c06e4c6f7190a929",
+      "split": "train",
+      "document_sha256": "178c38c4bf5e4bcff4505929db79938e7aab0863c9fae86d3f68430e9a539a1d",
+      "strata": {
+        "query_type": "other",
+        "page_role": "editorial",
+        "status": "selected",
+        "source_format": "html",
+        "length": "long",
+        "tables": "absent",
+        "code": "present"
+      },
+      "smoke": true,
+      "independent_review": true
+    },
+    {
+      "record_id": "99aa895b7dfdd44fb83e9cff1fb414a10f4b4df81d19eb4865dd49df1e5a1a3a",
+      "snapshot_id": "521f37a36b6c847db2070445b79a1426c39682e3c08fd705a1fad5082fb8d9e4",
+      "split": "train",
+      "document_sha256": "d3368e296b823755fd05083e113103606ae85a7e8fe34bd997e78e1bd833a9c4",
+      "strata": {
+        "query_type": "question",
+        "page_role": "support",
+        "status": "selected",
+        "source_format": "markdown",
+        "length": "medium",
+        "tables": "absent",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": false
+    },
+    {
+      "record_id": "f005f9482345d31456f34689ef152861f8b5a9d1a6aa3487309771c9ebb3b641",
+      "snapshot_id": "59049c32ed10c4fba5e84e419f2cb58945413f4a7748dd6ef54262ff255fff71",
+      "split": "train",
+      "document_sha256": "7a97d117ee6617a30ac6b8b4977019219c0fb5212cb0e514fc69aefc4794761d",
+      "strata": {
+        "query_type": "other",
+        "page_role": "editorial",
+        "status": "selected",
+        "source_format": "html",
+        "length": "long",
+        "tables": "absent",
+        "code": "present"
+      },
+      "smoke": true,
+      "independent_review": false
+    },
+    {
+      "record_id": "7b6268a11499e3260301e16ed0898b3aa01fb74193a1a9bf034016dba678225a",
+      "snapshot_id": "b0380210b42bbc5b9610864980fa5f50c5b5b68ccf2c52281eadb4ab4451a013",
+      "split": "train",
+      "document_sha256": "c8a9768b0d01273a945055cc908a8a3cc1f577f09ac97bab697a512108abd907",
+      "strata": {
+        "query_type": "procedure",
+        "page_role": "other",
+        "status": "selected",
+        "source_format": "markdown",
+        "length": "long",
+        "tables": "absent",
+        "code": "absent"
+      },
+      "smoke": true,
+      "independent_review": false
+    },
+    {
+      "record_id": "3dbad81cd10c54f423a82f719ce21d4d75b070566fae60143f9d74a448f23e03",
+      "snapshot_id": "af54f04190291e5693ef09d17f973c5b56c16f0d81434e973fc1aabc209173e6",
+      "split": "train",
+      "document_sha256": "a2ba29c01f7a0e50061ba8c787c84c6e215acef1120390694d96e3b2ef122427",
+      "strata": {
+        "query_type": "other",
+        "page_role": "other",
+        "status": "selected",
+        "source_format": "html",
+        "length": "medium",
+        "tables": "absent",
+        "code": "present"
+      },
+      "smoke": true,
+      "independent_review": false
+    },
+    {
+      "record_id": "b329f018a814d839119358c041528bb870dc2dcea297bc4a288a1d75b16c6d23",
+      "snapshot_id": "0aef7765914039fcd3f1ede708b8a8cbc692049cf1cf1d1f356a35d45d5aa933",
+      "split": "train",
+      "document_sha256": "998b73d8c0e43bb5f79d76a05451a573245eb25fe9cd236c700756fc9e8f30c0",
+      "strata": {
+        "query_type": "other",
+        "page_role": "other",
+        "status": "selected",
+        "source_format": "markdown",
+        "length": "medium",
+        "tables": "absent",
+        "code": "absent"
+      },
+      "smoke": true,
+      "independent_review": false
+    },
+    {
+      "record_id": "97c6abd8166952448be22d4df50301b999d8503059a9926e95b93aed9103be18",
+      "snapshot_id": "aaabb5567d2f4d242b76de301d138b227e55ecba74ab95d2e39b4d7e9e9ebc18",
+      "split": "train",
+      "document_sha256": "1855ccb3ad7446b15308b3b3852fc5559a151b8d0e3d7c17e1983626fbbadbfd",
+      "strata": {
+        "query_type": "comparison",
+        "page_role": "support",
+        "status": "needs_review",
+        "source_format": "html",
+        "length": "short",
+        "tables": "absent",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": true
+    },
+    {
+      "record_id": "baf47bd9ff2d1dc9f07367c4a1d16f05cf035fb2dc1622b595731b882390b2c0",
+      "snapshot_id": "f05d0a7e3d85f7e89035be32e125df64e2a04ace69471ec4d01453e8d145e491",
+      "split": "train",
+      "document_sha256": "9048588fc8e5b717283acfc4482bfcc69082c4250c6a5ba8f124cb8c4fc60834",
+      "strata": {
+        "query_type": "other",
+        "page_role": "other",
+        "status": "selected",
+        "source_format": "markdown",
+        "length": "medium",
+        "tables": "absent",
+        "code": "absent"
+      },
+      "smoke": true,
+      "independent_review": false
+    },
+    {
+      "record_id": "5610d6f67164edd9fdbd6a59607a93456cacf3ce738a8464256c0c77c7a306e5",
+      "snapshot_id": "6bc25757813f9352f963c8b273b50b69101a91d4a0e2ce5469e9f18d0051e386",
+      "split": "train",
+      "document_sha256": "a5dfed5829be588e6569b104456e8f016502148b8b0eb12f022acb0c85a631f1",
+      "strata": {
+        "query_type": "comparison",
+        "page_role": "homepage",
+        "status": "needs_review",
+        "source_format": "html",
+        "length": "medium",
+        "tables": "absent",
+        "code": "absent"
+      },
+      "smoke": true,
+      "independent_review": true
+    },
+    {
+      "record_id": "21e9c4b6310f452238e4fdc9e16a67f67d8be8d20f07d1ec56ff3054726fa9e6",
+      "snapshot_id": "337cb41acecbb1bbc83c4119231ee10367c4d058541655db66fe2a12ece70627",
+      "split": "train",
+      "document_sha256": "24105768b1653bb9b9414def922f1ccc7ff569e7690ca92001a00cffa6ed62b1",
+      "strata": {
+        "query_type": "comparison",
+        "page_role": "commerce",
+        "status": "needs_review",
+        "source_format": "html",
+        "length": "short",
+        "tables": "absent",
+        "code": "absent"
+      },
+      "smoke": true,
+      "independent_review": true
+    },
+    {
+      "record_id": "17e6127cb720a6fec69d012468840d12208bfb7648e5773c6499e75cdbd7e701",
+      "snapshot_id": "73e80aa5464ae4ec80a504c458b227e7a7120718024fac3ccd03446efe382ad6",
+      "split": "train",
+      "document_sha256": "2a4b9232773cdf1f4b7387e112de2e44602e6cea0118099d7eb58788e10bd4bc",
+      "strata": {
+        "query_type": "question",
+        "page_role": "support",
+        "status": "needs_review",
+        "source_format": "html",
+        "length": "short",
+        "tables": "absent",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": false
+    },
+    {
+      "record_id": "03a8c103aeb14528706093dee0748b1f37fbe56e6a632a963ee7ca605c1ac004",
+      "snapshot_id": "49b67af4b99204eaebd78f2fdf543bef342356a353a8efc7b5d9fe59408fb98c",
+      "split": "train",
+      "document_sha256": "302ab8586c02c20f1408d96ac23805314f0776ed52e314c8ab6f61a63832f069",
+      "strata": {
+        "query_type": "other",
+        "page_role": "commerce",
+        "status": "needs_review",
+        "source_format": "html",
+        "length": "long",
+        "tables": "present",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": false
+    },
+    {
+      "record_id": "d324525f74fad3f147d1117d0a46f84dd14e55218e980a569c6e1e1454b8df3c",
+      "snapshot_id": "314993e1627f1267b416f5f67a4a3920cc05a9356ddfca3fd57fc61205506bf0",
+      "split": "train",
+      "document_sha256": "3fed0b2f57a5204d3f55ac7d399e70843b25b3d6e1d456fea284004df8f9c252",
+      "strata": {
+        "query_type": "comparison",
+        "page_role": "homepage",
+        "status": "selected",
+        "source_format": "html",
+        "length": "short",
+        "tables": "absent",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": true
+    },
+    {
+      "record_id": "9fb25ba07e0948b3b85d49d63c286f2c92a304a3b6cd6fce35ceeca6052ceb67",
+      "snapshot_id": "c7e35da264856f63b2f84ba72c864511f17d3b66ce5727bb8552af512e75e959",
+      "split": "train",
+      "document_sha256": "45c97417530f551fcb7faaf41fcf1d9dcaf756f34c461741003e925054c6de2d",
+      "strata": {
+        "query_type": "question",
+        "page_role": "support",
+        "status": "needs_review",
+        "source_format": "html",
+        "length": "short",
+        "tables": "absent",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": false
+    },
+    {
+      "record_id": "d57d7c1b51c7e94c7701c6d8be0b56dd265b2f10802b951174650f3f525d1a16",
+      "snapshot_id": "8a07f1304bb8f416c0d4fc999f48eeace448b62a21adafe16a1394afcd8df0b2",
+      "split": "train",
+      "document_sha256": "a5a0f4de5ef115793d19890553ed23ac17756a7f9e96cd197410d87a847879c4",
+      "strata": {
+        "query_type": "comparison",
+        "page_role": "commerce",
+        "status": "needs_review",
+        "source_format": "html",
+        "length": "medium",
+        "tables": "present",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": false
+    },
+    {
+      "record_id": "709d189306978c91181fcd3251d6f7caf3bdda246cb69e51ee8038ad317335a1",
+      "snapshot_id": "690268366d6746d9e0f2091c34e854229a5c1e620bf1d2b0c28f1c2441f538bd",
+      "split": "train",
+      "document_sha256": "7b1b826b044f8691e0bf42c4d7019f5b6a2080bb8d00f31bb7614cf99a673f04",
+      "strata": {
+        "query_type": "procedure",
+        "page_role": "support",
+        "status": "selected",
+        "source_format": "html",
+        "length": "short",
+        "tables": "absent",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": false
+    },
+    {
+      "record_id": "405c3d29d10b663f1833d8a4de0ecacd9fb18333607ac37fb4494ceee77dcd4b",
+      "snapshot_id": "e00b6bc92b98c0962df5190f40415f2d434148ba4600912f4c5ab76d5fa9e055",
+      "split": "train",
+      "document_sha256": "a6e4cdff7d320ba45bbb1d111a237ca367c83d1b2b4b3f52387ff802646ad410",
+      "strata": {
+        "query_type": "question",
+        "page_role": "support",
+        "status": "selected",
+        "source_format": "html",
+        "length": "long",
+        "tables": "present",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": false
+    },
+    {
+      "record_id": "cfaada235abcc776c252dbdeff078f5c13d69f0a9cc0ce6fb710cfee4429e5d1",
+      "snapshot_id": "0da1a34ae9e0ab45dc386113565f8f6dd6a43d622e596618a60b2ed461a45333",
+      "split": "train",
+      "document_sha256": "dd180fcb64d24ecb66af24b2b068effd1d1aa70ba8a7faf23e89f93db1bca307",
+      "strata": {
+        "query_type": "question",
+        "page_role": "homepage",
+        "status": "selected",
+        "source_format": "html",
+        "length": "medium",
+        "tables": "present",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": true
+    },
+    {
+      "record_id": "1eed7037af0bfc1d3644257835d3717d990f16476bf5dca94cab43f7925fb2ca",
+      "snapshot_id": "bc94a4bc59c4142dc478a94f839ce5e52809567165f807cacabf701ab43eed72",
+      "split": "train",
+      "document_sha256": "23bcb3d6c5c69d02d14a01ea6aec87798c2e2fcf9780725b59e6822dcf97aa0b",
+      "strata": {
+        "query_type": "procedure",
+        "page_role": "commerce",
+        "status": "needs_review",
+        "source_format": "html",
+        "length": "medium",
+        "tables": "absent",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": false
+    },
+    {
+      "record_id": "bf8111feb70be104b79523857b5d5101aff70a19daa0b501f8d1d579fcf0ee5d",
+      "snapshot_id": "40878439c57323a4233b482a92e8a4cae3d5b3183ac357f44dd2dc7048565463",
+      "split": "train",
+      "document_sha256": "e9ded5793b0fba588c04baf4628e0b32700ffb2ac09d22915bb9cece9746752d",
+      "strata": {
+        "query_type": "question",
+        "page_role": "support",
+        "status": "needs_review",
+        "source_format": "html",
+        "length": "long",
+        "tables": "absent",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": false
+    },
+    {
+      "record_id": "71e01578e1f9123fb582297a9421d57b5801c95f53b297e305a1a93806c3919e",
+      "snapshot_id": "b30a42aaac0e37e8f6b43e3c68f8ffbdbbbf227934074e21c5f1c12a15f4467a",
+      "split": "train",
+      "document_sha256": "83126ad3f2b2695d885557c7015323b589070e4dfd77e92c88a2d24603efa1f6",
+      "strata": {
+        "query_type": "question",
+        "page_role": "commerce",
+        "status": "needs_review",
+        "source_format": "html",
+        "length": "short",
+        "tables": "absent",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": true
+    },
+    {
+      "record_id": "0c34eb3114375b925e8c6662556732d37869ad3868f2d592c481d434d37fff26",
+      "snapshot_id": "be4c82af4b407b98d628b30d347f0b067dcd9fada746a3ef3e1a87543ecd4981",
+      "split": "train",
+      "document_sha256": "5adf4aa8d2adbb55563b647051bd93955e5595bd091d2407518f29bb0595f794",
+      "strata": {
+        "query_type": "comparison",
+        "page_role": "homepage",
+        "status": "selected",
+        "source_format": "html",
+        "length": "short",
+        "tables": "absent",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": true
+    },
+    {
+      "record_id": "67c39278c8ca2a41dc58738fb76ff70d5086988a998a70c1176ad69b53b30b9c",
+      "snapshot_id": "4e7c9377dde104f2969dd61d49aeeee75104b63ddbaeec6d280738709780e05d",
+      "split": "train",
+      "document_sha256": "6b80d36968d5bce87b96410776ad9f329f197a7da9f41400827afee4aa34e7e1",
+      "strata": {
+        "query_type": "comparison",
+        "page_role": "support",
+        "status": "selected",
+        "source_format": "html",
+        "length": "medium",
+        "tables": "present",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": false
+    },
+    {
+      "record_id": "0dbdfc97dab847bd915ac055ea9964d417c4451e044cffc99e3a0fcb306a10b7",
+      "snapshot_id": "2115b5497d314d03c973b743b170fc2a4274eb89e4b23f7e688a85e063f41920",
+      "split": "train",
+      "document_sha256": "bee967d2deb2dccaa5da309ee876e0ced37a385740bb682d1bf31eeaf0efdb0e",
+      "strata": {
+        "query_type": "question",
+        "page_role": "commerce",
+        "status": "needs_review",
+        "source_format": "html",
+        "length": "short",
+        "tables": "absent",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": true
+    },
+    {
+      "record_id": "fdb7bf65fedf0207066fc7584b55d52637341e3354bea4c93ff42b75d6bb73ef",
+      "snapshot_id": "2f070f4f4b7da959af8bb0e113c3aa766c85e109732c5d48f2ef442428b617af",
+      "split": "train",
+      "document_sha256": "c643362901d40d6944e1ccfa286effac57a40cffac09d66ca61c045392647794",
+      "strata": {
+        "query_type": "procedure",
+        "page_role": "support",
+        "status": "selected",
+        "source_format": "html",
+        "length": "medium",
+        "tables": "absent",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": false
+    },
+    {
+      "record_id": "6a12629657931a38289d94769b37f7d67d4e0cfbf0308f5d6bd22f58aaa4a2bb",
+      "snapshot_id": "a353a8d28d82815130d63383b9f2a482e81865166fedb69728c5c3007b13864f",
+      "split": "train",
+      "document_sha256": "fdfad2ff0ca226e9222cb897f7092719edb9c133703d60fc93ab29b8ddfbcff7",
+      "strata": {
+        "query_type": "comparison",
+        "page_role": "editorial",
+        "status": "needs_review",
+        "source_format": "html",
+        "length": "long",
+        "tables": "present",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": false
+    },
+    {
+      "record_id": "1d525a3bbcc094dd20dd729bca07585ac6c4a57f5453a906d9e8c76e9071dd79",
+      "snapshot_id": "ca5c06f37d34087e66e90177bf8d3db26319e9510c1c6345d2a46ff366486fa2",
+      "split": "train",
+      "document_sha256": "69624660ff36207acb4c6bf9a40eede4658be234d05bb344c3d444dd573e595f",
+      "strata": {
+        "query_type": "comparison",
+        "page_role": "support",
+        "status": "selected",
+        "source_format": "html",
+        "length": "short",
+        "tables": "absent",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": true
+    },
+    {
+      "record_id": "617a3b0138f8bdd69ef23a59fe1af4985d26540979539cfac356277f93cf61fb",
+      "snapshot_id": "6db617dde992aac3107e954691dbb4f2de4dbad8c443e92d621c3dfebee78959",
+      "split": "train",
+      "document_sha256": "0e16eede7e6bef7d33fff6a4129f9cf66b603888f93443babfdff5651a62ecca",
+      "strata": {
+        "query_type": "other",
+        "page_role": "commerce",
+        "status": "selected",
+        "source_format": "html",
+        "length": "long",
+        "tables": "present",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": false
+    },
+    {
+      "record_id": "70193934e8e3894cf8e143af1d966e85bbaeef2565edd4d87408ced7f6e461fc",
+      "snapshot_id": "5a3b25df70e9c1d0464f8b6297e709fc0fb8c9689599fbeab8a38749e3a94ba7",
+      "split": "train",
+      "document_sha256": "bb025418c237ae01709d75c26f29aba6ddde4b4adc09b50d064c5fcb35ee3e97",
+      "strata": {
+        "query_type": "question",
+        "page_role": "homepage",
+        "status": "selected",
+        "source_format": "html",
+        "length": "medium",
+        "tables": "present",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": false
+    },
+    {
+      "record_id": "d709129e5eb518aba66f9eb52577a53cf972cf00c8ae376d68d6cca4561b1c98",
+      "snapshot_id": "8f3bacc76cee0324c04a7c543161bcb98cdc1c4573596dca3cb9ea24e5f1b48a",
+      "split": "train",
+      "document_sha256": "03b3669442fdf30e42f0e80db186c68cf562e3f27d494caa3dfea1ea47c8d531",
+      "strata": {
+        "query_type": "procedure",
+        "page_role": "support",
+        "status": "selected",
+        "source_format": "html",
+        "length": "medium",
+        "tables": "absent",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": false
+    },
+    {
+      "record_id": "b3da41c8c9c55414b5aa18f4d94c0483689ec05fcd088b13385a75c087168703",
+      "snapshot_id": "48f149a1c2602616e4e82fc9524a8bb3b1e77b74f9037fa1431eb5c6cfa4454c",
+      "split": "train",
+      "document_sha256": "b658f1a4b31022b3caab303db5aaf8dccb310c09bd2f543796343946eb595024",
+      "strata": {
+        "query_type": "comparison",
+        "page_role": "homepage",
+        "status": "selected",
+        "source_format": "html",
+        "length": "short",
+        "tables": "absent",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": false
+    },
+    {
+      "record_id": "600edf8bdafe48d0b2c0f826a60e6efd277fb14cf91e6c3bfb73e695c7764965",
+      "snapshot_id": "080583dc74c82a845f705d748b9107690edfbc45c56cdfaee82f5313688e2a13",
+      "split": "train",
+      "document_sha256": "64b8348b73380925bdd6076db5b7c451305a50665fecc4218ee36e196e51a2d1",
+      "strata": {
+        "query_type": "question",
+        "page_role": "support",
+        "status": "selected",
+        "source_format": "html",
+        "length": "medium",
+        "tables": "present",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": false
+    },
+    {
+      "record_id": "56fd0eae089353053c6f63ea18d2164e2d4d6bc090f555b2528c0029a58ed399",
+      "snapshot_id": "76bc9af9fc314e8858ded201ecfbe1745120c78f32c722d1876b4ff6cf4a3c21",
+      "split": "train",
+      "document_sha256": "7cd5a1795de8f662fa706314083626aaf3a853b0b9258927c15686689039880f",
+      "strata": {
+        "query_type": "procedure",
+        "page_role": "editorial",
+        "status": "needs_review",
+        "source_format": "html",
+        "length": "short",
+        "tables": "absent",
+        "code": "absent"
+      },
+      "smoke": true,
+      "independent_review": false
+    },
+    {
+      "record_id": "470eabe67edca6752d51f3c0ed87418bbf69db98dd52549070f599d8c45630f0",
+      "snapshot_id": "c633f74bf927c5c1c46d39bb41a5c9aecd531de9b2476e68c2213ed5a2dc0bd3",
+      "split": "train",
+      "document_sha256": "6e2902bdb440c10e6585f77f5a56e9f39a215abf71a79058a36adaf6ae0b3cca",
+      "strata": {
+        "query_type": "question",
+        "page_role": "support",
+        "status": "selected",
+        "source_format": "html",
+        "length": "medium",
+        "tables": "present",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": false
+    },
+    {
+      "record_id": "8e68ffaf50dacc8110adb196117dffd725f6c4b6060ddc0307bfcdaa9dccebef",
+      "snapshot_id": "1f11bacc5abfb43119546b6f20cd3cdb35a23efa6064eccbb887e0b0e30e1b38",
+      "split": "train",
+      "document_sha256": "afbb550fff6bf6b0d59779c66e44ec8fadff29f50441872975248e4e7db5aabd",
+      "strata": {
+        "query_type": "comparison",
+        "page_role": "commerce",
+        "status": "selected",
+        "source_format": "html",
+        "length": "long",
+        "tables": "absent",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": false
+    },
+    {
+      "record_id": "ef9b2d25bb7dcaa213636de837a5214e94b78eed531bde01c7dc057d816cfc6f",
+      "snapshot_id": "315bbd4c5a1669549bc4ba03767f0c9c136bdfd0b866cb2ec40e8b7ae16e3a43",
+      "split": "train",
+      "document_sha256": "f0e395bffe9e3f1ed83843ee83ffea948a3e27108ebb9c98036f1dc6e94c5866",
+      "strata": {
+        "query_type": "question",
+        "page_role": "support",
+        "status": "selected",
+        "source_format": "html",
+        "length": "short",
+        "tables": "absent",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": true
+    },
+    {
+      "record_id": "45e0c746b9d3599f5e566c859fb7d44ab8f17302ff1b88998f32dcc8f0647070",
+      "snapshot_id": "d71d32ad081ef3a0661c0c925cc44d6ed70e8dc7b7129e4bbdffe23e2820f1ea",
+      "split": "train",
+      "document_sha256": "b874a1262c6afc8548fcd8e47dc29b4c7af5a24f36bf02e93cc3fd7b52e493e7",
+      "strata": {
+        "query_type": "comparison",
+        "page_role": "homepage",
+        "status": "selected",
+        "source_format": "html",
+        "length": "long",
+        "tables": "absent",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": true
+    },
+    {
+      "record_id": "1e4201be3847921ee2cc8fc878f375bfcc578ebd6c21a8e89765ac4f0f0d3dd3",
+      "snapshot_id": "f0c8cc18dd09967e8bec7a5ea4833d4350a9a049c98dff15ab705e25d2140342",
+      "split": "train",
+      "document_sha256": "f35acc08c1c0ccd506dd8913a24615065f5d35c3c893f13ba8887eca481f5dcf",
+      "strata": {
+        "query_type": "procedure",
+        "page_role": "editorial",
+        "status": "needs_review",
+        "source_format": "html",
+        "length": "short",
+        "tables": "absent",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": false
+    },
+    {
+      "record_id": "de6dc7379aa1a36a9d9c6dc13f007ac8e159c9cbfdd163d2398a6bc3539c7fd4",
+      "snapshot_id": "60a79d68ae94bb035e89cfc6bb5e39ba036f8453ad8152f268b9bc4b0aefdff7",
+      "split": "train",
+      "document_sha256": "fc6ac59c118369c7874c7c978206df213230de76a7158117185084ba6f9c57d5",
+      "strata": {
+        "query_type": "comparison",
+        "page_role": "commerce",
+        "status": "selected",
+        "source_format": "html",
+        "length": "medium",
+        "tables": "present",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": true
+    },
+    {
+      "record_id": "ac41dc00f80c517073edaf18ab50ff6b7895d42736936a5d3248d286765546d2",
+      "snapshot_id": "6cdf4aeb747cca459912b9ed1ad8cbeaa874ab5a10e82e8a6dba9a2f2efc115f",
+      "split": "train",
+      "document_sha256": "26921bef1ee6d84f65ce8b0a1842e72f8b0b4386a441910be49a36a623f102aa",
+      "strata": {
+        "query_type": "question",
+        "page_role": "support",
+        "status": "selected",
+        "source_format": "html",
+        "length": "short",
+        "tables": "absent",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": false
+    },
+    {
+      "record_id": "76476512b1bf02889b45d91053648a4a9bc050d0c4a397629d83deef961a06d7",
+      "snapshot_id": "23a52aee02aea4b9d08320de345e4eadd14db8ea7bd7b143312ff9f5a34ffb66",
+      "split": "train",
+      "document_sha256": "0c8743c4749551851f5888f7f50ba7545ab18cbf129079bb532601d86a1c9fc7",
+      "strata": {
+        "query_type": "other",
+        "page_role": "editorial",
+        "status": "needs_review",
+        "source_format": "html",
+        "length": "long",
+        "tables": "present",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": false
+    },
+    {
+      "record_id": "7148a44f5cbbbf6cbe1ec3a8f850c16ca925de8553b2e7cb41a0f9f74134c99b",
+      "snapshot_id": "da62977013171c090a28e941197bfbc1ea61ce58ab2b7ad8310125a4506839b0",
+      "split": "train",
+      "document_sha256": "dd8ce37be542b392e47873b75a25b306c9132db081b70014c666e3a55bb01754",
+      "strata": {
+        "query_type": "procedure",
+        "page_role": "support",
+        "status": "selected",
+        "source_format": "html",
+        "length": "medium",
+        "tables": "absent",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": false
+    },
+    {
+      "record_id": "5ce08bfce2b91fd90b42897a9594aefd519be0d792565b5c7f8ded4a499cba53",
+      "snapshot_id": "8150a72c4c3d1720a3ed6081c3dfaaa44460b3f766ed9a49aa51d9ac91617682",
+      "split": "train",
+      "document_sha256": "0930d31b78b477096fb37e69164202d4d983b9e6d823c0048232d62799c328f1",
+      "strata": {
+        "query_type": "question",
+        "page_role": "commerce",
+        "status": "needs_review",
+        "source_format": "html",
+        "length": "medium",
+        "tables": "absent",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": false
+    },
+    {
+      "record_id": "dfb3e5afda8d731d9a4e523474f7290a58ffd03c703255a5c53bf62f5f4c18df",
+      "snapshot_id": "d33455811f1b654d5841717604d0e26ed5080d8f542a7acca7e82a3f69a4881b",
+      "split": "train",
+      "document_sha256": "ce72844940a0f0173d39f1519efc60b82fce22a8374c94fcf2cde2c305efec8f",
+      "strata": {
+        "query_type": "comparison",
+        "page_role": "homepage",
+        "status": "selected",
+        "source_format": "html",
+        "length": "short",
+        "tables": "absent",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": false
+    },
+    {
+      "record_id": "0737f75598de3f300d6f5fb3b8dbc0f718699d96d3f4b3a97d7f4c51d819a976",
+      "snapshot_id": "ef5eeef6b63f3d6455a5324c8f8b7f628966130cde4c9daa30bf876c810a9894",
+      "split": "train",
+      "document_sha256": "844836c51b9bf15a827806f265c7e45b22f94e5d1f211f1b91d810c6b4c0db6e",
+      "strata": {
+        "query_type": "question",
+        "page_role": "support",
+        "status": "selected",
+        "source_format": "html",
+        "length": "short",
+        "tables": "absent",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": false
+    },
+    {
+      "record_id": "b18e9053384bce902d97b99ed29496cf8604350496cee8e3d110c1ec18719366",
+      "snapshot_id": "fc4a661def254fcc025908baaaa13d0c9dbddc1cbfe648a6b7e03dd912f0cc32",
+      "split": "train",
+      "document_sha256": "cfb92c79223a20b3ccfb688029486576a0370399d70548bb6e023807c282b4cf",
+      "strata": {
+        "query_type": "comparison",
+        "page_role": "other",
+        "status": "needs_review",
+        "source_format": "html",
+        "length": "long",
+        "tables": "present",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": false
+    },
+    {
+      "record_id": "a41d4bd321242a57e6139520f6a1b6eff363750f7cf28482b592e00d605d055f",
+      "snapshot_id": "4aef734f3b27a870a4d067ea47cea1350bcdc237eefea57d19164e5911e35c16",
+      "split": "train",
+      "document_sha256": "9e20720e7a8363435f59fcfeac8de0f2bf7545d765aa531466dbf75d47c9662f",
+      "strata": {
+        "query_type": "procedure",
+        "page_role": "support",
+        "status": "selected",
+        "source_format": "html",
+        "length": "medium",
+        "tables": "absent",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": false
+    },
+    {
+      "record_id": "160e2c03b81bfba0b89792f2b06e3a0b22986724aa6a7c2cbf2732f7f08e4b3d",
+      "snapshot_id": "e80723ec1f7fed67bb82bff58dfad11549c678b63a600194e343f124ec7266fa",
+      "split": "train",
+      "document_sha256": "c998e7c0f0f52a55254b7152a106e804757ac9c34ae9c793405b96aa27576661",
+      "strata": {
+        "query_type": "comparison",
+        "page_role": "commerce",
+        "status": "selected",
+        "source_format": "html",
+        "length": "medium",
+        "tables": "present",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": false
+    },
+    {
+      "record_id": "fd6a94981621a7345d82e323c2d548e095d70c7ec2a044f4714bc75ba153410a",
+      "snapshot_id": "873bfaf48a483fd2ed42a6ecd32cf62a59eca4d36ca155e9cb37d565a5c81d2f",
+      "split": "train",
+      "document_sha256": "62695cc665e65b842bf94e010632cb1cb68ad31e563e485a304705f818e7d22e",
+      "strata": {
+        "query_type": "other",
+        "page_role": "support",
+        "status": "selected",
+        "source_format": "html",
+        "length": "short",
+        "tables": "absent",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": false
+    },
+    {
+      "record_id": "f962d514d36f5329b32ee6515ee5940876720c7897a468fd9a0c7796593d066f",
+      "snapshot_id": "1fa0126bf9b542bf4e16d1e604c547e3bfacb92582c359b72f8829ce925f1f17",
+      "split": "train",
+      "document_sha256": "afb9febc75f9a56fd2b5af730789a2d8c4a4fc3db89cf969f0a1c1df9982e2f3",
+      "strata": {
+        "query_type": "other",
+        "page_role": "editorial",
+        "status": "needs_review",
+        "source_format": "html",
+        "length": "long",
+        "tables": "present",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": false
+    },
+    {
+      "record_id": "3ed62a2390984f8f97807f4e849471086188daa495bb870769de6e3ae34a647a",
+      "snapshot_id": "e67102f72988d311a4ee0d8f222aa4f67599fa81dbb6fee70060f5b3919093d2",
+      "split": "train",
+      "document_sha256": "f79de33bb6a5e7d8f1c8309d0a6fdbe3d14c8ac70d9cadc6a181252fbd2b4713",
+      "strata": {
+        "query_type": "comparison",
+        "page_role": "homepage",
+        "status": "selected",
+        "source_format": "html",
+        "length": "long",
+        "tables": "absent",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": true
+    },
+    {
+      "record_id": "3cc3d2a106fac7595ae40b021d9df13c3d0eeac85afac590d8fd475e7be05eca",
+      "snapshot_id": "a0db55b9721c9b3fad220427a149270eef5c23436cb64a65d9870e7dab6b0e3f",
+      "split": "train",
+      "document_sha256": "a27fb47dc098973cf219bbb0e2c6b5d9321ad7d40beee3069be71b1173875c92",
+      "strata": {
+        "query_type": "question",
+        "page_role": "support",
+        "status": "selected",
+        "source_format": "html",
+        "length": "short",
+        "tables": "absent",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": false
+    },
+    {
+      "record_id": "55885017da20d52744b197a23e3f0655ffbdad825599620582d6acb1b2241dbc",
+      "snapshot_id": "c273a5039278cfb86be67c1cb22aae5d92ce6bbe5f054e132bc475c9bbbd0083",
+      "split": "train",
+      "document_sha256": "de7d52948baa80d6d39ac4ed5a2193b6a64687bd6221b67f68fd3d7d3efa3566",
+      "strata": {
+        "query_type": "question",
+        "page_role": "commerce",
+        "status": "selected",
+        "source_format": "html",
+        "length": "medium",
+        "tables": "present",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": true
+    },
+    {
+      "record_id": "11e600e6534fa6222eb325025831d19d9174fbbfbaf22eb1b025a4d75e5d395b",
+      "snapshot_id": "7d95002750a2a1eac4bbe095fa71d1eb131afbdf5820f788cced1fefe6e1fb9f",
+      "split": "train",
+      "document_sha256": "7644549e09d450d6aa8aee7e33caeac53e298d047d360b51c4daf5dfb46a133b",
+      "strata": {
+        "query_type": "procedure",
+        "page_role": "support",
+        "status": "selected",
+        "source_format": "html",
+        "length": "medium",
+        "tables": "absent",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": false
+    },
+    {
+      "record_id": "e3bcb208fef246b54eb98bca2811e6a222ba2a366c5371450a08467fdec6b99f",
+      "snapshot_id": "001f2158c169736d76fc477d2d25ae841a710d10517e83735ad1177a8b388f8d",
+      "split": "train",
+      "document_sha256": "fb330b3462a7d91aba72814383d5975939294bb867b5d1e073bbb33e49f7d113",
+      "strata": {
+        "query_type": "comparison",
+        "page_role": "other",
+        "status": "needs_review",
+        "source_format": "html",
+        "length": "long",
+        "tables": "present",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": false
+    },
+    {
+      "record_id": "3a5dd8adafac45fcb3980f859ceecbdaa98707d7fc33d080e661678073351d38",
+      "snapshot_id": "f90c85e3bcfcd0b29716284ac18487a54ef9f7d4b45fc7379ab82eecfe66c270",
+      "split": "train",
+      "document_sha256": "4523708896b9a577f32a80a58c43509a779f96d7ae4fb395bcf5f73b533e90f2",
+      "strata": {
+        "query_type": "comparison",
+        "page_role": "commerce",
+        "status": "selected",
+        "source_format": "html",
+        "length": "short",
+        "tables": "absent",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": true
+    },
+    {
+      "record_id": "448f14194a4f723e44694f03c21108033235874a0c5ee94d16c6e9c81f7b9a28",
+      "snapshot_id": "2c8fc39ccd6621b2b47ad0b0d655fdc0c9d7524ae940fe12ddc5432b4e31c23c",
+      "split": "train",
+      "document_sha256": "5e27482d160547e1b964067c947fc94056c21d6e4bddee74cafd5d17b64cab13",
+      "strata": {
+        "query_type": "question",
+        "page_role": "homepage",
+        "status": "selected",
+        "source_format": "html",
+        "length": "medium",
+        "tables": "present",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": false
+    },
+    {
+      "record_id": "06c1a5511b157d58cfb108f70b4d0f3b67782b46708c7668df02c014150b8442",
+      "snapshot_id": "5ce26b5c21bd9569e64c497281ea4fb15ef9523e309019c2dfb104f6a836d865",
+      "split": "train",
+      "document_sha256": "1429fcf535e00054276c7a2cd8e87fc20ac6c55672c425506a626de328952da5",
+      "strata": {
+        "query_type": "procedure",
+        "page_role": "editorial",
+        "status": "needs_review",
+        "source_format": "html",
+        "length": "long",
+        "tables": "absent",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": false
+    },
+    {
+      "record_id": "86d123aaccf8ec1ba3fb90df5ef8126c6ce0aea78eea34eb5f0d633dce425454",
+      "snapshot_id": "ec760d944e1aa24946ae65df5e893b6cb726fd87313c7ab13bede3c822015484",
+      "split": "train",
+      "document_sha256": "64237c652d5ef2657d1da48549020594bb914e7c6e45e75bb341c61678feb89c",
+      "strata": {
+        "query_type": "comparison",
+        "page_role": "commerce",
+        "status": "selected",
+        "source_format": "html",
+        "length": "short",
+        "tables": "absent",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": false
+    },
+    {
+      "record_id": "fb170a9fe63ac98194138d458923c5005c32daf26a0dd0169ebe44a23940e9f1",
+      "snapshot_id": "52dc005fb537b22f88b08acd581862f3345600e34ab1666656fd5f395102cca9",
+      "split": "train",
+      "document_sha256": "0fb8a0134652c2432ac40f5159753224d8426dc14990db9eacb7f919787b47cd",
+      "strata": {
+        "query_type": "question",
+        "page_role": "homepage",
+        "status": "selected",
+        "source_format": "html",
+        "length": "medium",
+        "tables": "present",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": false
+    },
+    {
+      "record_id": "bfd1e8ef9f0055864713ce5e97ed44ec1f020a161e8bab0426f5b65f63efaa59",
+      "snapshot_id": "22de5f7637e9373cdaf42a077c3f7e3cd17c42e6edea417d8fcc368e602d7927",
+      "split": "train",
+      "document_sha256": "aa998aa67cc93e8338f4b8f35807be8172083590165f2a69a2bf6369c589c002",
+      "strata": {
+        "query_type": "comparison",
+        "page_role": "other",
+        "status": "needs_review",
+        "source_format": "html",
+        "length": "long",
+        "tables": "present",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": false
+    },
+    {
+      "record_id": "a92d7fa161b5fb346ecc64f3d5f460170ba1ea586b7f9bb9c209804c340a478d",
+      "snapshot_id": "373f507d5fe58d9ab96157f84310fd36926ba63063552a065bc2b9daea80dec9",
+      "split": "train",
+      "document_sha256": "1b75f53e09cd547214eb97edd61042ab86a728a4a8d06baf81a9c97c0cf2e9d1",
+      "strata": {
+        "query_type": "comparison",
+        "page_role": "commerce",
+        "status": "selected",
+        "source_format": "html",
+        "length": "short",
+        "tables": "absent",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": false
+    },
+    {
+      "record_id": "7431b56ebe549563b1a173abbfb211b5c42006fcb1518dc9c7a17187a982def2",
+      "snapshot_id": "1c105a598bd9b76313cc3dd03932bc82ea640050decb9a4006d0c367dde37e49",
+      "split": "train",
+      "document_sha256": "7de7d183386acf6d9717acde49deac8e8dc0c54fec6bb72689e9284dff4b8122",
+      "strata": {
+        "query_type": "other",
+        "page_role": "homepage",
+        "status": "selected",
+        "source_format": "html",
+        "length": "medium",
+        "tables": "present",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": false
+    },
+    {
+      "record_id": "3f2a6f4caf7f263faaf5f29dd9f522037e6310ad5758f6fd221dcabc825a123b",
+      "snapshot_id": "228354c132326fddb1fc63a22c194bc10afb02f97791d000c3158178b898f26a",
+      "split": "train",
+      "document_sha256": "156bb849fcbcf65f90e5713212909e4460c7006efe3226cc81be4c6f253262fe",
+      "strata": {
+        "query_type": "question",
+        "page_role": "commerce",
+        "status": "selected",
+        "source_format": "html",
+        "length": "short",
+        "tables": "absent",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": false
+    },
+    {
+      "record_id": "0292a18c784b6cf0bdf77ce0dd9a5ef9d5a4f089ba647c3928a60eacb4815ef8",
+      "snapshot_id": "88ca50eb0cdfa4c0e5291bdbb558c7e85d6329e31c80a39c0a8511d6c17ba82c",
+      "split": "train",
+      "document_sha256": "f654a2cf4ca293399e62eb3f942fa5d0c707ba84f9c77bdfa0b0c45aa4a4ce6e",
+      "strata": {
+        "query_type": "comparison",
+        "page_role": "support",
+        "status": "selected",
+        "source_format": "html",
+        "length": "medium",
+        "tables": "absent",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": false
+    },
+    {
+      "record_id": "bedfdf9eb9a299919b9b624bd01a9e01c6594add8ba3e1b0e690b14c8da2d5c6",
+      "snapshot_id": "1c10b8584d0179b2b13c36e30a9ec2e1334af993194fddff7f219be0f6530e97",
+      "split": "train",
+      "document_sha256": "61f2aa51d7350fd6155f3782076099bf054b16ad8b22db64c5c773e28aa40588",
+      "strata": {
+        "query_type": "procedure",
+        "page_role": "other",
+        "status": "needs_review",
+        "source_format": "html",
+        "length": "short",
+        "tables": "absent",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": false
+    },
+    {
+      "record_id": "4a23290c5b1b6e69b2ff8f2542e51544420cea2623ff5d8e9ba7a39c1aedbc44",
+      "snapshot_id": "670a118eb33edd181fccebe6400a4d97d4aa294846c411a30c2724aef8ca51e3",
+      "split": "train",
+      "document_sha256": "3da1140df3d1e89cb492b688c943fac5708fe58397b801e5c9eead6313982a26",
+      "strata": {
+        "query_type": "procedure",
+        "page_role": "editorial",
+        "status": "selected",
+        "source_format": "html",
+        "length": "long",
+        "tables": "present",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": false
+    },
+    {
+      "record_id": "30672e0c5be2b2bc11b52d012cf18edd82e68d618b800dab5bd1a8d6840ba7af",
+      "snapshot_id": "9306b1de05cfa0481d3f0602cf2d39a853e848e5dbc8965892b64dcce47c0ba8",
+      "split": "train",
+      "document_sha256": "9116e3cce52803bf76c67bcf805ec536ea8040664101cc2210b1adee304a0c03",
+      "strata": {
+        "query_type": "comparison",
+        "page_role": "support",
+        "status": "selected",
+        "source_format": "html",
+        "length": "medium",
+        "tables": "absent",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": true
+    },
+    {
+      "record_id": "121604abd800ef5fe5c303f9560b866f2c8598395fec9552982784a60b07fccd",
+      "snapshot_id": "ac39a6aaca9d8e88d017d1ec6a72b6e4a50b47eb980eaf8ea1731e63629b86b4",
+      "split": "train",
+      "document_sha256": "6d89213f4add9ae95f0a782ab6205e63b76fa9574113e2a77a858636f9315b57",
+      "strata": {
+        "query_type": "other",
+        "page_role": "commerce",
+        "status": "selected",
+        "source_format": "html",
+        "length": "medium",
+        "tables": "present",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": false
+    },
+    {
+      "record_id": "b750fdaf8ad6831d7357ab93d9724615638fa1bbf965072e645f7f04a98b7289",
+      "snapshot_id": "094471cb37cc8ead07bc68e3050d8339ba579dfd1dfd18c4578dee005927877a",
+      "split": "train",
+      "document_sha256": "c33105c5c665759907802af2f40b041126b666d88b2515dea0b66207b8287db3",
+      "strata": {
+        "query_type": "question",
+        "page_role": "homepage",
+        "status": "selected",
+        "source_format": "html",
+        "length": "long",
+        "tables": "absent",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": false
+    },
+    {
+      "record_id": "cb8b4808f96ad6ef438140ccd4b44411984aee3fe1477d2da8468a426d4ddb78",
+      "snapshot_id": "692071ee84d6f9062ad2ef81fd4f1610fcae5466cc198abab9b9c06ab790b8aa",
+      "split": "train",
+      "document_sha256": "651db510059dc32c0afae4577de8e0c7f47ba3cb760b1a49229cc9b903da9793",
+      "strata": {
+        "query_type": "question",
+        "page_role": "support",
+        "status": "selected",
+        "source_format": "html",
+        "length": "medium",
+        "tables": "absent",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": false
+    },
+    {
+      "record_id": "878e3e086cd59ac1f7344e7af8a0cc5d3d7e6ab2e444a1438a06c0f4471a347b",
+      "snapshot_id": "d9a35e4f1ab5fbb091fe3d66e94b29a018af972be3395a9acd8318cc499c6a4f",
+      "split": "train",
+      "document_sha256": "6e95ff4a40c32562a39dc7b1b4809b4175b940b523577188a7f9e8c36ab94cca",
+      "strata": {
+        "query_type": "other",
+        "page_role": "other",
+        "status": "needs_review",
+        "source_format": "html",
+        "length": "long",
+        "tables": "present",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": false
+    },
+    {
+      "record_id": "ecfd03f846290fc0e1e2c007c997e9dc81aa9cf699916a9efaf436c0e03c425e",
+      "snapshot_id": "5f630e12e8c81cbbad02ad78b6ebc21000daaaad67d11ba9a82f84a0bfd6f91f",
+      "split": "train",
+      "document_sha256": "eb49e0c694723bab650e41c4b2937c15dcbeba0e9135f5a9e23fd5d7ec12b5dc",
+      "strata": {
+        "query_type": "other",
+        "page_role": "commerce",
+        "status": "selected",
+        "source_format": "html",
+        "length": "short",
+        "tables": "absent",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": false
+    },
+    {
+      "record_id": "e8a56008ebdc9ff00611ae0f183c2410c115e3d5dc176d8f60486aeaba43309b",
+      "snapshot_id": "50a2fac1f5d6cac2d941325fa05336013e2123b1184f319bebc7359f05152a1e",
+      "split": "train",
+      "document_sha256": "2ab3282f152770f1054f1b54edfd26b483dfe5ed1868dac10bc42611c45b0960",
+      "strata": {
+        "query_type": "question",
+        "page_role": "support",
+        "status": "selected",
+        "source_format": "html",
+        "length": "medium",
+        "tables": "absent",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": false
+    },
+    {
+      "record_id": "870966f0ae46de7ab4850589713bf0ad24dbf54317bde3c2c5cc87298e34728e",
+      "snapshot_id": "5dc2177ee4844275930cef6e4d45beb37d00d95a838fc6159eb3710a2991eaef",
+      "split": "train",
+      "document_sha256": "6b3de9dd08184eecdc50aa0ccc4bc92bf6f4aa74332e047f6632ff7f3eabf79a",
+      "strata": {
+        "query_type": "procedure",
+        "page_role": "editorial",
+        "status": "selected",
+        "source_format": "html",
+        "length": "long",
+        "tables": "present",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": false
+    },
+    {
+      "record_id": "793819923d344e37e77f3bceb2f4f6931acce904e3b0b93ff8bdfcd791a6f747",
+      "snapshot_id": "1cf3b59309c4b3a7625c64039f7670b9d8869969b8a9b33c3894cd3359b4c23d",
+      "split": "train",
+      "document_sha256": "c4b9799b7995a428356e0eedcc7516c1fd19583f4717db62630e833d6388f5eb",
+      "strata": {
+        "query_type": "question",
+        "page_role": "homepage",
+        "status": "selected",
+        "source_format": "html",
+        "length": "short",
+        "tables": "absent",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": false
+    },
+    {
+      "record_id": "adcc4c2d2521175618f8a4052ac526fafd58c66b165448990bf6fd398adacce6",
+      "snapshot_id": "a5408cbb6df40700caa5beacffd9c0beb782688699278b0f795e3a13f3c560e5",
+      "split": "train",
+      "document_sha256": "b95698a9c43d34abd9be4211cf71c943ce2baf242ed1246f70a46ae00f8c9470",
+      "strata": {
+        "query_type": "comparison",
+        "page_role": "commerce",
+        "status": "selected",
+        "source_format": "html",
+        "length": "long",
+        "tables": "absent",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": false
+    },
+    {
+      "record_id": "d2983bacf2c0c78e6d02408bc822d80e405082ffeb6df918e4e18662b7103e52",
+      "snapshot_id": "6106be34c91cd8e955c665047cdeb26402606b39124b5a31028b7e2624b2c806",
+      "split": "train",
+      "document_sha256": "187fe3d17c243520bed8426949d9d6c6a017c20349911f1ab107f4adc73fd61b",
+      "strata": {
+        "query_type": "question",
+        "page_role": "support",
+        "status": "selected",
+        "source_format": "html",
+        "length": "medium",
+        "tables": "absent",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": true
+    },
+    {
+      "record_id": "b88ee1c84832b8ae55dcbf47638aeac5c0a8a6da9db8722c3dd4d419a8ff50b9",
+      "snapshot_id": "de1b3005d2bbc2889e40c345029cc3c1a5d089c2d7402c657e112e55096be8b0",
+      "split": "train",
+      "document_sha256": "c4772c7602be9a9621a58e46ebac48945d5774b15472732ed7c26ade92011367",
+      "strata": {
+        "query_type": "procedure",
+        "page_role": "other",
+        "status": "needs_review",
+        "source_format": "html",
+        "length": "short",
+        "tables": "absent",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": false
+    },
+    {
+      "record_id": "011e4315c06214adf33baf0ef9d825d55be27f386a1a107de4dc4a2374fe5acd",
+      "snapshot_id": "d6889435a8c30b18c156749c4aab2826f8b51b5a8cc558badc1ebde8fdb8bdaf",
+      "split": "train",
+      "document_sha256": "6111c8b195b1f752c36abe2e18096920618ed00a15058b6745331afa8a50d8b9",
+      "strata": {
+        "query_type": "other",
+        "page_role": "support",
+        "status": "selected",
+        "source_format": "html",
+        "length": "medium",
+        "tables": "absent",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": true
+    },
+    {
+      "record_id": "eaa9d349aa3fb1d7ab683656c2bf9b9be0bbd19049bc717fa54577b6aefdcfcb",
+      "snapshot_id": "c41d1b9e72aaaeecea38904494b7d59c98dbd9308723a271fec3a056909898d5",
+      "split": "train",
+      "document_sha256": "bcb910bb43625546a54cb3f87d3f89a3f8315c469382d3c871eb25c2aa55d858",
+      "strata": {
+        "query_type": "other",
+        "page_role": "commerce",
+        "status": "selected",
+        "source_format": "html",
+        "length": "medium",
+        "tables": "present",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": false
+    },
+    {
+      "record_id": "fd049005fc855dd1e4de735fbb8f7bff4b30bee48946818261a3621f29e13366",
+      "snapshot_id": "f4fbf9c6ad56c46cb2f649c0aa23cb13e7d6eaa44413c0cc5fa612418752b83c",
+      "split": "train",
+      "document_sha256": "3abd24ad2754c12b909b5a79baeefee2f5740d6042e8e24d981beb93cbad7179",
+      "strata": {
+        "query_type": "question",
+        "page_role": "homepage",
+        "status": "selected",
+        "source_format": "html",
+        "length": "short",
+        "tables": "absent",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": true
+    },
+    {
+      "record_id": "e4a9e70cf152da6ef4f8cf3141122779ace57569231cad3ad0f71734a1181919",
+      "snapshot_id": "81364afef8f69fa6b7f19bf7d9b13341ee9cbcee17755000b8261084f9c6a72b",
+      "split": "train",
+      "document_sha256": "2924a4376f08eaf8cae354e6bd6cb9274c01f01083c51c0e85b13e1e906cc62e",
+      "strata": {
+        "query_type": "question",
+        "page_role": "support",
+        "status": "selected",
+        "source_format": "html",
+        "length": "medium",
+        "tables": "absent",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": false
+    },
+    {
+      "record_id": "100dbb902301e38494497bad0b53572b519deaf3acca5da8ec975d4d155659ca",
+      "snapshot_id": "3bddd4258e3edc5b58682378f1c5503bc14377dc5b853622cb5b60063b4db133",
+      "split": "train",
+      "document_sha256": "029415ec206d9694f9a0bce78e670bbb716a1e84881e177c3dcab678dbdc5cd2",
+      "strata": {
+        "query_type": "procedure",
+        "page_role": "other",
+        "status": "needs_review",
+        "source_format": "html",
+        "length": "short",
+        "tables": "absent",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": false
+    },
+    {
+      "record_id": "b14db3d1567e5fadd0021de09dbab4cce5b024150eae0b495994ebe6b733384f",
+      "snapshot_id": "cc912348985051b232f7bdce500d192ab0ec7e2facd9e04ae5602537955d50c8",
+      "split": "train",
+      "document_sha256": "7f6c79952da77a3105c448266d47e2707f48b0adc3d76aa4ae39339b33566b69",
+      "strata": {
+        "query_type": "procedure",
+        "page_role": "editorial",
+        "status": "selected",
+        "source_format": "html",
+        "length": "long",
+        "tables": "present",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": false
+    },
+    {
+      "record_id": "5fc5fce83f2e577a5e4c0e1fbfb6e0d91cefa1e3335c40cb168a3a2743a6ce3c",
+      "snapshot_id": "295e65f13b7b76cd4bc8457a57bf44771cffe96baedd9ee9fd842399500f8103",
+      "split": "train",
+      "document_sha256": "d15cb6359bba7dacf3c792953686218b548aa85b37ff0b407cb2059ac3a4c290",
+      "strata": {
+        "query_type": "question",
+        "page_role": "support",
+        "status": "selected",
+        "source_format": "html",
+        "length": "medium",
+        "tables": "absent",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": false
+    },
+    {
+      "record_id": "6e7e908f2c95ca06acbf853b1f8f506967021fe7bb90767dadd567484eec628b",
+      "snapshot_id": "c853408bd97ef507a1476d1b5c9578551d6fd191fbe34803256bc6276abd27ea",
+      "split": "train",
+      "document_sha256": "87c997a3077c546c19985ea13b9f33ec8647dc65d5b7663c6c12a978928503e4",
+      "strata": {
+        "query_type": "other",
+        "page_role": "commerce",
+        "status": "selected",
+        "source_format": "html",
+        "length": "long",
+        "tables": "absent",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": true
+    },
+    {
+      "record_id": "81de3927ae88eb6058c01437f4de26e0ea4965314efb0392bc21c4e35a99f78c",
+      "snapshot_id": "9c22e7d80d843fb62e6af302b78792a11ea55fec4fd4d8ad7abedcd7b8a92d96",
+      "split": "train",
+      "document_sha256": "5853ca0045856dbc4920b518a07a299383415db43859f37aaf8fe510f1cc2c93",
+      "strata": {
+        "query_type": "question",
+        "page_role": "homepage",
+        "status": "selected",
+        "source_format": "html",
+        "length": "short",
+        "tables": "absent",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": false
+    },
+    {
+      "record_id": "09fcbc02e9ef9aa56e52890b299c00ed56b4e79ea6eea97caa36c594e4974b03",
+      "snapshot_id": "4b4767846ead5a5d72231e501aceb2e35d002fb3030d895d91ec88c1162f44d5",
+      "split": "train",
+      "document_sha256": "6bca6a04d36705ede12839d0c6a4c781afd896c5450a1cb9157b2420bc023d95",
+      "strata": {
+        "query_type": "question",
+        "page_role": "other",
+        "status": "needs_review",
+        "source_format": "html",
+        "length": "long",
+        "tables": "present",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": false
+    },
+    {
+      "record_id": "d93d467761947cb38c1e5f10d09e787ef0118448c9143df3e03a6e4b8b135446",
+      "snapshot_id": "1527dbca4c21b8f049261c92c48fce4fc4a448bfd2598f3760d322ce215660bb",
+      "split": "train",
+      "document_sha256": "9b33fef3d0c312f8fb9e5bd901db7ad832f9156f2a546647ca8d742469bc6fd2",
+      "strata": {
+        "query_type": "question",
+        "page_role": "support",
+        "status": "selected",
+        "source_format": "html",
+        "length": "medium",
+        "tables": "absent",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": true
+    },
+    {
+      "record_id": "0ff8e8a4387ba20f227009b8996745019a991bfafeb70f1ea266180b3e4fde03",
+      "snapshot_id": "5898fa2f93177ffc5a698fd9790010293147af4a86f8b78e47f398bfc8e0421f",
+      "split": "validation",
+      "document_sha256": "0c2387802749393ba883f13b412be3ed4b0d07a85ce09629e66fbbc134fcc37a",
+      "strata": {
+        "query_type": "other",
+        "page_role": "support",
+        "status": "selected",
+        "source_format": "html",
+        "length": "medium",
+        "tables": "present",
+        "code": "present"
+      },
+      "smoke": false,
+      "independent_review": true
+    },
+    {
+      "record_id": "c0edc5966f5d3116815f5f4e14a05ed7c7ecc604f9cf60be2436bcb66f07a507",
+      "snapshot_id": "1fc85aa0bbdd93d7065db1f9c2bd29cb29b931611c9abe959d9562df7c02b0ce",
+      "split": "validation",
+      "document_sha256": "f93488d4b043f34d9906b07e56a5e6d049e142c804b3105b0d11d052e963d635",
+      "strata": {
+        "query_type": "question",
+        "page_role": "editorial",
+        "status": "needs_review",
+        "source_format": "html",
+        "length": "long",
+        "tables": "present",
+        "code": "present"
+      },
+      "smoke": false,
+      "independent_review": false
+    },
+    {
+      "record_id": "784ff4820bbc580de69249090235eb65fd525827b27885319dfa679c8c0e1b4f",
+      "snapshot_id": "d84f967bb35dc4ea99d5fec0ca407925f317fa558b21e36f6944bd0c0e492b7a",
+      "split": "validation",
+      "document_sha256": "a6baee3ef05f93a124712192bf70a665d2e2ae62a23838f98ec4b0a734b2be73",
+      "strata": {
+        "query_type": "question",
+        "page_role": "support",
+        "status": "selected",
+        "source_format": "html",
+        "length": "short",
+        "tables": "absent",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": false
+    },
+    {
+      "record_id": "3f6d14ba6766a8cfb203abf5183d4dfdda5164b28b919bd532491eaa28331166",
+      "snapshot_id": "055d8912bda25644ea97077f66ab8316ae05b041aac0fab89e5ecf68671acd66",
+      "split": "validation",
+      "document_sha256": "07ae5c3e632c8498c5f8a808188a07dd4ff7f13a225a220f2a1efbfa99f10e36",
+      "strata": {
+        "query_type": "comparison",
+        "page_role": "commerce",
+        "status": "selected",
+        "source_format": "html",
+        "length": "medium",
+        "tables": "present",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": true
+    },
+    {
+      "record_id": "450be6bed53da55a088f96f4de64e0f16cf89de28f5a09ec2fd19c50d3b5b753",
+      "snapshot_id": "9600af3c09baa22736889c4643dcfdb40af4596b8956ced0bcda228ad79f4429",
+      "split": "validation",
+      "document_sha256": "c694fa49c7b4b98ba5caea67dabf499422f6c314184ea922087454389b8ea06e",
+      "strata": {
+        "query_type": "other",
+        "page_role": "other",
+        "status": "selected",
+        "source_format": "html",
+        "length": "short",
+        "tables": "absent",
+        "code": "present"
+      },
+      "smoke": false,
+      "independent_review": false
+    },
+    {
+      "record_id": "5407c214500b7ec838487f18fef9b3b5a05ad3ad5443efa64fccc595f97de706",
+      "snapshot_id": "f31249627fba0f62e898ed8b2ce8081197042ab2ec8dc4b3ebd9df1c962d02d5",
+      "split": "validation",
+      "document_sha256": "fa1174cc23842b6b8ccf50bb526e68294a0658b04405eab73e311500f7cb6a9e",
+      "strata": {
+        "query_type": "question",
+        "page_role": "homepage",
+        "status": "selected",
+        "source_format": "html",
+        "length": "short",
+        "tables": "absent",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": false
+    },
+    {
+      "record_id": "b52bbce2553827dbfd36cc48dfd294ba9331966b4277d5a5909cac331f793323",
+      "snapshot_id": "3ab24609b520bb1a71c0cc55ce52dbbef41091d8f387b920c55661fb0af0e4c9",
+      "split": "validation",
+      "document_sha256": "d103128d3eaaf54c8c7f92c2a4f13c97f871f17c11fdf402a7f0b33299361be6",
+      "strata": {
+        "query_type": "other",
+        "page_role": "other",
+        "status": "selected",
+        "source_format": "html",
+        "length": "long",
+        "tables": "present",
+        "code": "present"
+      },
+      "smoke": false,
+      "independent_review": false
+    },
+    {
+      "record_id": "7c8041228652081a340ab8b078160aac4d4e866385808a390fdc8f5e1b1af4ff",
+      "snapshot_id": "19928a2c1edd79acc76f72680f1a2c8c577eafaa3e48182f44f33cd848e7829d",
+      "split": "validation",
+      "document_sha256": "6e91467cfa741142a2ee8059e0c08d2f9028b08c708cd01d79d9ca344dc23fff",
+      "strata": {
+        "query_type": "comparison",
+        "page_role": "editorial",
+        "status": "needs_review",
+        "source_format": "html",
+        "length": "short",
+        "tables": "absent",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": false
+    },
+    {
+      "record_id": "34788e7d9124bd9b4d80eec4bc39e2ac898a64b553fa6e7cf54feac29dfe4c54",
+      "snapshot_id": "8dafa70158784aedc2dbe73efaef3d7a9bb186ed7396dbf746b6dbaae29f3953",
+      "split": "validation",
+      "document_sha256": "89555fb94e7be5655c4480618fe375483a853f46013be623135fc65fc579733e",
+      "strata": {
+        "query_type": "question",
+        "page_role": "support",
+        "status": "selected",
+        "source_format": "html",
+        "length": "medium",
+        "tables": "absent",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": false
+    },
+    {
+      "record_id": "6107834585de7daa341df1e88551f4af795fcc3a464ad9845ae9b1b9619f92cc",
+      "snapshot_id": "873bbfc36daa7733e72bf7d63ceb5a12feec8e70eca374acf4b9e687db8218ab",
+      "split": "validation",
+      "document_sha256": "e3cb49b1d3553e00d1a14b52c9bf6447c70b5599226ff185f55017ec5c085c2f",
+      "strata": {
+        "query_type": "procedure",
+        "page_role": "commerce",
+        "status": "selected",
+        "source_format": "html",
+        "length": "medium",
+        "tables": "absent",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": false
+    },
+    {
+      "record_id": "1a8d98788ab2b99ee1c074f5967a57c18054b5c32b1210f1c6aaa77fa4774ed8",
+      "snapshot_id": "f89865e19292cc0a4ece72541707821c97a275dae0610efde0c6c902e7e2f7ef",
+      "split": "validation",
+      "document_sha256": "aaf652b2696c7086bb6aa2a2ef75e624a3a6612113bb2fa9b85fe5e0dd4cb31f",
+      "strata": {
+        "query_type": "question",
+        "page_role": "support",
+        "status": "selected",
+        "source_format": "html",
+        "length": "medium",
+        "tables": "absent",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": true
+    },
+    {
+      "record_id": "1c8cf5f0e65623795b6fc2f89bd699e94dff47a7adf3a138c38f8039570e2849",
+      "snapshot_id": "329201d7cb1c10e2c138cf7e31a2ddb0871c9e334c9202c77b6f8a20cf8076eb",
+      "split": "validation",
+      "document_sha256": "43549d776c22abbddedab80714d1b4a3619ed372cf893efb9272a0f60b088093",
+      "strata": {
+        "query_type": "comparison",
+        "page_role": "homepage",
+        "status": "selected",
+        "source_format": "html",
+        "length": "medium",
+        "tables": "absent",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": false
+    },
+    {
+      "record_id": "02c52f9910131ddd79cd1a9bb0eb6ff8af1a01e5d10ba39f71573ed32a7f7180",
+      "snapshot_id": "f41c6ba0a3169e3193b47dbf47ce16fc3bb4effef5751292a0e6a43e659db174",
+      "split": "validation",
+      "document_sha256": "533e1e398b30dd5978541943f3bfee4a96dc62d6a15f0208c0c15fc6eded31f6",
+      "strata": {
+        "query_type": "other",
+        "page_role": "other",
+        "status": "needs_review",
+        "source_format": "html",
+        "length": "long",
+        "tables": "present",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": false
+    },
+    {
+      "record_id": "82683540fc01b6c06909fbdbef724799ebf0f9c58713e346f429abbd59145605",
+      "snapshot_id": "773f9021020c135c99be4ade41c867f63fd79d60730a474a4ca8dfd4cc50d568",
+      "split": "validation",
+      "document_sha256": "6d2152fefee5fc662e81c21d71396756d30d3a40a8dbfa0294ea8092e1cd92aa",
+      "strata": {
+        "query_type": "procedure",
+        "page_role": "editorial",
+        "status": "selected",
+        "source_format": "html",
+        "length": "long",
+        "tables": "present",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": true
+    },
+    {
+      "record_id": "80abc72e5395cec1494aed2a350646b1baeee85a921bc81701f6e89c08a47f8d",
+      "snapshot_id": "94b5f68588d00e9ed11f825c2e67abe4fffb404c8b013e226e399f0469b0536e",
+      "split": "validation",
+      "document_sha256": "1dfdd321f1eead4a2abcd761fce2d63d8416375d4bd3262fb0ea27ac4795d345",
+      "strata": {
+        "query_type": "comparison",
+        "page_role": "other",
+        "status": "needs_review",
+        "source_format": "html",
+        "length": "short",
+        "tables": "absent",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": true
+    },
+    {
+      "record_id": "f4a61b5f73ef86c9b40f1c0d697047617497fe5df5752182a1aad6728588ab6b",
+      "snapshot_id": "dde4926d753d56badf9ec1100fe1e2eff95f4861ca37370fdc35822984348f05",
+      "split": "validation",
+      "document_sha256": "54b7b504e24c3ca06fd2495a0ade9f2c60a56e2a78cbe303de1ffed8ffb5acc3",
+      "strata": {
+        "query_type": "other",
+        "page_role": "commerce",
+        "status": "selected",
+        "source_format": "html",
+        "length": "long",
+        "tables": "absent",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": false
+    },
+    {
+      "record_id": "9e0750f2e08f18cc19a21d7143cba8d11c9ff53e66825b7029f98b08ee701551",
+      "snapshot_id": "5bf0aa6ae9faf92a5d943457ec4c36383a17f02c3c793fe9da47604aff8de67f",
+      "split": "validation",
+      "document_sha256": "10ed3aa62014d28b1255757a6585ca9760f6264ec145939a0a119432d361a0a1",
+      "strata": {
+        "query_type": "question",
+        "page_role": "homepage",
+        "status": "selected",
+        "source_format": "html",
+        "length": "medium",
+        "tables": "absent",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": false
+    },
+    {
+      "record_id": "6de3dacbb5dea8bbc2b54684c291efb32fd92b6e10f92c5ff1a563fcc7669959",
+      "snapshot_id": "3555d0eb4a162c5cb43239be48bee70b3489b011b6861ad6f98967286018749f",
+      "split": "validation",
+      "document_sha256": "3b130bc0669377d9466ecead85342a24afe2ad46f390bf5fb71aae101da6e9cf",
+      "strata": {
+        "query_type": "question",
+        "page_role": "other",
+        "status": "needs_review",
+        "source_format": "html",
+        "length": "short",
+        "tables": "absent",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": false
+    },
+    {
+      "record_id": "c0e5a19f76c75a1a2ae2f04ccac71c8440422bc88f53d458d261d4a9486accaf",
+      "snapshot_id": "a5b9b13aedd100c683c060840eacef191b7da8b78cc26908b540b57a0f3f31fd",
+      "split": "validation",
+      "document_sha256": "2cfdc727ca65974266feb93b705631300a190a80bf1c6d21dce79405f80c3ceb",
+      "strata": {
+        "query_type": "other",
+        "page_role": "editorial",
+        "status": "needs_review",
+        "source_format": "html",
+        "length": "long",
+        "tables": "absent",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": false
+    },
+    {
+      "record_id": "64f4dca8dfd36396d8a0f2f9d589562b8151178c6e47ff53d935aa4250dab690",
+      "snapshot_id": "259c6844bc3c042a227801127e305ea9e8e2fdebbef3797a27cbc54cd1ca5aa7",
+      "split": "validation",
+      "document_sha256": "26650316f3414c962a2c51d286fe4f063c17b1a1b35b06f47a2610fcd32022b7",
+      "strata": {
+        "query_type": "comparison",
+        "page_role": "commerce",
+        "status": "selected",
+        "source_format": "html",
+        "length": "medium",
+        "tables": "absent",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": false
+    },
+    {
+      "record_id": "f7f8aa99da8525722797d2ccacf7f62f09ef845f22fdcf52cc412fe15b3b52c8",
+      "snapshot_id": "308d127fb590ace733b18622d676fab8aa2fca9cc9ae2cd3299dea5fd3f6e6df",
+      "split": "validation",
+      "document_sha256": "d06259311785ce27a2f0485d10d7e9b9f1be70a1f83b04312122183316e16fff",
+      "strata": {
+        "query_type": "question",
+        "page_role": "homepage",
+        "status": "selected",
+        "source_format": "html",
+        "length": "medium",
+        "tables": "absent",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": false
+    },
+    {
+      "record_id": "e09740a456074315afb6ed8d858a612415bbffa78b1e123e6a14ad9a2c18aff2",
+      "snapshot_id": "bfc15dddc5c5387d3ae95e7a0cca781c5f90c1709397e7e7df8a9e2c9567ce6a",
+      "split": "validation",
+      "document_sha256": "74939a47c11b7ece3ba441e642e21bcc7972ce9ecf161a2a120b3da07e05cbf4",
+      "strata": {
+        "query_type": "procedure",
+        "page_role": "other",
+        "status": "selected",
+        "source_format": "html",
+        "length": "long",
+        "tables": "present",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": true
+    },
+    {
+      "record_id": "b7bf6a99fe49da49a408e9e66eb443ad407dc147f166af321f492216f884e0e7",
+      "snapshot_id": "63013e86d4ca8d114547cb18152f508b361ce6978ecef7ad9e700166fd5663b4",
+      "split": "validation",
+      "document_sha256": "c5e31c9c16092d86e772812e4fa35eeb6801e4c8524fc151c16870765f2a3e73",
+      "strata": {
+        "query_type": "question",
+        "page_role": "other",
+        "status": "needs_review",
+        "source_format": "html",
+        "length": "short",
+        "tables": "absent",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": false
+    },
+    {
+      "record_id": "64b96ee6500b685aa2ba037da7d578ae6a45f0376274dba6b7244169a5736e83",
+      "snapshot_id": "7ff685b73e1ab278d8fd55e5685878849fd42d22dc9cb54c63ca816bbcb6dfd7",
+      "split": "validation",
+      "document_sha256": "f6052b1964840b063f9a072a1cbbb8be2cb63df6b5ddd3ee0ecd236c723f06ce",
+      "strata": {
+        "query_type": "comparison",
+        "page_role": "commerce",
+        "status": "selected",
+        "source_format": "html",
+        "length": "medium",
+        "tables": "absent",
+        "code": "absent"
+      },
+      "smoke": false,
+      "independent_review": false
+    }
+  ],
+  "source_path": "/Users/ext-weihsiang.lin/Documents/profound/data/content-optimization-system/processed/markdownify-corpus-v1-complete",
+  "source_run_identity": "1ee4dfc2f06d020f198ae84cbfea0c5bfdedea3cec8223484d2ebd980e60a22e",
+  "controlled_edits": {
+    "version": "teacher-edits-v1",
+    "parent_cases": 3,
+    "pairs": 18,
+    "input_packets_sha256": "bfbeb0dc10ea3dbf57598eda9f8592dfeafda346d039005cdfedd3d61d15cce7",
+    "edit_types": [
+      "query_repetition",
+      "duplicate_headings",
+      "irrelevant_padding",
+      "misleading_title",
+      "prose_removal",
+      "source_passage_first"
+    ],
+    "pairs_sha256": "6fee99a5172f1af32541166213c56cf5ca40ecf7c5d4518c86c2adf2b04e8bc8",
+    "provenance_sha256": "b3f93a9ed5916d37684dc17281590fd92766a96aba35b2897d7eb1e31c4e0ab5",
+    "teacher_labels": 0,
+    "model_calls": 0,
+    "limitations": [
+      "Post-parser controls, not raw-HTML robustness",
+      "Prose removal is not certified answer removal; passage-first is not certified improvement",
+      "Original-page pack tests fidelity, not external truth",
+      "Token budgeting is pending teacher choice; never silently truncate edited blocks"
+    ]
+  }
+}
