@@ -578,3 +578,42 @@ retains both scorer history and Markdownify/embedding provenance from main.
 Frozen model/report artifacts are preserved; use cached v7 semantic_context for
 the chosen experimental direction. Raw-input inference with older model bundles
 remains subject to their original parser/code fingerprint checks.
+
+## V7.1 Markdownify-only context refit (2026-10-02)
+
+User explicitly requested retraining to fix the mixed-parser training/webapp gap.
+New immutable artifact version: `lr-semantic-v7.1`. Shared directory:
+`/Users/ext-weihsiang.lin/Documents/profound/data/content-optimization-system/trad_ml_scorer/v7.1/`.
+Use `model.joblib`; SHA256
+`d1c4b25480a1579239b8fd9c8bfa7d3beac11bfa2ec591d8540941b6f89493cc`.
+All 45 context features rebuilt from `processed/markdownify-corpus-v1-complete`;
+ten semantic columns, 55-column order, C=.001, labels and host splits preserved.
+All 9432 eligible rows retained. Twenty context columns change on development rows.
+Source manifests, compressed document hashes/content identities and joins checked.
+
+Four training-host CV AUC .67398. Validation AUC .66501 versus frozen v7 .66443;
+log loss .65177, Brier .22997, within-host AUC .68536. Paired AUC difference +.00058,
+95% host-bootstrap [-.00117,+.00231]; correction of preprocessing contract, not a
+proven uplift. Test feature construction audited but no test predictions/metrics.
+No feature search, calibration, embedding calls or full-corpus reparsing.
+
+New source modules: markdownify_context.py (canonical 55-feature construction),
+predict_markdownify.py (model/feature-fingerprint guards and document scoring),
+retrain_markdownify.py, verify_markdownify_refit.py, build_markdownify_refit_report.py.
+Reports and handoff: `trad_ml_scorer/v7.1/report.html` / `.md`, results.json,
+verification.json and plan.md. Shared cache includes per-record resumable checkpoints.
+Fresh offline parsing of 20 fixed validation HTML snapshots matches saved-document
+context features and new adapter probabilities exactly. Semantic scores were reused;
+webapp and full online embedding/rewrite parity were not exercised. All checked
+parser files match the corpus fingerprints. Final verification results are recorded in the delivery PR.
+
+User requested the name v7.1 and a PR. Delivery branch is
+`feat/lr-v7-1-markdownify`; webapp and deployment are unchanged. The webapp must use the new bundle and adapter together, preserve source inventory,
+and regenerate derived fields/semantic embeddings for edited documents. Supplying
+stale semantic scores is not detectable by this adapter; issue #15's broader
+rewrite/cache-invalidation work remains open. Frozen v7/corpus files unchanged.
+
+The initial pre-naming refit and report are archived in shared
+`trad_ml_scorer/v7-markdownify-v1/`. V7.1 reuses byte-identical corrected feature and
+join files (manifest documents lineage), with only the feature-code VERSION
+identifier changed. The fixed-recipe refit produces identical predictions.

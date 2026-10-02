@@ -270,3 +270,24 @@ context uses frozen retention features alongside Markdownify embeddings.
 **Adoption update:** The user selected v7 `semantic_context` as the direction for
 continued development. See [v7/decision.md](v7/decision.md) for the decision and
 its distinction from the frozen experimental outcome above.
+
+## V7.1: align context training with Markdownify
+
+[V7.1 report](v7.1/report.html) ([Markdown](v7.1/report.md)) fixes the mixed-parser
+input contract: all 45 context features are rebuilt from the same saved Markdownify
+corpus used by the ten semantic similarities. Keep 55 columns, C=.001 and host
+splits fixed. Validation AUC .66501 versus original v7 .66443; the small difference
+is uncertain. This is a preprocessing correction, not a new optimization claim.
+
+Shared model: `/Users/ext-weihsiang.lin/Documents/profound/data/content-optimization-system/trad_ml_scorer/v7.1/model.joblib`.
+Use `predict_markdownify.load_model` and `predict_document`; ordered input names,
+model checksum and adapter details are in [v7.1/handoff.json](v7.1/handoff.json).
+Prepared features and provenance are in the same shared directory; reuse them.
+Frozen v7 and the initial pre-naming refit stay intact. V7.1 preparation reuses the
+corrected cache without another corpus extraction or embedding run.
+
+Saved-document/fresh-HTML context and probability parity holds on 20 fixed
+validation snapshots. The adapter requires current Markdownify documents and
+semantic scores for that same prompt/document revision. Webapp wiring, edited
+content rebuilding and semantic-cache invalidation remain separate (#15). No test
+benchmark evaluation, Platt calibration, deployment or generic CLI-default change.
