@@ -617,3 +617,35 @@ The initial pre-naming refit and report are archived in shared
 `trad_ml_scorer/v7-markdownify-v1/`. V7.1 reuses byte-identical corrected feature and
 join files (manifest documents lineage), with only the feature-code VERSION
 identifier changed. The fixed-recipe refit produces identical predictions.
+
+## V8 Platt calibration experiment (2026-10-02)
+
+User requested a v8 prototype for issue #16. Base is frozen corrected v7.1, not
+mixed-parser v7. One calibration score per 7540 training rows from four host-grouped
+OOF folds (seed137); imputation/scaling/C=.001 LR fitted inside each fold. Two-parameter
+Platt sigmoid fit on those logits/labels only, with class-count target smoothing,
+uniform weights, unregularized mean cross-entropy and L-BFGS-B analytic gradients.
+Slope 1.1914722708110201, intercept .006419389188366314. Base weights unchanged.
+
+Validation (945 rows / 97 hosts): log loss .651768 -> .650824; Brier .229970 ->
+.229506; 10-equal-width-bin ECE .030040 -> .021884. ROC-AUC .665009 and within-host
+AUC unchanged. Paired 95% host-bootstrap log-loss delta interval [-.003784,+.002049]
+crosses zero, so the predeclared promotion rule fails: retain v7.1 default; v8 is
+experimental/opt-in. No test predictions, calibration search, provider calls or
+feature preparation. Probability target remains sampled host-relative high class.
+
+Artifact: `/Users/ext-weihsiang.lin/Documents/profound/data/content-optimization-system/trad_ml_scorer/v8/calibration.joblib`;
+OOF logits/labels/IDs/folds saved alongside as training_oof.npz. Exact v7.1 base
+checksum is bound in the artifact. `predict_platt.load_calibrated_model` and
+`predict_calibrated_document` expose raw_logit plus uncalibrated and calibrated
+high-class probabilities separately. Original adapters/defaults are unchanged.
+
+See `trad_ml_scorer/v8/report.html` / `.md`, reliability/mapping plots, plan.md,
+results.json, validation_predictions.json and verification.json. Numerical stability,
+positive orientation, host-disjoint OOF assignment and wrong-model rejection are
+covered by tests. 226 tests + 12 subtests passed. Independently checked all OOF host
+memberships and document-adapter parity on 20 fixed validation records (maximum
+probability error 1.11e-16). Saved calibration reload is exactly consistent.
+User requested a PR; delivery branch is `feat/lr-v8-platt-calibration`, based on
+main after the v7.1 merge. No webapp deployment or automatic default change. Wider
+rewrite/embedding freshness obligations from v7.1 remain unchanged.

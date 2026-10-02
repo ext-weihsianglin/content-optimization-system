@@ -291,3 +291,18 @@ validation snapshots. The adapter requires current Markdownify documents and
 semantic scores for that same prompt/document revision. Webapp wiring, edited
 content rebuilding and semantic-cache invalidation remain separate (#15). No test
 benchmark evaluation, Platt calibration, deployment or generic CLI-default change.
+
+## V8: optional Platt calibration experiment
+
+[V8 report](v8/report.html) ([Markdown](v8/report.md)) adds a two-parameter sigmoid
+to the frozen v7.1 logits. The calibrator fits only host-disjoint training OOF scores;
+validation labels never enter fitting. Log loss improves from .651768 to .650824,
+Brier .229970 to .229506 and ECE .030040 to .021884; AUC stays .665009. The paired
+log-loss interval crosses zero, so the predeclared rule **retains v7.1 as default**.
+
+Opt-in API: `predict_platt.load_calibrated_model` / `predict_calibrated_document`.
+It returns raw logit and both raw/calibrated high-class probabilities and requires
+the exact saved v7.1 base. Shared calibration and OOF cache live at
+`/Users/ext-weihsiang.lin/Documents/profound/data/content-optimization-system/trad_ml_scorer/v8/`.
+No inference default or webapp change. Calibration is not absolute citation-event
+probability. Reuse the artifacts; `calibration_experiment` refuses overwrite.

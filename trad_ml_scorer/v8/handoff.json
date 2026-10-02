@@ -1,0 +1,17 @@
+{
+  "model_version": "v8",
+  "status": "experimental; retain v7.1 default",
+  "calibration_path": "/Users/ext-weihsiang.lin/Documents/profound/data/content-optimization-system/trad_ml_scorer/v8/calibration.joblib",
+  "calibration_sha256": "f525979690fdc2772be2c7759c954148cff66f538233ebedb2a449699de38269",
+  "base_model_path": "/Users/ext-weihsiang.lin/Documents/profound/data/content-optimization-system/trad_ml_scorer/v7.1/model.joblib",
+  "base_model_sha256": "d1c4b25480a1579239b8fd9c8bfa7d3beac11bfa2ec591d8540941b6f89493cc",
+  "loader": "trad_ml_scorer.predict_platt.load_calibrated_model",
+  "predictor": "trad_ml_scorer.predict_platt.predict_calibrated_document",
+  "outputs": [
+    "raw_logit",
+    "uncalibrated_high_class_probability",
+    "calibrated_high_class_probability"
+  ],
+  "test_evaluated": false,
+  "tests": "226 passed, 12 subtests passed"
+}
