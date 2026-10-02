@@ -324,6 +324,14 @@ two partial intent grades abstain. All eight supplied titles still score 3. No
 human review, factual packs, training, pilot expansion or demo integration. Next
 review evidence relevance, checklist appropriateness, abstention and title controls.
 
+Title clarification (2026-10-02): all four smoke cases without title metadata are
+PDF URLs whose original stored payloads are Markdown/text, not PDF bytes or HTML
+DOMs. Raw payload hashes were verified. The native inventory does not populate a
+separate title, although title-like body text is preserved. The user agreed to
+defer PDF/Markdown title inference; latest ELI5 wording is "No title metadata".
+Title consistency remains not applicable, not zero. Before training, quantify
+missing title metadata by source format and mask unavailable title targets.
+
 Original GPT-5 smoke: `teacher-markdownify-v2-ready/gpt5-smoke-v1/` under the same
 persistent root. GPT-5 medium, returned `gpt-5-2025-08-07`; 12 cases processed,
 12 valid requirements/title stages each, 9 valid body stages. Video automation,

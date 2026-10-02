@@ -50,7 +50,7 @@ def build(report_path, packets_dir, run_dir, output):
             return "Failed check"
         if value["score"] is not None:
             return f"{value['score']}/3"
-        return "No title" if value["applicability"] == "not_applicable" else "Cannot judge"
+        return "No title metadata" if value["applicability"] == "not_applicable" else "Cannot judge"
 
     rows, cards = [], []
     for index, label in enumerate(labels, 1):
@@ -118,7 +118,7 @@ body{margin:0;background:#f4f7f5;color:var(--ink);font:16px/1.6 system-ui,-apple
     html += f"<div class='stats'><div class='stat'><b>{len(labels)}</b><span>pages tried</span></div><div class='stat'><b>{valid}</b><span>body judgments accepted</span></div><div class='stat'><b>{len(labels)-valid}</b><span>body judgments rejected</span></div><div class='stat'><b>${summary['estimated_cost_usd']:.2f}</b><span>estimated API cost</span></div></div>"
     html += '''<p class="note">“Accepted” means the output passed our format and exact-quote checks. It does not mean a human has confirmed the grade. Nobody has reviewed these as gold labels yet.</p>
 <h2>Three different questions</h2><div class="box steps"><div><strong>1. Does it answer the question?</strong><p>A product page can mention washer fluid without telling you which Montreal shops have it in stock.</p></div><div><strong>2. Are the sections useful?</strong><p>Headings and lists help only when they make useful information easier to find.</p></div><div><strong>3. Does the title match the page?</strong><p>A loading screen can match “Just a moment…” perfectly and still give you no useful answer.</p></div></div>
-<h2>How to read the grades</h2><div class="legend"><span><b>0</b> — no useful answer</span><span><b>1</b> — related, with big gaps</span><span><b>2</b> — answers the main task</span><span><b>3</b> — strong match</span></div><p class="note">These are GPT-5’s judgments, not citation probabilities. For the title check, the number measures how well the title matches the body. <b>Failed check ≠ 0.</b> A failed output gets no body grade. <b>No title</b> means that check could not apply.</p>
+<h2>How to read the grades</h2><div class="legend"><span><b>0</b> — no useful answer</span><span><b>1</b> — related, with big gaps</span><span><b>2</b> — answers the main task</span><span><b>3</b> — strong match</span></div><p class="note">These are GPT-5’s judgments, not citation probabilities. For the title check, the number measures how well the title matches the body. <b>Failed check ≠ 0.</b> A failed output gets no body grade. <b>No title metadata</b> means no separate title was available for this check. The document may still have a title in its body.</p>
 <h2>All 12 results</h2><p>Click a question to inspect its explanation. Use the filters to focus on failed body judgments.</p><div class="filters" aria-label="Filter cases"><button data-filter="all" aria-pressed="true">All 12</button><button data-filter="failed" aria-pressed="false">Rejected body judgments</button><button data-filter="accepted" aria-pressed="false">Accepted body judgments</button></div>
 <div class="table-wrap"><table><thead><tr><th>Question</th><th>Answers it?</th><th>Useful sections?</th><th>Title matches?</th></tr></thead><tbody>'''
     html += "".join(rows) + "</tbody></table></div>" + "".join(cards)
