@@ -1,0 +1,1032 @@
+{
+  "scope": "12 hand-authored development fixtures; implementation/adoption evidence, not independent semantic accuracy.",
+  "fixture_count": 12,
+  "expected_matches": 12,
+  "results": [
+    {
+      "id": "inline-code",
+      "html": "<p>Run <code>pip install example</code> now.</p>",
+      "expected_markdown": "Run `pip install example` now.",
+      "incumbent_markdown": "Run `pip install example` now.",
+      "markdownify_powered_markdown": "Run `pip install example` now.",
+      "expected_matches": true,
+      "text_unchanged": true,
+      "source_locations": {
+        "exact": 5,
+        "valid_locators": 5
+      },
+      "blocks": [
+        {
+          "schema_version": "dom-blocks-v3",
+          "block_id": "b000000",
+          "order": 0,
+          "parent_id": null,
+          "type": "paragraph",
+          "text": "Run pip install example now.",
+          "heading_level": null,
+          "links": [],
+          "table": null,
+          "source_locator": {
+            "dom_path": "/p[1]"
+          },
+          "mapping_status": "exact",
+          "inline_nodes": [
+            {
+              "type": "text",
+              "text": "Run ",
+              "source_locator": {
+                "dom_path": "/p[1]",
+                "child_index": 0
+              },
+              "mapping_status": "exact"
+            },
+            {
+              "type": "inline_code",
+              "tag": "code",
+              "attributes": {},
+              "source_locator": {
+                "dom_path": "/p[1]/code[1]"
+              },
+              "mapping_status": "exact",
+              "text": "pip install example",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "pip install example",
+                  "source_locator": {
+                    "dom_path": "/p[1]/code[1]",
+                    "child_index": 0
+                  },
+                  "mapping_status": "exact"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "text": " now.",
+              "source_locator": {
+                "dom_path": "/p[1]",
+                "child_index": 2
+              },
+              "mapping_status": "exact"
+            }
+          ],
+          "inline_markdown": "Run `pip install example` now."
+        }
+      ],
+      "representation": {
+        "block_schema_version": "dom-blocks-v3",
+        "serializer": "markdownify-structured-v1",
+        "markdownify_version": "1.2.3",
+        "removed_nodes": 0,
+        "order": "DOM order; computed visibility unknown"
+      }
+    },
+    {
+      "id": "deletion",
+      "html": "<p>Price <del>$100</del> $80.</p>",
+      "expected_markdown": "Price ~~$100~~ $80.",
+      "incumbent_markdown": "Price ~~$100~~ $80.",
+      "markdownify_powered_markdown": "Price ~~$100~~ $80.",
+      "expected_matches": true,
+      "text_unchanged": true,
+      "source_locations": {
+        "exact": 5,
+        "valid_locators": 5
+      },
+      "blocks": [
+        {
+          "schema_version": "dom-blocks-v3",
+          "block_id": "b000000",
+          "order": 0,
+          "parent_id": null,
+          "type": "paragraph",
+          "text": "Price $100 $80.",
+          "heading_level": null,
+          "links": [],
+          "table": null,
+          "source_locator": {
+            "dom_path": "/p[1]"
+          },
+          "mapping_status": "exact",
+          "inline_nodes": [
+            {
+              "type": "text",
+              "text": "Price ",
+              "source_locator": {
+                "dom_path": "/p[1]",
+                "child_index": 0
+              },
+              "mapping_status": "exact"
+            },
+            {
+              "type": "deletion",
+              "tag": "del",
+              "attributes": {},
+              "source_locator": {
+                "dom_path": "/p[1]/del[1]"
+              },
+              "mapping_status": "exact",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "$100",
+                  "source_locator": {
+                    "dom_path": "/p[1]/del[1]",
+                    "child_index": 0
+                  },
+                  "mapping_status": "exact"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "text": " $80.",
+              "source_locator": {
+                "dom_path": "/p[1]",
+                "child_index": 2
+              },
+              "mapping_status": "exact"
+            }
+          ],
+          "inline_markdown": "Price ~~$100~~ $80."
+        }
+      ],
+      "representation": {
+        "block_schema_version": "dom-blocks-v3",
+        "serializer": "markdownify-structured-v1",
+        "markdownify_version": "1.2.3",
+        "removed_nodes": 0,
+        "order": "DOM order; computed visibility unknown"
+      }
+    },
+    {
+      "id": "hard-break",
+      "html": "<p>First line<br>Second line</p>",
+      "expected_markdown": "First line\\\nSecond line",
+      "incumbent_markdown": "First line\\\nSecond line",
+      "markdownify_powered_markdown": "First line\\\nSecond line",
+      "expected_matches": true,
+      "text_unchanged": true,
+      "source_locations": {
+        "exact": 4,
+        "valid_locators": 4
+      },
+      "blocks": [
+        {
+          "schema_version": "dom-blocks-v3",
+          "block_id": "b000000",
+          "order": 0,
+          "parent_id": null,
+          "type": "paragraph",
+          "text": "First line Second line",
+          "heading_level": null,
+          "links": [],
+          "table": null,
+          "source_locator": {
+            "dom_path": "/p[1]"
+          },
+          "mapping_status": "exact",
+          "inline_nodes": [
+            {
+              "type": "text",
+              "text": "First line",
+              "source_locator": {
+                "dom_path": "/p[1]",
+                "child_index": 0
+              },
+              "mapping_status": "exact"
+            },
+            {
+              "type": "hard_break",
+              "tag": "br",
+              "attributes": {},
+              "source_locator": {
+                "dom_path": "/p[1]/br[1]"
+              },
+              "mapping_status": "exact",
+              "children": []
+            },
+            {
+              "type": "text",
+              "text": "Second line",
+              "source_locator": {
+                "dom_path": "/p[1]",
+                "child_index": 2
+              },
+              "mapping_status": "exact"
+            }
+          ],
+          "inline_markdown": "First line\\\nSecond line"
+        }
+      ],
+      "representation": {
+        "block_schema_version": "dom-blocks-v3",
+        "serializer": "markdownify-structured-v1",
+        "markdownify_version": "1.2.3",
+        "removed_nodes": 0,
+        "order": "DOM order; computed visibility unknown"
+      }
+    },
+    {
+      "id": "definition",
+      "html": "<dl><dt>API</dt><dd>Application programming interface</dd></dl>",
+      "expected_markdown": "<dl><dt>API</dt><dd>Application programming interface</dd></dl>",
+      "incumbent_markdown": "<dl><dt>API</dt><dd>Application programming interface</dd></dl>",
+      "markdownify_powered_markdown": "<dl><dt>API</dt><dd>Application programming interface</dd></dl>",
+      "expected_matches": true,
+      "text_unchanged": true,
+      "source_locations": {
+        "exact": 7,
+        "valid_locators": 7
+      },
+      "blocks": [
+        {
+          "schema_version": "dom-blocks-v3",
+          "block_id": "b000000",
+          "order": 0,
+          "parent_id": null,
+          "type": "definition_list",
+          "text": "",
+          "heading_level": null,
+          "links": [],
+          "table": null,
+          "source_locator": {
+            "dom_path": "/dl[1]"
+          },
+          "mapping_status": "exact",
+          "html": "<dl><dt>API</dt><dd>Application programming interface</dd></dl>",
+          "serialization": "HTML fallback; ordered term/description children remain authoritative."
+        },
+        {
+          "schema_version": "dom-blocks-v3",
+          "block_id": "b000001",
+          "order": 1,
+          "parent_id": "b000000",
+          "type": "definition_term",
+          "text": "",
+          "heading_level": null,
+          "links": [],
+          "table": null,
+          "source_locator": {
+            "dom_path": "/dl[1]/dt[1]"
+          },
+          "mapping_status": "exact"
+        },
+        {
+          "schema_version": "dom-blocks-v3",
+          "block_id": "b000002",
+          "order": 2,
+          "parent_id": "b000001",
+          "type": "paragraph",
+          "text": "API",
+          "heading_level": null,
+          "links": [],
+          "table": null,
+          "source_locator": {
+            "dom_path": "/dl[1]/dt[1]"
+          },
+          "mapping_status": "exact",
+          "inline_nodes": [
+            {
+              "type": "text",
+              "text": "API",
+              "source_locator": {
+                "dom_path": "/dl[1]/dt[1]",
+                "child_index": 0
+              },
+              "mapping_status": "exact"
+            }
+          ],
+          "inline_markdown": "API"
+        },
+        {
+          "schema_version": "dom-blocks-v3",
+          "block_id": "b000003",
+          "order": 3,
+          "parent_id": "b000000",
+          "type": "definition_description",
+          "text": "",
+          "heading_level": null,
+          "links": [],
+          "table": null,
+          "source_locator": {
+            "dom_path": "/dl[1]/dd[1]"
+          },
+          "mapping_status": "exact"
+        },
+        {
+          "schema_version": "dom-blocks-v3",
+          "block_id": "b000004",
+          "order": 4,
+          "parent_id": "b000003",
+          "type": "paragraph",
+          "text": "Application programming interface",
+          "heading_level": null,
+          "links": [],
+          "table": null,
+          "source_locator": {
+            "dom_path": "/dl[1]/dd[1]"
+          },
+          "mapping_status": "exact",
+          "inline_nodes": [
+            {
+              "type": "text",
+              "text": "Application programming interface",
+              "source_locator": {
+                "dom_path": "/dl[1]/dd[1]",
+                "child_index": 0
+              },
+              "mapping_status": "exact"
+            }
+          ],
+          "inline_markdown": "Application programming interface"
+        }
+      ],
+      "representation": {
+        "block_schema_version": "dom-blocks-v3",
+        "serializer": "markdownify-structured-v1",
+        "markdownify_version": "1.2.3",
+        "removed_nodes": 0,
+        "order": "DOM order; computed visibility unknown"
+      }
+    },
+    {
+      "id": "separator",
+      "html": "<p>First paragraph</p><hr><p>Second paragraph</p>",
+      "expected_markdown": "First paragraph\n\n---\n\nSecond paragraph",
+      "incumbent_markdown": "First paragraph\n\n---\n\nSecond paragraph",
+      "markdownify_powered_markdown": "First paragraph\n\n---\n\nSecond paragraph",
+      "expected_matches": true,
+      "text_unchanged": true,
+      "source_locations": {
+        "exact": 5,
+        "valid_locators": 5
+      },
+      "blocks": [
+        {
+          "schema_version": "dom-blocks-v3",
+          "block_id": "b000000",
+          "order": 0,
+          "parent_id": null,
+          "type": "paragraph",
+          "text": "First paragraph",
+          "heading_level": null,
+          "links": [],
+          "table": null,
+          "source_locator": {
+            "dom_path": "/p[1]"
+          },
+          "mapping_status": "exact",
+          "inline_nodes": [
+            {
+              "type": "text",
+              "text": "First paragraph",
+              "source_locator": {
+                "dom_path": "/p[1]",
+                "child_index": 0
+              },
+              "mapping_status": "exact"
+            }
+          ],
+          "inline_markdown": "First paragraph"
+        },
+        {
+          "schema_version": "dom-blocks-v3",
+          "block_id": "b000001",
+          "order": 1,
+          "parent_id": null,
+          "type": "thematic_break",
+          "text": "",
+          "heading_level": null,
+          "links": [],
+          "table": null,
+          "source_locator": {
+            "dom_path": "/hr[1]"
+          },
+          "mapping_status": "exact"
+        },
+        {
+          "schema_version": "dom-blocks-v3",
+          "block_id": "b000002",
+          "order": 2,
+          "parent_id": null,
+          "type": "paragraph",
+          "text": "Second paragraph",
+          "heading_level": null,
+          "links": [],
+          "table": null,
+          "source_locator": {
+            "dom_path": "/p[2]"
+          },
+          "mapping_status": "exact",
+          "inline_nodes": [
+            {
+              "type": "text",
+              "text": "Second paragraph",
+              "source_locator": {
+                "dom_path": "/p[2]",
+                "child_index": 0
+              },
+              "mapping_status": "exact"
+            }
+          ],
+          "inline_markdown": "Second paragraph"
+        }
+      ],
+      "representation": {
+        "block_schema_version": "dom-blocks-v3",
+        "serializer": "markdownify-structured-v1",
+        "markdownify_version": "1.2.3",
+        "removed_nodes": 0,
+        "order": "DOM order; computed visibility unknown"
+      }
+    },
+    {
+      "id": "inline-image",
+      "html": "<p>Look <img src=\"/diagram.png\" alt=\"Diagram\"> here.</p>",
+      "expected_markdown": "Look ![Diagram](<https://example.test/diagram.png>) here.",
+      "incumbent_markdown": "Look ![Diagram](<https://example.test/diagram.png>) here.",
+      "markdownify_powered_markdown": "Look ![Diagram](<https://example.test/diagram.png>) here.",
+      "expected_matches": true,
+      "text_unchanged": true,
+      "source_locations": {
+        "exact": 4,
+        "valid_locators": 4
+      },
+      "blocks": [
+        {
+          "schema_version": "dom-blocks-v3",
+          "block_id": "b000000",
+          "order": 0,
+          "parent_id": null,
+          "type": "paragraph",
+          "text": "Look Diagram here.",
+          "heading_level": null,
+          "links": [],
+          "table": null,
+          "source_locator": {
+            "dom_path": "/p[1]"
+          },
+          "mapping_status": "exact",
+          "inline_nodes": [
+            {
+              "type": "text",
+              "text": "Look ",
+              "source_locator": {
+                "dom_path": "/p[1]",
+                "child_index": 0
+              },
+              "mapping_status": "exact"
+            },
+            {
+              "type": "inline_image",
+              "tag": "img",
+              "attributes": {
+                "alt": "Diagram",
+                "src": "/diagram.png"
+              },
+              "source_locator": {
+                "dom_path": "/p[1]/img[1]"
+              },
+              "mapping_status": "exact",
+              "text": "Diagram",
+              "target": "/diagram.png",
+              "resolved_target": "https://example.test/diagram.png",
+              "html": "<img alt=\"Diagram\" src=\"/diagram.png\"/>",
+              "children": []
+            },
+            {
+              "type": "text",
+              "text": " here.",
+              "source_locator": {
+                "dom_path": "/p[1]",
+                "child_index": 2
+              },
+              "mapping_status": "exact"
+            }
+          ],
+          "inline_markdown": "Look ![Diagram](<https://example.test/diagram.png>) here."
+        }
+      ],
+      "representation": {
+        "block_schema_version": "dom-blocks-v3",
+        "serializer": "markdownify-structured-v1",
+        "markdownify_version": "1.2.3",
+        "removed_nodes": 0,
+        "order": "DOM order; computed visibility unknown"
+      }
+    },
+    {
+      "id": "code-backticks",
+      "html": "<p><code>`x` and ``y``</code></p>",
+      "expected_markdown": "``` `x` and ``y`` ```",
+      "incumbent_markdown": "``` `x` and ``y`` ```",
+      "markdownify_powered_markdown": "``` `x` and ``y`` ```",
+      "expected_matches": true,
+      "text_unchanged": true,
+      "source_locations": {
+        "exact": 3,
+        "valid_locators": 3
+      },
+      "blocks": [
+        {
+          "schema_version": "dom-blocks-v3",
+          "block_id": "b000000",
+          "order": 0,
+          "parent_id": null,
+          "type": "paragraph",
+          "text": "`x` and ``y``",
+          "heading_level": null,
+          "links": [],
+          "table": null,
+          "source_locator": {
+            "dom_path": "/p[1]"
+          },
+          "mapping_status": "exact",
+          "inline_nodes": [
+            {
+              "type": "inline_code",
+              "tag": "code",
+              "attributes": {},
+              "source_locator": {
+                "dom_path": "/p[1]/code[1]"
+              },
+              "mapping_status": "exact",
+              "text": "`x` and ``y``",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "`x` and ``y``",
+                  "source_locator": {
+                    "dom_path": "/p[1]/code[1]",
+                    "child_index": 0
+                  },
+                  "mapping_status": "exact"
+                }
+              ]
+            }
+          ],
+          "inline_markdown": "``` `x` and ``y`` ```"
+        }
+      ],
+      "representation": {
+        "block_schema_version": "dom-blocks-v3",
+        "serializer": "markdownify-structured-v1",
+        "markdownify_version": "1.2.3",
+        "removed_nodes": 0,
+        "order": "DOM order; computed visibility unknown"
+      }
+    },
+    {
+      "id": "code-emphasis",
+      "html": "<p><em>Use <code>a`b</code> now</em></p>",
+      "expected_markdown": "*Use ``a`b`` now*",
+      "incumbent_markdown": "*Use ``a`b`` now*",
+      "markdownify_powered_markdown": "*Use ``a`b`` now*",
+      "expected_matches": true,
+      "text_unchanged": true,
+      "source_locations": {
+        "exact": 6,
+        "valid_locators": 6
+      },
+      "blocks": [
+        {
+          "schema_version": "dom-blocks-v3",
+          "block_id": "b000000",
+          "order": 0,
+          "parent_id": null,
+          "type": "paragraph",
+          "text": "Use a`b now",
+          "heading_level": null,
+          "links": [],
+          "table": null,
+          "source_locator": {
+            "dom_path": "/p[1]"
+          },
+          "mapping_status": "exact",
+          "inline_nodes": [
+            {
+              "type": "emphasis",
+              "tag": "em",
+              "attributes": {},
+              "source_locator": {
+                "dom_path": "/p[1]/em[1]"
+              },
+              "mapping_status": "exact",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "Use ",
+                  "source_locator": {
+                    "dom_path": "/p[1]/em[1]",
+                    "child_index": 0
+                  },
+                  "mapping_status": "exact"
+                },
+                {
+                  "type": "inline_code",
+                  "tag": "code",
+                  "attributes": {},
+                  "source_locator": {
+                    "dom_path": "/p[1]/em[1]/code[1]"
+                  },
+                  "mapping_status": "exact",
+                  "text": "a`b",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "a`b",
+                      "source_locator": {
+                        "dom_path": "/p[1]/em[1]/code[1]",
+                        "child_index": 0
+                      },
+                      "mapping_status": "exact"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " now",
+                  "source_locator": {
+                    "dom_path": "/p[1]/em[1]",
+                    "child_index": 2
+                  },
+                  "mapping_status": "exact"
+                }
+              ]
+            }
+          ],
+          "inline_markdown": "*Use ``a`b`` now*"
+        }
+      ],
+      "representation": {
+        "block_schema_version": "dom-blocks-v3",
+        "serializer": "markdownify-structured-v1",
+        "markdownify_version": "1.2.3",
+        "removed_nodes": 0,
+        "order": "DOM order; computed visibility unknown"
+      }
+    },
+    {
+      "id": "code-whitespace",
+      "html": "<p><code>  x\n y  </code></p>",
+      "expected_markdown": "<code>  x\n y  </code>",
+      "incumbent_markdown": "<code>  x\n y  </code>",
+      "markdownify_powered_markdown": "<code>  x\n y  </code>",
+      "expected_matches": true,
+      "text_unchanged": true,
+      "source_locations": {
+        "exact": 3,
+        "valid_locators": 3
+      },
+      "blocks": [
+        {
+          "schema_version": "dom-blocks-v3",
+          "block_id": "b000000",
+          "order": 0,
+          "parent_id": null,
+          "type": "paragraph",
+          "text": "x y",
+          "heading_level": null,
+          "links": [],
+          "table": null,
+          "source_locator": {
+            "dom_path": "/p[1]"
+          },
+          "mapping_status": "exact",
+          "inline_nodes": [
+            {
+              "type": "inline_code",
+              "tag": "code",
+              "attributes": {},
+              "source_locator": {
+                "dom_path": "/p[1]/code[1]"
+              },
+              "mapping_status": "exact",
+              "text": "  x\n y  ",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "  x\n y  ",
+                  "source_locator": {
+                    "dom_path": "/p[1]/code[1]",
+                    "child_index": 0
+                  },
+                  "mapping_status": "exact"
+                }
+              ]
+            }
+          ],
+          "inline_markdown": "<code>  x\n y  </code>"
+        }
+      ],
+      "representation": {
+        "block_schema_version": "dom-blocks-v3",
+        "serializer": "markdownify-structured-v1",
+        "markdownify_version": "1.2.3",
+        "removed_nodes": 0,
+        "order": "DOM order; computed visibility unknown"
+      }
+    },
+    {
+      "id": "empty-alt-image",
+      "html": "<p>Look <img src=\"/diagram.png\" alt=\"\"> here.</p>",
+      "expected_markdown": "Look ![](<https://example.test/diagram.png>) here.",
+      "incumbent_markdown": "Look ![](<https://example.test/diagram.png>) here.",
+      "markdownify_powered_markdown": "Look ![](<https://example.test/diagram.png>) here.",
+      "expected_matches": true,
+      "text_unchanged": true,
+      "source_locations": {
+        "exact": 4,
+        "valid_locators": 4
+      },
+      "blocks": [
+        {
+          "schema_version": "dom-blocks-v3",
+          "block_id": "b000000",
+          "order": 0,
+          "parent_id": null,
+          "type": "paragraph",
+          "text": "Look here.",
+          "heading_level": null,
+          "links": [],
+          "table": null,
+          "source_locator": {
+            "dom_path": "/p[1]"
+          },
+          "mapping_status": "exact",
+          "inline_nodes": [
+            {
+              "type": "text",
+              "text": "Look ",
+              "source_locator": {
+                "dom_path": "/p[1]",
+                "child_index": 0
+              },
+              "mapping_status": "exact"
+            },
+            {
+              "type": "inline_image",
+              "tag": "img",
+              "attributes": {
+                "alt": "",
+                "src": "/diagram.png"
+              },
+              "source_locator": {
+                "dom_path": "/p[1]/img[1]"
+              },
+              "mapping_status": "exact",
+              "text": "",
+              "target": "/diagram.png",
+              "resolved_target": "https://example.test/diagram.png",
+              "html": "<img alt=\"\" src=\"/diagram.png\"/>",
+              "children": []
+            },
+            {
+              "type": "text",
+              "text": " here.",
+              "source_locator": {
+                "dom_path": "/p[1]",
+                "child_index": 2
+              },
+              "mapping_status": "exact"
+            }
+          ],
+          "inline_markdown": "Look ![](<https://example.test/diagram.png>) here."
+        }
+      ],
+      "representation": {
+        "block_schema_version": "dom-blocks-v3",
+        "serializer": "markdownify-structured-v1",
+        "markdownify_version": "1.2.3",
+        "removed_nodes": 0,
+        "order": "DOM order; computed visibility unknown"
+      }
+    },
+    {
+      "id": "whitespace-code",
+      "html": "<p><code>   </code></p>",
+      "expected_markdown": "<code>   </code>",
+      "incumbent_markdown": "<code>   </code>",
+      "markdownify_powered_markdown": "<code>   </code>",
+      "expected_matches": true,
+      "text_unchanged": true,
+      "source_locations": {
+        "exact": 3,
+        "valid_locators": 3
+      },
+      "blocks": [
+        {
+          "schema_version": "dom-blocks-v3",
+          "block_id": "b000000",
+          "order": 0,
+          "parent_id": null,
+          "type": "paragraph",
+          "text": "",
+          "heading_level": null,
+          "links": [],
+          "table": null,
+          "source_locator": {
+            "dom_path": "/p[1]"
+          },
+          "mapping_status": "exact",
+          "inline_nodes": [
+            {
+              "type": "inline_code",
+              "tag": "code",
+              "attributes": {},
+              "source_locator": {
+                "dom_path": "/p[1]/code[1]"
+              },
+              "mapping_status": "exact",
+              "text": "   ",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "   ",
+                  "source_locator": {
+                    "dom_path": "/p[1]/code[1]",
+                    "child_index": 0
+                  },
+                  "mapping_status": "exact"
+                }
+              ]
+            }
+          ],
+          "inline_markdown": "<code>   </code>"
+        }
+      ],
+      "representation": {
+        "block_schema_version": "dom-blocks-v3",
+        "serializer": "markdownify-structured-v1",
+        "markdownify_version": "1.2.3",
+        "removed_nodes": 0,
+        "order": "DOM order; computed visibility unknown"
+      }
+    },
+    {
+      "id": "complex-table",
+      "html": "<table><tr><th colspan=\"2\">Cost</th></tr><tr><td>A</td><td>B</td></tr></table>",
+      "expected_markdown": "<table><tr><th colspan=\"2\">Cost</th></tr><tr><td>A</td><td>B</td></tr></table>",
+      "incumbent_markdown": "<table><tr><th colspan=\"2\">Cost</th></tr><tr><td>A</td><td>B</td></tr></table>",
+      "markdownify_powered_markdown": "<table><tr><th colspan=\"2\">Cost</th></tr><tr><td>A</td><td>B</td></tr></table>",
+      "expected_matches": true,
+      "text_unchanged": true,
+      "source_locations": {
+        "exact": 4,
+        "valid_locators": 4
+      },
+      "blocks": [
+        {
+          "schema_version": "dom-blocks-v3",
+          "block_id": "b000000",
+          "order": 0,
+          "parent_id": null,
+          "type": "table",
+          "text": "Cost\nA\tB",
+          "heading_level": null,
+          "links": [],
+          "table": {
+            "caption": "",
+            "cells": [
+              {
+                "row": 0,
+                "column": 0,
+                "text": "Cost",
+                "is_header": true,
+                "role": "th",
+                "scope": null,
+                "headers": [],
+                "id": null,
+                "row_group": "table",
+                "rowspan": 1,
+                "colspan": 2,
+                "links": [],
+                "inline_nodes": [
+                  {
+                    "type": "text",
+                    "text": "Cost",
+                    "source_locator": {
+                      "dom_path": "/table[1]/tr[1]/th[1]",
+                      "child_index": 0
+                    },
+                    "mapping_status": "exact"
+                  }
+                ]
+              },
+              {
+                "row": 1,
+                "column": 0,
+                "text": "A",
+                "is_header": false,
+                "role": "td",
+                "scope": null,
+                "headers": [],
+                "id": null,
+                "row_group": "table",
+                "rowspan": 1,
+                "colspan": 1,
+                "links": [],
+                "inline_nodes": [
+                  {
+                    "type": "text",
+                    "text": "A",
+                    "source_locator": {
+                      "dom_path": "/table[1]/tr[2]/td[1]",
+                      "child_index": 0
+                    },
+                    "mapping_status": "exact"
+                  }
+                ]
+              },
+              {
+                "row": 1,
+                "column": 1,
+                "text": "B",
+                "is_header": false,
+                "role": "td",
+                "scope": null,
+                "headers": [],
+                "id": null,
+                "row_group": "table",
+                "rowspan": 1,
+                "colspan": 1,
+                "links": [],
+                "inline_nodes": [
+                  {
+                    "type": "text",
+                    "text": "B",
+                    "source_locator": {
+                      "dom_path": "/table[1]/tr[2]/td[2]",
+                      "child_index": 0
+                    },
+                    "mapping_status": "exact"
+                  }
+                ]
+              }
+            ],
+            "rows": 2,
+            "columns": 2,
+            "html": "<table><tr><th colspan=\"2\">Cost</th></tr><tr><td>A</td><td>B</td></tr></table>",
+            "span_policy": "Invalid spans become 1; grid spans bounded at 1000; original attributes retained in HTML."
+          },
+          "source_locator": {
+            "dom_path": "/table[1]"
+          },
+          "mapping_status": "exact"
+        }
+      ],
+      "representation": {
+        "block_schema_version": "dom-blocks-v3",
+        "serializer": "markdownify-structured-v1",
+        "markdownify_version": "1.2.3",
+        "removed_nodes": 0,
+        "order": "DOM order; computed visibility unknown"
+      }
+    }
+  ],
+  "incumbent_revision": "caf590d1c3b78fa0d66899e799307635e84d23b2",
+  "serializer": "markdownify-structured-v1",
+  "block_schema_version": "dom-blocks-v3",
+  "converter_options": {
+    "heading_style": "ATX",
+    "bullets": "-",
+    "newline_style": "BACKSLASH",
+    "autolinks": false,
+    "strip_pre": null,
+    "sub_symbol": "<sub>",
+    "sup_symbol": "<sup>"
+  },
+  "dependencies": {
+    "markdownify": "1.2.3",
+    "beautifulsoup4": "4.15.0",
+    "markdown-it-py": "4.2.0"
+  },
+  "source_fingerprints": {
+    "preprocessing/schema.py": "fcce8bfd4f532330234d12a5072fa2d7250504c231e823260310a4018a1e60e1",
+    "preprocessing/blocks.py": "c9d1048add604070558353173a16e3ac4340e12a4de21a8a1ae8327752f67b8d",
+    "preprocessing/markdownify_serializer.py": "a47906348754f11ebd42cdb4136e9db9b86d8128c98f8ddc4c2843c7b967b5c6",
+    "preprocessing/quality.py": "cc702b4cff899c83a2469afc7fbb98c02c30a1df339e5cc3296a2d625327c5a6",
+    "preprocessing/offline.py": "dcb6bb1f5c4d8aa1bb3e25b6e7dbaf8d9adc54c5c5eaeadc7a11c207dacaf235",
+    "preprocessing/runner.py": "3bdfc0b6350f238a87c6c5c89a588dc7f3f01eac94f7909be4cf29b9df66f1e5",
+    "preprocessing/adapters/local.py": "daf22d779d687afa45205b631d9ba30c6ab0ba075cb22dee6fd8e2d249a4944c",
+    "preprocessing/adapters/external.py": "ee84bf0ac857e8a851583d8c452f5f8b067d743a94c154ccb7c2fad138af7a7a",
+    "preprocessing/node/package-lock.json": "cdc3c62c394c5ff43d4bc2798a1fbf7f0b2b687d74235b4326bf99faf5a772a9",
+    "preprocessing/node/worker.cjs": "ce3cc69b6510d44bb0bfad98f26a1ed1e402b37ef24c610ff12d13ec277413f2",
+    "scripts/analyze_content.py": "21f2c197a25ecd6c1f4d11d2090f7fefe94f2c0939ebea60e7261fa97c7d7c29",
+    "uv.lock": "3f7de4ea094575bd218ef1d2b8a3773e689bafb06b20143632ac28fa935a3cb3"
+  },
+  "report_code_sha256": "dcf69a5287cf9be96de648c45746c5d0afef83d51edab774a40c3f9a5614b5ff",
+  "frozen_evaluation_hashes": {
+    "evaluation/extraction/annotations-batch-1.json": "e4c7d564d51a3cf8330eb28530ad2c3e09e8f69368bdfa89397f413fa9c91c76",
+    "evaluation/extraction/annotations-batch-4.json": "5b77a7329db8eb15608cf9907bc63f21086392c3ff14cd6beef151094ac76206",
+    "evaluation/extraction/manifest.json": "0e50f8404411fde8428cd1e114d49b01ade5e29800a2e8476896029b586a6d69",
+    "evaluation/extraction/verification.json": "b48942da10b8aaabd992bd679cac33363e4d0cd56af81c8dbf0ced43a466f5d7",
+    "evaluation/extraction/fixtures.json": "2b8e04b214113a0d02cf1a4f13cf580d73debc3628453e08bd0050c5342e142d",
+    "evaluation/extraction/annotations-batch-2.json": "7fe251a1ce7b9eed1cc47d620f9333847bea2681b1d5ba9ac7e13b74eda9fcbc",
+    "evaluation/extraction/annotations-batch-3.json": "1915600826316d6d153d64ca0213c65fef4f2e0abee1cca3a8508fcda3b16f65",
+    "evaluation/extraction/freeze.json": "d87aa7017975effcb27646efc5b5d1047bfcc38375d6be083e4a0e6eedc2860c",
+    "evaluation/extraction/annotations.json": "67b4af5bc8ca1b2eefd267de2c170c03371f6187e4d75869ec24b74a0fe96d38"
+  }
+}
