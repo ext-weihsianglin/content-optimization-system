@@ -285,6 +285,28 @@ under `trad_ml_scorer/`; original analysis and frozen v1/v2 are preserved.
 
 ## Encoder scorer workstream checkpoint
 
+Scope revision (2026-10-02): two independent workstreams supersede the original
+serial teacher-distillation -> ModernBERT -> LR -> webapp sequence. A: train a
+ModernBERT citation-category classifier on original binary labels, targeting
+P(top category | prompt, document, hostname), and compare against incumbent LR.
+Use the operational webapp v7 semantic_context scorer plus v5 reference; freeze
+population, host splits, input/serving contracts and unseen-host behavior. Include
+hostname-aware and content-only candidates; no judge labels are required.
+B: refine the LLM judge rubric using semantic evidence/edit review, and ship
+complementary per-query quality scores beside P1 in the webapp analyze phase.
+The judge can become direct P2 feedback later. Distillation is optional and does
+not block either delivery. See the rewritten spec/plan in `spec/encoder-reward-*`.
+
+Read-only GitHub inspection found demo-webapp main at PR #5 merge `6c2cae7`:
+`backend/app/main.py` analyze has measured P1 v7 alongside mocked Query alignment,
+Answer clarity and a heading heuristic. Plan a separate `judge` result with clear
+states, source evidence and applicability; judge failure should preserve P1.
+Draft internally calls analyze, so versioned caching/execution policy must prevent
+duplicate paid calls. The scorer discloses Markdownify context-contract issue #15.
+Open PR #8 is a GEPA plan using mean P1; judge objective changes require a separate
+reviewed integration. No webapp files, training runtime or paid calls changed in
+this scope revision.
+
 Current preparation (supersedes the historical source audit below): the user declared
 the shared markdownify corpus the source of truth and requested package recreation.
 New persistent package root:

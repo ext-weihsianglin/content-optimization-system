@@ -1,5 +1,14 @@
 # Encoder scorer experiments
 
+Two independent workstreams now guide delivery: **ModernBERT citation prediction**
+trained on original labels and benchmarked against LR, and **LLM judge quality
+scores** refined and integrated alongside P1 during webapp analyze. See the revised
+[specification](../spec/encoder-reward-scorer.md) and
+[plan](../spec/encoder-reward-scorer-plan.md). Judge distillation is an optional
+later efficiency experiment; it does not gate the binary classifier. Current code
+and evidence below implement the judge preparation/smoke harness, not a trained
+ModernBERT classifier or a shipped webapp judge.
+
 The runtime `teacher-selection-v1` harness is now implemented in `selection.py`.
 Provider schemas constrain evidence IDs and use required keyed assessments for
 frozen requirements. Backend code copies complete selected source blocks exactly

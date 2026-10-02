@@ -1,16 +1,21 @@
-# Encoder P1 scorer and component rewards for P2
+# ModernBERT citation classifier and complementary LLM judge
 
-Status: implementation authorized; the user approved GPT-5 at medium reasoning
-for the 12-case teacher smoke on 2026-10-01. Implementation sequence and gates:
+Status: two independent workstreams agreed 2026-10-02. GPT-5 medium remains the
+approved judge model; completed smoke evidence is preserved. Contracts and gates:
 [delivery plan](encoder-reward-scorer-plan.md).
 
 ## Objective and scope
 
-Develop a query-conditioned P1 scorer that combines a learned citation-label
-prediction with interpretable content-quality components to guide P2 page edits.
-First curate evidence-backed annotations from stronger teacher models; then distill
-those judgments into a ModernBERT-style encoder; benchmark against frozen LR
-scorers; finally inspect end-to-end behavior in the demo webapp.
+Workstream A trains a ModernBERT-style binary classifier against the original
+citation-category labels and benchmarks it against incumbent LR. The target is
+`P(fall-in-top-cited-category | prompt, html-doc, hostname)`. `html-doc` denotes the
+source document; actual encoder inputs use the saved Markdownify representation.
+
+Workstream B refines an LLM judge's content-quality rubric and exposes its component
+scores alongside the citation classifier during the demo webapp's analyze phase.
+The judge can later provide direct P2 rewards without a distilled encoder. Teacher
+distillation is an optional cost/latency follow-up, not a prerequisite for either
+workstream. Keep outputs, evaluation targets and promotion decisions distinct.
 
 The initial P2 use case is improving an existing page using supplied factual
 material. New-page generation can follow using an explicit evidence pack. This
@@ -23,6 +28,13 @@ editing uplift. Quality components are separately supervised hypotheses about
 useful content; their relationship to citation performance must be measured.
 
 ## Evidence motivating the design
+
+Current operational comparison target: the demo webapp's pinned v7
+`semantic_context` LR scorer; also retain v5 as a reference. The webapp declares its
+`markdownify-context-v1` serving policy and context-feature mismatch in upstream
+issue #15. See the [delivery plan](encoder-reward-scorer-plan.md) for inspected source
+links and benchmark policy. The following v2-v6 discussion is historical motivation,
+not a statement that v2 is the current webapp scorer or that v7 won validation.
 
 Committed baseline: [LR v4 report](../trad_ml_scorer/v4/report.md). V2 is the
 repository inference default. V4's historical test AUC is 0.67904 versus 0.67689
@@ -69,7 +81,7 @@ post-parser audit rose from +0.0657 to +0.1120. This motivates distinguishing
 topic mention, actual answer delivery, and evidence-supported answer delivery.
 The sampled stress outcomes do not establish comprehensive robustness.
 
-## Component definitions
+## Workstream B: judge component definitions
 
 | Component | Teacher annotation target | Motivation |
 | --- | --- | --- |
@@ -94,9 +106,9 @@ real-world truth. Record whether evidence is an original page or separately appr
 material. An external link's existence does not prove the linked claim; preprocessing
 and evidence extraction remain offline and snapshot-only.
 
-## Teacher dataset contract
+## Judge request and evaluation contract
 
-Reuse cached retention documents, source hashes, eligibility rules, record IDs,
+Reuse saved Markdownify documents, source hashes, eligibility rules, record IDs,
 and frozen hostname assignments. Preserve quality flags and raw-source traceability.
 Do not rerun extraction, alter frozen documents, or silently substitute clean views.
 
@@ -140,7 +152,17 @@ Human review establishes a limited reviewed subset, not human gold for the whole
 dataset. No top/bottom labels or inspected test outcomes may influence the quality
 rubric. Teacher-generated quality labels must not replace original citation labels.
 
-## Student scorer contract
+Analyze returns a separate per-query `judge` result beside `p1`, with component
+scores/applicability, justifications, source pointers, coverage and execution status.
+Record model/prompt/rubric/view/evidence identities. Pending or failed judge results
+must preserve available extraction/P1 output. Replace the corresponding mocked
+editorial grades with measured judge scores; do not relabel classifier probabilities
+as rubric grades. Prevent duplicate paid calls when draft reuses analyze by caching
+complete evaluation identities. A selected judge prompt needs independently reviewed
+evidence relevance and edit preferences, not just schema success. Missing title
+metadata remains not applicable; title inference is deferred.
+
+## Workstream A: citation classifier contract
 
 Proposed backbone: pinned `answerdotai/ModernBERT-base` (149M parameters, native
 8,192-token context; [official model card](https://huggingface.co/answerdotai/ModernBERT-base)).
@@ -148,11 +170,14 @@ The exact revision, tokenizer, dependencies, hardware/backend, and training reci
 must be frozen for each experiment. Backend compatibility and cost require a bounded
 smoke test; full-context training is not assumed to fit the local machine.
 
-Jointly encode query, title, and structured content for a citation-label head.
-Distill teacher component labels through separate supervised heads, masking missing,
-unassessable, and not-applicable labels. Keep citation loss and component losses
-separate and report their weights. Compare citation-only and multi-task training;
-do not assume auxiliary labels improve citation AUC.
+Encode query, available title and structured body for a binary citation-label head.
+Train on original top/bottom labels. Include a hostname-aware candidate for the
+user's conditional target, with a content-only ablation and a frozen hostname
+encoding policy. Any learned host vocabulary/statistics fit training data only;
+define unseen-host behavior and preserve disjoint host splits. Hostname is context,
+not the target or an editing objective. Judge criteria/labels are not needed for this
+baseline. Primary replacement evidence is paired predictive/calibration performance
+against pinned incumbent LR on the same eligible population, plus practical costs.
 
 Section/passage components may use local encodings and page-level aggregation.
 Do not copy a page's top/bottom label onto every chunk. Measure tokenizer lengths
@@ -162,11 +187,18 @@ coverage reporting. Version truncation/selection/aggregation policies. Ensure ed
 candidate blocks are included consistently so selection does not hide or fabricate
 score changes. Include a content/title-only baseline before metadata or LR hybrids.
 
-Outputs include citation logit and sampled-label probability, applicable component
-scores, uncertainty/coverage flags, and document/model provenance. Evidence pointers
+Classifier outputs include citation logit and sampled-label probability,
+coverage flags, and document/model provenance. Judge component scores are a separate
+output contract. Evidence pointers
 must come from an explicitly evaluated extraction/selection mechanism; classification
 heads alone do not provide faithful explanations. Teacher rationales are audit data,
 not a claim that the student reproduces reasoning.
+
+Optional later distillation may add component heads or a separate quality encoder
+after rubric validation. Mask missing/unassessable/not-applicable supervision and
+measure both imitation and independent reviewed edit usefulness. Keep losses and
+evaluation separate; auxiliary labels must demonstrate benefit before affecting
+the chosen citation classifier.
 
 ## P2 use and evaluation boundaries
 

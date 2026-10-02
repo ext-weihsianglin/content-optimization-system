@@ -1,201 +1,194 @@
-# Teacher curation, encoder distillation, and P2 evaluation plan
+# ModernBERT citation classifier and LLM judge delivery plan
 
-Status: implementation authorized; Phase 1 offline preparation complete and GPT-5
-smoke complete awaiting human review, 2026-10-01. Contract and evidence:
-[encoder reward scorer spec](encoder-reward-scorer.md).
+Status: two independent workstreams agreed 2026-10-02. This supersedes the original
+serial teacher curation -> encoder distillation -> LR benchmark -> webapp plan.
+See the [specification](encoder-reward-scorer.md). No student training or webapp
+integration has run; completed judge evidence remains frozen.
 
-The initial plan was submitted in PR #12. The user subsequently authorized
-implementation and explicitly reserved teacher-model choice for discussion.
-The user approved GPT-5 at medium reasoning for all 12 smoke cases with a $10
-bounded run budget. GPT-5.6 Luna/Sol were unavailable to the current API key;
-there was no automatic model substitution. Offline curation, response
-contracts, draft rubrics, smoke packets, and controlled edit pairs are available in
-[encoder_scorer](../encoder_scorer/README.md); see the
-[preparation report](../analysis/teacher-curation-v1.html). Training and later phases
-remain gated on reviewed teacher evidence. The [smoke review](../analysis/teacher-gpt5-smoke-v1.md)
-records 11 valid body labels, one unavailable stage, rejected attempts, and cost;
-completion of the smoke does not satisfy the phase 1 reliability gate.
+| Workstream | Objective | Supervision / evaluation | First delivery |
+| --- | --- | --- | --- |
+| A: ModernBERT classifier | Improve estimated P(top-cited category \| prompt, document, hostname) over incumbent LR | Original citation-category labels; paired host-held-out comparison | Frozen classifier and LR comparison report |
+| B: LLM judge | Refine content-quality criteria and expose complementary scores during webapp analyze | Reviewed query/page judgments and controlled edit preferences | Versioned judge service and evidence-backed analyze scores |
 
-The markdownify corpus is now the source of truth for future annotation. Recreated
-120-case pilot and 12-case smoke packages preserve the frozen case/split/queue IDs;
-see the [new preparation report](../analysis/teacher-markdownify-packages-v2.html).
-The earlier GPT-5 labels concern LR v2 source documents and are not transferred.
-The [fresh markdownify smoke](../analysis/teacher-markdownify-gpt5-smoke-v1.md) now
-has 9 valid body labels and three failed stages. Human/rubric review remains the
-next gate; pilot and full-corpus annotation have not started.
+Neither workstream waits for the other. Judge distillation into an encoder is an
+optional later cost/latency experiment; teacher scores do not replace citation
+labels or become a prerequisite for workstream A.
 
-Harness follow-up: consult the demo-webapp's merged keyed-response design before
-another paid run; see [source review](../analysis/teacher-harness-demo-webapp-review.md).
-The proposed next version should put frozen requirements in required schema slots,
-offer deterministic evidence candidates from the exact Markdown-aware input, and
-resolve selected evidence into block IDs and source quotes in backend code. Model
-output should contain judgments and evidence selections rather than copied source
-metadata. Preflight schema size and retain explicit failures/abstentions; do not
-relax evidence validation to accept a guessed ID or a rewritten quote. Evidence
-selection still needs semantic review. Static-page requirement framing and omitted
-content rules remain separate rubric work. This is a proposal, not an implemented
-contract or a new annotation run; preserve the completed smoke as historical evidence.
+## Existing evidence and shared source contract
 
-Implementation follow-up: `teacher-selection-v1` now provides fixed requirement
-slots, enum-constrained evidence choices and exact backend whole-block copying,
-with schema preflight and separate candidate/support choices. Partial views exclude
-globally absent states. New requirements instructions address static-page framing.
-The same approved GPT-5 medium smoke completed in a fresh directory: all 12 cases
-passed three stages on their first attempt, 36/36 calls valid, $1.50422125 estimated
-cost. See [selection rerun findings](../analysis/teacher-markdownify-gpt5-selection-smoke-v1.md)
-and [plain-language review](../analysis/teacher-markdownify-gpt5-selection-smoke-v1-eli5.html).
-Original labels remain frozen. The preceding proposal describes the design history;
-semantic review, edit controls and evidence packs remain gates before expansion.
+The completed saved Markdownify corpus remains the source of truth. Preserve raw
+payload references, document hashes, record joins, original host splits and frozen
+LR artifacts. Do not rerun extraction or fetch live websites to prepare inputs.
+Use `uv` for Python. Raw datasets, model weights, caches and source-bearing traces
+remain outside Git; important reports and specifications belong in delivery PRs.
 
-## Phase 1 — Curate supervision from stronger models
+The user-approved GPT-5 medium judge smoke is complete: 12 cases, all three stages
+first-pass valid, 36 valid calls, zero rejected calls/retries, $1.50422125 estimated
+cost. [New ELI5 report](../analysis/teacher-markdownify-gpt5-selection-smoke-v1-eli5.html),
+[findings](../analysis/teacher-markdownify-gpt5-selection-smoke-v1.md),
+[source preparation](../analysis/teacher-markdownify-packages-v2.html).
+`teacher-selection-v1` implements fixed requirement slots, allowed evidence IDs,
+backend whole-block copying and scope-aware states. Mechanical validity is not
+reviewed grading accuracy. The 120-case pilot and 18 blinded edit pairs are prepared,
+but pilot annotation and human review have not run. No support packs exist.
 
-Distillation begins with collecting and reviewing teacher judgments; student
-parameter training follows in phase 2.
+Four smoke cases have PDF URLs but stored Markdown/text payloads. Their title-like
+body text survives; separate title metadata is unavailable. Defer title inference,
+show "No title metadata", and mask unavailable title targets. Quantify prevalence
+by source format before training; a missing field must not become a zero grade.
 
-1. Inventory cached retention documents, original labels, frozen host splits, and
-   LR models. Freeze versioned references without changing existing artifacts.
-   Locate the demo webapp branch/app contract as a read-only integration prerequisite.
-2. Draft anchored rubrics and annotation examples for intent fulfillment, title/body
-   consistency, section usefulness, and evidence support. Include ambiguous queries,
-   insufficient evidence, benign context, comparisons, tables, and repeated content.
-3. Curate 100–200 train/validation query-page cases across hosts, query types, page
-   roles, lengths, formats, and quality flags. Keep source/evidence identity explicit.
-   This small pilot is development evidence, not a held-out performance estimate.
-4. Run a 10–20-case teacher smoke test with a fixed model/prompt and bounded budget.
-   Inspect actual labels, evidence pointers, omissions, disagreement, latency, and
-   cost before expanding. Choose teacher models through a small reviewed comparison,
-   rather than assuming a named provider is strongest. Record credentials and budget
-   requirements before any paid execution; never store secrets in artifacts.
-5. Annotate the pilot, independently double-review about 25% plus ambiguous cases,
-   and adjudicate rubric failures. Review a human subset. Hide citation labels and
-   LR scores from annotation inputs; derive query requirements before page assessment.
-6. Curate controlled edits: supported missing-answer additions, answer removal,
-   improved comparisons/steps, misleading titles, repeated headings/query prose,
-   unrelated padding, unsupported facts, and changed units/qualifications.
-   Obtain per-component labels and blinded pairwise preferences. Include ties.
-7. Freeze pilot findings and the revised rubric. Set numerical agreement and evidence
-   fidelity acceptance thresholds from reviewed examples before bulk annotation.
-   Expand annotation on training data only after the pilot passes; freeze validation
-   annotations separately. Keep all edit siblings and evidence-derived variants in
-   their source host split. Never use test annotations for rubric or model selection.
+## Workstream A — Citation-category classifier
 
-Deliverables: rubric and schema, curation manifest, teacher-run provenance/cost
-ledger, reviewed examples, disagreement report, frozen teacher labels, and an edit
-benchmark partition with development versus evaluation roles declared in advance.
-Raw pages and bulk annotation caches remain ignored; commit important reports and
-small shareable examples consistent with dataset permissions.
+### A1. Freeze the comparison and prepare the encoder inputs
 
-Gate: evidence pointers validate, coverage is explicit, reviewed judgments distinguish
-answering from mentioning and support from assertion, and measured reliability meets
-the predeclared thresholds. Stop and revise if the teacher rewards manipulation.
+1. Inventory current LR bundles and predictions; pin exact model, preprocessing,
+   feature, split and population hashes. Operational incumbent: the webapp's v7
+   `semantic_context` scorer. Retain v5 as an additional reference because frozen
+   v7 validation did not establish an improvement over v5. Historical v2/v4 are
+   optional diagnostics, not the only comparators.
+2. Reuse original top/bottom labels and record/host assignments. Do not consume
+   judge component labels in the initial classifier experiment. Check population
+   parity and availability without evaluating test performance during development.
+3. Freeze a versioned query/title/body representation from saved Markdownify
+   documents and a declared hostname input policy. Profile lengths, formats,
+   missing metadata and long-document coverage. Preserve code, tables and lists.
+4. Include a content-only baseline and a hostname-aware candidate. Hostname is
+   available conditioning information in the user's target, never the prediction
+   target. Fit any hostname vocabulary/features only on training data; define
+   unseen-host behavior and retain disjoint training/validation/test host groups.
+   Audit hostname reliance. No random row split that leaks a host across partitions.
+5. Record the webapp v7 `markdownify-context-v1` serving contract and its disclosed
+   upstream context-feature mismatch (issue #15). Frozen-cache benchmarking and
+   live serving behavior need distinct provenance; do not claim an encoder-only
+   effect when preprocessing/input contracts differ.
 
-## Phase 2 — Train the ModernBERT classifier and distill components
+Deliverable: predeclared experiment protocol, source/model inventory, input-length
+profile, hardware estimate and reproducible bounded training smoke plan.
 
-1. Profile token lengths and available hardware. Verify a pinned encoder/tokenizer
-   on a small batch using `uv`; inspect output shapes, losses, coverage, runtime,
-   and memory before an expensive run.
-2. Implement versioned input serialization and explicit long-document handling.
-   Compare a bounded content view with chunk/page aggregation if length requires it.
-   Keep selection deterministic, traceable, and consistent for original/edit pairs.
-3. Train a citation-only content/title model against original binary labels using
-   the existing training-host population. Keep hostname identity and citation labels
-   out of model input; preserve LR population parity for primary comparisons.
-4. Train a multi-task candidate with the reviewed teacher component labels. Mask
-   unavailable labels. Keep a narrow predeclared search over fine-tuning strategy,
-   learning rate, loss weights, and input budget. Use training-host folds and validation
-   for selection; run multiple fixed seeds for shortlisted candidates.
-5. Add metadata and an encoder-plus-LR-feature hybrid only as explicit ablations if
-   the initial results justify them. Evaluate whether they improve prediction while
-   weakening edit behavior. Keep the selected LR default unchanged.
-6. Freeze student weights, training/config hashes, data manifests, score calibration,
-   output schema, and inference fixtures. Verify reload parity and train-only fitting.
-   If calibration is needed, use a reserved development partition or training-fold
-   out-of-fold predictions; document its separation from final evaluation.
+### A2. Train and select on training/validation data
 
-Deliverables: versioned scorer module/configuration, ignored weight artifacts,
-training ledger, component/citation ablations, inference examples, and model report.
+1. Pin ModernBERT checkpoint/tokenizer and dependencies; verify a small batch's
+   shapes, loss, reload parity, runtime and memory before an expensive fit.
+2. Train a binary citation head on original labels. Predeclare a small search over
+   learning rate, fine-tuning strategy and input budget using training-host folds.
+3. Compare a bounded body view with chunk/page aggregation if lengths justify it.
+   Page labels supervise the page-level model, not every chunk independently.
+   Keep selection and coverage explicit, including original/edit consistency.
+4. Evaluate hostname-aware versus content-only inputs and calibration. Reserve
+   calibration data or use training-fold out-of-fold predictions. Consider LR
+   feature fusion only as an explicit later ablation if initial results justify it.
+5. Freeze selected weights, tokenizer, serialization, calibration and inference
+   contract. Use fixed seeds for shortlisted fits and preserve failed experiments.
 
-Gate: reproducible inference, valid coverage handling, useful component agreement,
-and no unacceptable tradeoff between citation performance and edit robustness.
-Teacher-score imitation alone is insufficient; use independent reviewed examples.
+Gate: reproducible inference, population/split integrity and a frozen model chosen
+without test feedback. No teacher annotation reliability gate applies to this fit.
 
-## Phase 3 — Benchmark against LR and evaluate editing rewards
+### A3. Benchmark and decide whether to replace LR
 
-Freeze the evaluation protocol before student selection. Primary comparators are
-committed v2/v4 on exactly the same eligible records. Include v5 retained by v6 only
-after its currently local artifacts and inference implementation have been frozen
-and made reproducible. V6 rejected variants remain diagnostics, not the default.
+Report paired ROC-AUC, average precision, log loss, Brier score and within-host
+ranking on matching eligible examples, with paired host-bootstrap intervals.
+Inspect calibration, host/query/format/length strata, latency, memory and coverage.
+Run bounded fixed-query edit stress cases to detect scoring shortcuts.
 
-| Axis | Measurements |
-| --- | --- |
-| Citation classification | ROC-AUC, average precision, log loss, Brier score, within-host AUC; paired host-bootstrap intervals |
-| Component fidelity | Ordinal agreement/error, per-requirement agreement, claim-state errors, evidence-pointer validity, applicability and coverage |
-| Edit preferences | Agreement with blinded reviewed preferences, ties, gains on useful edits, regressions on harmful edits |
-| Manipulation | Mean/p95/max score inflation for post-parser and raw-snapshot edits; report sample sizes and uncertainty |
-| Practical operation | Latency, throughput, peak memory, teacher/training cost, input coverage and failure rates |
+Freeze promotion criteria before model selection. A replacement should meet the
+agreed predictive/calibration and practical gates; document tradeoffs and retain
+LR if evidence is inconclusive. The existing test population has been inspected
+historically: one frozen-model comparison is a reused benchmark, not fresh-host
+confirmation. Do not retune against it or repeatedly evaluate alternatives there.
 
-Reproduce historical LR stress inputs where available; apply the same edits to both
-models and add semantic counterexamples from phase 1. Include raw title/URL edits,
-query repetition, duplicate headings, padding, misleading claims, and changed numbers.
-Compare original/edit score deltas under fixed context. Stratify by query intent,
-page role, source format, and length; small strata are diagnostic, not confident claims.
+Deliverables: LR/ModernBERT Markdown and HTML report, paired predictions, model
+manifest and replace/retain recommendation. Any webapp scorer switch is a separate
+reviewable integration with version identity and rollback; do not change defaults
+merely because a candidate trained successfully.
 
-The existing 947-row test has already been inspected historically. Evaluate a frozen
-student once for comparability and explicitly label it a reused benchmark. Do not
-retune against those outcomes. Fresh hosts require a separately acquired offline
-snapshot/label dataset; resplitting already-inspected hosts is not fresh confirmation.
-If unavailable, report that limit and defer the independent claim.
+## Workstream B — Refine the judge and ship analyze scores
 
-Deliverables: paired LR/student report in Markdown and HTML, manipulation examples,
-prediction manifest, component errors, and a promote/retain/revise recommendation.
+### B1. Evaluate the rubric, not just the response schema
 
-Gate: promotion criteria must include edit behavior and grounding, with numerical
-thresholds frozen during development. An AUC gain cannot override unsupported-claim
-failures. Do not change defaults automatically after benchmarking.
+1. Review the 12-case smoke's checklists, scores, selected evidence and abstentions.
+   Hide citation labels and LR predictions from judge/reviewer input. Independently
+   review a stratified subset and disagreements; record human adjudication.
+2. Use prepared edit pairs and additional bounded cases to test answering versus
+   mentioning, useful versus repeated sections, title promises, changed qualifiers,
+   unsupported claims, loading/error pages and partial views. Include ties.
+3. Freeze numeric acceptance criteria for rubric reliability, evidence relevance,
+   edit preference and operational latency/cost. Refine prompts on development
+   examples; reserve separate cases for checking a selected prompt.
+4. Prioritize intent fulfillment and section usefulness. Keep title consistency a
+   separate applicability-aware diagnostic: all eight supplied smoke titles scored
+   3, including a loading screen. Factual support is unassessable without a separately
+   supplied pack; copied source text does not establish real-world truth.
+5. Keep the approved GPT-5 model unless the user approves a change. Bound additional
+   paid runs explicitly; no corpus-scale annotation is required to ship this stream.
 
-## Phase 4 — Qualitative end-to-end dogfood in the demo webapp
+Deliverables: versioned judge criteria/prompt, reviewed examples, edit-preference
+and failure report, frozen evaluation cases and measured cost/latency. Promote a
+rubric only after semantic review; 36/36 valid calls do not certify accuracy.
 
-The webapp is not present in this branch at plan creation. Locate its owner, branch,
-scorer interface, and existing generation flow before implementation; do not modify
-another worktree. Integrate through a separate reviewed change using its established
-UI and backend conventions.
+### B2. Integrate in the webapp analyze phase
 
-Use 10–20 curated scenarios covering factual lookup, comparison, how-to, long pages,
-tables, and insufficient evidence. Keep any scoring evaluation scenarios separate
-from rubric/training examples; label this small exercise qualitative dogfood.
+Read-only inspection found `demo-webapp` main at
+`6c2cae734995e6aed1afb446512c9c9a62e99efd` (merged PR #5).
+Its [scoring contract](https://github.com/ext-weihsianglin/demo-webapp/blob/6c2cae734995e6aed1afb446512c9c9a62e99efd/backend/app/scoring.py#L27-L29)
+identifies v7 and the disclosed context-feature mismatch.
+[`backend/app/main.py` analyze](https://github.com/ext-weihsianglin/demo-webapp/blob/6c2cae734995e6aed1afb446512c9c9a62e99efd/backend/app/main.py#L120-L151)
+returns measured P1 separately from mocked Query alignment/Answer clarity and a
+heading-count Structural integrity heuristic. Introduce a separate `judge` result
+alongside `p1`, then replace/clearly retire the corresponding mocked editorial
+cards. Existing classifier outputs retain their own model identity and meaning.
 
-For each scenario:
+1. Integrate in an owned checkout/branch and separate demo-webapp PR; read that
+   repository's applicable instructions first. This planning change modifies only
+   content-optimization-system; no other checkout is edited.
+2. Score each distinct target query against the same parsed saved-source document.
+   Preserve snapshot/block identity, exact source representation, coverage, title
+   applicability and separately supplied evidence-pack identity.
+3. Return per-query components, score/applicability, reasons, source pointers,
+   coverage and judge execution status. Include prompt/rubric/model version and
+   trace/cache identity for reproducibility. Scores are ordinal 0–3, not classifier
+   probabilities. Display unavailable checks as unavailable, not zero.
+4. Keep extraction and P1 analysis usable if the judge is pending, unavailable or
+   fails. Choose a bounded background/on-demand execution path after measuring
+   latency. Prevent repeated paid evaluation when draft internally calls analyze:
+   cache by complete document/query/view/prompt/model/evidence identity and reuse
+   valid original-page results. Changed content or criteria must invalidate cache.
+5. Preserve structured selections/backend copying, source distrust, budget caps,
+   schema preflight and visible failures. Missing title metadata and missing factual
+   packs follow current abstention rules; do not add title/PDF inference as a gate.
+6. Dogfood 10–20 offline scenarios: inspect explanations, appropriate abstentions,
+   useful and misleading edits, frontend states, latency and cost. Keep this exercise
+   qualitative and distinct from reserved classifier or judge evaluation evidence.
 
-1. Load a local snapshot, target query, and supplied evidence pack.
-2. Show original LR/student predictions and applicable components with limitations.
-3. Identify a concrete missing requirement or title/body mismatch and generate a
-   bounded set of source-grounded candidate edits through the demo's existing P2 flow.
-4. Reject unsupported candidates or flag unassessable claims for review; rank the
-   remaining candidates with the frozen development policy.
-5. Show before/after content, component changes, evidence pointers, and unchanged
-   context. Preserve provenance in downloadable/session artifacts.
-6. Review usefulness, factual fidelity, readability, excessive edits, misleading
-   feedback, response time, and whether a score gain corresponds to a better page.
-   Record cases where LR and student disagree, including student failures.
+Deliverables: judge API adapter, evidence-backed analyze UI, request/cache traces,
+meaningful integration tests, inspected demo cases and a separate webapp PR.
+Gate: genuine measured judge outputs replace mock signals, users can inspect their
+basis, and judge failure cannot erase independently available P1 results.
 
-Deliverables: inspectable session captures, a small reviewed case report, failure
-inventory, and next-step recommendation. No live webpage extraction, publishing,
-prospective citation measurement, or RL training is required for this phase.
+### B3. Use judge scores as P2 feedback after analyze is useful
 
-Gate: reviewers can trace suggestions to evidence and understand score limitations;
-the flow produces useful edits without hiding grounding or coverage failures.
+Compare original/revised content under the same frozen query requirements, rubric,
+evidence and view policy. Initially expose component deltas. Select scalar weights
+only from reviewed edit preferences; preserve masks and grounding gates. Do not
+change GEPA candidate selection or optimize the judge prompt against generated edits
+silently. The current open [demo-webapp PR #8](https://github.com/ext-weihsianglin/demo-webapp/pull/8)
+is a GEPA plan with mean-P1 selection, not an implemented judge integration.
+Coordinate any objective change in its own reviewed update.
 
-## Decisions to resolve during implementation
+## Optional later connection: distill a validated judge
 
-- Teacher reliability and any comparison-model choice after reviewing the approved
-  GPT-5 smoke; expansion budget and data-handling constraints before bulk annotation.
-- Approved factual-material scope versus original-page fidelity.
-- Backend/hardware and long-document policy after token profiling.
-- Numerical rubric reliability, reward robustness, and promotion thresholds before
-  bulk annotation or model selection.
-- Frozen v5 artifact availability, independent-host dataset availability, and the
-  actual demo integration location.
+If measured judge latency/cost warrants it, curate reviewed train/validation labels
+and train an encoder component model or multi-task variant. Mask unassessable and
+not-applicable targets. Evaluate imitation against the frozen judge and usefulness
+against independent reviewed edit preferences. Keep it distinct from the binary
+citation classifier and compare multi-task citation performance rather than assume
+an improvement. No distillation or bulk annotation is needed for either initial
+workstream delivery.
 
-Preserve frozen analysis and prior scorer artifacts throughout. Report partial-run
-limitations explicitly. Broad model quality, human certification, and causal citation
-uplift are not outcomes this plan can establish.
+## Decisions before expensive execution or promotion
+
+- A: exact comparator bundles/serving contract, hostname encoding and unseen-host
+  behavior, long-document policy, hardware, training budget and numerical gates.
+- B: semantic acceptance thresholds, review cases, additional annotation budget,
+  factual-pack scope and analyze execution/cache policy after latency measurements.
+- Both: pinned versions, reproducible artifacts and evaluation provenance. Neither
+  stream establishes prospective citation uplift or human gold for an entire corpus.
