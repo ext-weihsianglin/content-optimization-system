@@ -16,6 +16,10 @@ from .url_path import normalize_path
 def render_block(block, by_id):
     text = block.get("text") or ""
     kind = block["type"]
+    if block.get("schema_version") == "dom-blocks-v3" and kind != "code":
+        text = block.get("inline_markdown", text)
+    if kind == "thematic_break":
+        return "---"
     if kind == "table" and block.get("table"):
         table = block["table"]
         cells = [{key: cell.get(key) for key in ("row", "column", "text", "is_header", "scope", "headers", "id", "rowspan", "colspan")}
@@ -174,11 +178,12 @@ def document_units(document, config):
     return units
 
 
-def prepare(input_root, output, config, *, raw_root=None, limit=None):
+def prepare(input_root, output, config, *, raw_root=None, limit=None, split_reference=None):
     output = Path(output)
     if output.exists() and any(output.iterdir()):
         raise ValueError("Preparation requires an empty output directory; use a new run ID")
-    documents, records, upstream = load_upstream(input_root, raw_root, limit)
+    documents, records, upstream = load_upstream(input_root, raw_root, limit, split_reference=split_reference)
+    upstream["path"] = str(Path(input_root).resolve())
     units, by_snapshot = [], {}
     for doc in documents:
         units.extend(document_units(doc, config))

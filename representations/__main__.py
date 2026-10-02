@@ -17,6 +17,7 @@ def main():
     prepare.add_argument("--config")
     prepare.add_argument("--raw-root")
     prepare.add_argument("--limit", type=int)
+    prepare.add_argument("--split-reference", help="Completed embedding run whose raw-row identities supply frozen splits/exclusions")
     fits = sub.add_parser("training-manifests")
     fits.add_argument("--run", required=True)
     fits.add_argument("--model", default="openai-large")
@@ -24,6 +25,17 @@ def main():
     summary.add_argument("--run", required=True)
     summary.add_argument("--model", default="openai-large")
     summary.add_argument("--output", required=True)
+    for name in ('feature-bundle', 'lineage'):
+        cmd = sub.add_parser(name)
+        cmd.add_argument('--run', required=True)
+        cmd.add_argument('--model', default='openai-large')
+        if name == 'lineage':
+            cmd.add_argument('--output', required=True)
+    finish = sub.add_parser('finish-corpus')
+    finish.add_argument('--run', required=True)
+    finish.add_argument('--model', default='openai-large')
+    finish.add_argument('--summary-output', required=True)
+    finish.add_argument('--lineage-output', required=True)
     status = sub.add_parser("cache-status")
     status.add_argument("--cache-root")
     backup = sub.add_parser("cache-backup")
@@ -69,7 +81,7 @@ def main():
     try:
         if args.command == "prepare":
             from .inputs import prepare
-            result = prepare(args.input, args.output, load_config(args.config), raw_root=args.raw_root, limit=args.limit)
+            result = prepare(args.input, args.output, load_config(args.config), raw_root=args.raw_root, limit=args.limit, split_reference=args.split_reference)
             result = {k: result[k] for k in ("units", "records", "views", "statuses", "scope")}
         elif args.command == "training-manifests":
             from .corpus import training_manifests
@@ -77,6 +89,15 @@ def main():
         elif args.command == "corpus-summary":
             from .corpus import summarize
             result = summarize(args.run, args.model, args.output)
+        elif args.command == 'feature-bundle':
+            from .corpus import feature_bundle
+            result = feature_bundle(args.run, args.model)
+        elif args.command == 'lineage':
+            from .lineage import publish
+            result = publish(args.run, args.model, args.output)
+        elif args.command == 'finish-corpus':
+            from .corpus import finish
+            result = finish(args.run, args.model, args.summary_output, args.lineage_output)
         elif args.command == "cache-status":
             from .cache import cache_status, default_cache_root
             result = cache_status(args.cache_root or default_cache_root('.'))

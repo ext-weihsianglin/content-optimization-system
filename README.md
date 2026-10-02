@@ -135,7 +135,7 @@ uv run python scripts/build_embedding_report.py \
   --run data/representations/<run_id> --output analysis/embedding-explorer.html
 ```
 
-For the full corpus, use PR #2's shared prepared cache as `--input` (on this machine: `/Users/ext-weihsiang.lin/Documents/profound/content-optimization-system/data/trad_ml_scorer/v2`). `prepare` only serializes saved documents into embedding inputs; it does not rerun extraction or scorer preparation. It preserves retained `needs_review` content, source chunk/block IDs, original record provenance, exclusions, and existing splits. The 9,551-snapshot input adapter has been checked across all 9,700 records; full-corpus API embeddings are pending. See [adapter validation](analysis/embedding-retention-validation.json) and the [20-snapshot retention evidence report](analysis/embedding-retention-explorer.html).
+For the full corpus, use PR #2's shared prepared cache as `--input` (on this machine: `/Users/ext-weihsiang.lin/Documents/profound/content-optimization-system/data/trad_ml_scorer/v2`). `prepare` only serializes saved documents into embedding inputs; it does not rerun extraction or scorer preparation. It preserves retained `needs_review` content, source chunk/block IDs, original record provenance, exclusions, and existing splits. The 9,551-snapshot input adapter has been checked across all 9,700 records; the original full-corpus OpenAI run is complete (see the corpus summary below). See [adapter validation](analysis/embedding-retention-validation.json) and the [20-snapshot retention evidence report](analysis/embedding-retention-explorer.html).
 
 If an upstream evaluation export omits prompts, add `--raw-root data/raw` to `prepare`. Hydration verifies the raw file hash and source-row payload/URL before reading original prompts and labels. Preparation refuses incomplete upstream runs or broken provenance/joins. `--limit` includes both selected and abstained snapshots; unavailable units stay explicit.
 
@@ -162,6 +162,18 @@ The first input policy uses lossless UTF-8 byte ceilings (4,096-byte sections; 7
 `embed --max-requests 12` bounds new API work for a smoke test. Run `--resume --retry-failed` to explicitly retry failed requests; compatible successful requests are cached. A bounded run stays marked partial. `align` may inspect partial coverage; model selection and corpus conclusions require completed, reviewed inputs.
 
 The completed OpenAI corpus has seven independent 32-dimensional training-fit projections: query, document title, H1, outline, page, section, and URL path. The [corpus summary](analysis/embedding-openai-corpus.json) records coverage, fit sizes, and explained variance. Shared artifacts are under `<main checkout>/data/representations/runs/retention-full-v1`; `features/openai-v1.json` maps named fields to their coordinate and fit files. Alignment covers all 9,700 rows, with 9,555 usable query–section matches. The full evidence HTML is stored in that run's `reports/` directory; it is large and ignored by Git.
+
+The saved markdownify corpus is supported as a separate input version; use
+`--split-reference` to carry the original verified raw-row splits/exclusions forward.
+`blocks-v3-markdownify` keeps saved inline formatting and structural provenance.
+Exact unchanged inputs reuse the shared vector cache across preprocessing versions.
+See [data lineage and reproduction](spec/data-lineage.md) for the raw → document →
+embedding → projection joins. The persistent volume's `lineage/index.html` is the
+full searchable tracker; the versioned run keeps complete record/unit lineage
+Parquets and the saved field feature bundle. The original retention run stays intact.
+The published [lineage tracker sample](analysis/data-lineage-markdownify-openai.html)
+and [markdownify embedding summary](analysis/embedding-markdownify-openai-corpus.json)
+are compact, checked-in counterparts to the full local artifacts.
 
 ```sh
 uv run python -m representations training-manifests --run /path/to/run --model openai-large

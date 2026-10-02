@@ -26,10 +26,10 @@ def unique(rows, key, name):
     return result
 
 
-def load_upstream(root, raw_root=None, limit=None):
+def load_upstream(root, raw_root=None, limit=None, *, split_reference=None):
     root = Path(root)
     if (root / "records.jsonl").is_file():
-        return load_retention(root, limit)
+        return load_retention(root, limit, raw_root=raw_root, split_reference=split_reference)
     paths = [root / "manifest.json", *[root / f"{name}.parquet" for name in REQUIRED]]
     for path in paths:
         if not path.is_file():
@@ -127,11 +127,23 @@ def load_upstream(root, raw_root=None, limit=None):
                                 "limit": limit}
 
 
-def load_retention(root, limit=None):
+def load_retention(root, limit=None, *, raw_root=None, split_reference=None):
     """Consume PR #2's saved full-corpus documents, without parsing HTML again."""
     manifest = read_json(root / "manifest.json")
-    if manifest.get("parser_policy") != "retention-first-v1":
+    markdownify = manifest.get("pipeline_version") == "retention-markdownify-corpus-v1"
+    if not markdownify and manifest.get("parser_policy") != "retention-first-v1":
         raise ValueError("Unsupported retention parser policy")
+    if markdownify and manifest.get("status") != "complete":
+        raise ValueError("Require completed markdownify corpus")
+    verified_artifacts = {}
+    document_index = {}
+    if markdownify:
+        for artifact in manifest['artifacts']:
+            if file_hash(root / artifact['path']) != artifact['sha256']:
+                raise ValueError('Markdownify corpus artifact checksum mismatch')
+            verified_artifacts[artifact['path']] = artifact['sha256']
+        with (root / 'documents.jsonl').open() as stream:
+            document_index = unique([json.loads(line) for line in stream if line.strip()], lambda r:r['snapshot_id'], 'document index')
     if limit is not None and limit < 1:
         raise ValueError("Limit must be positive")
     with (root / "records.jsonl").open() as stream:
@@ -139,7 +151,14 @@ def load_retention(root, limit=None):
     if len(records) != manifest["raw_rows"] or len({r["snapshot_id"] for r in records}) != manifest["unique_snapshots"]:
         raise ValueError("Retention manifest accounting mismatch")
     chosen = set(sorted({r["snapshot_id"] for r in records})[:limit]) if limit else {r["snapshot_id"] for r in records}
-    hashes = {name: file_hash(root / name) for name in ("manifest.json", "records.jsonl")}
+    hashes = {**verified_artifacts, **{name: file_hash(root / name) for name in ("manifest.json", "records.jsonl")}}
+    splits = None
+    if split_reference is not None:
+        reference = Path(split_reference)
+        from .storage import load_run
+        previous = load_run(reference)
+        splits = unique(read_rows(reference / 'associations.parquet'), lambda r:(r['source_file_hash'],r['source_row']), 'split reference')
+        split_provenance = {'path':str(reference.resolve()), 'associations_sha256':previous['artifacts']['associations.parquet']}
     sources = manifest["source_files"]
     seen, selected = set(), []
     for source in records:
@@ -154,18 +173,47 @@ def load_retention(root, limit=None):
             continue
         if not isinstance(row["prompt"], str):
             raise ValueError("Original prompts must be strings")
-        row.update(record_id=identity, source_record_id=source["record_id"],
-                   payload_hash=source["html_sha256"],
-                   citation_category="top" if source["is_cited_high"] else "bottom",
+        row.update(record_id=identity, source_record_id=source["row_id"] if markdownify else source["record_id"],
+                   payload_hash=source["payload_hash"] if markdownify else source["html_sha256"],
+                   citation_category=source['citation_category'] if markdownify else ("top" if source["is_cited_high"] else "bottom"),
                    upstream_exclusions=source.get("exclusions", []))
+        if splits is not None:
+            previous = splits.get((row['source_file_hash'],row['source_row']))
+            if previous is None or any(previous[key] != row[key] for key in ('payload_hash','href','prompt','hostname','citation_category')):
+                raise ValueError('Split reference does not match original source row')
+            row.update(split=previous['split'], upstream_exclusions=previous.get('upstream_exclusions', []))
         selected.append(row)
+
+    if raw_root is not None:
+        for name, expected in sources.items():
+            path = Path(raw_root) / name
+            if file_hash(path) != expected:
+                raise ValueError('Raw source checksum differs from corpus')
+            originals = pq.read_table(path).to_pylist()
+            for row in selected:
+                if Path(row['source_file']).name != name:
+                    continue
+                index = row['source_row']
+                if index < 0 or index >= len(originals):
+                    raise ValueError('Invalid raw row index')
+                original = originals[index]
+                if any(original[key] != row[key] for key in ('href','hostname','prompt','citation_category')) or hashlib.sha256(original['html_content'].encode()).hexdigest() != row['payload_hash']:
+                    raise ValueError('Prepared record differs from original raw row')
+            del originals
 
     def documents():
         for sid in sorted(chosen):
             path = root / "documents" / f"{sid}.json.gz"
             hashes[str(path.relative_to(root))] = file_hash(path)
+            if markdownify and hashes[str(path.relative_to(root))] != document_index[sid]['sha256']:
+                raise ValueError('Markdownify document file checksum mismatch')
             with gzip.open(path, "rt") as stream:
                 doc = json.load(stream)
+            if markdownify:
+                extraction = doc.get('extraction', {})
+                unhashed = {**doc, 'extraction':{key:value for key,value in extraction.items() if key != 'content_hash'}}
+                if extraction.get('run_identity') != manifest['run_identity'] or digest(unhashed) != extraction.get('content_hash'):
+                    raise ValueError('Markdownify document content identity mismatch')
             if doc.get("schema_version") != "downstream-document-v1" or doc["snapshot_id"] != sid or doc["selection"]["policy"] != "retention-first-v1":
                 raise ValueError("Invalid saved downstream document")
             source = doc["source"]
@@ -195,5 +243,7 @@ def load_retention(root, limit=None):
                    "retention_first": True}
 
     return documents(), selected, {"format": "downstream-document-v1", "hashes": hashes,
+                                  "raw_verified": raw_root is not None,
+                                  "split_reference": split_provenance if splits is not None else None,
                                   "manifest": manifest, "source_records": len(records),
                                   "source_snapshots": manifest["unique_snapshots"], "limit": limit}

@@ -180,3 +180,13 @@ fits. Source split/exclusion/duplicate provenance accompanies each fit. Original
 vectors are lazily loaded, and large fits use seeded randomized SVD. Named package
 references and the compact corpus summary are available; 32D is a baseline, not
 a validated optimum. MLX continues independently.
+
+## Markdownify corpus and lineage checkpoint
+
+Completed OpenAI inference, alignment, seven separate 32D training-only fits and
+coordinate exports against PR #11’s saved full corpus. Reused 89,650 unique inputs;
+264,462 new requests produced a complete 408,746-vector export with zero failures.
+Full record/unit lineage and a searchable tracker now connect original raw rows
+to structured documents, request/shard rows, matrix rows and field projections.
+Published sample reports and the machine-readable summary accompany this change.
+The original corpus stays intact, and local MLX remains stopped.

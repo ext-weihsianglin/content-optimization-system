@@ -302,3 +302,45 @@ not resample. Use new output directories instead of overwriting frozen artifacts
 JSONL must be read by file iteration, not `str.splitlines()` (embedded Unicode line
 separators caused a real parsing bug). Large generated reports use escaped previews;
 their truncation does not affect full-output anchor scoring.
+
+## Completed markdownify OpenAI projection and lineage (2026-10-01)
+
+The user requested embeddings against PR #11's completed saved markdownify corpus.
+No extraction was rerun and no PR #11 parser code was copied into this branch.
+The saved-document adapter verifies original raw rows, six prepared export hashes,
+9,551 compressed document checksums/content identities, and ordered structure.
+It imports the original splits/exclusions from the prior completed retention run
+by raw-file hash/source row after checking query, URL, payload, host and label.
+
+Persistent run: `representations/runs/markdownify-openai-v1` under the golden volume.
+Input recipe: `blocks-v3-markdownify`; inline Markdown preserved for v3 blocks,
+code whitespace intact, tables serialized as structured cell text/header/span JSON.
+Prepared 409,730 logical units / 354,112 unique inputs for all 9,700 records.
+89,650 unique inputs reused paid vectors; 264,462 new inputs completed.
+OpenAI exported 408,746 vectors, zero failed requests; 984 unavailable input units
+remain explicit. Inference plus portable export took 1,280.916 seconds (21.35 min),
+with 146,741,037 newly reported API tokens across 2,104 batches.
+
+Seven independent 32D training-only PCA fits are saved, along with their coordinates:
+query 7,076/9,011; document title 7,332/9,364; H1 8,347/11,979;
+outline 7,329/9,392; page 7,478/9,501; section 226,780/302,368; path 7,309/9,360
+(training/projected unit counts). Alignment: 9,555 available / 145 unavailable
+records. Saved fits reproduce sample coordinates in every field; every coordinate
+is finite and has 32 dimensions. Variance retained is roughly 32–42%; this is
+a baseline, not an optimized dimension or relevance evaluation.
+
+Shared feature entry: `representations/runs/markdownify-openai-v1/features/openai-v1.json`.
+Full evidence: that run's `reports/openai-corpus.html`. Full searchable lineage:
+`lineage/index.html` on the persistent volume, with `lineage/registry.json`.
+Versioned run lineage: `lineage/{manifest.json,records.parquet,units.parquet,tracker.html}`.
+Exact joins connect raw file/row/payload -> snapshot/document -> block/chunk/unit ->
+semantic request -> shard/row/SHA -> exported matrix row -> saved PCA field.
+Pooled units have full member and weight provenance rather than a direct request.
+Publication verified 4,632 referenced immutable vector shards and their request
+metadata against catalog rows, plus raw/preprocessed and run artifact checksums.
+
+Published compact artifacts: `analysis/data-lineage-markdownify-openai.html` (50
+traceable sample records), `.json`, and `analysis/embedding-markdownify-openai-corpus.json`.
+Validation: 151 tests and 12 subtests; lineage interactions/escaping tested on both
+the actual sample and full tracker. Visual browser rendering was not reviewed.
+Original retention artifacts remain separate; Voyage MLX remains stopped.

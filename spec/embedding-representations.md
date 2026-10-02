@@ -40,7 +40,17 @@ The representation runner may contact the configured embedding service. The upst
 
 ## Upstream inputs and identity
 
-Integration checkpoint after PR #2: the adapter consumes its shared `data/trad_ml_scorer/v2` cache (`records.jsonl`, manifest, and compressed `downstream-document-v1` documents). It validates document identities, block trees, ordered source-chunk partitions, and raw-file provenance without reading/parsing HTML again. Both `selected` and retained `needs_review` content are projected; quality flags stay visible. Title comes from source metadata; H1/outline/body come from retained blocks; sections follow saved chunks with heading ancestry. `source_chunk_ids` survive further byte-budget splitting and alignment. Original scorer record IDs, exclusions, and hostname split assignments remain provenance; original file-hash/row identities distinguish exact duplicate rows. The older `eval-v2` adapter and historical smoke remain supported. Serializer `blocks-v2` invalidates earlier caches for the new representation contract.
+Integration checkpoint after PR #2: the adapter consumes its shared `data/trad_ml_scorer/v2` cache (`records.jsonl`, manifest, and compressed `downstream-document-v1` documents). It validates document identities, block trees, ordered source-chunk partitions, and raw-file provenance without reading/parsing HTML again. Both `selected` and retained `needs_review` content are projected; quality flags stay visible. Title comes from source metadata; H1/outline/body come from retained blocks; sections follow saved chunks with heading ancestry. `source_chunk_ids` survive further byte-budget splitting and alignment. Original scorer record IDs, exclusions, and hostname split assignments remain provenance; original file-hash/row identities distinguish exact duplicate rows. The older `eval-v2` adapter and historical smoke remain supported. The historical `blocks-v2` recipe versions its unit identities; the shared semantic cache can reuse exact unchanged text independently of serializer metadata.
+
+The completed PR #11 markdownify corpus is a separate supported input version.
+`blocks-v3-markdownify` uses its saved inline Markdown, exact code text and structured
+table cells, preserving block/chunk provenance without importing or rerunning the
+new parser. Raw row contents, document file/content checksums, and extraction
+identity are verified. `--split-reference` joins prior frozen splits/exclusions
+by raw-file hash and row after verifying query/URL/host/payload/label equality.
+Outputs stay in `representations/runs/markdownify-openai-v1`; original retention
+artifacts remain intact. [Data lineage](data-lineage.md) specifies the durable
+record/unit joins, shard mapping, projection fits, and searchable tracker.
 
 Read `records.parquet`, `snapshots.parquet`, `source_features.parquet`, `extractions.parquet`, `blocks.parquet`, `selection.parquet`, and `manifest.json` under `data/processed/<run_id>/`.
 

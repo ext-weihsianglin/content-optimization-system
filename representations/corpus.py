@@ -6,11 +6,76 @@ from pathlib import Path
 import numpy as np
 
 from . import SERIALIZER_VERSION
-from .storage import content_identity, load_run, read_json, read_rows, write_json
+from .storage import content_identity, file_hash, load_run, read_json, read_rows, write_json
 
 FIELDS = (("query", "query", None), ("document_title", "title", "document_title"),
           ("h1", "title", "h1"), ("outline", "outline", None),
           ("page", "page", None), ("section", "section", None), ("path", "path", None))
+
+
+def feature_bundle(run, model_name, name='openai-v1'):
+    """Publish reusable named fields with fits, coordinates and join provenance."""
+    run = Path(run)
+    manifest = load_run(run)
+    model = manifest['models'][model_name]
+    fields = {}
+    for field, view, subview in FIELDS:
+        matches = [(identity, info) for identity, info in manifest.get('projections', {}).items()
+                   if info['model_config_id'] == model['config_id'] and info['view'] == view
+                   and info.get('subview') == subview and info['scope'] == 'training']
+        if len(matches) != 1:
+            raise ValueError(f'Require exactly one training projection for {field}')
+        identity, info = matches[0]
+        fields[field] = {'projection_id':identity, 'coordinates':info['path']+'/pca.parquet',
+                         'fit':info['path']+'/pca.npz','metadata':info['path']+'/metadata.json',
+                         'dimensions':info['components'], 'scope':info['scope'],
+                         'training_units':len(info['fit_unit_ids']),
+                         'projected_units':len(read_rows(run / info['path'] / 'pca.parquet')),
+                         'explained_variance_fraction':sum(info['explained_variance_ratio'])}
+    bundle = {'schema_version':'embedding-feature-bundle-v1', 'run':str(run.resolve()),
+              'model':model, 'serializer_version':manifest['serializer_version'], 'fields':fields,
+              'units':'units.parquet','associations':'associations.parquet',
+              'alignment':manifest['alignment'][model_name]['path'],
+              'join_contract':'coordinates.unit_id -> units.unit_id; snapshot_id/query_unit_id -> associations -> original source_file_hash/source_row',
+              'vector_sha256':manifest['artifacts'][f"vectors/{model['config_id']}/vectors.npy"]}
+    relative = f'features/{name}.json'
+    write_json(run / relative, bundle)
+    manifest['artifacts'][relative] = file_hash(run / relative)
+    manifest.setdefault('feature_bundles', {})[name] = {'path':relative,'fields':list(fields)}
+    write_json(run / 'manifest.json', manifest)
+    return bundle
+
+
+def finish(run, model_name, summary_output, lineage_output):
+    """Resume derived corpus artifacts after inference, with no additional API calls."""
+    from .alignment import align
+    from .projection import project
+    from .report import build_report
+    from .lineage import publish
+    run = Path(run)
+    manifest = load_run(run)
+    if manifest['models'][model_name]['status'] != 'complete':
+        raise ValueError('Require completed embeddings before corpus postprocessing')
+    vector_hash = manifest['artifacts'][f"vectors/{manifest['models'][model_name]['config_id']}/vectors.npy"]
+    if manifest.get('alignment', {}).get(model_name, {}).get('vector_hash') != vector_hash:
+        align(run, model_name)
+    fits = training_manifests(run, model_name)
+    for name, view, subview in FIELDS:
+        manifest = load_run(run)
+        fit_ids = read_json(fits[name]['path'])['unit_ids']
+        matches = [info for info in manifest.get('projections', {}).values()
+            if info['model_config_id']==manifest['models'][model_name]['config_id']
+            and info['view']==view and info.get('subview')==subview and info['scope']=='training'
+            and info['components']==32 and info['fit_unit_ids']==fit_ids and info['vector_hash']==vector_hash]
+        if not matches:
+            project(run, model_name, view, 32, fit_manifest=fits[name]['path'], subview=subview)
+        print(f'Completed projection: {name}', flush=True)
+    feature_bundle(run, model_name)
+    summarize(run, model_name, summary_output)
+    build_report(run, run / 'reports' / 'openai-corpus.html')
+    result = publish(run, model_name, lineage_output)
+    return {'run':str(run.resolve()),'status':'complete','records':result['records'],
+            'lineage_tracker':str(run.resolve() / 'lineage/tracker.html'), 'published_sample':str(lineage_output)}
 
 
 def training_manifests(run, model_name):
