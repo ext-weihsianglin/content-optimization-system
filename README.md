@@ -20,7 +20,11 @@ the 100-snapshot structured export; full-corpus migration is not yet performed.
 
 Report index:
 
+- `analysis/markdownify-corpus-v1/README.md`: default markdownify-powered extraction,
+  full-corpus re-extraction and separately scoped development/held-out evidence.
 - `analysis/extraction-evaluation.html`: completed five-method benchmark.
+- `analysis/inline-fidelity-v2/README.md`: issue #10 structured inline fidelity fix,
+  development markdownify comparison, and separate held-out diagnostics.
 - `analysis/reader-lm-review.html`: stopped Reader-LM run, matched completed-page comparison.
 - `analysis/reader-lm-pilot.html`: three development examples with expanded context/output budgets.
 - `analysis/reader-lm-progress.html`: partial run ledger, **not** a final ranking.
@@ -30,6 +34,33 @@ The implementation in `preprocessing/` compares the frozen BeautifulSoup baselin
 Trafilatura, Mozilla Readability + Turndown/GFM, conservative DOM blocks, and a
 native Markdown/text adapter. It uses only the supplied saved payloads: no browser
 rendering, page fetching, remote extraction API, or dynamic index.
+
+The active HTML retention pipeline now uses **python-markdownify 1.2.3** rather
+than the handwritten Markdown serializer. Structured blocks own provenance and
+source boundaries; custom converters preserve code whitespace and table/definition
+HTML where Markdown is lossy. Native Markdown/text keeps native parsing. Full-corpus
+extraction is independently versioned; existing frozen evaluation outputs stay intact.
+
+Persistent local data lives at
+`/Users/ext-weihsiang.lin/Documents/profound/data/content-optimization-system/`.
+Use `raw/` for source snapshots and versioned `processed/` directories for exports
+and checkpoints. See `AGENTS.md` for cross-session storage and resume conventions.
+This worktree's ignored `data/` symlink resolves to that shared directory.
+
+```sh
+uv sync --locked
+uv run --offline python -m preprocessing.corpus \
+  --input-dir /path/to/local/data/raw \
+  --output data/processed/markdownify-corpus-v1-replay --workers 4
+uv run --offline python -m preprocessing.markdownify_report --mode corpus \
+  --corpus-export data/processed/markdownify-corpus-v1-replay \
+  --output analysis/markdownify-corpus-v1-replay/corpus
+```
+
+The export retains a reference for every source row and a gzip document per exact
+payload-plus-URL snapshot, including full metadata, blocks and chunks. JSONL and
+Parquet indexes accompany a fingerprinted manifest. Original raw data and full
+exports stay outside Git; delivery reports contain bounded, escaped previews.
 
 ```sh
 .tools/uv sync --dev

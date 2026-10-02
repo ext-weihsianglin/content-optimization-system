@@ -1,0 +1,1333 @@
+{
+  "scope": "Separate held-out diagnostics of the fixed, development-implemented markdownify pipeline against the incumbent structured serializer; no serializer tuning/selection on these snapshots.",
+  "limitations": "AI-assisted sparse selected anchors, not human gold, structural precision/recall or causal citation uplift. Native held-out inputs are excluded.",
+  "manifest_hash": "ad6bf81327b68b85242432fba0416f29e27510d03ed6e7b1fb0378410d2876d5",
+  "snapshots": 37,
+  "evaluable_snapshots": 32,
+  "anchors": {
+    "required": {
+      "total": 129,
+      "baseline_hits": 126,
+      "v2_hits": 126
+    },
+    "unwanted": {
+      "total": 50,
+      "baseline_hits": 46,
+      "v2_hits": 46
+    }
+  },
+  "source_locations": {
+    "exact": 22212,
+    "valid_locators": 22382,
+    "normalized_match": 170,
+    "unavailable": 307,
+    "ambiguous": 1379
+  },
+  "results": [
+    {
+      "snapshot_id": "5833358fb9f155c356d6c3ebc790e87d0aadd66a66d216ab80c6ce927382898e",
+      "hostname": "koinly.io",
+      "evaluable": false,
+      "anchors": {
+        "required": {
+          "total": 0,
+          "baseline_hits": 0,
+          "v2_hits": 0
+        },
+        "unwanted": {
+          "total": 0,
+          "baseline_hits": 0,
+          "v2_hits": 0
+        }
+      },
+      "text_changed": false,
+      "markdown_changed": false,
+      "baseline_blocks": 3,
+      "v2_blocks": 3,
+      "inline_types": {
+        "text": 3,
+        "link": 1,
+        "span": 1
+      },
+      "source_locations": {
+        "exact": 8,
+        "valid_locators": 8
+      }
+    },
+    {
+      "snapshot_id": "63013e86d4ca8d114547cb18152f508b361ce6978ecef7ad9e700166fd5663b4",
+      "hostname": "www.lindy.ai",
+      "evaluable": false,
+      "anchors": {
+        "required": {
+          "total": 0,
+          "baseline_hits": 0,
+          "v2_hits": 0
+        },
+        "unwanted": {
+          "total": 0,
+          "baseline_hits": 0,
+          "v2_hits": 0
+        }
+      },
+      "text_changed": false,
+      "markdown_changed": true,
+      "baseline_blocks": 3,
+      "v2_blocks": 3,
+      "inline_types": {
+        "text": 3,
+        "hard_break": 1
+      },
+      "source_locations": {
+        "exact": 7,
+        "valid_locators": 7
+      }
+    },
+    {
+      "snapshot_id": "3894452f8508bed3e5b737c4e892da1e562163d80877fca6e2fd15f0d9e34767",
+      "hostname": "play.google.com",
+      "evaluable": false,
+      "anchors": {
+        "required": {
+          "total": 0,
+          "baseline_hits": 0,
+          "v2_hits": 0
+        },
+        "unwanted": {
+          "total": 0,
+          "baseline_hits": 0,
+          "v2_hits": 0
+        }
+      },
+      "text_changed": false,
+      "markdown_changed": false,
+      "baseline_blocks": 2,
+      "v2_blocks": 2,
+      "inline_types": {
+        "text": 1,
+        "link": 1,
+        "inline_image": 1
+      },
+      "source_locations": {
+        "exact": 5,
+        "valid_locators": 5
+      }
+    },
+    {
+      "snapshot_id": "accb8e04c4302511a8114e2ac743ef404cd169a67ddb3821dfa08064343a54e2",
+      "hostname": "www.universalorlando.com",
+      "evaluable": false,
+      "anchors": {
+        "required": {
+          "total": 0,
+          "baseline_hits": 0,
+          "v2_hits": 0
+        },
+        "unwanted": {
+          "total": 0,
+          "baseline_hits": 0,
+          "v2_hits": 0
+        }
+      },
+      "text_changed": false,
+      "markdown_changed": false,
+      "baseline_blocks": 2,
+      "v2_blocks": 2,
+      "inline_types": {
+        "link": 1,
+        "text": 2,
+        "span": 1,
+        "inline_image": 1
+      },
+      "source_locations": {
+        "normalized_match": 2,
+        "valid_locators": 5,
+        "exact": 3,
+        "unavailable": 2
+      }
+    },
+    {
+      "snapshot_id": "215cdeb4e2e969679089f35f1a813fcda3e08356618070ddd1b647f3f1eb26c2",
+      "hostname": "posthog.com",
+      "evaluable": false,
+      "anchors": {
+        "required": {
+          "total": 0,
+          "baseline_hits": 0,
+          "v2_hits": 0
+        },
+        "unwanted": {
+          "total": 0,
+          "baseline_hits": 0,
+          "v2_hits": 0
+        }
+      },
+      "text_changed": false,
+      "markdown_changed": false,
+      "baseline_blocks": 9,
+      "v2_blocks": 9,
+      "inline_types": {
+        "inline_image": 9
+      },
+      "source_locations": {
+        "exact": 18,
+        "valid_locators": 18
+      }
+    },
+    {
+      "snapshot_id": "e132b6049dadacf8fefda4a0a0ee0e0cb88b0109689e5b1a70ed16b7c33fa424",
+      "hostname": "vwo.com",
+      "evaluable": true,
+      "anchors": {
+        "required": {
+          "total": 5,
+          "baseline_hits": 5,
+          "v2_hits": 5
+        },
+        "unwanted": {
+          "total": 2,
+          "baseline_hits": 2,
+          "v2_hits": 2
+        }
+      },
+      "text_changed": false,
+      "markdown_changed": true,
+      "baseline_blocks": 473,
+      "v2_blocks": 473,
+      "inline_types": {
+        "text": 612,
+        "link": 112,
+        "inline_image": 42,
+        "span": 71,
+        "strong": 61,
+        "hard_break": 15
+      },
+      "source_locations": {
+        "exact": 1287,
+        "valid_locators": 1288,
+        "ambiguous": 96,
+        "normalized_match": 1,
+        "unavailable": 2
+      }
+    },
+    {
+      "snapshot_id": "3e1e06f987225cc5a0eb6800be68242df5f6929e6ad7a890d8ce6660d398ad1c",
+      "hostname": "www.navyfederal.org",
+      "evaluable": true,
+      "anchors": {
+        "required": {
+          "total": 4,
+          "baseline_hits": 4,
+          "v2_hits": 4
+        },
+        "unwanted": {
+          "total": 2,
+          "baseline_hits": 2,
+          "v2_hits": 2
+        }
+      },
+      "text_changed": false,
+      "markdown_changed": true,
+      "baseline_blocks": 155,
+      "v2_blocks": 154,
+      "inline_types": {
+        "text": 274,
+        "link": 41,
+        "span": 73,
+        "inline_image": 17,
+        "strong": 4,
+        "hard_break": 1,
+        "emphasis": 2
+      },
+      "source_locations": {
+        "exact": 547,
+        "valid_locators": 554,
+        "ambiguous": 7,
+        "normalized_match": 7,
+        "unavailable": 5
+      }
+    },
+    {
+      "snapshot_id": "3a78297d1c2e7c542d2d3b1aa7362f5d2744c35fb633e28318a96bb030e27525",
+      "hostname": "weld.app",
+      "evaluable": true,
+      "anchors": {
+        "required": {
+          "total": 4,
+          "baseline_hits": 4,
+          "v2_hits": 4
+        },
+        "unwanted": {
+          "total": 1,
+          "baseline_hits": 1,
+          "v2_hits": 1
+        }
+      },
+      "text_changed": false,
+      "markdown_changed": true,
+      "baseline_blocks": 138,
+      "v2_blocks": 138,
+      "inline_types": {
+        "link": 6,
+        "inline_image": 6,
+        "text": 173,
+        "span": 51,
+        "strong": 3
+      },
+      "source_locations": {
+        "exact": 363,
+        "valid_locators": 363,
+        "ambiguous": 14
+      }
+    },
+    {
+      "snapshot_id": "0cbc8a5e12709367e63cdd9579bfee14bdabd85e758cf0b1e3ed29a2f61481aa",
+      "hostname": "blog.blazingcdn.com",
+      "evaluable": true,
+      "anchors": {
+        "required": {
+          "total": 4,
+          "baseline_hits": 4,
+          "v2_hits": 4
+        },
+        "unwanted": {
+          "total": 1,
+          "baseline_hits": 1,
+          "v2_hits": 1
+        }
+      },
+      "text_changed": false,
+      "markdown_changed": false,
+      "baseline_blocks": 125,
+      "v2_blocks": 125,
+      "inline_types": {
+        "text": 283,
+        "link": 41,
+        "inline_image": 5,
+        "span": 34,
+        "strong": 15,
+        "emphasis": 3
+      },
+      "source_locations": {
+        "normalized_match": 2,
+        "valid_locators": 499,
+        "exact": 497,
+        "ambiguous": 3,
+        "unavailable": 4
+      }
+    },
+    {
+      "snapshot_id": "607c1afa259d0d970ab9c0e8f5da22e4583f437c2078acdffe3299f17d6059c9",
+      "hostname": "statrys.com",
+      "evaluable": true,
+      "anchors": {
+        "required": {
+          "total": 5,
+          "baseline_hits": 4,
+          "v2_hits": 4
+        },
+        "unwanted": {
+          "total": 2,
+          "baseline_hits": 2,
+          "v2_hits": 2
+        }
+      },
+      "text_changed": false,
+      "markdown_changed": true,
+      "baseline_blocks": 495,
+      "v2_blocks": 495,
+      "inline_types": {
+        "text": 409,
+        "link": 32,
+        "inline_image": 28,
+        "span": 75,
+        "hard_break": 1,
+        "strong": 70
+      },
+      "source_locations": {
+        "exact": 761,
+        "valid_locators": 854,
+        "ambiguous": 51,
+        "normalized_match": 93,
+        "unavailable": 205
+      }
+    },
+    {
+      "snapshot_id": "79b35c75bbcec6110534d8044f5857eb5834c90376e9c288f2ba1dd70f9e4084",
+      "hostname": "imagen-ai.com",
+      "evaluable": true,
+      "anchors": {
+        "required": {
+          "total": 4,
+          "baseline_hits": 4,
+          "v2_hits": 4
+        },
+        "unwanted": {
+          "total": 2,
+          "baseline_hits": 2,
+          "v2_hits": 2
+        }
+      },
+      "text_changed": false,
+      "markdown_changed": true,
+      "baseline_blocks": 149,
+      "v2_blocks": 149,
+      "inline_types": {
+        "text": 414,
+        "link": 52,
+        "span": 110,
+        "inline_image": 4,
+        "strong": 10,
+        "hard_break": 11
+      },
+      "source_locations": {
+        "ambiguous": 44,
+        "exact": 706,
+        "valid_locators": 706
+      }
+    },
+    {
+      "snapshot_id": "3ef5548fa440e69013b21ad161b670b591d3bbb7eafe2620a301b59d394c42ec",
+      "hostname": "www.koyfin.com",
+      "evaluable": true,
+      "anchors": {
+        "required": {
+          "total": 4,
+          "baseline_hits": 4,
+          "v2_hits": 4
+        },
+        "unwanted": {
+          "total": 1,
+          "baseline_hits": 1,
+          "v2_hits": 1
+        }
+      },
+      "text_changed": false,
+      "markdown_changed": true,
+      "baseline_blocks": 327,
+      "v2_blocks": 327,
+      "inline_types": {
+        "text": 204,
+        "link": 147,
+        "inline_image": 6,
+        "span": 3,
+        "strong": 7
+      },
+      "source_locations": {
+        "exact": 678,
+        "valid_locators": 679,
+        "ambiguous": 14,
+        "normalized_match": 1,
+        "unavailable": 1
+      }
+    },
+    {
+      "snapshot_id": "7d0697a9fd2a62f7c74418d819be1662f3ea691c373253af32e6919ce00714c9",
+      "hostname": "help.sainsburys.co.uk",
+      "evaluable": true,
+      "anchors": {
+        "required": {
+          "total": 4,
+          "baseline_hits": 4,
+          "v2_hits": 4
+        },
+        "unwanted": {
+          "total": 2,
+          "baseline_hits": 2,
+          "v2_hits": 2
+        }
+      },
+      "text_changed": false,
+      "markdown_changed": false,
+      "baseline_blocks": 59,
+      "v2_blocks": 59,
+      "inline_types": {
+        "link": 9,
+        "text": 65,
+        "inline_image": 10,
+        "span": 37,
+        "hard_break": 1
+      },
+      "source_locations": {
+        "normalized_match": 2,
+        "valid_locators": 173,
+        "exact": 171,
+        "ambiguous": 8
+      }
+    },
+    {
+      "snapshot_id": "337cb41acecbb1bbc83c4119231ee10367c4d058541655db66fe2a12ece70627",
+      "hostname": "datadome.co",
+      "evaluable": true,
+      "anchors": {
+        "required": {
+          "total": 3,
+          "baseline_hits": 3,
+          "v2_hits": 3
+        },
+        "unwanted": {
+          "total": 2,
+          "baseline_hits": 2,
+          "v2_hits": 2
+        }
+      },
+      "text_changed": false,
+      "markdown_changed": true,
+      "baseline_blocks": 82,
+      "v2_blocks": 82,
+      "inline_types": {
+        "inline_image": 26,
+        "span": 47,
+        "text": 189,
+        "link": 10,
+        "hard_break": 7
+      },
+      "source_locations": {
+        "ambiguous": 13,
+        "exact": 343,
+        "valid_locators": 343,
+        "unavailable": 5
+      }
+    },
+    {
+      "snapshot_id": "6deb78fc6bbbb15077880827720f87176a99363d461a883cd1f72dadad64c4d6",
+      "hostname": "www.customink.com",
+      "evaluable": true,
+      "anchors": {
+        "required": {
+          "total": 3,
+          "baseline_hits": 3,
+          "v2_hits": 3
+        },
+        "unwanted": {
+          "total": 1,
+          "baseline_hits": 1,
+          "v2_hits": 1
+        }
+      },
+      "text_changed": false,
+      "markdown_changed": true,
+      "baseline_blocks": 70,
+      "v2_blocks": 70,
+      "inline_types": {
+        "text": 99,
+        "link": 6,
+        "span": 2,
+        "inline_image": 19
+      },
+      "source_locations": {
+        "exact": 196,
+        "valid_locators": 196
+      }
+    },
+    {
+      "snapshot_id": "b0194a3d79477dc777c0039dc673e93756e0a0fe09ba49bfc6af88d709fc823a",
+      "hostname": "www.vanta.com",
+      "evaluable": true,
+      "anchors": {
+        "required": {
+          "total": 4,
+          "baseline_hits": 4,
+          "v2_hits": 4
+        },
+        "unwanted": {
+          "total": 2,
+          "baseline_hits": 2,
+          "v2_hits": 2
+        }
+      },
+      "text_changed": false,
+      "markdown_changed": true,
+      "baseline_blocks": 557,
+      "v2_blocks": 557,
+      "inline_types": {
+        "inline_image": 27,
+        "link": 53,
+        "text": 620,
+        "emphasis": 6,
+        "strong": 32,
+        "span": 6
+      },
+      "source_locations": {
+        "exact": 826,
+        "valid_locators": 826,
+        "ambiguous": 475
+      }
+    },
+    {
+      "snapshot_id": "306fd2c63f9d78c52552a261bdf5b47958db32e74d4ba4841151d1fdc616a79f",
+      "hostname": "www.dollywood.com",
+      "evaluable": true,
+      "anchors": {
+        "required": {
+          "total": 4,
+          "baseline_hits": 4,
+          "v2_hits": 4
+        },
+        "unwanted": {
+          "total": 1,
+          "baseline_hits": 1,
+          "v2_hits": 1
+        }
+      },
+      "text_changed": false,
+      "markdown_changed": true,
+      "baseline_blocks": 693,
+      "v2_blocks": 688,
+      "inline_types": {
+        "text": 630,
+        "link": 290,
+        "inline_image": 49,
+        "span": 125,
+        "hard_break": 21,
+        "emphasis": 4,
+        "strong": 6
+      },
+      "source_locations": {
+        "exact": 1656,
+        "valid_locators": 1662,
+        "ambiguous": 137,
+        "normalized_match": 6,
+        "unavailable": 14
+      }
+    },
+    {
+      "snapshot_id": "13044732d8d71e1142ab476f865238567c3d039c4fb55db97049baa6c644571b",
+      "hostname": "box.co.uk",
+      "evaluable": true,
+      "anchors": {
+        "required": {
+          "total": 4,
+          "baseline_hits": 4,
+          "v2_hits": 4
+        },
+        "unwanted": {
+          "total": 1,
+          "baseline_hits": 1,
+          "v2_hits": 1
+        }
+      },
+      "text_changed": false,
+      "markdown_changed": true,
+      "baseline_blocks": 136,
+      "v2_blocks": 135,
+      "inline_types": {
+        "inline_image": 106,
+        "text": 155,
+        "span": 97,
+        "link": 121,
+        "strong": 4,
+        "emphasis": 3
+      },
+      "source_locations": {
+        "exact": 510,
+        "valid_locators": 541,
+        "normalized_match": 31,
+        "ambiguous": 59,
+        "unavailable": 21
+      }
+    },
+    {
+      "snapshot_id": "6a473750d82dd789f25dddc417205ea133c829dee915f0689339aec3a560c5ac",
+      "hostname": "www.docusign.com",
+      "evaluable": true,
+      "anchors": {
+        "required": {
+          "total": 4,
+          "baseline_hits": 4,
+          "v2_hits": 4
+        },
+        "unwanted": {
+          "total": 2,
+          "baseline_hits": 2,
+          "v2_hits": 2
+        }
+      },
+      "text_changed": false,
+      "markdown_changed": true,
+      "baseline_blocks": 248,
+      "v2_blocks": 248,
+      "inline_types": {
+        "span": 400,
+        "text": 435,
+        "link": 45,
+        "inline_image": 57,
+        "hard_break": 1
+      },
+      "source_locations": {
+        "exact": 1064,
+        "valid_locators": 1065,
+        "ambiguous": 120,
+        "normalized_match": 1,
+        "unavailable": 1
+      }
+    },
+    {
+      "snapshot_id": "42cc22024745d097a5c522d1baa1ccbbc73c516a34f74a785db786013f03663e",
+      "hostname": "www.bfr.bund.de",
+      "evaluable": true,
+      "anchors": {
+        "required": {
+          "total": 3,
+          "baseline_hits": 3,
+          "v2_hits": 3
+        },
+        "unwanted": {
+          "total": 2,
+          "baseline_hits": 1,
+          "v2_hits": 1
+        }
+      },
+      "text_changed": false,
+      "markdown_changed": true,
+      "baseline_blocks": 76,
+      "v2_blocks": 76,
+      "inline_types": {
+        "text": 301,
+        "link": 6,
+        "span": 140
+      },
+      "source_locations": {
+        "exact": 487,
+        "valid_locators": 487,
+        "ambiguous": 36
+      }
+    },
+    {
+      "snapshot_id": "ef6330a55c050472d62a50c8762e1953a0d0a97522cf1355577868ddad5e6b91",
+      "hostname": "www.sweep.net",
+      "evaluable": true,
+      "anchors": {
+        "required": {
+          "total": 4,
+          "baseline_hits": 4,
+          "v2_hits": 4
+        },
+        "unwanted": {
+          "total": 1,
+          "baseline_hits": 0,
+          "v2_hits": 0
+        }
+      },
+      "text_changed": false,
+      "markdown_changed": true,
+      "baseline_blocks": 132,
+      "v2_blocks": 132,
+      "inline_types": {
+        "span": 360,
+        "text": 445,
+        "link": 21,
+        "inline_image": 6,
+        "emphasis": 5,
+        "strong": 13,
+        "hard_break": 1
+      },
+      "source_locations": {
+        "exact": 968,
+        "valid_locators": 968,
+        "ambiguous": 11,
+        "unavailable": 4
+      }
+    },
+    {
+      "snapshot_id": "983cd919d25c09f509b5b55d8ec362936bc9deb2ce242fcf6c07c4a05e0465b5",
+      "hostname": "www.photoroom.com",
+      "evaluable": true,
+      "anchors": {
+        "required": {
+          "total": 4,
+          "baseline_hits": 3,
+          "v2_hits": 3
+        },
+        "unwanted": {
+          "total": 1,
+          "baseline_hits": 1,
+          "v2_hits": 1
+        }
+      },
+      "text_changed": false,
+      "markdown_changed": true,
+      "baseline_blocks": 237,
+      "v2_blocks": 237,
+      "inline_types": {
+        "link": 90,
+        "text": 208,
+        "inline_image": 43,
+        "span": 25,
+        "strong": 8
+      },
+      "source_locations": {
+        "exact": 577,
+        "valid_locators": 578,
+        "ambiguous": 33,
+        "normalized_match": 1
+      }
+    },
+    {
+      "snapshot_id": "0a1af64bf9b1d7f9d9d44f4c8d50284af59c442b69bb7498c16548a9a9e6da76",
+      "hostname": "www.ding.com",
+      "evaluable": true,
+      "anchors": {
+        "required": {
+          "total": 3,
+          "baseline_hits": 3,
+          "v2_hits": 3
+        },
+        "unwanted": {
+          "total": 2,
+          "baseline_hits": 1,
+          "v2_hits": 1
+        }
+      },
+      "text_changed": false,
+      "markdown_changed": false,
+      "baseline_blocks": 54,
+      "v2_blocks": 54,
+      "inline_types": {
+        "link": 16,
+        "text": 40,
+        "span": 1,
+        "inline_image": 17
+      },
+      "source_locations": {
+        "exact": 118,
+        "valid_locators": 118,
+        "ambiguous": 10
+      }
+    },
+    {
+      "snapshot_id": "0bbd5a7e6de4fbba7d700f6f402ce2b05d650567a4b14df12b39166fc3f071db",
+      "hostname": "www.identityguard.com",
+      "evaluable": true,
+      "anchors": {
+        "required": {
+          "total": 4,
+          "baseline_hits": 4,
+          "v2_hits": 4
+        },
+        "unwanted": {
+          "total": 1,
+          "baseline_hits": 1,
+          "v2_hits": 1
+        }
+      },
+      "text_changed": false,
+      "markdown_changed": true,
+      "baseline_blocks": 345,
+      "v2_blocks": 345,
+      "inline_types": {
+        "text": 369,
+        "link": 63,
+        "span": 18,
+        "inline_image": 12,
+        "strong": 114,
+        "emphasis": 5
+      },
+      "source_locations": {
+        "exact": 895,
+        "valid_locators": 895,
+        "ambiguous": 31
+      }
+    },
+    {
+      "snapshot_id": "a2dc73dc37ac68980b5aa72560892b6dc0430656af7512cd484a71b74b19f805",
+      "hostname": "asanify.com",
+      "evaluable": true,
+      "anchors": {
+        "required": {
+          "total": 4,
+          "baseline_hits": 4,
+          "v2_hits": 4
+        },
+        "unwanted": {
+          "total": 1,
+          "baseline_hits": 1,
+          "v2_hits": 1
+        }
+      },
+      "text_changed": false,
+      "markdown_changed": true,
+      "baseline_blocks": 482,
+      "v2_blocks": 482,
+      "inline_types": {
+        "span": 39,
+        "inline_image": 9,
+        "text": 421,
+        "link": 175,
+        "emphasis": 10,
+        "strong": 64,
+        "hard_break": 35
+      },
+      "source_locations": {
+        "exact": 1198,
+        "valid_locators": 1203,
+        "normalized_match": 5,
+        "ambiguous": 24,
+        "unavailable": 8
+      }
+    },
+    {
+      "snapshot_id": "e288beae63c9ac723358dd764e0d720217cc601aa1d474ca697de70277e1f830",
+      "hostname": "www.readycontacts.com",
+      "evaluable": true,
+      "anchors": {
+        "required": {
+          "total": 4,
+          "baseline_hits": 4,
+          "v2_hits": 4
+        },
+        "unwanted": {
+          "total": 2,
+          "baseline_hits": 2,
+          "v2_hits": 2
+        }
+      },
+      "text_changed": false,
+      "markdown_changed": true,
+      "baseline_blocks": 396,
+      "v2_blocks": 394,
+      "inline_types": {
+        "text": 845,
+        "span": 20,
+        "link": 125,
+        "inline_image": 19,
+        "emphasis": 40,
+        "strong": 17,
+        "hard_break": 34
+      },
+      "source_locations": {
+        "exact": 1410,
+        "valid_locators": 1412,
+        "ambiguous": 75,
+        "normalized_match": 2,
+        "unavailable": 7
+      }
+    },
+    {
+      "snapshot_id": "63aed612f624869414ba9e51c272abef242c4af5a452b569692b80c73a894a4b",
+      "hostname": "www.onemainfinancial.com",
+      "evaluable": true,
+      "anchors": {
+        "required": {
+          "total": 4,
+          "baseline_hits": 4,
+          "v2_hits": 4
+        },
+        "unwanted": {
+          "total": 1,
+          "baseline_hits": 1,
+          "v2_hits": 1
+        }
+      },
+      "text_changed": false,
+      "markdown_changed": true,
+      "baseline_blocks": 98,
+      "v2_blocks": 98,
+      "inline_types": {
+        "link": 29,
+        "text": 121,
+        "inline_image": 7,
+        "span": 38,
+        "strong": 11,
+        "hard_break": 16
+      },
+      "source_locations": {
+        "ambiguous": 19,
+        "exact": 290,
+        "valid_locators": 296,
+        "normalized_match": 6,
+        "unavailable": 5
+      }
+    },
+    {
+      "snapshot_id": "0456867fb062b36642f8f7d8449f619ca4063f1bbc36366d34cd0f49ddb45d9b",
+      "hostname": "www.bankofamerica.com",
+      "evaluable": true,
+      "anchors": {
+        "required": {
+          "total": 5,
+          "baseline_hits": 5,
+          "v2_hits": 5
+        },
+        "unwanted": {
+          "total": 2,
+          "baseline_hits": 2,
+          "v2_hits": 2
+        }
+      },
+      "text_changed": false,
+      "markdown_changed": true,
+      "baseline_blocks": 59,
+      "v2_blocks": 59,
+      "inline_types": {
+        "text": 119,
+        "link": 18,
+        "span": 60,
+        "inline_image": 2,
+        "strong": 1
+      },
+      "source_locations": {
+        "normalized_match": 1,
+        "valid_locators": 257,
+        "exact": 256,
+        "unavailable": 2
+      }
+    },
+    {
+      "snapshot_id": "78f39d63068e09af2ba4751d37b0d875fbfe83cc9cb6895a436817f386a1d399",
+      "hostname": "www.gs1india.org",
+      "evaluable": true,
+      "anchors": {
+        "required": {
+          "total": 4,
+          "baseline_hits": 4,
+          "v2_hits": 4
+        },
+        "unwanted": {
+          "total": 1,
+          "baseline_hits": 1,
+          "v2_hits": 1
+        }
+      },
+      "text_changed": false,
+      "markdown_changed": false,
+      "baseline_blocks": 74,
+      "v2_blocks": 74,
+      "inline_types": {
+        "link": 10,
+        "text": 61,
+        "inline_image": 11,
+        "span": 10,
+        "strong": 9,
+        "hard_break": 4
+      },
+      "source_locations": {
+        "exact": 164,
+        "valid_locators": 167,
+        "normalized_match": 3,
+        "ambiguous": 7,
+        "unavailable": 5
+      }
+    },
+    {
+      "snapshot_id": "985d36a88d8a86b512af5af39c9213574575a17c528d2f021f1158601d4f366c",
+      "hostname": "www.sender.net",
+      "evaluable": true,
+      "anchors": {
+        "required": {
+          "total": 4,
+          "baseline_hits": 4,
+          "v2_hits": 4
+        },
+        "unwanted": {
+          "total": 2,
+          "baseline_hits": 2,
+          "v2_hits": 2
+        }
+      },
+      "text_changed": false,
+      "markdown_changed": true,
+      "baseline_blocks": 343,
+      "v2_blocks": 343,
+      "inline_types": {
+        "text": 570,
+        "link": 70,
+        "inline_image": 81,
+        "span": 31,
+        "hard_break": 23,
+        "strong": 15,
+        "emphasis": 17
+      },
+      "source_locations": {
+        "exact": 1133,
+        "valid_locators": 1135,
+        "ambiguous": 15,
+        "normalized_match": 2
+      }
+    },
+    {
+      "snapshot_id": "0245a9f5adabce1d3d2b21eac2bcaa20bdc1a6b581417a957e7760e9713d95a5",
+      "hostname": "erp.compare",
+      "evaluable": true,
+      "anchors": {
+        "required": {
+          "total": 4,
+          "baseline_hits": 4,
+          "v2_hits": 4
+        },
+        "unwanted": {
+          "total": 1,
+          "baseline_hits": 1,
+          "v2_hits": 1
+        }
+      },
+      "text_changed": false,
+      "markdown_changed": true,
+      "baseline_blocks": 242,
+      "v2_blocks": 242,
+      "inline_types": {
+        "text": 264,
+        "span": 6,
+        "link": 25,
+        "inline_image": 11,
+        "strong": 46
+      },
+      "source_locations": {
+        "exact": 574,
+        "valid_locators": 574,
+        "ambiguous": 20
+      }
+    },
+    {
+      "snapshot_id": "d0c251ea9f460992d087d3c7536072def3bb22f2bfe61d59eec41bc965ce036f",
+      "hostname": "www.boots-uk.com",
+      "evaluable": true,
+      "anchors": {
+        "required": {
+          "total": 4,
+          "baseline_hits": 4,
+          "v2_hits": 4
+        },
+        "unwanted": {
+          "total": 2,
+          "baseline_hits": 2,
+          "v2_hits": 2
+        }
+      },
+      "text_changed": false,
+      "markdown_changed": true,
+      "baseline_blocks": 128,
+      "v2_blocks": 128,
+      "inline_types": {
+        "text": 247,
+        "link": 47,
+        "span": 68,
+        "strong": 4,
+        "emphasis": 2,
+        "hard_break": 1
+      },
+      "source_locations": {
+        "exact": 497,
+        "valid_locators": 497
+      }
+    },
+    {
+      "snapshot_id": "2e070a24f3bd03f803f9ebc7a3b9b99134d24ec3c463a7ba498ec2e9993dccd7",
+      "hostname": "blog.hootsuite.com",
+      "evaluable": true,
+      "anchors": {
+        "required": {
+          "total": 5,
+          "baseline_hits": 4,
+          "v2_hits": 4
+        },
+        "unwanted": {
+          "total": 2,
+          "baseline_hits": 1,
+          "v2_hits": 1
+        }
+      },
+      "text_changed": false,
+      "markdown_changed": true,
+      "baseline_blocks": 362,
+      "v2_blocks": 362,
+      "inline_types": {
+        "text": 678,
+        "link": 120,
+        "span": 72,
+        "inline_image": 27,
+        "strong": 155,
+        "emphasis": 22
+      },
+      "source_locations": {
+        "normalized_match": 1,
+        "valid_locators": 1413,
+        "exact": 1412,
+        "ambiguous": 22,
+        "unavailable": 1
+      }
+    },
+    {
+      "snapshot_id": "39de57ebc8987d062e0bbceba626ab811b18f7b98434aef5611e986741c86475",
+      "hostname": "en.globes.co.il",
+      "evaluable": true,
+      "anchors": {
+        "required": {
+          "total": 4,
+          "baseline_hits": 4,
+          "v2_hits": 4
+        },
+        "unwanted": {
+          "total": 2,
+          "baseline_hits": 2,
+          "v2_hits": 2
+        }
+      },
+      "text_changed": false,
+      "markdown_changed": true,
+      "baseline_blocks": 97,
+      "v2_blocks": 97,
+      "inline_types": {
+        "text": 225,
+        "link": 83,
+        "inline_image": 26,
+        "span": 63,
+        "emphasis": 4,
+        "strong": 16
+      },
+      "source_locations": {
+        "exact": 490,
+        "valid_locators": 491,
+        "ambiguous": 14,
+        "normalized_match": 1,
+        "unavailable": 9
+      }
+    },
+    {
+      "snapshot_id": "fa572562accda653da503c2d2534bce45513a8f6e0e6ec3756f057f7457aae86",
+      "hostname": "www.wellsfargo.com",
+      "evaluable": true,
+      "anchors": {
+        "required": {
+          "total": 4,
+          "baseline_hits": 4,
+          "v2_hits": 4
+        },
+        "unwanted": {
+          "total": 2,
+          "baseline_hits": 2,
+          "v2_hits": 2
+        }
+      },
+      "text_changed": false,
+      "markdown_changed": true,
+      "baseline_blocks": 94,
+      "v2_blocks": 94,
+      "inline_types": {
+        "link": 34,
+        "text": 193,
+        "span": 58,
+        "inline_image": 6,
+        "hard_break": 4
+      },
+      "source_locations": {
+        "normalized_match": 1,
+        "valid_locators": 387,
+        "ambiguous": 2,
+        "exact": 386
+      }
+    },
+    {
+      "snapshot_id": "d46ebe3518f9ab607295cabdbcdd8ed937380c89676e6b0c2038627fed4298d4",
+      "hostname": "theluxurytravelexpert.com",
+      "evaluable": true,
+      "anchors": {
+        "required": {
+          "total": 4,
+          "baseline_hits": 4,
+          "v2_hits": 4
+        },
+        "unwanted": {
+          "total": 1,
+          "baseline_hits": 1,
+          "v2_hits": 1
+        }
+      },
+      "text_changed": false,
+      "markdown_changed": true,
+      "baseline_blocks": 168,
+      "v2_blocks": 168,
+      "inline_types": {
+        "text": 216,
+        "link": 77,
+        "span": 98,
+        "inline_image": 32,
+        "strong": 35,
+        "emphasis": 2
+      },
+      "source_locations": {
+        "exact": 614,
+        "valid_locators": 614,
+        "ambiguous": 14
+      }
+    },
+    {
+      "snapshot_id": "00afdea58335ce8b40cfced99816c84114a7290d4f4fb445c3cedcf3046cd9ed",
+      "hostname": "www.tigera.io",
+      "evaluable": true,
+      "anchors": {
+        "required": {
+          "total": 5,
+          "baseline_hits": 5,
+          "v2_hits": 5
+        },
+        "unwanted": {
+          "total": 2,
+          "baseline_hits": 2,
+          "v2_hits": 2
+        }
+      },
+      "text_changed": false,
+      "markdown_changed": true,
+      "baseline_blocks": 371,
+      "v2_blocks": 371,
+      "inline_types": {
+        "text": 443,
+        "link": 177,
+        "inline_image": 68,
+        "span": 49,
+        "hard_break": 1
+      },
+      "source_locations": {
+        "ambiguous": 5,
+        "exact": 1097,
+        "valid_locators": 1098,
+        "normalized_match": 1,
+        "unavailable": 6
+      }
+    }
+  ],
+  "incumbent_revision": "caf590d1c3b78fa0d66899e799307635e84d23b2",
+  "serializer": "markdownify-structured-v1",
+  "block_schema_version": "dom-blocks-v3",
+  "converter_options": {
+    "heading_style": "ATX",
+    "bullets": "-",
+    "newline_style": "BACKSLASH",
+    "autolinks": false,
+    "strip_pre": null,
+    "sub_symbol": "<sub>",
+    "sup_symbol": "<sup>"
+  },
+  "dependencies": {
+    "markdownify": "1.2.3",
+    "beautifulsoup4": "4.15.0",
+    "markdown-it-py": "4.2.0"
+  },
+  "source_fingerprints": {
+    "preprocessing/schema.py": "fcce8bfd4f532330234d12a5072fa2d7250504c231e823260310a4018a1e60e1",
+    "preprocessing/blocks.py": "c9d1048add604070558353173a16e3ac4340e12a4de21a8a1ae8327752f67b8d",
+    "preprocessing/markdownify_serializer.py": "a47906348754f11ebd42cdb4136e9db9b86d8128c98f8ddc4c2843c7b967b5c6",
+    "preprocessing/quality.py": "cc702b4cff899c83a2469afc7fbb98c02c30a1df339e5cc3296a2d625327c5a6",
+    "preprocessing/offline.py": "dcb6bb1f5c4d8aa1bb3e25b6e7dbaf8d9adc54c5c5eaeadc7a11c207dacaf235",
+    "preprocessing/runner.py": "3bdfc0b6350f238a87c6c5c89a588dc7f3f01eac94f7909be4cf29b9df66f1e5",
+    "preprocessing/adapters/local.py": "daf22d779d687afa45205b631d9ba30c6ab0ba075cb22dee6fd8e2d249a4944c",
+    "preprocessing/adapters/external.py": "ee84bf0ac857e8a851583d8c452f5f8b067d743a94c154ccb7c2fad138af7a7a",
+    "preprocessing/node/package-lock.json": "cdc3c62c394c5ff43d4bc2798a1fbf7f0b2b687d74235b4326bf99faf5a772a9",
+    "preprocessing/node/worker.cjs": "ce3cc69b6510d44bb0bfad98f26a1ed1e402b37ef24c610ff12d13ec277413f2",
+    "scripts/analyze_content.py": "21f2c197a25ecd6c1f4d11d2090f7fefe94f2c0939ebea60e7261fa97c7d7c29",
+    "uv.lock": "3f7de4ea094575bd218ef1d2b8a3773e689bafb06b20143632ac28fa935a3cb3"
+  },
+  "report_code_sha256": "dcf69a5287cf9be96de648c45746c5d0afef83d51edab774a40c3f9a5614b5ff",
+  "frozen_evaluation_hashes": {
+    "evaluation/extraction/annotations-batch-1.json": "e4c7d564d51a3cf8330eb28530ad2c3e09e8f69368bdfa89397f413fa9c91c76",
+    "evaluation/extraction/annotations-batch-4.json": "5b77a7329db8eb15608cf9907bc63f21086392c3ff14cd6beef151094ac76206",
+    "evaluation/extraction/manifest.json": "0e50f8404411fde8428cd1e114d49b01ade5e29800a2e8476896029b586a6d69",
+    "evaluation/extraction/verification.json": "b48942da10b8aaabd992bd679cac33363e4d0cd56af81c8dbf0ced43a466f5d7",
+    "evaluation/extraction/fixtures.json": "2b8e04b214113a0d02cf1a4f13cf580d73debc3628453e08bd0050c5342e142d",
+    "evaluation/extraction/annotations-batch-2.json": "7fe251a1ce7b9eed1cc47d620f9333847bea2681b1d5ba9ac7e13b74eda9fcbc",
+    "evaluation/extraction/annotations-batch-3.json": "1915600826316d6d153d64ca0213c65fef4f2e0abee1cca3a8508fcda3b16f65",
+    "evaluation/extraction/freeze.json": "d87aa7017975effcb27646efc5b5d1047bfcc38375d6be083e4a0e6eedc2860c",
+    "evaluation/extraction/annotations.json": "67b4af5bc8ca1b2eefd267de2c170c03371f6187e4d75869ec24b74a0fe96d38"
+  }
+}

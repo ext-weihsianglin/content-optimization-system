@@ -6,10 +6,10 @@ from urllib.parse import urljoin
 
 from bs4 import BeautifulSoup
 
-from preprocessing.blocks import dom_path, html_to_blocks, blocks_to_text
+from preprocessing.blocks import _dom_index, html_to_blocks, blocks_to_text
 
 
-HTML = re.compile(r"<!doctype\s+html\b|</?(?:html|head|body|title|meta|link|main|article|section|div|span|p|h[1-6]|ul|ol|li|table|tr|td|th|pre|code|a|img|script|style|nav|footer|header|form|aside|blockquote|br|hr)\b[^>]*>", re.I)
+HTML = re.compile(r"<!doctype\s+html\b|</?(?:html|head|body|title|meta|link|main|article|section|div|span|p|h[1-6]|ul|ol|li|table|tr|td|th|pre|code|a|img|script|style|nav|footer|header|form|aside|blockquote|br|hr|dl|dt|dd|del|s|strike|kbd|samp|figure|figcaption|address|details|summary)\b[^>]*>", re.I)
 MARKDOWN = re.compile(r"(?m)^ {0,3}(?:#{1,6}\s|```|~~~|>\s|[-+*]\s|\d+[.)]\s)|\[[^\]\n]+\]\([^\n)]+\)|\*\*[^*\n]+\*\*|(?m:^.+\n(?:===+|---+)\s*$)")
 
 
@@ -30,6 +30,7 @@ def source_inventory(payload, href, format):
     result = {"title": "", "language": None, "direction": None, "description": None, "canonical": None, "headings": [], "quality_flags": [], "jsonld": [], "body_text": "", "counts": {}, "visibility": [], "metadata": {}}
     if format == "html":
         soup = BeautifulSoup(payload, "html.parser")
+        source_paths = _dom_index(soup)[0]
         result["title"] = soup.title.get_text(" ", strip=True) if soup.title else ""
         result["language"] = soup.html.get("lang") if soup.html else None
         result["direction"] = soup.html.get("dir") if soup.html else None
@@ -44,7 +45,7 @@ def source_inventory(payload, href, format):
         for node in soup.find_all("script"):
             if node.get("type", "").split(";")[0].strip().lower() != "application/ld+json":
                 continue
-            entry = {"source_locator": {"dom_path": dom_path(node)}, "raw": node.get_text(), "parse_status": "ok", "types": []}
+            entry = {"source_locator": {"dom_path": source_paths[id(node)]}, "raw": node.get_text(), "parse_status": "ok", "types": []}
             try:
                 entry["value"] = json.loads(entry["raw"])
                 pending = [entry["value"]]
@@ -69,8 +70,9 @@ def source_inventory(payload, href, format):
         for node in soup.find_all(True):
             hints = {key: node[key] for key in ("hidden", "aria-hidden", "style", "lang", "dir") if node.has_attr(key)}
             if hints:
-                result["visibility"].append({"source_locator": {"dom_path": dom_path(node)}, "attributes": hints, "computed_visibility": "unknown"})
-        result["body_text"] = blocks_to_text(html_to_blocks(payload, href))
+                result["visibility"].append({"source_locator": {"dom_path": source_paths[id(node)]}, "attributes": hints, "computed_visibility": "unknown"})
+        # Inventory needs the source text view, not a second Markdown serialization.
+        result["body_text"] = blocks_to_text(html_to_blocks(payload, href, include_inline=False))
         if result["counts"]["scripts"] and len(result["body_text"].split()) < 10:
             result["quality_flags"].append("possible_script_shell")
         if re.search(r"<[^>]*$", payload) or (re.search(r"<html\b", payload, re.I) and not re.search(r"</html\s*>", payload, re.I)):

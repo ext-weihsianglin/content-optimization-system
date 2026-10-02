@@ -1,0 +1,23 @@
+<!doctype html><meta charset="utf-8"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'"><title>Markdownify adoption</title><style>body{font:16px system-ui;max-width:1200px;margin:32px auto}table{border-collapse:collapse;width:100%}td,th{border:1px solid #ccc;padding:10px;vertical-align:top}pre{white-space:pre-wrap;overflow-wrap:anywhere}</style><h1>Markdownify adoption: heldout</h1><p>Separate held-out diagnostics of the fixed, development-implemented markdownify pipeline against the incumbent structured serializer; no serializer tuning/selection on these snapshots.</p><p>AI-assisted sparse selected anchors, not human gold, structural precision/recall or causal citation uplift. Native held-out inputs are excluded.</p><pre>{
+  &quot;snapshots&quot;: 37,
+  &quot;evaluable_snapshots&quot;: 32,
+  &quot;anchors&quot;: {
+    &quot;required&quot;: {
+      &quot;total&quot;: 129,
+      &quot;baseline_hits&quot;: 126,
+      &quot;v2_hits&quot;: 126
+    },
+    &quot;unwanted&quot;: {
+      &quot;total&quot;: 50,
+      &quot;baseline_hits&quot;: 46,
+      &quot;v2_hits&quot;: 46
+    }
+  },
+  &quot;source_locations&quot;: {
+    &quot;exact&quot;: 22212,
+    &quot;valid_locators&quot;: 22382,
+    &quot;normalized_match&quot;: 170,
+    &quot;unavailable&quot;: 307,
+    &quot;ambiguous&quot;: 1379
+  }
+}</pre><p>Full report evidence: results.json</p>
