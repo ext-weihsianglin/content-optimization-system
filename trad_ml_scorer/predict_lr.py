@@ -27,7 +27,7 @@ def main():
                 if hashlib.sha256(local_path.read_bytes()).hexdigest() != expected:
                     raise ValueError(f"Parser or feature code changed since model fitting: {filename}")
         result = predict_retention(bundle, args.prompt, args.html_file.read_text(), args.url)
-    elif bundle["feature_version"] == "lr-frontier-v4":
+    elif bundle["feature_version"] in ("lr-frontier-v4", "lr-evidence-v5"):
         from trad_ml_scorer.predict_frontier import predict_frontier
         result = predict_frontier(bundle, args.prompt, args.html_file.read_text(), args.url)
     elif bundle["feature_version"] == V1_VERSION:

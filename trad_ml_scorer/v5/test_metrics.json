@@ -1,0 +1,71 @@
+{
+  "selected": {
+    "rows": 947,
+    "hosts": 97,
+    "positive_rate": 0.498416050686378,
+    "roc_auc": 0.6808831400535236,
+    "average_precision": 0.6772752423689244,
+    "log_loss": 0.6389609205732857,
+    "brier_score": 0.22452643071437148,
+    "accuracy_at_0_5": 0.6240760295670539,
+    "confusion_matrix": [
+      [
+        305,
+        170
+      ],
+      [
+        186,
+        286
+      ]
+    ],
+    "mean_within_host_auc": 0.6926002290950745,
+    "paired_hosts": 97
+  },
+  "v4_same_rows": {
+    "rows": 947,
+    "hosts": 97,
+    "positive_rate": 0.498416050686378,
+    "roc_auc": 0.6790365744870652,
+    "average_precision": 0.6758268162330919,
+    "log_loss": 0.6405471058647452,
+    "brier_score": 0.22519585293810615,
+    "accuracy_at_0_5": 0.6356916578669483,
+    "confusion_matrix": [
+      [
+        312,
+        163
+      ],
+      [
+        182,
+        290
+      ]
+    ],
+    "mean_within_host_auc": 0.6965406643757159,
+    "paired_hosts": 97
+  },
+  "host_bootstrap_95_percent": {
+    "roc_auc": {
+      "low": 0.6421392143853178,
+      "high": 0.7180838899796069,
+      "replicates": 1000
+    },
+    "log_loss": {
+      "low": 0.6178029976080703,
+      "high": 0.6607711780085761,
+      "replicates": 1000
+    },
+    "brier_score": {
+      "low": 0.21474554211036997,
+      "high": 0.23467825833832742,
+      "replicates": 1000
+    }
+  },
+  "paired_auc_delta": {
+    "estimate": 0.001846565566458347,
+    "low": -0.0025253652755970247,
+    "high": 0.006039241295309739,
+    "replicates": 1000
+  },
+  "status": "Reused historical benchmark, not independent confirmation. No test-driven selection.",
+  "model_sha256": "24f2351951bae3be9e36c42fdccc6bc966335db8350edb36ccf11782a6ba5ec8"
+}

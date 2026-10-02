@@ -11,9 +11,15 @@ from trad_ml_scorer.retention_features import features_from_document
 
 
 def vector(prompt, doc, names, version="v3"):
-    if version == "v4":
+    if version in ("v4", "v5", "v6"):
         from trad_ml_scorer.robust_features import robust_features
         values = robust_features(prompt, doc)
+        if version in ("v5", "v6"):
+            from trad_ml_scorer.evidence_features import evidence_features
+            values.update(evidence_features(prompt, doc))
+        if version == "v6":
+            from trad_ml_scorer.control_features import control_features
+            values.update(control_features(prompt, doc, values))
         return [values[n] for n in names]
     values = {**features_from_document(prompt,doc), **richer_features(prompt,doc)}
     return [values[n] for n in names]
@@ -38,7 +44,7 @@ def altered(doc, prompt, attack):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--version", choices=("v3", "v4"), default="v3")
+    parser.add_argument("--version", choices=("v3", "v4", "v5", "v6"), default="v3")
     version = parser.parse_args().version
     root = Path('trad_ml_scorer') / version
     if (root/'stress.json').exists():

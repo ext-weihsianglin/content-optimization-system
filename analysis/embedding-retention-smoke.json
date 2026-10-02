@@ -1,0 +1,56 @@
+{
+  "scope": "20-snapshot integration smoke, not model-quality evidence",
+  "alignment": {
+    "records": 20,
+    "available": 20
+  },
+  "resume": {
+    "config_id": "d1e9ab1898ae3382f3e2245425008b5fe0a897189a5d4fa21d600cb5ee49f270",
+    "model": "text-embedding-3-large",
+    "provider": "openai",
+    "status": "complete",
+    "vectors": 732,
+    "logical_units": 734,
+    "unique_requests": 674,
+    "cached_requests": 674,
+    "failed_requests": 0,
+    "fatal_error": null
+  },
+  "projections": {
+    "page": {
+      "projection_id": "2797037653c092fe309f3f211cac13c274b15ab64f8683886e15fc544789a6e6",
+      "units": 20,
+      "fit_units": 20,
+      "scope": "exploratory_all_available"
+    },
+    "query": {
+      "projection_id": "d0f6f7d8ade4ab2c77f055d494811e198da5afe13b24bb4923a05f465f1255f5",
+      "units": 20,
+      "fit_units": 20,
+      "scope": "exploratory_all_available"
+    },
+    "path": {
+      "projection_id": "c516aeed46c26da39afef0ef42cd276317ee4d8b93ad91bf596303acd2e5f30d",
+      "units": 20,
+      "fit_units": 20,
+      "scope": "exploratory_all_available"
+    }
+  },
+  "report": {
+    "maps": 3,
+    "output": "analysis/embedding-retention-explorer.html"
+  },
+  "model": {
+    "config_id": "d1e9ab1898ae3382f3e2245425008b5fe0a897189a5d4fa21d600cb5ee49f270",
+    "model": "text-embedding-3-large",
+    "provider": "openai",
+    "status": "complete",
+    "vectors": 732,
+    "logical_units": 734,
+    "unique_requests": 674,
+    "cached_requests": 674,
+    "failed_requests": 0,
+    "fatal_error": null
+  },
+  "source": "downstream-document-v1"
+}

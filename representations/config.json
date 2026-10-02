@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0.0",
+  "chunk_bytes": 4096,
+  "page_bytes": 7000,
+  "counting_policy": "conservative_utf8_bytes_v1",
+  "seed": 42,
+  "models": {
+    "openai-large": {
+      "provider": "openai",
+      "model": "text-embedding-3-large",
+      "endpoint": "https://api.openai.com/v1/embeddings",
+      "key_env": "OPENAI_API_KEY",
+      "dimensions": 3072,
+      "max_input_bytes": 8192,
+      "batch_size": 32,
+      "batch_bytes": 100000,
+      "concurrency": 2,
+      "attempts": 4,
+      "timeout": 60,
+      "revision": "unversioned-2026-10-01",
+      "query_instruction": ""
+    },
+    "voyage-nano": {
+      "provider": "mlx",
+      "model": "voyageai/voyage-4-nano",
+      "revision": "67fabc9bef010dabc5f6024aa1b1b6b93410426f",
+      "dimensions": 2048,
+      "checkpoint_files": [
+        "model.safetensors",
+        "config.json",
+        "config_sentence_transformers.json",
+        "sentence_bert_config.json",
+        "tokenizer.json",
+        "tokenizer_config.json",
+        "modules.json",
+        "1_Pooling/config.json"
+      ],
+      "checkpoint_hash": "e57e5672ba1f7a5445eb24ae86dd4f95afb6439a790b8b7e931686f1513f7dde",
+      "backend": "voyage-4-nano-mlx",
+      "backend_version": "0.1.0",
+      "backend_revision": "5001811de8d5ab39bcdab1c9b40b925d8d7d3983",
+      "mlx_version": "0.32.3",
+      "compute_dtype": "bfloat16",
+      "role_prompts": {
+        "query": "Represent the query for retrieving supporting documents: ",
+        "document": "Represent the document for retrieval: "
+      },
+      "max_input_bytes": 32000,
+      "max_input_tokens": 32000,
+      "batch_size": 32,
+      "batch_bytes": 128000,
+      "concurrency": 1,
+      "attempts": 1,
+      "timeout": 60,
+      "memory_limit_gb": 8,
+      "max_tokens_per_batch": 16384,
+      "query_instruction": ""
+    }
+  }
+}

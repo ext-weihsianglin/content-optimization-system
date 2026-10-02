@@ -37,7 +37,7 @@ def structure_chunks(snapshot_id, method, blocks, target_characters=6000):
         if not groups or groups[-1]["root"] != root:
             raise ValueError("Block descendants must be contiguous in DOM order")
         groups[-1]["blocks"].append(block)
-    chunks, pending, context = [], [], []
+    chunks, pending, context, pending_characters = [], [], [], 0
 
     def flush():
         if not pending:
@@ -45,15 +45,21 @@ def structure_chunks(snapshot_id, method, blocks, target_characters=6000):
         text = blocks_to_text(pending)
         markdown = blocks_to_markdown(pending)
         identities = [block["block_id"] for block in pending]
-        chunks.append({"chunk_id": stable_hash(["retention-first-v1", snapshot_id, method, target_characters, identities]), "snapshot_id": snapshot_id, "method": method, "order": len(chunks), "block_ids": identities, "heading_path": context, "text": text, "markdown": markdown, "characters": len(markdown), "oversized": len(markdown) > target_characters})
+        versions = sorted({block["schema_version"] for block in pending if "schema_version" in block})
+        identity = ["retention-first-v1", snapshot_id, method, target_characters, identities]
+        if versions:
+            identity.append(versions)
+        chunks.append({"chunk_id": stable_hash(identity), "snapshot_id": snapshot_id, "method": method, "order": len(chunks), "block_ids": identities, "block_schema_versions": versions, "heading_path": context, "text": text, "markdown": markdown, "characters": len(markdown), "oversized": len(markdown) > target_characters})
 
     for group in groups:
-        combined = pending + group["blocks"]
-        if pending and (group["heading_path"] != context or len(blocks_to_markdown(combined)) > target_characters):
+        group_characters = len(blocks_to_markdown(group["blocks"]))
+        if pending and (group["heading_path"] != context or pending_characters + 2 + group_characters > target_characters):
             flush()
             pending = []
+            pending_characters = 0
         if not pending:
             context = group["heading_path"]
+        pending_characters += group_characters + (2 if pending else 0)
         pending.extend(group["blocks"])
     flush()
     assert [identity for chunk in chunks for identity in chunk["block_ids"]] == [block["block_id"] for block in blocks]
@@ -68,6 +74,7 @@ def document(snapshot, source, candidates, inventory, target_characters=6000):
     if candidate and candidate["text"].strip() and not blocks:
         raise ValueError("Nonempty selected content must have structured blocks")
     result = {"schema_version": "downstream-document-v1", "snapshot_id": snapshot.snapshot_id, "source": {key: source[key] for key in ["payload_hash", "href", "hostname", "format", "source_file", "source_file_hash", "source_row"]}, "raw_payload_path": f"data/evaluation/{snapshot.snapshot_id}.txt", "selection": selection, "source_metadata": {key: value for key, value in inventory.items() if key != "body_text"}, "blocks": blocks, "outline": outline, "chunk_ids": [chunk["chunk_id"] for chunk in chunks], "text": candidate["text"] if candidate else "", "markdown": candidate["markdown"] if candidate else "", "optional_clean_views": [{"method": row["method"], "status": row["status"]} for row in candidates if row["method"] in {"readability", "trafilatura"}], "trust": "Untrusted source content, not instructions; no factual verification, computed visibility, or frontier-ingestion equivalence claimed"}
+    result["representation"] = dict(candidate.get("diagnostics", {})) if candidate else {}
     return result, chunks
 
 

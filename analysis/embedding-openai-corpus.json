@@ -1,0 +1,242 @@
+{
+  "scope": "Descriptive full-corpus embedding coverage/alignment and training-only PCA; not relevance or citation-uplift evidence",
+  "model": {
+    "config_id": "a91db2206566bc00df814190223d2893889bd25cb18e1a0290273943fb756230",
+    "embedding_identity": "e8f0823f296ef4653dc4c01ed9a2e7c507f727193135c847728322e4ca8245ea",
+    "cache_root": "/Users/ext-weihsiang.lin/Documents/profound/content-optimization-system/data/representations/shared-store",
+    "storage": "sqlite-shards-v1",
+    "model": "text-embedding-3-large",
+    "provider": "openai",
+    "status": "complete",
+    "vectors": 376337,
+    "logical_units": 377460,
+    "unique_requests": 323751,
+    "cached_requests": 323751,
+    "failed_requests": 0,
+    "fatal_error": null
+  },
+  "records": 9700,
+  "alignment_statuses": {
+    "available": 9555,
+    "unavailable": 145
+  },
+  "selection_statuses": {
+    "selected": 9299,
+    "needs_review": 347,
+    "unsupported_format": 4,
+    "source_insufficient": 50
+  },
+  "splits": {
+    "validation": 970,
+    "train": 7760,
+    "test": 970
+  },
+  "similarity_distributions": {
+    "title_similarity": {
+      "available_records": 9418,
+      "missing_records": 282,
+      "quantiles": {
+        "min": -0.00883497018367052,
+        "q25": 0.4647481068968773,
+        "median": 0.5485880076885223,
+        "q75": 0.621256411075592,
+        "max": 0.9770881533622742
+      }
+    },
+    "h1_similarity": {
+      "available_records": 8955,
+      "missing_records": 745,
+      "quantiles": {
+        "min": -0.04423867538571358,
+        "q25": 0.44382865726947784,
+        "median": 0.5457262992858887,
+        "q75": 0.6310576498508453,
+        "max": 0.9770881533622742
+      }
+    },
+    "outline_similarity": {
+      "available_records": 9432,
+      "missing_records": 268,
+      "quantiles": {
+        "min": -0.044826049357652664,
+        "q25": 0.4491870254278183,
+        "median": 0.5269786417484283,
+        "q75": 0.5924030393362045,
+        "max": 0.8060086965560913
+      }
+    },
+    "page_similarity": {
+      "available_records": 9555,
+      "missing_records": 145,
+      "quantiles": {
+        "min": 0.010176541283726692,
+        "q25": 0.46901874244213104,
+        "median": 0.5427752733230591,
+        "q75": 0.6065648198127747,
+        "max": 0.7887976169586182
+      }
+    },
+    "path_similarity": {
+      "available_records": 9396,
+      "missing_records": 304,
+      "quantiles": {
+        "min": -0.00787350907921791,
+        "q25": 0.41869234293699265,
+        "median": 0.5209544599056244,
+        "q75": 0.608713299036026,
+        "max": 0.9999996423721313
+      }
+    },
+    "section_max": {
+      "available_records": 9555,
+      "missing_records": 145,
+      "quantiles": {
+        "min": 0.010176541283726692,
+        "q25": 0.5212947428226471,
+        "median": 0.5928940773010254,
+        "q75": 0.6552099287509918,
+        "max": 0.9268829226493835
+      }
+    },
+    "section_top3_mean": {
+      "available_records": 9555,
+      "missing_records": 145,
+      "quantiles": {
+        "min": 0.010176541283726692,
+        "q25": 0.4993651558955511,
+        "median": 0.5735676288604736,
+        "q75": 0.6361982425053914,
+        "max": 0.8335599501927694
+      }
+    },
+    "section_median": {
+      "available_records": 9555,
+      "missing_records": 145,
+      "quantiles": {
+        "min": 0.003374740481376648,
+        "q25": 0.4257107526063919,
+        "median": 0.5029503703117371,
+        "q75": 0.5686799585819244,
+        "max": 0.7716319561004639
+      }
+    },
+    "section_q25": {
+      "available_records": 9555,
+      "missing_records": 145,
+      "quantiles": {
+        "min": -0.030289199203252792,
+        "q25": 0.38319141790270805,
+        "median": 0.4670327454805374,
+        "q75": 0.5377063304185867,
+        "max": 0.7469683289527893
+      }
+    },
+    "section_q75": {
+      "available_records": 9555,
+      "missing_records": 145,
+      "quantiles": {
+        "min": 0.010176541283726692,
+        "q25": 0.4610057696700096,
+        "median": 0.5340012460947037,
+        "q75": 0.5965525731444359,
+        "max": 0.7930927574634552
+      }
+    }
+  },
+  "projections": [
+    {
+      "projection_id": "90d032bc50292ac5c117b3dcd403ccbe6f69a575edab8f227b433f9afca822d0",
+      "view": "query",
+      "subview": null,
+      "scope": "training",
+      "components": 32,
+      "solver": "randomized",
+      "training_units": 7076,
+      "projected_units": 9011,
+      "explained_variance_fraction": 0.3520573005080223,
+      "path": "/Users/ext-weihsiang.lin/Documents/profound/content-optimization-system/data/representations/runs/retention-full-v1/projections/90d032bc50292ac5c117b3dcd403ccbe6f69a575edab8f227b433f9afca822d0"
+    },
+    {
+      "projection_id": "1d0c54e0de3373506128910fb4ba45de7cd046726ff3ebe98aa0084ae684cb7b",
+      "view": "title",
+      "subview": "document_title",
+      "scope": "training",
+      "components": 32,
+      "solver": "randomized",
+      "training_units": 7332,
+      "projected_units": 9364,
+      "explained_variance_fraction": 0.33290853491052985,
+      "path": "/Users/ext-weihsiang.lin/Documents/profound/content-optimization-system/data/representations/runs/retention-full-v1/projections/1d0c54e0de3373506128910fb4ba45de7cd046726ff3ebe98aa0084ae684cb7b"
+    },
+    {
+      "projection_id": "e416fdcaa5997a265d3b25c45ee0b9c4c7bc74f7040bf495174c9d9e363c28da",
+      "view": "title",
+      "subview": "h1",
+      "scope": "training",
+      "components": 32,
+      "solver": "randomized",
+      "training_units": 8335,
+      "projected_units": 11964,
+      "explained_variance_fraction": 0.32336631789803505,
+      "path": "/Users/ext-weihsiang.lin/Documents/profound/content-optimization-system/data/representations/runs/retention-full-v1/projections/e416fdcaa5997a265d3b25c45ee0b9c4c7bc74f7040bf495174c9d9e363c28da"
+    },
+    {
+      "projection_id": "cd903e80405147d9f1bb043e0b836454950970d2b56654323f6db0607b7275cd",
+      "view": "outline",
+      "subview": null,
+      "scope": "training",
+      "components": 32,
+      "solver": "randomized",
+      "training_units": 7329,
+      "projected_units": 9392,
+      "explained_variance_fraction": 0.34243458742275834,
+      "path": "/Users/ext-weihsiang.lin/Documents/profound/content-optimization-system/data/representations/runs/retention-full-v1/projections/cd903e80405147d9f1bb043e0b836454950970d2b56654323f6db0607b7275cd"
+    },
+    {
+      "projection_id": "138af905a990aa51a71928ef460ec31bc091ba51e972d31a36eb9f73bab4cd2b",
+      "view": "page",
+      "subview": null,
+      "scope": "training",
+      "components": 32,
+      "solver": "randomized",
+      "training_units": 7478,
+      "projected_units": 9501,
+      "explained_variance_fraction": 0.39168665651232004,
+      "path": "/Users/ext-weihsiang.lin/Documents/profound/content-optimization-system/data/representations/runs/retention-full-v1/projections/138af905a990aa51a71928ef460ec31bc091ba51e972d31a36eb9f73bab4cd2b"
+    },
+    {
+      "projection_id": "f73f5cb4b2c5a7b93dbc17498af590e0d607d09119f532bcf6c3e46e99078d53",
+      "view": "path",
+      "subview": null,
+      "scope": "training",
+      "components": 32,
+      "solver": "randomized",
+      "training_units": 7309,
+      "projected_units": 9360,
+      "explained_variance_fraction": 0.34391952818259597,
+      "path": "/Users/ext-weihsiang.lin/Documents/profound/content-optimization-system/data/representations/runs/retention-full-v1/projections/f73f5cb4b2c5a7b93dbc17498af590e0d607d09119f532bcf6c3e46e99078d53"
+    },
+    {
+      "projection_id": "fcd4edc7fa8e1aadee54eaf4ea3edd480ea387d155d4aa31a71cce0737424248",
+      "view": "section",
+      "subview": null,
+      "scope": "training",
+      "components": 32,
+      "solver": "randomized",
+      "training_units": 213388,
+      "projected_units": 287293,
+      "explained_variance_fraction": 0.325003684964031,
+      "path": "/Users/ext-weihsiang.lin/Documents/profound/content-optimization-system/data/representations/runs/retention-full-v1/projections/fcd4edc7fa8e1aadee54eaf4ea3edd480ea387d155d4aa31a71cce0737424248"
+    }
+  ],
+  "vector_hash": "058293192eda9131a6a889ac92c71c2d9f229a7101ddf819c3dd0ba05f5e2e57",
+  "artifacts_root": "/Users/ext-weihsiang.lin/Documents/profound/content-optimization-system/data/representations/runs/retention-full-v1",
+  "schema_version": "1.0.0",
+  "serializer_version": "blocks-v2",
+  "limitations": [
+    "Original scorer split assignments are reused, not a fresh independent holdout.",
+    "PCA coordinates from different field fits cannot be used for cross-field cosine.",
+    "Higher maximum section similarity can reflect more section chunks.",
+    "Retained needs_review content remains flagged; no human relevance judgments were added."
+  ]
+}

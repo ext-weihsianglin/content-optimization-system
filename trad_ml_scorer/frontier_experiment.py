@@ -21,7 +21,7 @@ def concentration(model):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--version", choices=("v3", "v4"), default="v3")
+    parser.add_argument("--version", choices=("v3", "v4", "v5", "v6"), default="v3")
     version = parser.parse_args().version
     warnings.filterwarnings('error', category=ConvergenceWarning)
     source = Path('data/trad_ml_scorer') / version
@@ -41,6 +41,8 @@ def main():
     variants = {'v2_auc': base, 'lexical': base + families['lexical'] + families['relevance'],
                 'composition': base + families['composition'], 'all': names,
                 'content_only': [n for n in names if not n.startswith(('path_', 'format_', 'needs_review', 'possible_error', 'sparse_body', 'has_jsonld', 'has_article_schema', 'log_source_script', 'retained_text_fraction'))]}
+    if 'variants' in manifest:
+        variants = manifest['variants']
     folds = list(StratifiedGroupKFold(n_splits=4, shuffle=True, random_state=137).split(x,y,hosts))
     for a,b in folds:
         assert not set(hosts[a]) & set(hosts[b])
@@ -73,7 +75,7 @@ def main():
     result = {'rule':'Within each predeclared variant choose C by 4-fold hostname-grouped training ROC-AUC subject to coefficient gates. Compare finalists on validation ROC-AUC; permutation and manipulation audit required before final freeze/test.',
               'coefficient_gate':{'top1_max':.20,'top5_max':.60}, 'seed':137, 'folds':4,
               'candidates':candidates, 'finalists':finalists, 'test_accessed':False,
-              'manifest':manifest}
+              'manifest':{k:v for k,v in manifest.items() if k != 'snapshot_hashes'}}
     (output/'search.json').write_text(json.dumps(result,indent=2)+'\n')
     print('Finalists:', json.dumps([{k:r[k] for k in ('variant','C','cv_auc','validation')} for r in finalists],indent=2))
 

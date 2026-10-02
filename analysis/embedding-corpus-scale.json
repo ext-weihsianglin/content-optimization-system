@@ -1,0 +1,91 @@
+{
+  "scope": "full prepared corpus sizing; no embedding API calls",
+  "records": 9700,
+  "snapshots": 9551,
+  "units": 377460,
+  "unit_statuses": {
+    "ready": 369229,
+    "derived": 7108,
+    "unavailable": 1123
+  },
+  "views": {
+    "section": 287458,
+    "page": 39779,
+    "query": 9012,
+    "path": 9501,
+    "outline": 9675,
+    "title": 22035
+  },
+  "models": {
+    "openai-large": {
+      "unique_inputs": 323751,
+      "text_tokens": 86942039,
+      "tokens_with_role_context": 86942039,
+      "cached_inputs": 0,
+      "pending_inputs": 323751,
+      "pending_text_tokens": 86942039,
+      "pending_tokens_with_role_context": 86942039,
+      "over_context_inputs": 0,
+      "max_input_tokens": 3808,
+      "model": "text-embedding-3-large",
+      "dimensions": 3072,
+      "pending_http_batches": 10118,
+      "batch_size": 32,
+      "concurrency": 2,
+      "unique_vector_bytes_float32": 3978252288,
+      "run_matrix_bytes_float32_upper_bound": 4624429056,
+      "list_price_usd_per_million_tokens": 0.13,
+      "full_text_list_cost_usd": 11.3025,
+      "pending_text_list_cost_usd": 11.3025,
+      "pending_with_role_context_list_cost_usd": 11.3025
+    },
+    "voyage-large": {
+      "unique_inputs": 323751,
+      "text_tokens": 88924281,
+      "tokens_with_role_context": 90883231,
+      "cached_inputs": 0,
+      "pending_inputs": 323751,
+      "pending_text_tokens": 88924281,
+      "pending_tokens_with_role_context": 90883231,
+      "over_context_inputs": 0,
+      "max_input_tokens": 5451,
+      "model": "voyage-4-large",
+      "dimensions": 2048,
+      "pending_http_batches": 10118,
+      "batch_size": 32,
+      "concurrency": 2,
+      "unique_vector_bytes_float32": 2652168192,
+      "run_matrix_bytes_float32_upper_bound": 3082952704,
+      "list_price_usd_per_million_tokens": 0.12,
+      "full_text_list_cost_usd": 10.6709,
+      "pending_text_list_cost_usd": 10.6709,
+      "pending_with_role_context_list_cost_usd": 10.906
+    }
+  },
+  "shared_cache": "/Users/ext-weihsiang.lin/Documents/profound/content-optimization-system/data/representations/shared-store",
+  "tokenizers": {
+    "openai": "cl100k_base",
+    "voyage": "voyageai/voyage-4-large",
+    "voyage_revision": "bb931c2635a93efe400c24741363d8ff61d7bb32",
+    "voyage_sha256": "c0382117ea329cdf097041132f6d735924b697924d6f6fc3945713e96ce87539",
+    "packages": {
+      "tiktoken": "0.14.0",
+      "tokenizers": "0.23.2"
+    }
+  },
+  "input_hashes": {
+    "units.parquet": "e6ab46f8a3ca043cb50c4a14e0cde258aa99db1cb5dca73d43793cc6a8a36ef2",
+    "associations.parquet": "0e1a9323a6ea4aca08c3636577bdb85a6b42742b03f2b07b082f0a6f84e5d96d"
+  },
+  "price_sources": {
+    "openai": "https://developers.openai.com/api/docs/models/text-embedding-3-large",
+    "voyage": "https://docs.voyageai.com/docs/pricing"
+  },
+  "pricing_checked": "2026-10-01",
+  "limitations": [
+    "Tokenizer counts are local measurements; final billing follows provider-reported usage.",
+    "Voyage role-prefix counts are shown separately; no free allowance assumed.",
+    "Matrix storage excludes metadata, filesystem overhead, backups and projection artifacts.",
+    "HTTP batch counts exclude retries; runtime depends on account limits and measured throughput."
+  ]
+}
