@@ -1,0 +1,57 @@
+{
+  "input": "shared data/trad_ml_scorer/v2",
+  "upstream_schema": "downstream-document-v1",
+  "serializer_version": "blocks-v2",
+  "records": 9700,
+  "snapshots": 9551,
+  "statuses": {
+    "selected": 9299,
+    "needs_review": 347,
+    "unsupported_format": 4,
+    "source_insufficient": 50
+  },
+  "snapshot_statuses": {
+    "selected": 9168,
+    "needs_review": 333,
+    "source_insufficient": 47,
+    "unsupported_format": 3
+  },
+  "splits": {
+    "validation": 970,
+    "train": 7760,
+    "test": 970
+  },
+  "units": 377460,
+  "views": {
+    "section": 287458,
+    "page": 39779,
+    "query": 9012,
+    "path": 9501,
+    "outline": 9675,
+    "title": 22035
+  },
+  "unit_statuses": {
+    "ready": 369229,
+    "derived": 7108,
+    "unavailable": 1123
+  },
+  "unique_original_rows": 9700,
+  "unique_upstream_content_record_ids": 9672,
+  "source_chunk_ids": 276708,
+  "upstream_exclusions": {
+    "blank_prompt": 91,
+    "conflicting_url_labels": 76,
+    "no_selected_retained_content": 54,
+    "exact_duplicate": 28,
+    "html_shared_across_hosts": 25,
+    "retained_text_shared_across_hosts": 22
+  },
+  "unique_openai_requests": 323751,
+  "preparation_only": true,
+  "corpus_vectors_generated": false,
+  "provenance": {
+    "units.parquet": "e6ab46f8a3ca043cb50c4a14e0cde258aa99db1cb5dca73d43793cc6a8a36ef2",
+    "associations.parquet": "0e1a9323a6ea4aca08c3636577bdb85a6b42742b03f2b07b082f0a6f84e5d96d"
+  },
+  "test_caveat": "Reused v1 host benchmark, not a fresh independent holdout"
+}

@@ -1,0 +1,61 @@
+{
+  "scope": "20-snapshot integration comparison; no relevance winner inferred",
+  "models": {
+    "openai-large": {
+      "alignment": {
+        "records": 20,
+        "available": 20
+      },
+      "projections": {
+        "page": {
+          "projection_id": "9fd342502ef2ee2123f0521f53eba819c3b348c2000d539d2c2c75c658275b1a",
+          "units": 20,
+          "fit_units": 20,
+          "scope": "exploratory_all_available"
+        },
+        "query": {
+          "projection_id": "d96f26c38ebdb23b510ca3b14b5683c062ac653eb4ec44919b8d02b7109896f7",
+          "units": 20,
+          "fit_units": 20,
+          "scope": "exploratory_all_available"
+        },
+        "path": {
+          "projection_id": "036bd48ed9b0bb3f0b84994a884f5cda7b6266f0d8b8bbb68a67989c7e50850c",
+          "units": 20,
+          "fit_units": 20,
+          "scope": "exploratory_all_available"
+        }
+      }
+    },
+    "voyage-nano": {
+      "alignment": {
+        "records": 20,
+        "available": 20
+      },
+      "projections": {
+        "page": {
+          "projection_id": "a2ef105f3c9d94ef6fdc33c32fb485fae1d15328b500250683923b4980de8b26",
+          "units": 20,
+          "fit_units": 20,
+          "scope": "exploratory_all_available"
+        },
+        "query": {
+          "projection_id": "9dd87028a2e31c17c7dc57865c8d13126ad338303e3ad6eb52f4dc1efda231c9",
+          "units": 20,
+          "fit_units": 20,
+          "scope": "exploratory_all_available"
+        },
+        "path": {
+          "projection_id": "d55e6e6b9dc3a66ce869e0f5e483979bdbf0e1a3205f7894a34ba6c048441538",
+          "units": 20,
+          "fit_units": 20,
+          "scope": "exploratory_all_available"
+        }
+      }
+    }
+  },
+  "report": {
+    "maps": 6,
+    "output": "analysis/embedding-model-comparison-smoke.html"
+  }
+}

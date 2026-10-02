@@ -32,7 +32,7 @@ def time_limit(seconds):
 
 
 def code_fingerprint():
-    paths = [ROOT / "preprocessing" / name for name in ["schema.py", "blocks.py", "quality.py", "offline.py", "runner.py", "adapters/local.py", "adapters/external.py"]]
+    paths = [ROOT / "preprocessing" / name for name in ["schema.py", "blocks.py", "markdownify_serializer.py", "quality.py", "offline.py", "runner.py", "adapters/local.py", "adapters/external.py"]]
     paths += [ROOT / "preprocessing/node/package-lock.json", ROOT / "preprocessing/node/worker.cjs", ROOT / "preprocessing/node/worker.js", ROOT / "scripts/analyze_content.py", ROOT / "uv.lock"]
     return {str(path.relative_to(ROOT)): hashlib.sha256(path.read_bytes()).hexdigest() for path in paths if path.exists()}
 
@@ -86,7 +86,7 @@ def run(args):
                 result = json.loads(line)
                 completed[(result["snapshot_id"], result["method"])] = result
     input_manifest = json.loads(Path(args.manifest).read_text())
-    run_manifest = {"run_identity": run_identity, "input_manifest_hash": input_manifest["manifest_hash"], "configuration": configuration, "source_fingerprints": fingerprints, "dependencies": {name: version(name) for name in ["duckdb", "beautifulsoup4", "trafilatura", "markdown-it-py", "lxml"]}, "status": "running", "network": "Python sockets denied; Node resources and script execution disabled"}
+    run_manifest = {"run_identity": run_identity, "input_manifest_hash": input_manifest["manifest_hash"], "configuration": configuration, "source_fingerprints": fingerprints, "dependencies": {name: version(name) for name in ["duckdb", "beautifulsoup4", "trafilatura", "markdown-it-py", "markdownify", "lxml"]}, "status": "running", "network": "Python sockets denied; Node resources and script execution disabled"}
     if previous and previous["input_manifest_hash"] != run_manifest["input_manifest_hash"]:
         raise ValueError("Input manifest differs from cached run")
     manifest_path.write_text(json.dumps(run_manifest, indent=2) + "\n")

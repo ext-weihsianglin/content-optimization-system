@@ -20,7 +20,11 @@ the 100-snapshot structured export; full-corpus migration is not yet performed.
 
 Report index:
 
+- `analysis/markdownify-corpus-v1/README.md`: default markdownify-powered extraction,
+  full-corpus re-extraction and separately scoped development/held-out evidence.
 - `analysis/extraction-evaluation.html`: completed five-method benchmark.
+- `analysis/inline-fidelity-v2/README.md`: issue #10 structured inline fidelity fix,
+  development markdownify comparison, and separate held-out diagnostics.
 - `analysis/reader-lm-review.html`: stopped Reader-LM run, matched completed-page comparison.
 - `analysis/reader-lm-pilot.html`: three development examples with expanded context/output budgets.
 - `analysis/reader-lm-progress.html`: partial run ledger, **not** a final ranking.
@@ -30,6 +34,33 @@ The implementation in `preprocessing/` compares the frozen BeautifulSoup baselin
 Trafilatura, Mozilla Readability + Turndown/GFM, conservative DOM blocks, and a
 native Markdown/text adapter. It uses only the supplied saved payloads: no browser
 rendering, page fetching, remote extraction API, or dynamic index.
+
+The active HTML retention pipeline now uses **python-markdownify 1.2.3** rather
+than the handwritten Markdown serializer. Structured blocks own provenance and
+source boundaries; custom converters preserve code whitespace and table/definition
+HTML where Markdown is lossy. Native Markdown/text keeps native parsing. Full-corpus
+extraction is independently versioned; existing frozen evaluation outputs stay intact.
+
+Persistent local data lives at
+`/Users/ext-weihsiang.lin/Documents/profound/data/content-optimization-system/`.
+Use `raw/` for source snapshots and versioned `processed/` directories for exports
+and checkpoints. See `AGENTS.md` for cross-session storage and resume conventions.
+This worktree's ignored `data/` symlink resolves to that shared directory.
+
+```sh
+uv sync --locked
+uv run --offline python -m preprocessing.corpus \
+  --input-dir /path/to/local/data/raw \
+  --output data/processed/markdownify-corpus-v1-replay --workers 4
+uv run --offline python -m preprocessing.markdownify_report --mode corpus \
+  --corpus-export data/processed/markdownify-corpus-v1-replay \
+  --output analysis/markdownify-corpus-v1-replay/corpus
+```
+
+The export retains a reference for every source row and a gzip document per exact
+payload-plus-URL snapshot, including full metadata, blocks and chunks. JSONL and
+Parquet indexes accompany a fingerprinted manifest. Original raw data and full
+exports stay outside Git; delivery reports contain bounded, escaped previews.
 
 ```sh
 .tools/uv sync --dev
@@ -102,6 +133,101 @@ empty outputs, with zero exceptions or timeouts. Resume preserved result bytes.
 The provided ZIP remains in Downloads. Five parquet files are extracted into `data/raw/`; these files and the local environment are excluded from Git. Archive provenance and its verified SHA-256 are in `analysis/provenance.json`.
 
 ## Reproduce the analysis
+
+### Textual embedding pipeline
+
+The implemented `representations` package consumes the selected structural outputs from snapshot preprocessing. It prepares query, document-title/H1, outline, section, page, and URL-path views; calls hosted embedding APIs; derives query alignment; saves PCA fits; and builds offline UMAP explorers. It does not require a local GPU or re-extract HTML.
+
+Read [the specification](spec/embedding-representations.md) and [implementation plan](plan/embedding-representations.md) for evaluation boundaries. OpenAI `text-embedding-3-large` is the initial hosted baseline (3,072 dimensions), with Voyage 4 Large and hosted Qwen3 available for comparison. A baseline is not a reviewed model winner.
+
+Install from the updated lockfile with `uv sync` (or the available `.tools/uv`). Start with a small upstream sample:
+
+```sh
+uv run python -m representations prepare \
+  --input data/processed/<preprocessing_run_id> \
+  --output data/representations/<run_id> \
+  --limit 20
+
+uv run python -m representations review \
+  --run data/representations/<run_id> \
+  --output data/representations/<run_id>/relevance-review.json
+
+uv run python -m representations embed \
+  --run data/representations/<run_id> --model openai-large --resume
+
+uv run python -m representations align \
+  --run data/representations/<run_id> --model openai-large
+
+uv run python -m representations project \
+  --run data/representations/<run_id> --model openai-large \
+  --view page --components 2 --exploratory --umap
+
+uv run python scripts/build_embedding_report.py \
+  --run data/representations/<run_id> --output analysis/embedding-explorer.html
+```
+
+For the full corpus, use PR #2's shared prepared cache as `--input` (on this machine: `/Users/ext-weihsiang.lin/Documents/profound/content-optimization-system/data/trad_ml_scorer/v2`). `prepare` only serializes saved documents into embedding inputs; it does not rerun extraction or scorer preparation. It preserves retained `needs_review` content, source chunk/block IDs, original record provenance, exclusions, and existing splits. The 9,551-snapshot input adapter has been checked across all 9,700 records; the original full-corpus OpenAI run is complete (see the corpus summary below). See [adapter validation](analysis/embedding-retention-validation.json) and the [20-snapshot retention evidence report](analysis/embedding-retention-explorer.html).
+
+If an upstream evaluation export omits prompts, add `--raw-root data/raw` to `prepare`. Hydration verifies the raw file hash and source-row payload/URL before reading original prompts and labels. Preparation refuses incomplete upstream runs or broken provenance/joins. `--limit` includes both selected and abstained snapshots; unavailable units stay explicit.
+
+The current default scope is hosted OpenAI (`OPENAI_API_KEY`) and local Voyage nano on Apple silicon. Voyage large and hosted Qwen adapters remain available in historical/custom configurations but are deferred. Never put keys in configuration. For Qwen, copy `representations/config.json`, pin `provider_order` to a verified OpenRouter route, and pass the copy to `prepare --config`. Queries get the documented Qwen instruction; Voyage uses query/document modes; OpenAI uses the same embedding interface for both roles. API routing and dimensions must be verified on the chosen endpoint.
+
+Shared persistence and local inference are described in [embedding storage](spec/embedding-storage.md). On this machine all data lives in `/Users/ext-weihsiang.lin/Documents/profound/data/content-optimization-system`; the main checkout and embedding worktree's `data` paths link there. The default cache uses the persistent sibling `data/<repository name>/representations/shared-store` when present, otherwise the main checkout's data directory. Set `CONTENT_OPTIMIZATION_DATA_ROOT` for another project volume. Batch-size, timeout and concurrency changes do not invalidate saved embeddings. Existing paid run-local vectors migrate automatically on resume. Current execution is OpenAI only; local MLX was stopped with completed batches retained.
+
+```sh
+uv sync --extra local-embeddings
+uv run --extra local-embeddings python -m scripts.download_voyage_nano
+uv run --extra local-embeddings python -m representations cache-status
+uv run python -m representations cache-backup \
+  --cache-root /path/to/shared-store --output /path/to/new-backup
+uv run python -m representations reuse-inputs \
+  --run /path/to/frozen-input-run --output /path/to/new-model-run --config /path/to/config.json
+uv run --extra local-embeddings python -m representations embed \
+  --run /path/to/new-model-run --model voyage-nano
+```
+
+Local nano requires the official checkpoint at `<main checkout>/data/models/voyage-4-nano`, its `source.json`/checksum manifest, and the pinned backend from `uv.lock`. An explicit `model_path` in a custom config can override the location. It checks token limits before inference; no silent truncation is allowed. See [local pilot](analysis/embedding-voyage-local-pilot.json) and [two-model evidence smoke](analysis/embedding-model-comparison-smoke.html). The latter covers 20 snapshots and does not establish which model is better.
+
+The first input policy uses lossless UTF-8 byte ceilings (4,096-byte sections; 7,000-byte full-page inputs), rather than claiming tokenizer counts. This conservative policy avoids local model/tokenizer downloads and fits the shortest candidate context with instruction headroom. Oversized page/outline/title/path views retain all chunks and a separately marked byte-weighted pooled vector. Prompts exceeding the common ceiling abstain. No input is silently truncated.
+
+`embed --max-requests 12` bounds new API work for a smoke test. Run `--resume --retry-failed` to explicitly retry failed requests; compatible successful requests are cached. A bounded run stays marked partial. `align` may inspect partial coverage; model selection and corpus conclusions require completed, reviewed inputs.
+
+The completed OpenAI corpus has seven independent 32-dimensional training-fit projections: query, document title, H1, outline, page, section, and URL path. The [corpus summary](analysis/embedding-openai-corpus.json) records coverage, fit sizes, and explained variance. Shared artifacts are under `<main checkout>/data/representations/runs/retention-full-v1`; `features/openai-v1.json` maps named fields to their coordinate and fit files. Alignment covers all 9,700 rows, with 9,555 usable query–section matches. The full evidence HTML is stored in that run's `reports/` directory; it is large and ignored by Git.
+
+The saved markdownify corpus is supported as a separate input version; use
+`--split-reference` to carry the original verified raw-row splits/exclusions forward.
+`blocks-v3-markdownify` keeps saved inline formatting and structural provenance.
+Exact unchanged inputs reuse the shared vector cache across preprocessing versions.
+See [data lineage and reproduction](spec/data-lineage.md) for the raw → document →
+embedding → projection joins. The persistent volume's `lineage/index.html` is the
+full searchable tracker; the versioned run keeps complete record/unit lineage
+Parquets and the saved field feature bundle. The original retention run stays intact.
+The published [lineage tracker sample](analysis/data-lineage-markdownify-openai.html)
+and [markdownify embedding summary](analysis/embedding-markdownify-openai-corpus.json)
+are compact, checked-in counterparts to the full local artifacts.
+
+```sh
+uv run python -m representations training-manifests --run /path/to/run --model openai-large
+uv run python -m representations project --run /path/to/run --model openai-large \
+  --view title --subview document_title --components 32 \
+  --fit-manifest /path/to/run/fit-manifests/document_title.json
+uv run python -m representations corpus-summary --run /path/to/run \
+  --model openai-large --output /path/to/summary.json
+```
+
+Training manifests reuse original hostname splits, exclude upstream-ineligible and mixed-split source units, and remove exact held-out content from the fit. Coordinates are produced for all available units, including retained flagged sources. Large fits use seeded randomized SVD, with solver/power recorded; vectors load lazily to avoid duplicating the full corpus in RAM. The 32-dimensional output is an initial representation baseline, not a validated optimum. Use original-space vectors for query–field cosine; separate field PCA spaces are not comparable.
+
+For predictive PCA, supply a JSON `--fit-manifest` containing `scope: "training"`, `unit_ids`, and `heldout_unit_ids`. Fitting rejects overlapping IDs/hostnames and known duplicate content. `project --exploratory` explicitly fits available corpus vectors for visualization. Keep these maps separate from held-out predictive features. Use `apply --projection <folder> --output <parquet>` to transform compatible runs without refitting.
+
+Review manifests contain editable relevance grades (0–3) and fixed query/candidate identities. Complete all candidate grades before `evaluate --annotations <review.json> --output <metrics.json>`. Metrics describe the judged pools, not whole-corpus recall. `analyze --output <analysis.json>` runs grouped structural/path/alignment ablations and fold-fitted PCA; it requires sufficient independent hosts and both labels. It excludes label-conflicted URLs, averages repeated snapshots/queries explicitly, and reports uncertainty. Small smoke tests do not establish citation uplift.
+
+Run meaningful offline integration checks without credentials:
+
+```sh
+uv run python -m unittest discover -s tests -v
+```
+
+Vectors and run data remain under ignored `data/`. Image asset references are reserved in the unit schema; fetching images, visual embeddings, and learned fusion are deferred.
 
 Run from the repository root:
 

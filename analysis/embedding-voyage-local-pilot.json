@@ -1,0 +1,42 @@
+{
+  "scope": "128 actual section inputs; not whole corpus performance or relevance evidence",
+  "model": "voyageai/voyage-4-nano",
+  "revision": "67fabc9bef010dabc5f6024aa1b1b6b93410426f",
+  "backend_revision": "5001811de8d5ab39bcdab1c9b40b925d8d7d3983",
+  "mlx_version": "0.32.3",
+  "compute_dtype": "bfloat16",
+  "dimensions": 2048,
+  "load_seconds": 1.36987741700068,
+  "elapsed_seconds": 5.0252238329994725,
+  "inputs": 128,
+  "input_tokens_with_role_prefix": 24362,
+  "inputs_per_second": 25.471502216369718,
+  "tokens_per_second": 4847.943257774993,
+  "memory": {
+    "active_gb": 0.6453170850872993,
+    "cache_gb": 0.04895404726266861,
+    "peak_gb": 1.4902115389704704
+  },
+  "all_vectors_finite": true,
+  "norm_range": [
+    0.9999998807907104,
+    1.0000001192092896
+  ],
+  "tuned_pilot": {
+    "scope": "512 actual section inputs; warm model; excludes cache/export cost; not full-corpus measurement",
+    "inputs": 512,
+    "batch_size": 32,
+    "max_tokens_per_batch": 16384,
+    "elapsed_seconds": 17.569507083000644,
+    "tokens_with_role_prefix": 80390,
+    "inputs_per_second": 29.14139808141715,
+    "tokens_per_second": 4575.540999541259,
+    "memory": {
+      "active_gb": 0.6453170850872993,
+      "cache_gb": 0.039171114563941956,
+      "peak_gb": 1.4830246940255165
+    },
+    "model": "voyageai/voyage-4-nano",
+    "revision": "67fabc9bef010dabc5f6024aa1b1b6b93410426f"
+  }
+}

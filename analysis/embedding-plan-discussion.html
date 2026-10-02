@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Embedding strategy · Discussion & decisions</title>
+<style>
+:root{color-scheme:light;--bg:#f4f3ee;--paper:#fff;--ink:#182c2b;--muted:#586967;--line:#d7dfda;--accent:#126b58;--soft:#e9f4ee}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 system-ui,-apple-system,sans-serif}main{max-width:1120px;margin:auto;padding:48px 28px 80px}header{max-width:850px;margin-bottom:32px}.eyebrow{color:var(--accent);text-transform:uppercase;letter-spacing:.12em;font-size:12px;font-weight:700}h1{font-size:clamp(30px,5vw,52px);line-height:1.12;letter-spacing:-.035em;margin:12px 0 20px}h2{font-size:25px;line-height:1.3;margin:0 0 14px}h3{font-size:18px;margin:22px 0 8px}p{margin:8px 0 16px}a{color:var(--accent)}.muted{color:var(--muted)}.toolbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:22px 0}button{font:inherit;padding:10px 18px;border:1px solid var(--accent);border-radius:8px;background:var(--accent);color:white;cursor:pointer}.secondary{background:var(--paper);color:var(--accent)}button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid #e0a33c;outline-offset:3px}.status{color:var(--muted);font-size:14px}.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:24px 0 32px}.flow div{padding:18px;background:var(--soft);border-radius:8px}.flow b{display:block;font-size:15px}.flow span{font-size:13px;color:var(--muted)}section{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:28px;margin:20px 0}.number{font-size:13px;color:var(--accent);display:block;margin-bottom:6px}.choices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:18px 0}.option{display:block;border:1px solid var(--line);border-radius:8px;padding:16px;cursor:pointer}.option:has(input:checked){border-color:var(--accent);background:var(--soft)}.option strong{display:block;margin:5px 0}.option span{display:block;color:var(--muted);font-size:14px}.option input{accent-color:var(--accent);width:18px;height:18px}.recommend{font-size:12px;color:var(--accent);font-weight:650}.feedback{display:block;margin-top:20px;font-weight:600}textarea{display:block;width:100%;min-height:110px;resize:vertical;font:inherit;line-height:1.5;padding:14px;border:1px solid var(--line);border-radius:8px;margin-top:8px;background:var(--paper);color:var(--ink)}.table-wrap{overflow:auto}table{border-collapse:collapse;width:100%;font-size:15px}th,td{padding:12px 10px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}th{color:var(--muted);font-size:13px}code{font:13px/1.6 ui-monospace,monospace;background:var(--bg);padding:2px 5px;border-radius:4px;overflow-wrap:anywhere}pre{background:var(--bg);padding:18px;overflow:auto;border-radius:8px}pre code{padding:0}ul,ol{padding-left:22px}.split{display:grid;grid-template-columns:1fr 1fr;gap:24px}.check{display:flex;gap:10px;align-items:flex-start;margin:12px 0}.check input{margin-top:6px;accent-color:var(--accent);width:18px;height:18px;flex-shrink:0}.summary{background:var(--soft);padding:18px;border-radius:8px}.summary p{margin:4px 0}footer{color:var(--muted);font-size:14px;margin-top:28px}@media(max-width:720px){main{padding:28px 16px 50px}section{padding:20px}.choices,.split{grid-template-columns:1fr}.flow{grid-template-columns:1fr 1fr}}@media print{body{background:white}main{padding:0;max-width:none}.toolbar{display:none}section{break-inside:avoid}textarea{min-height:90px}.choices{grid-template-columns:repeat(3,1fr)}}
+</style>
+</head>
+<body>
+<main>
+<header>
+<div class="eyebrow">Content optimization system · Planning draft · October 1, 2026</div>
+<h1>From parsed structure<br>to semantic evidence</h1>
+<p>Choose how we represent pages and queries, what “projection” should deliver first, and how we evaluate the result. This is a proposal for discussion; selections are tentative until you decide.</p>
+<p class="muted">Assumes the <a href="https://github.com/ext-weihsianglin/content-optimization-system/pull/1">snapshot preprocessing output contract</a> is respected. Text is the first milestone. Product-image representations follow.</p>
+</header>
+<div class="toolbar"><button type="button" id="export">Download decisions & feedback</button><button type="button" class="secondary" id="print">Print / save PDF</button><span class="status" id="save-status" role="status" aria-live="polite">Checking local note storage…</span></div>
+<p class="muted">Notes save automatically in this browser when storage is available. Download a copy to share or retain them across browsers; this page does not send feedback anywhere.</p>
+<div class="flow" aria-label="Proposed processing stages">
+<div><b>1 · Selected extraction</b><span>Snapshot + ordered blocks + provenance</span></div>
+<div><b>2 · Textual views</b><span>Query, title, outline, sections, page, URL path</span></div>
+<div><b>3 · Embeddings</b><span>Versioned vectors + resumable cache</span></div>
+<div><b>4 · Evidence</b><span>Alignment features + optional projections</span></div>
+</div>
+<form id="discussion">
+<section>
+<span class="number">Decision 01</span><h2>What should projection deliver first?</h2>
+<p>The same embeddings can support all three paths. Choosing the first outcome keeps the initial implementation focused.</p>
+<div class="choices">
+<label class="option"><input type="radio" name="objective" value="Citation analysis features" checked><strong>Citation analysis features</strong><span>Query alignment and compact representations for comparing top/bottom pages.</span><div class="recommend">Recommended first</div></label>
+<label class="option"><input type="radio" name="objective" value="Semantic exploration map"><strong>Semantic exploration map</strong><span>2D/3D page and query exploration, with drill-down to supporting sections.</span></label>
+<label class="option"><input type="radio" name="objective" value="Learned multimodal representation"><strong>Learned shared representation</strong><span>A trainable representation combining text, structure, and eventually images.</span></label>
+</div>
+<label class="feedback" for="objective-notes">Feedback · intended outcome<textarea id="objective-notes" name="objective_notes" placeholder="What do you want to inspect, predict, or make possible? What does projection mean to you?"></textarea></label>
+</section>
+<section>
+<span class="number">Decision 02</span><h2>Choose the embedding experiment</h2>
+<p>Price is not the constraint for this corpus. Use full float vectors first and choose on task evidence. The <a href="https://openrouter.ai/blog/insights/best-embedding-models-2026/">OpenRouter article</a> is a capability/API shortlist, not a controlled retrieval-quality ranking.</p>
+<div class="table-wrap"><table><thead><tr><th>Candidate</th><th>Proposed configuration</th><th>Why evaluate it</th></tr></thead><tbody>
+<tr><td><a href="https://docs.voyageai.com/docs/embeddings">Voyage 4 Large</a></td><td>2,048 dimensions; 32K context; query/document modes</td><td>Strong initial managed candidate for long-form, multilingual retrieval.</td></tr>
+<tr><td><a href="https://developers.openai.com/api/docs/guides/embeddings">OpenAI Text Embedding 3 Large</a></td><td>3,072 dimensions; 8,192-token context; hosted API</td><td>Initial execution baseline added after user feedback about limited local GPU capacity. Compare on the same inputs; no latency ranking assumed.</td></tr>
+<tr><td><a href="https://huggingface.co/Qwen/Qwen3-Embedding-8B">Qwen3 Embedding 8B</a></td><td>4,096 dimensions; 32K context; explicit query instruction</td><td>Independent open-weight challenger with multilingual support.</td></tr>
+</tbody></table></div>
+<div class="choices">
+<label class="option"><input type="radio" name="model_strategy" value="Compare hosted models on a sample, then choose" checked><strong>Compare, then choose</strong><span>OpenAI and Voyage, optionally hosted Qwen; same inputs and reviewed relevance sample.</span><div class="recommend">Recommended</div></label>
+<label class="option"><input type="radio" name="model_strategy" value="Voyage 4 Large first"><strong>Voyage first</strong><span>Implement one provider and establish a baseline before adding the challenger.</span></label>
+<label class="option"><input type="radio" name="model_strategy" value="Both models across the corpus"><strong>Both across the corpus</strong><span>Keep parallel representations to study model-dependent findings.</span></label>
+</div>
+<label class="feedback" for="model-notes">Feedback · models and providers<textarea id="model-notes" name="model_notes" placeholder="Preferred model, OpenRouter vs direct provider, other candidates, or evaluation priorities…"></textarea></label>
+</section>
+<section>
+<span class="number">Decision 03</span><h2>Keep page meaning and section evidence</h2>
+<p>A single page vector can blur which parts answer the query. The proposed default keeps multiple textual views with traceable source blocks.</p>
+<div class="table-wrap"><table><thead><tr><th>View</th><th>Input</th><th>Use</th></tr></thead><tbody>
+<tr><td>Query</td><td>Original associated prompt</td><td>Query-conditioned alignment; blank prompts remain unavailable.</td></tr>
+<tr><td>Title</td><td>Document title and visible H1 as distinguishable inputs</td><td>Title alignment without conflating metadata and body text.</td></tr>
+<tr><td>Outline</td><td>Ordered heading hierarchy</td><td>Topic organization and broad coverage.</td></tr>
+<tr><td>Sections</td><td>Heading ancestry + source-derived blocks</td><td>Relevant supporting passages and section-match distribution.</td></tr>
+<tr><td>Page</td><td>Faithful selected-content serialization</td><td>Overall semantic context; oversized inputs need an explicit policy.</td></tr>
+<tr><td>URL path</td><td>Human-readable path segments, excluding hostname, query string, and fragment</td><td>Separate query–path alignment, such as <code>journal / running shoes</code>.</td></tr>
+</tbody></table></div>
+<p>Split oversized sections at block boundaries, retain nested structure, and serialize tables with their header–cell relationships. Do not silently truncate. Record the contributing block IDs, exact input text, and serializer version.</p>
+<div class="choices">
+<label class="option"><input type="radio" name="views" value="Query, title, outline, sections, page, and URL path" checked><strong>All six views</strong><span>Includes URL-path alignment requested in your October 1 feedback.</span><div class="recommend">Selected direction</div></label>
+<label class="option"><input type="radio" name="views" value="Query, title, and sections"><strong>Title + sections</strong><span>Lean first milestone; add outline/page views after measuring their value.</span></label>
+<label class="option"><input type="radio" name="views" value="Query and page baseline"><strong>Page baseline</strong><span>Quick comparison point, with less granular supporting evidence.</span></label>
+</div>
+<h3>URL-path representation</h3>
+<p>For <code>https://stride.example/journal/running-shoes</code>, preserve the raw URL and derive <code>journal / running shoes</code>. Split the path into segments before percent-decoding; convert hyphens and underscores to spaces and retain segment order. Keep the hostname, query parameters, and fragment out of this semantic input.</p>
+<p>Embed the derived path independently using document mode and compute query–path similarity in the original vector space. A root-only path has no textual path evidence; malformed URLs receive an explicit unavailable status. Track opaque or numeric segments without silently dropping them. Compare results with and without path features to measure their additional value.</p>
+<label class="feedback" for="views-notes">Feedback · input views and chunking<textarea id="views-notes" name="views_notes" placeholder="Which views matter? How should long pages, tables, code, and multilingual content be handled?">Let's also project the hostnames suffixes (for hostname=stride.example, host=https://stride.example/journal/running-shoes, we want to extract `journal / running-shoes` and project so we could match with query prompt)</textarea></label>
+</section>
+<section>
+<span class="number">Decision 04</span><h2>Separate alignment, reduction, and fusion</h2>
+<div class="split"><div><h3>Alignment features</h3><p>Compute query–title, query–page, and query–section cosine similarities in the original model space. Retain the strongest supporting sections and the distribution of matches.</p><p class="muted">Semantic similarity is an alignment signal. It does not establish factual correctness or answer completeness.</p></div><div><h3>Projection features</h3><p>Use PCA for compact analytical features. Optionally use UMAP for exploration. Preserve original vectors and save fitted transformations.</p><p class="muted">A 2D cluster is exploratory evidence, not a citation-performance score.</p></div></div>
+<label class="check"><input type="checkbox" name="alignment" checked><span>Implement query-conditioned alignment features first.</span></label>
+<label class="check"><input type="checkbox" name="pca" checked><span>Add PCA with fit/save/apply support and training-fold isolation.</span></label>
+<label class="check"><input type="checkbox" name="umap" checked><span>Add an interactive semantic map with UMAP in the first release (selected in your feedback).</span></label>
+<label class="check"><input type="checkbox" name="fusion"><span>Explore learned text–structure fusion in the first release.</span></label>
+<label class="feedback" for="projection-notes">Feedback · feature and projection strategy<textarea id="projection-notes" name="projection_notes" placeholder="Desired features, projection dimensions, how structure should interact with text, or alternative approaches…"></textarea></label>
+</section>
+<section>
+<span class="number">Proposed engineering boundary</span><h2>Independent, inspectable, resumable</h2>
+<div class="split"><div><h3>Module layout</h3><pre><code>representations/
+  contracts.py
+  inputs.py
+  chunking.py
+  providers.py
+  runner.py
+  alignment.py
+  projection.py
+  evaluation.py</code></pre></div><div><h3>Run artifacts</h3><ul><li><code>units.parquet</code>: exact inputs, hashes, snapshot/extraction/block references.</li><li>Vector arrays and an explicit unit-ID index.</li><li><code>alignment.parquet</code>: query–snapshot features and supporting section IDs.</li><li>Fitted projections and their coordinates.</li><li>Manifest, retry/failure ledger, and configuration.</li></ul><p>Store under <code>data/representations/&lt;run_id&gt;/</code>. Cache embeddings independently of projections.</p></div></div>
+<p>Embed each distinct selected snapshot once and join query-specific results through the citation association table. Preserve multiple snapshots and conflicting labels. Keep prompts, labels, hostname, and URL out of page-content embedding inputs; derive URL-path embeddings through their own view, with a versioned normalizer and cache key.</p>
+<p>Validate dimensions, finite values, response indices, and unit accounting. Cache keys include exact input, model, provider, input mode/instruction, dimensions, and serializer version. Bound concurrency and token budgets; resume without duplicate work.</p>
+<h3>Future image extension</h3><p>Embedding units carry a modality and optional asset/product reference. Later image vectors join by snapshot/product identity, with explicit missing-image status. Different model spaces stay separate unless a multimodal model explicitly supports shared-space comparison.</p>
+<p class="muted">The extractor preserves image references but does not fetch assets. Obtaining product-image bytes is a separate next-stage decision.</p>
+<label class="feedback" for="scaffold-notes">Feedback · scaffolding and image extension<textarea id="scaffold-notes" name="scaffold_notes" placeholder="Module boundaries, storage preferences, image identity, or requirements we should reserve now…"></textarea></label>
+</section>
+<section>
+<span class="number">Proposed milestones</span><h2>Make the evidence reviewable at each step</h2>
+<ol><li><strong>Contracts and dry run.</strong> Validate upstream joins; inspect deterministic serializers and chunks using structural fixtures.</li><li><strong>Model comparison.</strong> Stratify a sample by language, page type, length, and extraction quality. Review query–section relevance without treating citation labels as relevance labels.</li><li><strong>Frozen corpus run.</strong> Choose the model/configuration, batch distinct snapshots, retain failures, and verify resume behavior.</li><li><strong>Downstream ablations.</strong> Compare structure-only, alignment-only, and combined baselines. Use hostname-held-out splits; fit PCA and learned transforms inside training folds. Audit cross-split duplicate content.</li><li><strong>Review and exploration.</strong> Inspect successes, misses, model/extractor sensitivities, exclusions, and optional semantic maps.</li></ol>
+<p>Report sample sizes and uncertainty. Top/bottom labels are relative within hostname; predictive separation does not prove that an edit increases citation likelihood.</p>
+<label class="feedback" for="evaluation-notes">Feedback · evaluation and sequencing<textarea id="evaluation-notes" name="evaluation_notes" placeholder="What should the first demo prove? What evaluation would make the model choice convincing?"></textarea></label>
+</section>
+<section>
+<span class="number">Your discussion brief</span><h2>Selected direction</h2><div class="summary" id="summary" aria-live="polite"></div>
+<label class="feedback" for="general-notes">Overall feedback and open questions<textarea id="general-notes" name="general_notes" placeholder="Priorities, changes, unresolved questions, or the direction you want implemented next…" style="min-height:170px"></textarea></label>
+<div class="toolbar"><button type="button" id="export-bottom">Download decisions & feedback</button><span class="muted">Exports a readable Markdown discussion brief.</span></div>
+</section>
+</form>
+<footer>Planning artifact only. No embedding calls or preprocessing changes are performed by this page. Source model capabilities were checked on October 1, 2026; verify the chosen endpoint before corpus execution.</footer>
+</main>
+<script>
+(() => {
+  'use strict';
+  const form = document.getElementById('discussion');
+  const status = document.getElementById('save-status');
+  const summary = document.getElementById('summary');
+  const key = 'content-optimization.embedding-plan.discussion.v3';
+  const fields = Array.from(form.querySelectorAll('input,textarea'));
+  const labels = {objective:'Primary outcome', model_strategy:'Model strategy', views:'Textual views', alignment:'Alignment features', pca:'PCA', umap:'Semantic map / UMAP', fusion:'Learned text–structure fusion', objective_notes:'Outcome feedback', model_notes:'Model feedback', views_notes:'Input and chunking feedback', projection_notes:'Projection feedback', scaffold_notes:'Scaffolding and images feedback', evaluation_notes:'Evaluation feedback', general_notes:'Overall feedback'};
+  function state() {
+    const data = {};
+    fields.forEach(el => {
+      if(el.type === 'radio') { if(el.checked) data[el.name] = el.value; }
+      else data[el.name] = el.type === 'checkbox' ? el.checked : el.value;
+    });
+    return data;
+  }
+  function render() {
+    const data = state();
+    summary.replaceChildren();
+    ['objective','model_strategy','views'].forEach(name => {
+      const p = document.createElement('p');
+      const b = document.createElement('strong');
+      b.textContent = labels[name] + ': ';
+      p.append(b, document.createTextNode(data[name]));
+      summary.append(p);
+    });
+    const p = document.createElement('p');
+    p.textContent = 'Included outputs: ' + ['alignment','pca','umap','fusion'].filter(name => data[name]).map(name => labels[name]).join(', ');
+    summary.append(p);
+  }
+  function save() {
+    render();
+    try {
+      localStorage.setItem(key, JSON.stringify(state()));
+      status.textContent = 'Saved in this browser · ' + new Date().toLocaleTimeString();
+    } catch (_) { status.textContent = 'Local storage unavailable. Download a copy to keep your notes.'; }
+  }
+  try {
+    const raw = localStorage.getItem(key);
+    const data = raw ? JSON.parse(raw) : null;
+    if(data && typeof data === 'object') fields.forEach(el => {
+      if(!Object.prototype.hasOwnProperty.call(data,el.name)) return;
+      if(el.type === 'radio') el.checked = data[el.name] === el.value;
+      else if(el.type === 'checkbox') el.checked = data[el.name] === true;
+      else if(typeof data[el.name] === 'string') el.value = data[el.name];
+    });
+    status.textContent = data ? 'Restored notes from this browser.' : 'Ready · notes save as you type.';
+  } catch (_) { status.textContent = 'Local storage unavailable. Download a copy to keep your notes.'; }
+  function download() {
+    const data = state();
+    const lines = ['# Embedding strategy — discussion brief', '', 'Exported: ' + new Date().toISOString(), '', 'These selections are a discussion draft, not an implementation approval.', ''];
+    Object.entries(labels).forEach(([name,label]) => {
+      lines.push('## ' + label, '', typeof data[name] === 'boolean' ? (data[name] ? 'Include' : 'Defer') : (data[name] || '(No feedback yet)'), '');
+    });
+    lines.push('## Plan references', '', '- Extractor contract: https://github.com/ext-weihsianglin/content-optimization-system/pull/1', '- Full proposal: analysis/embedding-plan-discussion.html', '');
+    const url = URL.createObjectURL(new Blob([lines.join('\n')], {type:'text/markdown;charset=utf-8'}));
+    const anchor = document.createElement('a');
+    anchor.href = url;
+    anchor.download = 'embedding-plan-feedback-' + new Date().toISOString().slice(0,10) + '.md';
+    document.body.append(anchor); anchor.click(); anchor.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+  }
+  form.addEventListener('input', save);
+  form.addEventListener('change', save);
+  form.addEventListener('submit', event => event.preventDefault());
+  document.getElementById('export').addEventListener('click', download);
+  document.getElementById('export-bottom').addEventListener('click', download);
+  document.getElementById('print').addEventListener('click', () => window.print());
+  render();
+})();
+</script>
+</body>
+</html>

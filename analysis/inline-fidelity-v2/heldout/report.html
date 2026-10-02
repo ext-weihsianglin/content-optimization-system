@@ -1,0 +1,23 @@
+<!doctype html><meta charset="utf-8"><title>Issue 10 inline fidelity</title><style>body{font:16px system-ui;max-width:1200px;margin:32px auto}table{border-collapse:collapse;width:100%}td,th{border:1px solid #ccc;padding:10px;vertical-align:top}pre{white-space:pre-wrap;overflow-wrap:anywhere}</style><h1>Inline fidelity: held-out diagnostics</h1><p>Separate held-out HTML diagnostics after development implementation; no markdownify comparison, serializer selection or tuning on these snapshots.</p><p>AI-assisted sparse selected anchors, not human gold, structural precision/recall or causal citation uplift. Native held-out inputs are excluded.</p><pre>{
+  &quot;snapshots&quot;: 37,
+  &quot;evaluable_snapshots&quot;: 32,
+  &quot;anchors&quot;: {
+    &quot;required&quot;: {
+      &quot;total&quot;: 129,
+      &quot;baseline_hits&quot;: 126,
+      &quot;v2_hits&quot;: 126
+    },
+    &quot;unwanted&quot;: {
+      &quot;total&quot;: 50,
+      &quot;baseline_hits&quot;: 46,
+      &quot;v2_hits&quot;: 46
+    }
+  },
+  &quot;source_locations&quot;: {
+    &quot;exact&quot;: 22241,
+    &quot;valid_locators&quot;: 22412,
+    &quot;normalized_match&quot;: 171,
+    &quot;unavailable&quot;: 305,
+    &quot;ambiguous&quot;: 1378
+  }
+}</pre><p>Full structured evidence: results.json</p>

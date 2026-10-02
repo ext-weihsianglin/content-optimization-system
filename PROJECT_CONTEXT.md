@@ -5,6 +5,22 @@ read the linked specs and reports as needed; verify live Git state before acting
 
 ## Goal and user priorities
 
+Latest storage/execution decision (2026-10-01): all local project data now lives in
+`/Users/ext-weihsiang.lin/Documents/profound/data/content-optimization-system`.
+The main checkout and this embedding worktree's `data` paths are compatibility
+symlinks to that root. Existing persistent raw/processed outputs were preserved;
+five duplicate raw parquet files were SHA-256 verified before deduplication.
+Other directories moved on the same filesystem, preserving file inodes. Local
+audit: `<persistent root>/storage-migration-2026-10-01.json`.
+Set `CONTENT_OPTIMIZATION_DATA_ROOT` for an explicit alternate project volume;
+`EMBEDDING_CACHE_ROOT` still overrides only the vector cache. Do not recreate
+worktree-local data copies or redo preparation/inference.
+
+The user explicitly stopped local Voyage MLX: its process exited and the catalog
+marks the job interrupted, with 115,554 completed unique vectors retained. Do not
+resume it without user direction. OpenAI is complete and is the current model for
+downstream work. Older active-job statements below are historical.
+
 Profound work trial: analyze page/content factors associated with answer-engine
 citations and build a lightweight query-specific content generation/refinement
 workflow. Original task: `project-brief.md`. Deliver useful, inspectable work quickly;
@@ -105,6 +121,132 @@ chunks. Statuses: 87 selected, 8 need review, 5 source-insufficient. Selected me
 `chunks.jsonl/.parquet`, `manifest.json`; committed summary:
 `analysis/retention-export.json`. This is the evaluation set only, NOT a 9,700-row
 corpus rollout. Last validation: **94 tests passed, 12 subtests passed**.
+
+## Textual embedding implementation checkpoint
+
+Branch `deck/preprocess-feature-engineering` adds the `representations` CLI and
+`spec/embedding-representations.md` / `plan/embedding-representations.md`. It prepares
+query, title/H1, outline, section, page, and URL-path views; calls hosted OpenAI,
+Voyage, or pinned OpenRouter/Qwen endpoints; caches/resumes requests; computes
+query alignment; saves PCA fits; and builds a query-first evidence report with
+optional UMAP maps. No local GPU is required. Images and learned fusion are deferred.
+
+The initial compatibility adapter consumes the frozen `eval-v2` parquet schema.
+PR #2's saved `downstream-document-v1` documents are now supported as well. Canonical
+shared input: `/Users/ext-weihsiang.lin/Documents/profound/content-optimization-system/data/trad_ml_scorer/v2`.
+Do not repeat HTML extraction or scorer preparation. The adapter streams saved
+compressed documents, preserves source chunks and retained `needs_review` content,
+and carries original scorer IDs, row provenance, exclusions, and existing splits.
+All 9,551 snapshots / 9,700 records validated; 377,460 logical embedding units were
+serialized to this worktree's `data/representations/retention-corpus-v1`.
+Full-corpus OpenAI embeddings are now complete (see the later checkpoint). Serializer is `blocks-v2`.
+A new live 20-snapshot retention smoke completed 674 unique OpenAI requests,
+produced 732 vectors, and aligned all 20 records; page/query/path exploratory
+PCA/UMAP projections and a query-first report are saved. Resume used the cache.
+The full corpus would require 323,751 unique OpenAI requests with this input policy,
+not merely one request per record; budget runtime/storage before scheduling it.
+New compact reports: `analysis/embedding-retention-validation.json`,
+`analysis/embedding-retention-smoke.json`, `analysis/embedding-retention-explorer.html`.
+The historical smoke below still reflects older selection outcomes.
+
+Live OpenAI `text-embedding-3-large` baseline: 20 source records/snapshots, 11 selected
+extractions, 342 logical units, 320 unique requests, 334 vectors, zero request
+failures, 88,998 prompt tokens. Completed-run resume made no new requests. These
+are integration checks, not comparative relevance results or citation uplift.
+Artifacts are in this branch's worktree at `data/representations/eval-openai-v1/`;
+checked-in summaries: `analysis/embedding-validation.json` and the query-first
+`analysis/embedding-explorer.html`. The original map-first UI was revised after
+user feedback. Rendered browser verification was blocked by file-URL policy;
+source escaping and script interactions were checked independently.
+
+After integration with PR #2: 130 tests and 12 subtests passed; explorer script
+checks passed. Human query–section relevance review, additional provider
+credentials/preflight, reviewed model selection,
+and full-corpus processing remain pending. Do not restart embedding API work just
+to reproduce the static report; use cached vectors and the report builder.
+
+## Shared embedding store and active full-corpus execution
+
+User chose a shared durable cache instead of a vector DB, and limited execution to
+OpenAI hosted text embeddings plus local Voyage nano/MLX. Qwen-8B and Voyage large
+are deferred; large does not have published local weights. The nano checkpoint is
+official, revision `67fabc9bef010dabc5f6024aa1b1b6b93410426f`, with a pinned community
+MLX backend revision `5001811de8d5ab39bcdab1c9b40b925d8d7d3983` and BF16 compute.
+MLX uses the Apple M4 Pro GPU through Metal, explicitly selected by the adapter.
+
+Shared store: `<main checkout>/data/representations/shared-store`. Stable semantic
+identities exclude batch/concurrency/timeout settings. SQLite provides lookup and
+job history; immutable checksummed shards preserve completed batches. Model locks
+prevent duplicate writers; fully cached readers can export concurrently. Legacy
+paid vectors migrate without API calls. Recovery, portable backups, cache status,
+input reuse and disk-backed exports are implemented. See `spec/embedding-storage.md`.
+Do not rerun parsing or launch duplicate inference jobs; check `cache-status` and
+live processes first. Large data/checkpoints/exports remain ignored by Git.
+
+Full-corpus measurements: 323,751 unique inputs, 86,942,039 OpenAI tokens,
+88,924,281 Voyage text tokens / 90,883,231 including retrieval prefixes. No input
+exceeds model context. OpenAI list-price estimate is $11.30 before cache reuse;
+actual usage is recorded per batch. Float32 unique vectors need 3.98 GB OpenAI /
+2.65 GB Voyage, plus exports/indexes/backups. The tokenizer vocabularies for Voyage
+large and nano were verified byte-identical. `analysis/embedding-corpus-scale-v2.json`
+is a cache snapshot taken before later inference, not live progress.
+
+The 512-section local pilot measured 29.14 inputs/s, 4,575.54 tokens/s, and 1.48 GB
+peak MLX memory. Extrapolation suggests several hours; inputs and cache/export work
+vary. A completed 20-snapshot two-model smoke aligns all 20 records for both models
+and includes six exploratory maps. It does not establish a relevance winner.
+Reports: `analysis/embedding-model-comparison-smoke.html` and companions;
+`analysis/embedding-voyage-local-pilot.json`.
+
+The user explicitly authorized full OpenAI speed and overnight MLX inference.
+Active full runs live under the main checkout's shared directory:
+- `data/representations/runs/retention-full-v1`: OpenAI, batch 128, concurrency 4.
+- `data/representations/runs/retention-voyage-nano-v1`: local MLX, batch 32,
+  concurrency 1, 8 GB allocation cap and 16K padded-token batch cap.
+- Voyage detached log: `data/representations/jobs/voyage-nano-full-v1.log`.
+
+At launch OpenAI ran under tool-managed process 95457; Voyage was restarted as a
+proper detached session (uv PID 3323, parent 1). These PIDs are historical hints,
+not current state. A first shell-background Voyage launch did not remain alive;
+no full-corpus progress was lost. The detached run was verified writing batches
+with `device: metal_gpu` in usage. Monitor using:
+`uv run --extra local-embeddings python -m representations cache-status`.
+Latest verification: 143 tests and 12 subtests passed; explorer script checks pass.
+Full-job completion, alignment/PCA and full-corpus quality analysis are pending;
+check live state before asserting completion or scheduling follow-up work.
+
+## Completed OpenAI full-corpus features
+
+OpenAI inference finished in 28.6 minutes: 323,751 unique inputs, 376,337 exported
+logical vectors, zero failures. Original vectors persist in the shared store and
+`data/representations/runs/retention-full-v1/vectors/`.
+
+Full-corpus alignment and PCA now completed without new API calls. Alignment has
+9,700 rows, 9,555 available and 145 unavailable; quality flags/source references
+remain visible. Seven separate 32D PCA fits/transforms: query, document title, H1,
+outline, page, section, path. Fit uses original eligible train-only sources;
+held-out exact-content repeats are excluded. Mixed-split queries stay outside the
+fit. Large fits use seeded randomized SVD (power 3), recorded in metadata.
+
+Training/projected unit counts: query 7,076/9,011; title 7,332/9,364;
+H1 8,335/11,964; outline 7,329/9,392; page 7,478/9,501;
+section 213,388/287,293; path 7,309/9,360. The 32D fits retain roughly 32–39% of
+variance and are initial feature baselines, not optimized dimensionality choices.
+Original-space cosine remains authoritative; different field PCA bases cannot be
+compared by cosine. Human relevance/model selection and predictive benchmarking
+with these features remain pending.
+
+Shared package entry: `data/representations/runs/retention-full-v1/features/openai-v1.json`.
+This maps each named field to coordinate Parquet and saved PCA fits. Source units,
+record associations, fit exclusions and checksums accompany the run. Checked-in
+compact summary: `analysis/embedding-openai-corpus.json`. Full query-first report:
+`data/representations/runs/retention-full-v1/reports/openai-corpus.html` (~45 MB,
+ignored by Git). Latest verification: 144 tests and 12 subtests; explorer scripts
+pass, including field separation and held-out perturbation invariance.
+
+Voyage MLX continues in its detached GPU process. Check cache-status/live processes
+for its current progress; do not launch a duplicate. The earlier active-job notes
+are historical, and OpenAI no longer needs an inference restart.
 
 ## Traditional ML scorer handoff (v2 through v4)
 
@@ -324,3 +466,115 @@ Use semantic_context C=.001 as the working experimental baseline; see
 `trad_ml_scorer/v7/decision.md`. This does not retroactively change the frozen
 validation result or claim v7 outperformed v5. Existing generic CLI default is
 unchanged; live HTML-to-semantic inference is not part of this prototype.
+## Completed markdownify OpenAI projection and lineage (2026-10-01)
+
+The user requested embeddings against PR #11's completed saved markdownify corpus.
+No extraction was rerun and no PR #11 parser code was copied into this branch.
+The saved-document adapter verifies original raw rows, six prepared export hashes,
+9,551 compressed document checksums/content identities, and ordered structure.
+It imports the original splits/exclusions from the prior completed retention run
+by raw-file hash/source row after checking query, URL, payload, host and label.
+
+Persistent run: `representations/runs/markdownify-openai-v1` under the golden volume.
+Input recipe: `blocks-v3-markdownify`; inline Markdown preserved for v3 blocks,
+code whitespace intact, tables serialized as structured cell text/header/span JSON.
+Prepared 409,730 logical units / 354,112 unique inputs for all 9,700 records.
+89,650 unique inputs reused paid vectors; 264,462 new inputs completed.
+OpenAI exported 408,746 vectors, zero failed requests; 984 unavailable input units
+remain explicit. Inference plus portable export took 1,280.916 seconds (21.35 min),
+with 146,741,037 newly reported API tokens across 2,104 batches.
+
+Seven independent 32D training-only PCA fits are saved, along with their coordinates:
+query 7,076/9,011; document title 7,332/9,364; H1 8,347/11,979;
+outline 7,329/9,392; page 7,478/9,501; section 226,780/302,368; path 7,309/9,360
+(training/projected unit counts). Alignment: 9,555 available / 145 unavailable
+records. Saved fits reproduce sample coordinates in every field; every coordinate
+is finite and has 32 dimensions. Variance retained is roughly 32–42%; this is
+a baseline, not an optimized dimension or relevance evaluation.
+
+Shared feature entry: `representations/runs/markdownify-openai-v1/features/openai-v1.json`.
+Full evidence: that run's `reports/openai-corpus.html`. Full searchable lineage:
+`lineage/index.html` on the persistent volume, with `lineage/registry.json`.
+Versioned run lineage: `lineage/{manifest.json,records.parquet,units.parquet,tracker.html}`.
+Exact joins connect raw file/row/payload -> snapshot/document -> block/chunk/unit ->
+semantic request -> shard/row/SHA -> exported matrix row -> saved PCA field.
+Pooled units have full member and weight provenance rather than a direct request.
+Publication verified 4,632 referenced immutable vector shards and their request
+metadata against catalog rows, plus raw/preprocessed and run artifact checksums.
+
+Published compact artifacts: `analysis/data-lineage-markdownify-openai.html` (50
+traceable sample records), `.json`, and `analysis/embedding-markdownify-openai-corpus.json`.
+Validation: 151 tests and 12 subtests; lineage interactions/escaping tested on both
+the actual sample and full tracker. Visual browser rendering was not reviewed.
+Original retention artifacts remain separate; Voyage MLX remains stopped.
+
+## Issue #10 follow-up: structured inline fidelity (2026-10-01)
+
+`deck/markdownify-fix` adds `dom-blocks-v2`: source-referenced inline nodes,
+code/deletion/hard-break/media serialization, definition containers, thematic
+breaks, table cell inline annotations and version-aware chunk identities.
+Frozen outputs and original analysis remain unchanged. New parser outputs require
+versioned exports; corpus caches/features/models were not regenerated.
+
+Evidence and reproduction: `analysis/inline-fidelity-v2/README.md`, with development
+and held-out reports in separate subdirectories. Markdownify 1.2.3 was evaluated on
+12 hand-authored development fixtures only; its default code whitespace handling
+and spanning-table output prevent direct replacement. It remains a development
+comparison dependency. Held-out diagnostic: 37 HTML snapshots, 32 evaluable;
+required anchors 126/129 and unwanted 46/50 unchanged; 22,412 valid declared
+locations, zero invalid. Sparse AI-assisted anchors do not establish semantic
+accuracy. Native inline source locations remain explicitly unavailable rather
+than claiming generated HTML paths. Final suite: 141 tests / 12 subtests passed.
+
+## Markdownify default and complete corpus export (2026-10-01)
+
+User follow-up explicitly requested replacing the incumbent conversion backend
+with markdownify and redoing extraction at full-corpus scale. The active pipeline
+now uses pinned runtime `markdownify==1.2.3`, via `markdownify-structured-v1`, with
+custom code/terminal-break/media/table/definition converters. Handwritten Markdown
+conversion is removed from the active path; structured provenance remains separate.
+`conservative_dom` still names the retention-region policy. New blocks (including
+native plain text) declare `dom-blocks-v3`; chunk identities include that version.
+
+Complete new export in the shared local data volume:
+`/Users/ext-weihsiang.lin/Documents/profound/data/content-optimization-system/processed/markdownify-corpus-v1-complete/`.
+All 9,700 rows reference 9,551 exact
+payload-plus-URL snapshots; the 149 additional references were preserved. Zero
+extraction errors/timeouts. Statuses: 9,167 selected, 334 needs review, 47 source
+insufficient, 3 unsupported. 3,309,747 blocks / 278,479 chunks / 2,448 oversized chunks.
+8,973,098 declared HTML locations valid, zero invalid; missing/ambiguous mappings
+stay explicit. Independent verification reread all original rows and checked all
+document file/content checksums, six artifact hashes and ordered chunk coverage.
+Full documents/raw data stay out of Git; original caches and frozen outputs unchanged.
+
+Report/reproduction: `analysis/markdownify-corpus-v1/README.md`; release development,
+held-out and corpus reports live in separate subdirectories. Development fixtures
+12/12 expected outputs; reused held-out HTML selected anchors unchanged at 126/129
+required and 46/50 unwanted. Not human semantic gold or citation-uplift evidence.
+CLI: `python -m preprocessing.corpus` (offline, versioned, bounded, resumable) and
+`python -m preprocessing.markdownify_report` for independently scoped evidence.
+Final regression suite: 154 tests / 12 subtests passed. Four-worker complete run
+(including indexing): 1,191.539 seconds. Models/features were not retrained or
+regenerated; that remains separate from this completed extraction request.
+
+## Shared persistent data volume (2026-10-01)
+
+The user designated `/Users/ext-weihsiang.lin/Documents/profound/data` as the golden
+local data volume. This project's namespace is `content-optimization-system/`.
+Five original Parquet inputs were copied into its `raw/` and verified byte-for-byte
+with SHA-256; their existing repository location was left untouched. This worktree's
+entire `data/processed/` (including completed exports and interrupted-run journals)
+was moved into the shared namespace. Its ignored `data/` is now a symlink to that
+namespace. The completed corpus manifest is unchanged. Other worktrees were not
+modified. Existing manifest paths describe the original extraction environment;
+the shared paths above identify the current storage location. Follow `AGENTS.md`
+for unique run directories, identity-checked resume, and cross-session discovery.
+
+## Combined v5–v7 integration
+
+PR #14 merged into the v5/v6 branch first. PR #13 consequently carries v5–v7
+into the default branch `main` (there is no `master` branch). The integration
+retains both scorer history and Markdownify/embedding provenance from main.
+Frozen model/report artifacts are preserved; use cached v7 semantic_context for
+the chosen experimental direction. Raw-input inference with older model bundles
+remains subject to their original parser/code fingerprint checks.

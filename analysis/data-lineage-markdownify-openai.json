@@ -1,0 +1,228 @@
+{
+  "schema_version": "data-lineage-v1",
+  "status": "complete",
+  "run": "/Users/ext-weihsiang.lin/Documents/profound/data/content-optimization-system/representations/runs/markdownify-openai-v1",
+  "raw_root": "/Users/ext-weihsiang.lin/Documents/profound/data/content-optimization-system/raw",
+  "preprocessed_root": "/Users/ext-weihsiang.lin/Documents/profound/data/content-optimization-system/processed/markdownify-corpus-v1-complete",
+  "preprocessing_run_identity": "1ee4dfc2f06d020f198ae84cbfea0c5bfdedea3cec8223484d2ebd980e60a22e",
+  "preprocessing_pipeline": "retention-markdownify-corpus-v1",
+  "preprocessing_manifest_sha256": "48b4d9a837dee1bf33af258e7acf460f5712a047f8479c8b14672f6a9b52f0a5",
+  "preprocessing_recipe": {
+    "path": "/Users/ext-weihsiang.lin/Documents/profound/data/content-optimization-system/processed/markdownify-corpus-v1-complete/run_identity.json",
+    "sha256": "66d84be6436b48d43392ec5f9e90b81be323c79fe121ad2123965189d359356e",
+    "configuration": {
+      "pipeline_version": "retention-markdownify-corpus-v1",
+      "source_files": {
+        "citations_part_001.parquet": "815aca4d97e8143f3a5eeb1da9373855664699734b6bdee45f2a4dc74bec079f",
+        "citations_part_002.parquet": "8437f3ac54554ece8939eeb82fb1f4275f81d3b4505dce59de21592517844976",
+        "citations_part_003.parquet": "061f47a4999814ec779d1ca87ea2e51d20f42261240e15a0bfa13a2e3698e71f",
+        "citations_part_004.parquet": "5ac0d42caaa1eaf7457ddf2c342af4ebbe6910f883d050b4658f7368a0e53c7d",
+        "citations_part_005.parquet": "ede6525f3d69cd81e9a41f588bb1b76e648e68bba9fa94649ef56d74cede09ae"
+      },
+      "source_fingerprints": {
+        "preprocessing/schema.py": "fcce8bfd4f532330234d12a5072fa2d7250504c231e823260310a4018a1e60e1",
+        "preprocessing/blocks.py": "c9d1048add604070558353173a16e3ac4340e12a4de21a8a1ae8327752f67b8d",
+        "preprocessing/markdownify_serializer.py": "a47906348754f11ebd42cdb4136e9db9b86d8128c98f8ddc4c2843c7b967b5c6",
+        "preprocessing/quality.py": "cc702b4cff899c83a2469afc7fbb98c02c30a1df339e5cc3296a2d625327c5a6",
+        "preprocessing/offline.py": "dcb6bb1f5c4d8aa1bb3e25b6e7dbaf8d9adc54c5c5eaeadc7a11c207dacaf235",
+        "preprocessing/runner.py": "3bdfc0b6350f238a87c6c5c89a588dc7f3f01eac94f7909be4cf29b9df66f1e5",
+        "preprocessing/adapters/local.py": "daf22d779d687afa45205b631d9ba30c6ab0ba075cb22dee6fd8e2d249a4944c",
+        "preprocessing/adapters/external.py": "ee84bf0ac857e8a851583d8c452f5f8b067d743a94c154ccb7c2fad138af7a7a",
+        "preprocessing/node/package-lock.json": "cdc3c62c394c5ff43d4bc2798a1fbf7f0b2b687d74235b4326bf99faf5a772a9",
+        "preprocessing/node/worker.cjs": "ce3cc69b6510d44bb0bfad98f26a1ed1e402b37ef24c610ff12d13ec277413f2",
+        "scripts/analyze_content.py": "21f2c197a25ecd6c1f4d11d2090f7fefe94f2c0939ebea60e7261fa97c7d7c29",
+        "uv.lock": "3f7de4ea094575bd218ef1d2b8a3773e689bafb06b20143632ac28fa935a3cb3",
+        "preprocessing/corpus.py": "9e17f435e97d86906bfa2c9f286de97b79c7840dfc4f17f7e7bbc5188a819434",
+        "preprocessing/inline_fidelity.py": "ef57c8dfb56f1ea293ef75bf7b984fdd2d4fd09bb5cff2f363552bebf753f498",
+        "preprocessing/select.py": "e15d75348bb6a9de18a97690c64aac89101b49a733ff3d8aa6e34caf50902af4",
+        "preprocessing/downstream.py": "a9502e854e5e1f07a8e924644fa83bf96f6f15af63e3132fc5a466f5166437c7",
+        "trad_ml_scorer/retention_features.py": "d9ff4de10ceb0283025b929cd6462743f315c7a27651156303d1e16ae091624f"
+      },
+      "dependencies": {
+        "duckdb": "1.5.6",
+        "beautifulsoup4": "4.15.0",
+        "markdown-it-py": "4.2.0",
+        "markdownify": "1.2.3",
+        "lxml": "6.1.3"
+      },
+      "timeout_seconds": 120,
+      "chunk_target_characters": 6000,
+      "network": "Disabled in every extraction worker; saved Parquet snapshots only",
+      "scope": {
+        "limit_rows": null,
+        "input_files": [
+          "citations_part_001.parquet",
+          "citations_part_002.parquet",
+          "citations_part_003.parquet",
+          "citations_part_004.parquet",
+          "citations_part_005.parquet"
+        ]
+      }
+    }
+  },
+  "raw_source_hashes": {
+    "citations_part_001.parquet": "815aca4d97e8143f3a5eeb1da9373855664699734b6bdee45f2a4dc74bec079f",
+    "citations_part_002.parquet": "8437f3ac54554ece8939eeb82fb1f4275f81d3b4505dce59de21592517844976",
+    "citations_part_003.parquet": "061f47a4999814ec779d1ca87ea2e51d20f42261240e15a0bfa13a2e3698e71f",
+    "citations_part_004.parquet": "5ac0d42caaa1eaf7457ddf2c342af4ebbe6910f883d050b4658f7368a0e53c7d",
+    "citations_part_005.parquet": "ede6525f3d69cd81e9a41f588bb1b76e648e68bba9fa94649ef56d74cede09ae"
+  },
+  "split_reference": {
+    "path": "/Users/ext-weihsiang.lin/Documents/profound/data/content-optimization-system/representations/runs/retention-full-v1",
+    "associations_sha256": "0e1a9323a6ea4aca08c3636577bdb85a6b42742b03f2b07b082f0a6f84e5d96d"
+  },
+  "embedding_serializer": "blocks-v3-markdownify",
+  "model": {
+    "config_id": "fc28538b81c52b5c18bca73f5ec7e7fa163bfc4a3a630e79c18a957d472a5e8a",
+    "embedding_identity": "e8f0823f296ef4653dc4c01ed9a2e7c507f727193135c847728322e4ca8245ea",
+    "cache_root": "/Users/ext-weihsiang.lin/Documents/profound/data/content-optimization-system/representations/shared-store",
+    "storage": "sqlite-shards-v1",
+    "model": "text-embedding-3-large",
+    "provider": "openai",
+    "status": "complete",
+    "vectors": 408746,
+    "logical_units": 409730,
+    "unique_requests": 354112,
+    "cached_requests": 354112,
+    "failed_requests": 0,
+    "fatal_error": null,
+    "dimensions": 3072
+  },
+  "cache_preflight": {
+    "unique_inputs": 354112,
+    "reused_inputs": 89650,
+    "new_inputs": 264462,
+    "new_by_view": {
+      "page": 42059,
+      "section": 216206,
+      "outline": 6172,
+      "title": 25
+    }
+  },
+  "embedding_model_configuration": {
+    "provider": "openai",
+    "model": "text-embedding-3-large",
+    "endpoint": "https://api.openai.com/v1/embeddings",
+    "dimensions": 3072,
+    "revision": "unversioned-2026-10-01",
+    "query_instruction": ""
+  },
+  "embedding_input_recipe": {
+    "chunk_bytes": 4096,
+    "page_bytes": 7000,
+    "counting_policy": "conservative_utf8_bytes_v1",
+    "seed": 42
+  },
+  "scope": "upstream_run",
+  "upstream_records": 9700,
+  "records": 9700,
+  "snapshots": 9551,
+  "units": 409730,
+  "vector_statuses": {
+    "success": 408746,
+    "unavailable": 984
+  },
+  "projection_fields": {
+    "query": {
+      "projection_id": "dfe1ca6897b79393ab8b68d397db978af59425364f618f1338dd7b957d9b5be2",
+      "path": "projections/dfe1ca6897b79393ab8b68d397db978af59425364f618f1338dd7b957d9b5be2",
+      "dimensions": 32,
+      "scope": "training",
+      "fit_sha256": "54f25079b3d2b3b1da06e8a27e87cdcb21688cc41d092a9ac24d3a6106f507c9",
+      "coordinates_sha256": "e0018c76f34bf5c332b8a1bd1a66a30e886c0fc347cbfc72d58448bcb9788e1e"
+    },
+    "document_title": {
+      "projection_id": "ecd6e7c863ffa9d7a12b90fc15494d50ba752241c76112364a71d6aa102d569a",
+      "path": "projections/ecd6e7c863ffa9d7a12b90fc15494d50ba752241c76112364a71d6aa102d569a",
+      "dimensions": 32,
+      "scope": "training",
+      "fit_sha256": "6c2b6c47bba1cb9e6b3f1dbfc5d25e7248855ee2a51699ad6e8436401bee5564",
+      "coordinates_sha256": "d86a11de97d940ed1394afeafab6a0d43af1a313867b8d4b0f09e20c8d8ebc3e"
+    },
+    "h1": {
+      "projection_id": "58f5d431b0833625ce7d508c13209ffd97a7be2006f2938d0451d9b8eb76c54f",
+      "path": "projections/58f5d431b0833625ce7d508c13209ffd97a7be2006f2938d0451d9b8eb76c54f",
+      "dimensions": 32,
+      "scope": "training",
+      "fit_sha256": "19cf20110acaaa322ed5dec8040fa06892f5ccd037a6a1b3ebac8cb5fc721541",
+      "coordinates_sha256": "0c3b78a68998aced4e13f54a41121f5a1df0b350f46e0c1be315fa046797bca5"
+    },
+    "outline": {
+      "projection_id": "c367f71dd8e1be00724cff80e19616d0d3931b6af6ff327135512e0ed6b96e17",
+      "path": "projections/c367f71dd8e1be00724cff80e19616d0d3931b6af6ff327135512e0ed6b96e17",
+      "dimensions": 32,
+      "scope": "training",
+      "fit_sha256": "58dfb9c2e6894661ccf26407d75284e9b32fe4003ea11490c9611b2cdbbe0b8a",
+      "coordinates_sha256": "643f69c3566559da33daa4edd48f66c7a5432f4486b417ada4f7f13861143c91"
+    },
+    "page": {
+      "projection_id": "42a27fa2c6aeab905a3f1237c91f16d77d2b7e32672d84dc4f923cf4f20d62bf",
+      "path": "projections/42a27fa2c6aeab905a3f1237c91f16d77d2b7e32672d84dc4f923cf4f20d62bf",
+      "dimensions": 32,
+      "scope": "training",
+      "fit_sha256": "32aa84a007bbf288018efa409b1872a89c8035b10a941ba9f383427d3cae2c7c",
+      "coordinates_sha256": "62a342e5bcc46f20cad2b212fc7b67dfedd39c16ecd6c0f6c823ced9ccf16e0b"
+    },
+    "section": {
+      "projection_id": "17bdbeb761486f86b42bc18abe44bc176d0717f772fbc9a4397a0665c58b4e70",
+      "path": "projections/17bdbeb761486f86b42bc18abe44bc176d0717f772fbc9a4397a0665c58b4e70",
+      "dimensions": 32,
+      "scope": "training",
+      "fit_sha256": "b73d0454524483fbce17f77a7103f15797d76b5aae4209d0a88ab5480fa84159",
+      "coordinates_sha256": "32d06684e45a0144831f8edf922d4a7f1e0c8f9add341f212b86f6ede0db2217"
+    },
+    "path": {
+      "projection_id": "9fd326d1a2c37e011ec6e1b1e3e2d7686e644f3ac00ecddab885123a51afdcbd",
+      "path": "projections/9fd326d1a2c37e011ec6e1b1e3e2d7686e644f3ac00ecddab885123a51afdcbd",
+      "dimensions": 32,
+      "scope": "training",
+      "fit_sha256": "54dfc00767b90f5117005b68f99edbb62a8cd77fe6f6f6b236c4d1aeb6b1e6f8",
+      "coordinates_sha256": "95de27019ce80e25f0f5cf070d6abcef246438d9985de1f6b3b74589fa74d437"
+    }
+  },
+  "cache_root": "/Users/ext-weihsiang.lin/Documents/profound/data/content-optimization-system/representations/shared-store",
+  "joins": {
+    "raw_to_record": [
+      "source_file_hash",
+      "source_row"
+    ],
+    "record_to_document": [
+      "snapshot_id",
+      "document_sha256"
+    ],
+    "document_to_units": [
+      "extraction_id",
+      "block_ids",
+      "source_chunk_ids"
+    ],
+    "query_to_records": [
+      "query_unit_id"
+    ],
+    "unit_to_cache": [
+      "request_id",
+      "shard",
+      "shard_row",
+      "shard_sha256"
+    ],
+    "unit_to_export": [
+      "unit_id",
+      "export_row"
+    ],
+    "unit_to_projection": [
+      "unit_id",
+      "projection_fields"
+    ]
+  },
+  "artifacts": {
+    "records.parquet": "e0f1900836c689ebb5dcfecbc90e8a0c8724fe3b5caa22e7866d560263b7b9dc",
+    "units.parquet": "de6136fb78c5b780636d16408f72e1e19c25faf5d8b17151cbdd6635dfebe1a4"
+  },
+  "verified_vector_shards": 4632,
+  "limitations": [
+    "Source row offsets and shard/export rows are zero-based.",
+    "Query/title/path vectors may reuse previous runs when exact text, role and model identity match.",
+    "Derived pooled units have member lineage rather than a direct API request.",
+    "Independent field PCA bases cannot be compared with cross-field cosine.",
+    "Mechanical source integrity is not human relevance or citation-uplift evidence."
+  ]
+}

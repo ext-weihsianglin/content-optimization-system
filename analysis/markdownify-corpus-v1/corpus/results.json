@@ -1,0 +1,437 @@
+{
+  "scope": "Complete saved-corpus extraction coverage and integrity; not content accuracy, model retraining or citation uplift.",
+  "manifest": {
+    "pipeline_version": "retention-markdownify-corpus-v1",
+    "source_files": {
+      "citations_part_001.parquet": "815aca4d97e8143f3a5eeb1da9373855664699734b6bdee45f2a4dc74bec079f",
+      "citations_part_002.parquet": "8437f3ac54554ece8939eeb82fb1f4275f81d3b4505dce59de21592517844976",
+      "citations_part_003.parquet": "061f47a4999814ec779d1ca87ea2e51d20f42261240e15a0bfa13a2e3698e71f",
+      "citations_part_004.parquet": "5ac0d42caaa1eaf7457ddf2c342af4ebbe6910f883d050b4658f7368a0e53c7d",
+      "citations_part_005.parquet": "ede6525f3d69cd81e9a41f588bb1b76e648e68bba9fa94649ef56d74cede09ae"
+    },
+    "source_fingerprints": {
+      "preprocessing/schema.py": "fcce8bfd4f532330234d12a5072fa2d7250504c231e823260310a4018a1e60e1",
+      "preprocessing/blocks.py": "c9d1048add604070558353173a16e3ac4340e12a4de21a8a1ae8327752f67b8d",
+      "preprocessing/markdownify_serializer.py": "a47906348754f11ebd42cdb4136e9db9b86d8128c98f8ddc4c2843c7b967b5c6",
+      "preprocessing/quality.py": "cc702b4cff899c83a2469afc7fbb98c02c30a1df339e5cc3296a2d625327c5a6",
+      "preprocessing/offline.py": "dcb6bb1f5c4d8aa1bb3e25b6e7dbaf8d9adc54c5c5eaeadc7a11c207dacaf235",
+      "preprocessing/runner.py": "3bdfc0b6350f238a87c6c5c89a588dc7f3f01eac94f7909be4cf29b9df66f1e5",
+      "preprocessing/adapters/local.py": "daf22d779d687afa45205b631d9ba30c6ab0ba075cb22dee6fd8e2d249a4944c",
+      "preprocessing/adapters/external.py": "ee84bf0ac857e8a851583d8c452f5f8b067d743a94c154ccb7c2fad138af7a7a",
+      "preprocessing/node/package-lock.json": "cdc3c62c394c5ff43d4bc2798a1fbf7f0b2b687d74235b4326bf99faf5a772a9",
+      "preprocessing/node/worker.cjs": "ce3cc69b6510d44bb0bfad98f26a1ed1e402b37ef24c610ff12d13ec277413f2",
+      "scripts/analyze_content.py": "21f2c197a25ecd6c1f4d11d2090f7fefe94f2c0939ebea60e7261fa97c7d7c29",
+      "uv.lock": "3f7de4ea094575bd218ef1d2b8a3773e689bafb06b20143632ac28fa935a3cb3",
+      "preprocessing/corpus.py": "9e17f435e97d86906bfa2c9f286de97b79c7840dfc4f17f7e7bbc5188a819434",
+      "preprocessing/inline_fidelity.py": "ef57c8dfb56f1ea293ef75bf7b984fdd2d4fd09bb5cff2f363552bebf753f498",
+      "preprocessing/select.py": "e15d75348bb6a9de18a97690c64aac89101b49a733ff3d8aa6e34caf50902af4",
+      "preprocessing/downstream.py": "a9502e854e5e1f07a8e924644fa83bf96f6f15af63e3132fc5a466f5166437c7",
+      "trad_ml_scorer/retention_features.py": "d9ff4de10ceb0283025b929cd6462743f315c7a27651156303d1e16ae091624f"
+    },
+    "dependencies": {
+      "duckdb": "1.5.6",
+      "beautifulsoup4": "4.15.0",
+      "markdown-it-py": "4.2.0",
+      "markdownify": "1.2.3",
+      "lxml": "6.1.3"
+    },
+    "timeout_seconds": 120,
+    "chunk_target_characters": 6000,
+    "network": "Disabled in every extraction worker; saved Parquet snapshots only",
+    "scope": {
+      "limit_rows": null,
+      "input_files": [
+        "citations_part_001.parquet",
+        "citations_part_002.parquet",
+        "citations_part_003.parquet",
+        "citations_part_004.parquet",
+        "citations_part_005.parquet"
+      ]
+    },
+    "raw_rows": 9700,
+    "unique_snapshots": 9551,
+    "shared_snapshot_references": 149,
+    "snapshot_statuses": {
+      "selected": 9167,
+      "needs_review": 334,
+      "source_insufficient": 47,
+      "unsupported_format": 3
+    },
+    "source_formats": {
+      "html": 9484,
+      "markdown": 58,
+      "text": 6,
+      "unknown": 3
+    },
+    "selected_methods": {
+      "conservative_dom": 9443,
+      "none": 50,
+      "markdown_text": 58
+    },
+    "blocks": 3309747,
+    "chunks": 278479,
+    "oversized_chunks": 2448,
+    "block_types": {
+      "paragraph": 2132284,
+      "heading": 269675,
+      "thematic_break": 8527,
+      "list": 161353,
+      "list_item": 724641,
+      "table": 7551,
+      "quote": 3273,
+      "definition_list": 379,
+      "definition_description": 818,
+      "definition_term": 658,
+      "code": 588
+    },
+    "inline_types": {
+      "text": 4496835,
+      "span": 1167244,
+      "link": 701311,
+      "inline_image": 338839,
+      "strong": 249446,
+      "emphasis": 101876,
+      "hard_break": 73652,
+      "deletion": 701,
+      "inline_code": 1070
+    },
+    "source_mapping_statuses": {
+      "exact": 8934046,
+      "normalized_match": 41772,
+      "unavailable": 87076,
+      "ambiguous": 1377827
+    },
+    "source_location_validation": {
+      "exact": 8934046,
+      "valid_locators": 8973098,
+      "normalized_match": 39052,
+      "ambiguous": 1377827,
+      "unavailable": 84039
+    },
+    "artifacts": [
+      {
+        "path": "records.jsonl",
+        "rows": 9700,
+        "sha256": "2cd474a547d486fdcb1f822a2b3687195ca24fe82d879dee9898fb91e736b59f"
+      },
+      {
+        "path": "records.parquet",
+        "rows": 9700,
+        "sha256": "d770a66f89d362a06e2cf762023162cad0dced667ad5d341e64d94aea8e8129f"
+      },
+      {
+        "path": "documents.jsonl",
+        "rows": 9551,
+        "sha256": "6bb3422aa3d24d087b5b7e08f57508dc20be78ccfdc3c30ebe081067935bb890"
+      },
+      {
+        "path": "documents.parquet",
+        "rows": 9551,
+        "sha256": "34e8a2dfe53797c4c3fece860e4090fc2eeaa219b53eb9fede79bda7e16cf675"
+      },
+      {
+        "path": "chunks.jsonl",
+        "rows": 278479,
+        "sha256": "19c456c0dc368de87bc8b63fc7e8ceff83c120b20c63cf5725521e84173c593f"
+      },
+      {
+        "path": "chunks.parquet",
+        "rows": 278479,
+        "sha256": "3fdc67bca0a6ed76bec6875c9d2d095b7943568568b733ca8c58dade1a1d901f"
+      }
+    ],
+    "run_identity": "1ee4dfc2f06d020f198ae84cbfea0c5bfdedea3cec8223484d2ebd980e60a22e",
+    "status": "complete",
+    "input_directory": "/Users/ext-weihsiang.lin/Documents/profound/content-optimization-system/data/raw",
+    "output_directory": "/Users/ext-weihsiang.lin/Documents/profound/content-optimization-system/.worktrees/deck-markdownify-fix/data/processed/markdownify-corpus-v1-complete",
+    "elapsed_seconds": 1191.539,
+    "resumed_snapshots": 0,
+    "validation": "Every row resolves to a hash-identified snapshot; every selected block occurs exactly once in its ordered chunk partition; no truncation or silent fallback",
+    "limitations": "Extraction coverage is not human semantic accuracy; native formats use native parsing; corpus scoring/model retraining is outside this export"
+  },
+  "verification": {
+    "document_file_hashes_checked": 9551,
+    "document_content_checksums_checked": 9551,
+    "source_rows_with_outcomes": 9700,
+    "blocks_partitioned_once_in_order": 3309747,
+    "chunks": 278479,
+    "raw_rows_payload_url_and_metadata_verified": 9700,
+    "source_locations": {
+      "exact": 8934046,
+      "valid_locators": 8973098,
+      "normalized_match": 39052,
+      "ambiguous": 1377827,
+      "unavailable": 84039
+    },
+    "artifact_hashes_checked": 6
+  },
+  "quality_flags": {
+    "possible_error_response": 302,
+    "possible_script_shell": 77,
+    "empty_body": 41,
+    "ambiguous_or_unsupported_payload": 3
+  },
+  "errors": [],
+  "samples": [
+    {
+      "snapshot_id": "00010ef3872629c36e0d32536a76702193b6e73ae9145df6d069b46184e535b0",
+      "href": "https://sifted.eu/articles/top-early-stage-investors-nordics",
+      "status": "selected",
+      "format": "html",
+      "representation": {
+        "block_schema_version": "dom-blocks-v3",
+        "serializer": "markdownify-structured-v1",
+        "markdownify_version": "1.2.3",
+        "removed_nodes": 44,
+        "order": "DOM order; computed visibility unknown"
+      },
+      "text_preview": "Analysis\n\nJune 22, 2022\n\nTop early-stage investors in the Nordics\n\nSifted and Dealroom spotlight the top ranked funds in the region\n\nMimi Billing\n\n11 min read\n\nInventure team\n\nThe Nordics has one of the most active startup ecosystems in Europe, with some of the continent’s most successful startups — including the likes of Klarna, Pleo, Aiven, and Oda — and 15 more unicorns.\n\nFour out of the five Nordic countries had record-breaking spells in 2021, with the highest aggregate funding ever recorded in the region and some of the largest rounds in Europe.\n\nSo which are the top early-stage investors to know in the Nordics, where are they focusing their investments — and how’s the gender diversity of their investment teams?\n\nAdvertisement\n\nToday, using data from Dealroom, Sifted is spotlighting the top early-stage investors in the Nordics. You can find Dealroom’s full methodology here, but the rankings are based on the following data points:\n\nNumber of unicorns in portfolio\n\nNumber of “future” unicorns in portfolio\n\nNumber of rounds in the last 12 months\n\nDealroom has also weighted the rankings by a “dilution score”, so funds that invested in unicorns at seed stage got a higher score than",
+      "markdown_preview": "Analysis\n\nJune 22, 2022\n\n# Top early-stage investors in the Nordics\n\n## Sifted and Dealroom spotlight the top ranked funds in the region\n\n---\n\n[Mimi Billing](<https://sifted.eu/author/mimibilling/>)\n\n11 min read\n\n![](<https://images.sifted.eu/wp-content/uploads/2022/06/21114934/inventure-team.jpg?auto=format&fit=crop&crop=faces%2Cedges%2Centropy&ar=3%3A1&w=3840&q=75>)\n\nInventure team\n\nThe Nordics has one of the most active startup ecosystems in Europe, with some of the continent’s most successful startups — including the likes of Klarna, Pleo, [Aiven,](<https://sifted.eu/articles/decacorn-predictions-vc-2022/>) and [Oda](<https://sifted.eu/articles/kolonial-raises-223m-softbank/>) — and 15 more unicorns.\n\nFour out of the five Nordic countries had [record-breaking spells in 2021,](<https://sifted.eu/articles/nordic-startups-to-watch-2022/>) with the highest aggregate funding ever recorded in the region and some of the largest rounds in Europe.\n\nSo which are the top early-stage investors to know in the Nordics, where are they focusing their investments — and how’s the gender diversity of their investment teams?\n\nAdvertisement\n\nToday, using data from Dealroom, Sifted is spotlighting the top early-stage investors in the Nordics. You can find Dealroom’s full methodology[ here,](<https://dealroom.co/blog/preliminary-2022-vc-prominence-rank>) but the rankings are based on the following data points:\n\n- Number of unicorns in portfolio\n- Number of “future” unicorns in portfolio\n- Number of rounds in the last 12 months\n\nDealroom has also weighted the rankings by a “dilution score”, so funds that invested in unicorns at seed stage got a higher score than those that got in at a later stage.\n\nThe rankings are divided into seed and Series A funds, however, some funds listed are invest",
+      "preview_truncated": true,
+      "blocks": 257,
+      "chunks": 17
+    },
+    {
+      "snapshot_id": "000352cf46fd0f3258b781a6100ab9963fdb7920dbfe642ab664f8969e62fb73",
+      "href": "https://www.itscnews.com/expense/6-best-expense-management-software-for-2023",
+      "status": "needs_review",
+      "format": "html",
+      "representation": {
+        "block_schema_version": "dom-blocks-v3",
+        "serializer": "markdownify-structured-v1",
+        "markdownify_version": "1.2.3",
+        "removed_nodes": 33,
+        "order": "DOM order; computed visibility unknown"
+      },
+      "text_preview": "ITSC\n\nClick Here to Post Your ITSC\n\nError Page\n\nThe page you are looking for doesn't exist. It may have been moved or removed altogether. Please try searching for some other page, or return to the website's homepage to find what you're looking for.\n\nBack to Home\n\nSign in\n\nRemember me\n\nLog in\n\nForgot your password?\n\nLost your password? Please enter your email address. You will receive mail with link to set new password.\n\nReset password\n\nBack to login",
+      "markdown_preview": "[![ITSC](<data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==>)](<https://www.itscnews.com/>)\n\n[ Click Here to Post Your ITSC](<https://www.itscnews.com/post-submission/>)\n\n# Error Page\n\nThe page you are looking for doesn't exist. It may have been moved or removed altogether. Please try searching for some other page, or return to the website's homepage to find what you're looking for.\n\n[Back to Home](<https://www.itscnews.com/>)\n\n- [ Sign in ](<https://www.itscnews.com/expense/6-best-expense-management-software-for-2023#0>)\n\nRemember me\n\nLog in\n\n[Forgot your password?](<https://www.itscnews.com/expense/6-best-expense-management-software-for-2023#0>)\n\nLost your password? Please enter your email address. You will receive mail with link to set new password.\n\nReset password\n\n[Back to login](<https://www.itscnews.com/expense/6-best-expense-management-software-for-2023#0>)\n\n[  ](<https://www.itscnews.com/expense/6-best-expense-management-software-for-2023#0>)",
+      "preview_truncated": false,
+      "blocks": 15,
+      "chunks": 2
+    },
+    {
+      "snapshot_id": "0003cfb2450c63ce3d40dcef24de14fd0448816e63490adeee0f5b87adcc1cb8",
+      "href": "https://promotop.net/blog/samsung-b400f-a-soundbar-mais-barata-da-marca-em-2025-compensa",
+      "status": "selected",
+      "format": "html",
+      "representation": {
+        "block_schema_version": "dom-blocks-v3",
+        "serializer": "markdownify-structured-v1",
+        "markdownify_version": "1.2.3",
+        "removed_nodes": 20,
+        "order": "DOM order; computed visibility unknown"
+      },
+      "text_preview": "Promotop\n\nSearch Suggestions\n\nEnviar Oferta Entrar\n\nPromotop\n\nEnviar OfertaEntrar\n\nHome > Blog > Samsung B400F: A soundbar mais barata da marca em 2025 compensa?\n\nSamsung B400F: A soundbar mais barata da marca em 2025 compensa?\n\nJulius\n\n28 de agosto de 2025\n\nSamsung B400F: A soundbar mais barata da marca em 2025 compensa?\n\nA Samsung trouxe ao Brasil a nova B400F, uma soundbar de entrada 2.0 canais sem subwoofer externo, mas com woofer integrado. O modelo chega para quem busca algo compacto, barato e simples, seja para melhorar o som de uma TV básica ou até de um monitor. Mas será que vale a pena?\n\nÍndice\n\nToggle\n\nSoundbar Samsung Hw-b400f, Com 2.0 Canais, Bluetooth, Subwoofer Integrado E Hdmi Arc Preto Titânio<br>\n\nSoundbar Samsung Hw-b400f, Com 2.0 Canais, Bluetooth, Subwoofer Integrado E Hdmi Arc Preto Titânio\n\nComprar\n\nDesign e Construção\n\nCompacta: 64 cm de comprimento (menor que a B550, com 86 cm).\n\nWoofer integrado na própria barra, com saída de ar lateral para reforçar os graves.\n\nVisual simples, com LEDs brancos para indicar volume e graves, além de LED colorido para status.\n\nPode ser colocada em cima de um móvel ou fixada na parede.\n\n👉 É mais discreta que modelos com subwo",
+      "markdown_preview": "[![Promotop](<https://promotop.net/wp-content/uploads/2025/06/Promotop_logo_o.png>)](<https://promotop.net>)\n\nSearch Suggestions\n\n\n\n\n\n\n[Enviar Oferta](<https://www.promotop.net/enviar-oferta/>) Entrar\n\n[![Promotop](<https://promotop.net/wp-content/uploads/2025/06/Promotop_logo_o.png>)](<https://promotop.net>)\n\n[Enviar Oferta](<https://www.promotop.net/enviar-oferta/>)Entrar\n\n[Home](<https://promotop.net>) \\> [Blog](<https://promotop.net/blog/>) \\> Samsung B400F: A soundbar mais barata da marca em 2025 compensa?\n\n# Samsung B400F: A soundbar mais barata da marca em 2025 compensa?\n\n[ ](<https://promotop.net/author/julius/>)\n\n[ Julius ](<https://promotop.net/author/julius/>)\n\n28 de agosto de 2025\n\n![Samsung B400F: A soundbar mais barata da marca em 2025 compensa?](<https://promotop.net/wp-content/uploads/2025/08/samsung-b400f-a-soundbar-mais-barata-da-marca-em-2025-compensa.jpeg>)\n\nA Samsung trouxe ao Brasil a nova **B400F**, uma **soundbar de entrada 2.0 canais** sem subwoofer externo, mas com woofer integrado. O modelo chega para quem busca **algo compacto, barato e simples**, seja para melhorar o som de uma TV básica ou até de um monitor. Mas será que vale a pena?\n\nÍndice\n\n[Toggle](<https://promotop.net/blog/samsung-b400f-a-soundbar-mais-barata-da-marca-em-2025-compensa>)\n\n[ ![Soundbar Samsung Hw-b400f, Com 2.0 Canais, Bluetooth, Subwoofer Integrado E Hdmi Arc Preto Titânio\\<br\\>](<https://promotop.net/wp-content/themes/rehub-theme/images/default/blank.gif>) ](<https://mercadolivre.com/sec/21CFzkt>)\n\n### [ Soundbar Samsung Hw-b400f, Com 2.0 Canais, Bluetooth, Subwoofer Integrado E Hdmi Arc Preto Titânio<br> ](<https://mercadolivre.com/sec/21CFzkt>)\n\n[ Comprar ](<https://mercadolivre.com/sec/21CFzkt>)\n\n---\n\n## Design e Construção\n\n- **Compacta**: 64 cm de comprimento (men",
+      "preview_truncated": true,
+      "blocks": 355,
+      "chunks": 23
+    },
+    {
+      "snapshot_id": "000f61e7ca9e49b593cb44b80342d8bf19ce3c7ebe774410fa3800fa69f91ca8",
+      "href": "https://www.zimyo.com/resources/templates/hr-email-templates",
+      "status": "selected",
+      "format": "html",
+      "representation": {
+        "block_schema_version": "dom-blocks-v3",
+        "serializer": "markdownify-structured-v1",
+        "markdownify_version": "1.2.3",
+        "removed_nodes": 53,
+        "order": "DOM order; computed visibility unknown"
+      },
+      "text_preview": "Skip to content\n\nZimyo Logo\n\nLogin\n\nBook a Demo\n\nHR Email Templates​\n\nGet readymade HR email templates. Use them to quickly and easily send your next professional email in the correct format to get your message across effectively and efficiently.​\n\nOverview\n\nRequisition Emails\n\nCelebration Emails\n\nPre-onboarding Emails\n\nExpense Emails\n\nReferral Emails\n\nJob Offer Response Emails\n\nCandidate Rejection & Follow-Up Emails\n\nEmployee Warning Emails\n\nPerformance Appraisal Emails\n\nAppreciation Emails\n\nRelieving Letter Email\n\nResignation Letter Email\n\nExperience Letter Email\n\nModern HR for Modern Teams\n\nName\n\nCompany Name\n\nBusiness Email\n\nCountry Code\n\nIndia +91 Afghanistan +93 Aland Islands +358 Albania +355 Algeria +213 American Samoa +1684 Andorra +376 Angola +244 Anguilla +1264 Antarctica +672 Antigua and Barbuda +1268 Argentina +54 Armenia +374 Aruba +297 Australia +61 Austria +43 Azerbaijan +994 Bahamas +1242 Bahrain +973 Bangladesh +880 Barbados +1246 Belarus +375 Belgium +32 Belize +501 Benin +229 Bermuda +1441 Bhutan +975 Bolivia +591 Bonaire, Sint Eustatius and Saba +599 Bosnia and Herzegovina +387 Botswana +267 Bouvet Island +55 Brazil +55 British Indian Ocean Territory +246 Brune",
+      "markdown_preview": "[Skip to content](<https://www.zimyo.com/resources/templates/hr-email-templates#content>)\n\n[ ![Zimyo Logo](<https://www.zimyo.com/wp-content/uploads/2022/05/zimyo_logo.png>) ](<https://www.zimyo.com/>)\n\n[  Login  ](<https://www.zimyo.work/>)\n\n[  Book a Demo  ](<https://www.zimyo.com/demo/>)\n\n# HR Email Templates​\n\nGet readymade HR email templates. Use them to quickly and easily send your next professional email in the correct format to get your message across effectively and efficiently.​\n\n- [ Overview ](<https://www.zimyo.com/resources/templates/hr-email-templates/>)\n\n- [   Requisition Emails  ](<https://www.zimyo.com/resources/templates/hr-email-templates/requisition-email/>)\n\n- [   Celebration Emails ](<https://www.zimyo.com/resources/templates/hr-email-templates/celebration-emails/>)\n\n- [   Pre-onboarding Emails ](<https://www.zimyo.com/resources/templates/hr-email-templates/pre-onboarding-email/>)\n\n- [   Expense Emails  ](<https://www.zimyo.com/resources/templates/hr-email-templates/expense-email/>)\n\n- [   Referral Emails  ](<https://www.zimyo.com/resources/templates/hr-email-templates/referral-email-templates/>)\n\n- [   Job Offer Response Emails  ](<https://www.zimyo.com/resources/templates/hr-email-templates/job-offer-response-templates/>)\n\n- [   Candidate Rejection & Follow-Up Emails ](<https://www.zimyo.com/resources/templates/hr-email-templates/candidate-rejection-and-followup-templates/>)\n\n- [   Employee Warning Emails ](<https://www.zimyo.com/resources/templates/hr-email-templates/employee-warning-email-templates/>)\n\n- [   Performance Appraisal Emails ](<https://www.zimyo.com/resources/templates/hr-email-templates/performance-appraisal-email-templates/>)\n\n- [   Appreciation Emails ](<https://www.zimyo.com/resources/templates/hr-email-templates/appreciation-em",
+      "preview_truncated": true,
+      "blocks": 90,
+      "chunks": 17
+    },
+    {
+      "snapshot_id": "001f2158c169736d76fc477d2d25ae841a710d10517e83735ad1177a8b388f8d",
+      "href": "https://www.sportingpost.com/online-casinos/michigan",
+      "status": "needs_review",
+      "format": "html",
+      "representation": {
+        "block_schema_version": "dom-blocks-v3",
+        "serializer": "markdownify-structured-v1",
+        "markdownify_version": "1.2.3",
+        "removed_nodes": 59,
+        "order": "DOM order; computed visibility unknown"
+      },
+      "text_preview": "List of All Michigan Online Casinos (Updated: October 2025)\n\nThere are currently 16 online casinos legal in Michigan. Our expert team has rigorously tested and reviewed them for you.\n\nTobi Amure\n\nTobi Amure\n\nAuthor\n\nJosh Miller\n\nJosh Miller\n\nReviewed By\n\nLast Updated: 7 September, 2025\n\nBet With ConfidenceAd Disclosure\n\nhero-bg\n\nQuick video - top online casinos Michigan\n\nList of all Michigan online casinos\n\nMichigan online casino reviews\n\nBest Michigan online casinos compared 2025\n\nHow we rate & rank Michigan online gambling sites\n\nHow do I choose the best real money online casino Michigan for me?\n\nNew Michigan online casino 2025\n\nBest Michigan online casino bonuses\n\nBest Michigan casino apps\n\nHow to gamble responsibly in Michigan\n\nFrequently asked questions\n\nEditorial policy\n\nReferences\n\nWhat are the best Michigan online casinos?\n\nThe best Michigan online casinos are DraftKings Casino, Caesars Palace Online Casino, and BetMGM Casino. DraftKings is great for beginners with over 800 games and a 97.3% payout rate, while Caesars Palace excels in promos and bonuses with 900+ games and a 97.6% payout rate. BetMGM offers a top mobile experience with 200+ games and a 95.7% payout rate.\n\nS",
+      "markdown_preview": "# List of All Michigan Online Casinos (Updated: October 2025)\n\nThere are currently 16 online casinos legal in Michigan. Our expert team has rigorously tested and reviewed them for you.\n\n[![Tobi Amure](<https://cdn.sportingpost.com/tr:f-auto,h-124,fo-auto/uploads/2024/11/1732036323-Tobi%20Amure%20writer%20at%20NewSweepstakes.Casino.png>)](<https://www.sportingpost.com/en-us/author/tobi-amure/>)\n\n[Tobi Amure](<https://www.sportingpost.com/en-us/author/tobi-amure/>)\n\nAuthor\n\n[![Josh Miller](<https://cdn.sportingpost.com/tr:f-auto,h-124,fo-auto/uploads/2024/08/1723212899-pic2.jpg>)](<https://www.sportingpost.com/en-us/author/joshua-miller/>)\n\n[Josh Miller](<https://www.sportingpost.com/en-us/author/joshua-miller/>)\n\nReviewed By\n\nLast Updated: 7 September, 2025\n\nBet With ConfidenceAd Disclosure\n\n![hero-bg](<https://cdn.sportingpost.com/tr:f-auto,w-452,h-650,c-at_max/uploads/2025/09/1757006566-hero-bg.webp>)\n\nQuick video - top online casinos Michigan\n\nList of all Michigan online casinos\n\nMichigan online casino reviews\n\nBest Michigan online casinos compared 2025\n\nHow we rate & rank Michigan online gambling sites\n\nHow do I choose the best real money online casino Michigan for me?\n\nNew Michigan online casino 2025\n\nBest Michigan online casino bonuses\n\nBest Michigan casino apps\n\nHow to gamble responsibly in Michigan\n\nFrequently asked questions\n\nEditorial policy\n\nReferences\n\nWhat are the best Michigan online casinos?\n\nThe best Michigan online casinos are **DraftKings Casino, Caesars Palace Online Casino, and BetMGM Casino**. DraftKings is great for beginners with over 800 games and a 97.3% payout rate, while Caesars Palace excels in promos and bonuses with 900+ games and a 97.6% payout rate. BetMGM offers a top mobile experience with 200+ games and a 95.7% payout rate.\n\nStart OddsC",
+      "preview_truncated": true,
+      "blocks": 470,
+      "chunks": 68
+    },
+    {
+      "snapshot_id": "0027d6c79cbf932fb39d05b26e3bf272f7de168b0ee60325d443128b3e06d073",
+      "href": "https://www.runnersneed.com/expert-advice/gear-guides/running-spikes-buying-guide.html",
+      "status": "selected",
+      "format": "html",
+      "representation": {
+        "block_schema_version": "dom-blocks-v3",
+        "serializer": "markdownify-structured-v1",
+        "markdownify_version": "1.2.3",
+        "removed_nodes": 45,
+        "order": "DOM order; computed visibility unknown"
+      },
+      "text_preview": "A Beginner's Guide to Running Spikes\n\nWhether you're planning to hit the tracks to boost your endurance or considering taking up cross-country running in the hills and on the trails, have you considered a pair of running spikes? Running spikes are designed to give you the additional grip and stability you need to stay on track and propel yourself forward - helping improve your running times and give you the confidence to push yourself further.\n\nWith different styles for short sprints, middle-distance runs, and long cross-country marathons - finding the running spikes to suit your run is never easy. From choosing the right type to pin length and fit - we've compiled our running spikes buying guide to include everything you need to know to buy the right pair of spikes for you. So all you need to do is get out there, and get running...\n\nWhat Are Running Spikes?\n\n\"Why should I use running spikes?\" - Running spikes are specialised athletic shoes designed to provide maximum grip and speed on track or cross-country surfaces. Unlike regular running shoes, spikes feature lightweight construction and removable metal pins (the “spikes” themselves) in the sole, which dig into the ground for su",
+      "markdown_preview": "![](<https://www.runnersneed.com/content/dam/runnersneed/content/runningspikes.jpeg>)\n\n# A Beginner's Guide to Running Spikes\n\n*Whether you're planning* ***to [hit the tracks to boost your endurance](<https://www.runnersneed.com/c/shoes/race-lightweight-shoes.html>)*** *or considering taking up* ***[cross-country running in the hills](<https://www.runnersneed.com/c/shoes/trail-running-shoes.html>)*** *and on the trails, have**you considered a pair of running spikes? Running spikes are designed to give you the additional grip and stability you need to stay on track and propel yourself forward - helping improve your running times and give you the confidence to push yourself further.*\n\n*With different styles for short sprints, middle-distance runs, and long cross-country marathons - finding the running spikes to suit your run is never easy. From choosing the right type to pin length and fit - we've compiled our running spikes buying guide to include everything you need to know to buy the right pair of spikes for you. So all you need to do is get out there, and get running...*\n\n## What Are Running Spikes?\n\n\"*Why should I use running spikes?*\" - Running spikes are specialised athletic shoes designed to provide maximum grip and speed on track or cross-country surfaces. Unlike regular running shoes, spikes feature lightweight construction and removable metal pins (the “spikes” themselves) in the sole, which dig into the ground for superior traction. This design helps runners accelerate quickly, maintain momentum, and stay stable on slippery or uneven terrain.\n\n![Runners in starting blocks](<https://www.runnersneed.com/content/dam/runnersneed/seo-test/olympics/decathlon4.jpg>)\n\n## Types of Running Spikes: Which Is Right for You?\n\n**Sprint Spikes**\n\n**Best for**→ 60m, 100m, 200m",
+      "preview_truncated": true,
+      "blocks": 162,
+      "chunks": 15
+    },
+    {
+      "snapshot_id": "00308df420607110e23c23e781b722c036b779465e163917c9af57f413a3391c",
+      "href": "https://portales.bancochile.cl/personas/beneficios/promociones/detalles/disfruta-lo-que-quieras-en-3-cuotas-sin-interes-con-tu-tarjeta-de-credito-del-chile",
+      "status": "selected",
+      "format": "html",
+      "representation": {
+        "block_schema_version": "dom-blocks-v3",
+        "serializer": "markdownify-structured-v1",
+        "markdownify_version": "1.2.3",
+        "removed_nodes": 47,
+        "order": "DOM order; computed visibility unknown"
+      },
+      "text_preview": "Ir a contenido principal\n\nEnter\n\nSaber más\n\nCONOCE OTRAS CategoríasCategorías\n\nSaboresViajesSustentableBienestarPanoramasMarcasDelivery\n\nMostrar más\n\nConoce diferentes alternativas para ti\n\nPaga tus gastos en educación\n\nConoce más\n\n¡Renueva o compra el auto que esperabas!\n\nConoce más\n\nSeguro de Viaje Internacional con 18% dto.\n\nConoce más\n\nConoce más beneficios\n\nDescubre nuestras iniciativas y campañas\n\nAccede a la gran variedad de programas, beneficios, actividades y muchas otras novedades que tenemos para ti.\n\n5to Concurso Nacional de Emprendimiento Universitario\n\nCONOCE MÁS ›\n\n¡Felicitamos a los 200 seleccionados!\n\nCONOCE MÁS ›\n\nAtención a las estafas por correo electrónico\n\nCONOCE MÁS ›\n\n¿Quieres ser del Chile?\n\nConoce las diferentes alternativas que tenemos para ti:\n\n¿Necesitas una Cuenta Corriente Digital?\n\nSé parte del Banco de todos los chilenos, obtén tu cuenta corriente online en menos de 10 minutos.\n\nSolicítala\n\n¡Súmate a la Cuenta FAN del Chile!\n\nUna cuenta vista 100% digital, sin costos de apertura y mantención.\n\nHazte FAN\n\n¿Buscas otro producto con nosotros?\n\nNos comunicaremos contigo para evaluar tu Kit de Cuenta Corriente o el producto que necesites.\n\nSolicitar prod",
+      "markdown_preview": "Ir a contenido principal\n\nEnter\n\n[ Saber más ](<https://portales.bancochile.cl/personas/beneficios/promociones/detalles/disfruta-lo-que-quieras-en-3-cuotas-sin-interes-con-tu-tarjeta-de-credito-del-chile>)\n\nCONOCE OTRAS CategoríasCategorías\n\n[Sabores](<https://sitiospublicos.bancochile.cl/personas/beneficios/sabores>)[Viajes](<https://sitiospublicos.bancochile.cl/personas/beneficios/viajes>)[Sustentable](<https://sitiospublicos.bancochile.cl/personas/beneficios/sustentable>)[Bienestar](<https://sitiospublicos.bancochile.cl/personas/beneficios/bienestar>)[Panoramas](<https://sitiospublicos.bancochile.cl/personas/beneficios/panoramas>)[Marcas](<https://sitiospublicos.bancochile.cl/personas/beneficios/marcas>)[Delivery](<https://sitiospublicos.bancochile.cl/personas/beneficios/delivery>)\n\n[ Mostrar más ](<https://sitiospublicos.bancochile.cl/personas/beneficios/>)\n\nConoce diferentes **alternativas para ti**\n\n![](<https://assets.bancochile.cl/uploads/000/039/930/f8bdca63-b4a5-4c07-b9d1-bbb9e43b99d9/original/educacionbch.jpg>)\n\nPaga tus gastos en educación\n\nConoce más\n\n![](<https://assets.bancochile.cl/uploads/000/039/397/23cdfb91-d3a7-4700-b136-17354a6c3a45/original/bch-auto.jpg>)\n\n¡Renueva o compra el auto que esperabas\\!\n\nConoce más\n\n![](<https://assets.bancochile.cl/uploads/000/085/913/47f5ef71-9c44-4ec6-af4e-b1f0a6940c58/original/viajebch.jpg>)\n\nSeguro de Viaje Internacional con 18% dto.\n\nConoce más\n\n[ Conoce más beneficios ](<https://sitiospublicos.bancochile.cl/personas/beneficios/>)\n\n## Descubre nuestras **iniciativas y campañas**\n\nAccede a la gran variedad de programas, beneficios, actividades y muchas otras novedades que tenemos para ti.\n\n<img alt=\"\" class=\"h-[50px] w-auto max-h-[50px] object-contain object-left\"/>\n\n5to Concurso Nacional de Emprendimiento Universit",
+      "preview_truncated": true,
+      "blocks": 73,
+      "chunks": 14
+    },
+    {
+      "snapshot_id": "003467cfed5f79955d2d1a76908db40579d31ae11b4b80cdd9a036b2268ac0ba",
+      "href": "https://www.techgearlab.com/topics/home/best-dog-hoodie",
+      "status": "selected",
+      "format": "html",
+      "representation": {
+        "block_schema_version": "dom-blocks-v3",
+        "serializer": "markdownify-structured-v1",
+        "markdownify_version": "1.2.3",
+        "removed_nodes": 22,
+        "order": "DOM order; computed visibility unknown"
+      },
+      "text_preview": "GearLab logo\n\nGearLab logo\n\nReviews You Can Rely On\n\nWe buy all the products we test — no freebies from companies. If you purchase through our links, we may earn a commission, which helps support our testing.\n\nHome & Garden Reviews\n\nPet Gear Reviews\n\nThe Best Dog Hoodie\n\nWe tested dog hoodies from Ellie Dog Wear, Expawlorer, Fitwarm, and more to find the best options for keeping your pooch stylish and comfortable\n\ngearlab tested logo\n\nBest Dog Hoodie Review\n\nCredit: Hayley Thomas\n\nHayley Thomas\n\nBy Hayley Thomas ⋅ Review Editor ⋅ Updated July 24, 2023\n\nSearching for a hoodie for your pooch? After researching over 45 different options, we tested the top 8 rated dog hoodies. Not all dog garments are created equal — some are fashionable, some are functional, and some are a healthy combination of both. We were sure to put every hoodie through the proverbial wringer so that you know what you're committing to before buying. We suited up our pups time and time again for hikes, runs, and dog park hangouts in an attempt to provide the necessary information you need to make an informed purchase.\n\nWe realize that clothes are lower down on your canine's hierarchy of needs, which is why we've a",
+      "markdown_preview": "[![GearLab logo](<https://djd1xqjx2kdnv.cloudfront.net/images/gl-logo-web-v1o.png>)](<https://www.techgearlab.com/>) [  ](<https://www.techgearlab.com/search>)\n\n[![GearLab logo](<https://djd1xqjx2kdnv.cloudfront.net/images/gl-logo-web-v1o.png>)](<https://www.techgearlab.com/>)\n\nReviews You Can Rely On\n\nWe buy all the products we test — *no freebies* from companies. If you purchase through our links, we may earn a commission, which helps support [our testing.](<https://www.techgearlab.com/about>)\n\n1. [ Home & Garden Reviews](<https://www.techgearlab.com/home>)\n2. [ Pet Gear Reviews](<https://www.techgearlab.com/t/pets>)\n\n# The Best Dog Hoodie\n\nWe tested dog hoodies from Ellie Dog Wear, Expawlorer, Fitwarm, and more to find the best options for keeping your pooch stylish and comfortable\n\n![gearlab tested logo](<https://djd1xqjx2kdnv.cloudfront.net/images/gearlab_tested_v4_80w.png>)\n\n[![Best Dog Hoodie Review](<https://djd1xqjx2kdnv.cloudfront.net/photos/34/75/469068_16938_XXL.webp>)](<https://djd1xqjx2kdnv.cloudfront.net/photos/34/75/469068_16938_XXXL.webp>)\n\nCredit: Hayley Thomas\n\n![Hayley Thomas](<https://djd1xqjx2kdnv.cloudfront.net/photos/34/39/465426_9166_XSS.webp>)\n\nBy [Hayley Thomas](<https://www.techgearlab.com/author/hayley-thomas>) ⋅ Review Editor  ⋅  Updated July 24, 2023\n\nSearching for a hoodie for your pooch? After researching over 45 different options, we tested the top 8 rated dog hoodies. Not all dog garments are created equal — some are fashionable, some are functional, and some are a healthy combination of both. We were sure to put every hoodie through the proverbial wringer so that you know what you're committing to before buying. We suited up our pups time and time again for hikes, runs, and dog park hangouts in an attempt to provide the necessary info",
+      "preview_truncated": true,
+      "blocks": 346,
+      "chunks": 44
+    },
+    {
+      "snapshot_id": "003ae8eb750f714ec6d76291b2ed5fac36268946131ec27bb24369fcf35286f0",
+      "href": "https://www.bankbazaar.com/gold-rate/tanishq-gold-schemes.html",
+      "status": "selected",
+      "format": "html",
+      "representation": {
+        "block_schema_version": "dom-blocks-v3",
+        "serializer": "markdownify-structured-v1",
+        "markdownify_version": "1.2.3",
+        "removed_nodes": 16,
+        "order": "DOM order; computed visibility unknown"
+      },
+      "text_preview": "BankBazaar\n\nCredit Cards\n\nCompare Credit cards\n\nCo-branded Credit Cards\n\nRBL SaveMax Credit Card\n\nYes Bank FinBooster Credit Card\n\nHDFC Credit Cards\n\nSBI Credit Cards\n\nIndusind Bank Credit cards\n\nTop 10 Credit Cards\n\nHome Loans\n\nCompare Home Loans\n\nHome Loan Calculator\n\nHome Loan Interest Rates\n\nHome Loan Eligibility\n\nHome Loan Transfer\n\nPMAY\n\nSBI Home Loan\n\nHDFC Home Loan\n\nPersonal Loans\n\nCompare Personal Loans\n\nPersonal Loan Calculator\n\nPersonal Loan Interest Rates\n\nPersonal Loan Eligibility\n\nSBI Personal Loan\n\nHDFC Personal Loan\n\nOther Loans\n\nCar Loan\n\nTwo Wheeler Loan\n\nEducation Loan\n\nGold Loan\n\nLoan Against Property\n\nCalculators\n\nEMI Calculator\n\nHome Loan EMI Calculator\n\nPersonal Loan EMI Calculator\n\nCar Loan EMI Calculator\n\nIncome Tax Calculator\n\nFD Calculator\n\nRD Calculator\n\nAll Financial Calculators\n\nInvestments\n\nFixed Deposit\n\nRecurring Deposit\n\nSavings Account\n\nSaving Schemes\n\nGold Rate\n\nSilver Rate\n\nMutual Funds\n\nCredit Score\n\nFREE\n\nGovt. Utility Documents\n\nPan Card\n\nAadhaar Card\n\nVoter ID\n\nElectricity Bill\n\nDriving Licence\n\nPassport\n\nVisa\n\nGas Connection\n\nRation Card\n\nDownload App\n\nDownload Mobile App\n\nBadge\n\nInsurance\n\nTerm Life Insurance\n\nCar Insurance\n\nHealth Insuran",
+      "markdown_preview": "[![BankBazaar](<https://www.bankbazaar.com/images/bankbazaar-logo-v1.svg>)](<https://www.bankbazaar.com/>)\n\n**Credit Cards**\n\n- [Compare Credit cards](<https://www.bankbazaar.com/credit-card.html>)\n- [Co-branded Credit Cards](<https://www.bankbazaar.com/credit-card/best-co-branded-credit-cards-in-india.html>)\n- [RBL SaveMax Credit Card](<https://www.bankbazaar.com/credit-card/rbl-bank-bankbazaar-savemax-credit-card.html>)\n- [Yes Bank FinBooster Credit Card](<https://www.bankbazaar.com/credit-card/finbooster-yes-bank-bankbazaar-co-branded-credit-card.html>)\n- [HDFC Credit Cards](<https://www.bankbazaar.com/hdfc-credit-card.html>)\n- [SBI Credit Cards](<https://www.bankbazaar.com/sbi-credit-card.html>)\n- [Indusind Bank Credit cards](<https://www.bankbazaar.com/indusind-credit-card.html>)\n- [Top 10 Credit Cards](<https://www.bankbazaar.com/credit-card/top-10-credit-cards-in-india.html>)\n\n**Home Loans**\n\n- [Compare Home Loans](<https://www.bankbazaar.com/home-loan.html>)\n- [Home Loan Calculator](<https://www.bankbazaar.com/home-loan/emi-calculator.html>)\n- [Home Loan Interest Rates](<https://www.bankbazaar.com/home-loan-interest-rate.html>)\n- [Home Loan Eligibility](<https://www.bankbazaar.com/home-loan-eligibility.html>)\n- [Home Loan Transfer](<https://www.bankbazaar.com/home-loan-balance-transfer.html>)\n- [PMAY](<https://www.bankbazaar.com/home-loan/pradhan-mantri-awas-yojana.html>)\n- [SBI Home Loan](<https://www.bankbazaar.com/sbi-home-loan.html>)\n- [HDFC Home Loan](<https://www.bankbazaar.com/hdfc-home-loan.html>)\n\n**Personal Loans**\n\n- [Compare Personal Loans](<https://www.bankbazaar.com/personal-loan.html>)\n- [Personal Loan Calculator](<https://www.bankbazaar.com/personal-loan/emi-calculator.html>)\n- [Personal Loan Interest Rates](<https://www.bankbazaar.com/personal-l",
+      "preview_truncated": true,
+      "blocks": 560,
+      "chunks": 12
+    },
+    {
+      "snapshot_id": "003d317731550828cf9a52a95ddf2df839d680f0fada42e592080d891812bcaf",
+      "href": "https://www.junk-works.ca/how-it-works/residential",
+      "status": "selected",
+      "format": "html",
+      "representation": {
+        "block_schema_version": "dom-blocks-v3",
+        "serializer": "markdownify-structured-v1",
+        "markdownify_version": "1.2.3",
+        "removed_nodes": 24,
+        "order": "DOM order; computed visibility unknown"
+      },
+      "text_preview": "Skip to Main ContentSkip to Footer Content\n\nReliable Junk Removal\n\nBook a service online now and save $20! Red arrow icon indicating an external link is present.\n\nClose\n\nFull Service Junk Removal\n\nAre you a homeowner in need of a competent junk removal service in Canada? If so, Junk King is the only partner you will ever need. For more than a decade, we have been proud to help thousands of residents haul away their clutter with our eco-friendly clean-up services.\n\nBook Online\n\nFull Service Junk Removal\n\nImage of a red Junk King dump truck with an employee using a push broom beside it.\n\nA pile of logs.\n\nYard Waste Disposal\n\nWhat do you do with more than a few bags of grass clippings? Call Junk King for yard waste disposal, and we’ll handle the tree branches, trimmings, gravel landscaping, and more. You might be dreading having to get rid of all the yard waste you've created. And it can be a bit overwhelming to dispose of all those mounds of old sod, trimmed or pulled-up shrubs, and other piles of yard waste.\n\nLearn More\n\nOld water heater.\n\nWater Heater Disposal and Recycling\n\nNobody loves cold showers in the winter. Junk King’s junk removal experts can help you remove that old water",
+      "markdown_preview": "[Skip to Main Content](<https://www.junk-works.ca/how-it-works/residential#main>)[Skip to Footer Content](<https://www.junk-works.ca/how-it-works/residential#footer>)\n\nReliable Junk Removal\n\nBook a service online now and save $20\\! ![Red arrow icon indicating an external link is present.](<https://www.junk-works.ca/brand/_assets/images/brand-img/external-link.svg>)\n\nClose\n\n# Full Service Junk Removal\n\nAre you a homeowner in need of a competent junk removal service in Canada? If so, Junk King is the only partner you will ever need. For more than a decade, we have been proud to help thousands of residents [haul away their clutter](<https://www.junk-works.ca/services/items-we-take>) with our eco-friendly clean-up services.\n\n[ Book Online ](<https://www.junk-works.ca/schedule-appointment>)\n\nFull Service Junk Removal\n\n![Image of a red Junk King dump truck with an employee using a push broom beside it.](<https://www.junk-works.ca/brand/_assets/images/service-images/junk-removal-category-ca-header-desktop.webp>)\n\n- ![A pile of logs.](<https://www.junk-works.ca/brand/_assets/images/service-images/junk-removal-category-25-75-yard-waste.webp>)\n\n  ## Yard Waste Disposal\n\n  What do you do with more than a few bags of grass clippings? Call Junk King for yard waste disposal, and we’ll handle the tree branches, trimmings, gravel landscaping, and more. You might be dreading having to get rid of all the yard waste you've created. And it can be a bit overwhelming to dispose of all those mounds of old sod, trimmed or pulled-up shrubs, and other piles of yard waste.\n\n  [Learn More](<https://www.junk-works.ca/services/items-we-take/yard-waste>)\n- ![Old water heater.](<https://www.junk-works.ca/brand/_assets/images/service-images/junk-removal-category-25-75-water-heater.webp>)\n\n  ## Water He",
+      "preview_truncated": true,
+      "blocks": 205,
+      "chunks": 10
+    },
+    {
+      "snapshot_id": "003d9db4b3ed769e611b431389e35b6e4be06becd50efb5d9edd875fe5143033",
+      "href": "https://drata.com/blog/drata-is-hipaa-compliant",
+      "status": "selected",
+      "format": "html",
+      "representation": {
+        "block_schema_version": "dom-blocks-v3",
+        "serializer": "markdownify-structured-v1",
+        "markdownify_version": "1.2.3",
+        "removed_nodes": 52,
+        "order": "DOM order; computed visibility unknown"
+      },
+      "text_preview": "August 10, 2022 • 3 min read\n\nHIP, HIPAA, HOORAY! Drata is Now HIPAA Compliant\n\nDrata is now compliant with HIPAA, the federal law for patient health protection in the U.S. Read how and why our team prioritized HIPAA.\n\nWritten By\n\nAlev Viggio\n\nAlev Viggio\n\nDirector of Compliance\n\nCategory\n\nGRC\n\nTable of Contents\n\nHow Does HIPAA Impact Drata?\n\nResults of the HIPAA Audit\n\nWhat Does This Mean for Drata Customers?\n\nThe Power of Drata\n\nTrust and Transparency\n\nAt Drata, we know that having a holistic approach to your security program is essential to maintaining trust. Whether it’s SOC 2, FFIEC, or one of the many others, our customers need to adhere to a variety of compliance frameworks, standards, or regulations and need their partners to meet them too.\n\nIt’s just one of the reasons why Drata is now compliant with HIPAA (Health Insurance Portability and Accountability Act), the federal law for patient health protection in the U.S.\n\nHow Does HIPAA Impact Drata?\n\nContrary to popular belief, HIPAA compliance isn’t solely designated for hospitals. There are two main groups that must comply with HIPAA—covered entities and business associates.\n\nCovered entities include either a health plan, h",
+      "markdown_preview": "August 10, 2022  •  3 min read\n\n# HIP, HIPAA, HOORAY\\! Drata is Now HIPAA Compliant\n\nDrata is now compliant with HIPAA, the federal law for patient health protection in the U.S. Read how and why our team prioritized HIPAA.\n\nWritten By\n\n![Alev Viggio](<https://drata.com/_next/image?url=https%3A%2F%2Fimages.drata.com%2Fx3hoqyjm3c27%2F3XizTwpt0povPq4TEzXJky%2F87bfa8de6981848d125aa5269f9f94f7%2F1645747047494&w=96&q=75>)\n\nAlev Viggio\n\nDirector of Compliance\n\n[](<https://x.com/intent/tweet?url=https://drata.com/blog/drata-is-hipaa-compliant>)[](<https://www.facebook.com/sharer/sharer.php?u=https://drata.com/blog/drata-is-hipaa-compliant>)[](<https://www.linkedin.com/shareArticle?url=https://drata.com/blog/drata-is-hipaa-compliant>)[](<https://www.reddit.com/submit?url=https://drata.com/blog/drata-is-hipaa-compliant&title=Drata>)\n\nCategory\n\nGRC\n\n## Table of Contents\n\n- How Does HIPAA Impact Drata?\n- Results of the HIPAA Audit\n- What Does This Mean for Drata Customers?\n- The Power of Drata\n- Trust and Transparency\n\nAt Drata, we know that having a holistic approach to your security program is essential to maintaining trust. Whether it’s SOC 2, FFIEC, or one of the [many others](<https://drata.com/product>), our customers need to adhere to a variety of compliance frameworks, standards, or regulations and need their partners to meet them too.\n\nIt’s just one of the reasons why Drata is now compliant with [HIPAA (Health Insurance Portability and Accountability Act)](<https://drata.com/blog/hipaa-compliance-beginners-guide>), the federal law for patient health protection in the U.S.\n\n## How Does HIPAA Impact Drata?\n\nContrary to popular belief, HIPAA compliance isn’t solely designated for hospitals. There are two main groups that must comply with HIPAA—covered entities and business as",
+      "preview_truncated": true,
+      "blocks": 91,
+      "chunks": 13
+    },
+    {
+      "snapshot_id": "004450cabb9e99aff07b1c6e1ceda9ad0e398ccac22189709322fc1d818310ad",
+      "href": "https://dorik.com/blog/dorik-vs-webflow",
+      "status": "selected",
+      "format": "html",
+      "representation": {
+        "block_schema_version": "dom-blocks-v3",
+        "serializer": "markdownify-structured-v1",
+        "markdownify_version": "1.2.3",
+        "removed_nodes": 65,
+        "order": "DOM order; computed visibility unknown"
+      },
+      "text_preview": "Dorik Logo\n\nProduct\n\nAI Website Generator\n\nNo-Code Editor\n\nCMS\n\nNative SEO\n\nAirtable Integration\n\nBlogging Platform\n\nTemplates\n\nPricing\n\nFor Agencies\n\nResources\n\nWall of Love\n\nDorik Blog\n\nHelp Center\n\nSuccess Stories\n\nLogin\n\nSign Up\n\nBuilding Websites\n\nDorik vs Webflow: Which One Is Better in 2025?\n\nDorik vs Webflow: Which One Is Better? We break down their key features, pricing, ease of use, SEO tools, and more to help you decide which is best for building your website.\n\nby Mortuza Hossain • 16 July 2025\n\nDorik vs Webflow: Which One Is Better in 2025?\n\nDorik vs Webflow: Which One Is Better in 2025?\n\nToday, we’ll highlight the capabilities and limitations of two of the best website builders, Dorik and Webflow. We will show which platform excels in what categories so that you can choose the best one that fits your needs.\n\nLet’s get started!\n\nKey Differences Between Dorik and Webflow at a Glance\n\nDorik is the best option due to its simple workflow, AI capabilities, affordability, high customizability & flexibility, unlimited storage & bandwidth, 24/7 live customer support, and many more.\n\nWebflow is suitable for users who have design or coding experience and need a system with advanc",
+      "markdown_preview": "[![Dorik Logo](<https://cdn.dorik.com/5e373b6c43a72a001f56dbf6/61a1f4035bfd7b0011fb92f9/images/logo-dark_jta933n2.svg>)](<https://dorik.com/>)\n\n- [Product](<https://dorik.com/blog/dorik-vs-webflow>)\n\n  - [AI Website Generator](<https://dorik.com/ai-website-builder>)\n  - [No-Code Editor](<https://dorik.com/no-code-website-builder>)\n  - [CMS](<https://dorik.com/white-label-cms>)\n  - [Native SEO](<https://dorik.com/seo>)\n  - [Airtable Integration](<https://dorik.com/airtable-website-builder>)\n  - [Blogging Platform](<https://dorik.com/no-code-blogging-platform>)\n- [Templates](<https://dorik.com/templates>)\n- [Pricing](<https://dorik.com/pricing>)\n- [For Agencies](<https://dorik.com/for-agency>)\n- [Resources](<https://dorik.com/blog/dorik-vs-webflow>)\n\n  - [Wall of Love](<https://dorik.com/wall-of-love>)\n  - [Dorik Blog](<https://dorik.com/blog>)\n  - [Help Center](<https://help.dorik.com>)\n  - [Success Stories](<https://dorik.com/success-stories>)\n\n- [Login](<https://app.dorik.com/>)\n- [Sign Up](<https://app.dorik.com/signup/?r=nav>)\n\n[Building Websites](<https://dorik.com/topic/building-websites>)\n\n# Dorik vs Webflow: Which One Is Better in 2025?\n\nDorik vs Webflow: Which One Is Better? We break down their key features, pricing, ease of use, SEO tools, and more to help you decide which is best for building your website.\n\nby **Mortuza Hossain** • 16 July 2025\n\n![Dorik vs Webflow: Which One Is Better in 2025?](<https://cdn.cmsfly.com/635bcad9b8a74e0091632998/images/DorikvsWebflow1-EcwiM.jpg?width=360&height=210>)\n\n![Dorik vs Webflow: Which One Is Better in 2025?](<https://cdn.cmsfly.com/635bcad9b8a74e0091632998/images/DorikvsWebflow1-EcwiM.jpg>)\n\nToday, we’ll highlight the capabilities and limitations of two of the [best website builders](<https://dorik.com/blog/best-website-",
+      "preview_truncated": true,
+      "blocks": 425,
+      "chunks": 40
+    }
+  ],
+  "limitations": "Preview snippets are explicitly truncated; full documents/chunks are not truncated. Native formats retain native parsing. Full gzip documents/raw data stay outside Git.",
+  "incumbent_revision": "caf590d1c3b78fa0d66899e799307635e84d23b2",
+  "serializer": "markdownify-structured-v1",
+  "block_schema_version": "dom-blocks-v3",
+  "converter_options": {
+    "heading_style": "ATX",
+    "bullets": "-",
+    "newline_style": "BACKSLASH",
+    "autolinks": false,
+    "strip_pre": null,
+    "sub_symbol": "<sub>",
+    "sup_symbol": "<sup>"
+  },
+  "dependencies": {
+    "markdownify": "1.2.3",
+    "beautifulsoup4": "4.15.0",
+    "markdown-it-py": "4.2.0"
+  },
+  "source_fingerprints": {
+    "preprocessing/schema.py": "fcce8bfd4f532330234d12a5072fa2d7250504c231e823260310a4018a1e60e1",
+    "preprocessing/blocks.py": "c9d1048add604070558353173a16e3ac4340e12a4de21a8a1ae8327752f67b8d",
+    "preprocessing/markdownify_serializer.py": "a47906348754f11ebd42cdb4136e9db9b86d8128c98f8ddc4c2843c7b967b5c6",
+    "preprocessing/quality.py": "cc702b4cff899c83a2469afc7fbb98c02c30a1df339e5cc3296a2d625327c5a6",
+    "preprocessing/offline.py": "dcb6bb1f5c4d8aa1bb3e25b6e7dbaf8d9adc54c5c5eaeadc7a11c207dacaf235",
+    "preprocessing/runner.py": "3bdfc0b6350f238a87c6c5c89a588dc7f3f01eac94f7909be4cf29b9df66f1e5",
+    "preprocessing/adapters/local.py": "daf22d779d687afa45205b631d9ba30c6ab0ba075cb22dee6fd8e2d249a4944c",
+    "preprocessing/adapters/external.py": "ee84bf0ac857e8a851583d8c452f5f8b067d743a94c154ccb7c2fad138af7a7a",
+    "preprocessing/node/package-lock.json": "cdc3c62c394c5ff43d4bc2798a1fbf7f0b2b687d74235b4326bf99faf5a772a9",
+    "preprocessing/node/worker.cjs": "ce3cc69b6510d44bb0bfad98f26a1ed1e402b37ef24c610ff12d13ec277413f2",
+    "scripts/analyze_content.py": "21f2c197a25ecd6c1f4d11d2090f7fefe94f2c0939ebea60e7261fa97c7d7c29",
+    "uv.lock": "3f7de4ea094575bd218ef1d2b8a3773e689bafb06b20143632ac28fa935a3cb3"
+  },
+  "report_code_sha256": "dcf69a5287cf9be96de648c45746c5d0afef83d51edab774a40c3f9a5614b5ff",
+  "frozen_evaluation_hashes": {
+    "evaluation/extraction/annotations-batch-1.json": "e4c7d564d51a3cf8330eb28530ad2c3e09e8f69368bdfa89397f413fa9c91c76",
+    "evaluation/extraction/annotations-batch-4.json": "5b77a7329db8eb15608cf9907bc63f21086392c3ff14cd6beef151094ac76206",
+    "evaluation/extraction/manifest.json": "0e50f8404411fde8428cd1e114d49b01ade5e29800a2e8476896029b586a6d69",
+    "evaluation/extraction/verification.json": "b48942da10b8aaabd992bd679cac33363e4d0cd56af81c8dbf0ced43a466f5d7",
+    "evaluation/extraction/fixtures.json": "2b8e04b214113a0d02cf1a4f13cf580d73debc3628453e08bd0050c5342e142d",
+    "evaluation/extraction/annotations-batch-2.json": "7fe251a1ce7b9eed1cc47d620f9333847bea2681b1d5ba9ac7e13b74eda9fcbc",
+    "evaluation/extraction/annotations-batch-3.json": "1915600826316d6d153d64ca0213c65fef4f2e0abee1cca3a8508fcda3b16f65",
+    "evaluation/extraction/freeze.json": "d87aa7017975effcb27646efc5b5d1047bfcc38375d6be083e4a0e6eedc2860c",
+    "evaluation/extraction/annotations.json": "67b4af5bc8ca1b2eefd267de2c170c03371f6187e4d75869ec24b74a0fe96d38"
+  }
+}

@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Query and page evidence</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f5f6f2;color:#19362e;font:16px/1.6 system-ui,sans-serif}main{max-width:1300px;margin:auto;padding:28px}h1{font-size:32px;margin:0}label{display:flex;flex-direction:column;gap:4px}select,button{font:inherit;padding:9px;border:1px solid #a4b9ae;border-radius:6px;background:white;color:inherit}button{cursor:pointer}select:focus-visible,button:focus-visible{outline:3px solid #d59421}.controls{display:flex;flex-wrap:wrap;gap:16px;margin:20px 0}.layout{display:grid;grid-template-columns:1.3fr 1fr;gap:24px}.panel{background:white;padding:20px;border:1px solid #d7e0d9;border-radius:10px;min-width:0}svg{width:100%;height:auto;display:block}circle{fill:#217b62;opacity:.65;cursor:pointer}circle.selected{fill:#b65524;opacity:1;stroke:#19362e;stroke-width:2}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:14px/1.6 ui-monospace,monospace;background:#f1f4ef;padding:14px}a{color:#126b58;overflow-wrap:anywhere}.muted{color:#53685d}.wide{width:100%}#detail{overflow-wrap:anywhere}summary{cursor:pointer}#point{max-width:100%}@media(max-width:800px){main{padding:18px}.layout{grid-template-columns:1fr}}@media(prefers-color-scheme:dark){body{background:#172520;color:#e5eee8}.panel,select,button{background:#22362c;color:inherit;border-color:#52725f}pre{background:#192b22}.muted{color:#bccdc2}a{color:#8dd5b8}circle{fill:#72c5a4}circle.selected{fill:#efb477;stroke:#fff}}
+.intro{max-width:850px}.step{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#53796a;margin:0 0 10px}h2{font-size:23px;margin:0 0 14px}h3{font-size:18px;margin:12px 0}section{margin:20px 0}.score-table{width:100%;border-collapse:collapse}.score-table td,.score-table th{padding:12px 8px;text-align:left;border-bottom:1px solid #ccd9d0;vertical-align:top}.score-table th{font-size:13px}.score-table td:nth-child(2){font-variant-numeric:tabular-nums;white-space:nowrap;font-weight:600}.table-wrap{overflow:auto}.reading{background:#e8f1ea;padding:18px;border-radius:8px}.evidence-text{white-space:pre-wrap;margin:12px 0}.score-caption{max-width:800px}.controls select{max-width:100%;min-width:0}.controls label{min-width:0;max-width:100%}#query{width:min(900px,100%)}.source-title{font-size:20px;font-weight:600}.sample{font-size:14px;color:#53685d}@media(prefers-color-scheme:dark){.reading{background:#264537}.sample,.step{color:#bccdc2}}
+</style></head><body><main>
+<p class="step">Embedding pipeline · Small-sample inspection</p>
+<h1>Does this page address this query?</h1>
+<p class="intro">We turned the saved page's title, headings, body sections, and URL path into semantic representations. This page lets you inspect <strong>which source text the model considers related to a query</strong>.</p>
+<p id="coverage" class="sample"></p>
+<div class="reading"><strong>What this demonstrates:</strong> the pipeline can connect a query to matching parts of its associated page. <strong>What we have not established:</strong> whether these features predict top/bottom performance, which embedding model is best, or whether editing a page improves citations.</div>
+<section class="panel"><p class="step">1 · Choose a query from the dataset</p><label>Original user query<select id="query"></select></label><p id="query-text" aria-live="polite"></p><div class="controls"><label>Associated saved page<select id="page-select"></select></label><label>Embedding model<select id="evidence-model"></select></label></div><p class="muted">These are the pages already associated with this query in the dataset. This is not a search result ranking across the web or the whole corpus.</p></section>
+<section class="panel" id="page-summary" aria-live="polite"></section>
+<section class="panel"><p class="step">3 · See what matches</p><h2>Semantic similarity to the query</h2><p class="score-caption">Each value compares the query with one part of the page. Higher cosine similarity means the model considers their meanings closer. Values run from −1 to 1; <strong>they are not percentages, relevance grades, or probabilities of citation</strong>. No “good” threshold has been validated.</p><div id="scores" class="table-wrap" aria-live="polite"></div></section>
+<section class="panel"><p class="step">4 · Read the actual evidence</p><h2>Closest matching sections</h2><p class="muted">Read these source excerpts to judge whether the match is useful. Similarity can reflect shared vocabulary or topic without providing a complete answer.</p><div id="supporting" aria-live="polite"></div></section>
+<details class="panel" id="map-disclosure"><summary><strong>Optional: explore how pages or queries cluster</strong></summary><p>A dot is one page, query, or URL path—depending on the selected view. UMAP compresses thousands of vector dimensions into two display coordinates. Nearby dots may share meaning, but the axes have no named meaning and distances are approximate. Separate maps cannot be compared coordinate by coordinate.</p>
+<div class="controls"><label>Model / view<select id="map"></select></label><label>Hostname<select id="host"><option value="">All hostnames</option></select></label><label>Citation association<select id="label"><option value="">All labels</option><option>top</option><option>bottom</option></select></label><label>Extraction quality<select id="quality"><option value="">All</option><option value="flagged">Flagged</option><option value="unflagged">Unflagged</option></select></label></div>
+<div class="layout"><div class="panel"><p id="map-status" role="status" aria-live="polite"></p><svg id="plot" viewBox="0 0 600 480" role="img" aria-label="Exploratory semantic map. Use the point selector below for keyboard navigation."></svg><label>Inspect point<select id="point" class="wide"></select></label><p id="diagnostic" class="muted"></p></div><div class="panel" id="detail" aria-live="polite">Choose a point to inspect its source evidence.</div></div>
+</details><details><summary>Technical run details</summary><pre id="manifest"></pre></details>
+</main><script type="application/json" id="data">__EXPLORER_DATA__</script><script>
+(() => {
+'use strict';
+const data=JSON.parse(document.getElementById('data').textContent), byId=id=>document.getElementById(id);
+const mapSelect=byId('map'),host=byId('host'),label=byId('label'),quality=byId('quality'),pointSelect=byId('point'),plot=byId('plot'),detail=byId('detail');
+let active,visible=[],chosen;
+function option(select,value,text){const el=document.createElement('option');el.value=value;el.textContent=text;select.append(el)}
+data.maps.forEach(m=>option(mapSelect,m.id,m.name));
+byId('coverage').textContent=`Current run: ${data.coverage.records} citation records; ${data.coverage.selected_snapshots} snapshots selected without review flags. Retained content marked needs review may also be scored; inspect its flags. This view demonstrates pipeline behavior; comparative model quality needs separate evaluation.`;
+byId('manifest').textContent=JSON.stringify(data.coverage,null,2);
+function para(text,parent=detail){const el=document.createElement('p');el.textContent=text;parent.append(el)}
+function pre(text,parent=detail){const el=document.createElement('pre');el.textContent=text;parent.append(el)}
+function node(tag,text,parent){const el=document.createElement(tag);el.textContent=text;parent.append(el);return el}
+const querySelect=byId('query'),pageSelect=byId('page-select'),modelSelect=byId('evidence-model');
+data.queries.forEach(q=>option(querySelect,q.unit_id,q.prompt||'(Blank original prompt)'));
+data.alignment_models.forEach(name=>option(modelSelect,name,data.coverage.models[name].model));
+function evidence(){
+ const q=data.queries.find(q=>q.unit_id===querySelect.value),r=q?.results[Number(pageSelect.value)],summary=byId('page-summary'),scores=byId('scores'),support=byId('supporting');
+ summary.replaceChildren();scores.replaceChildren();support.replaceChildren();
+ if(!r){node('p','No associated page is available.',summary);return}
+ node('p','2 · Inspect the saved page',summary).className='step';
+ node('h2',r.title||r.h1[0]||r.hostname,summary);
+ const link=node('a',r.href,summary);try{const url=new URL(r.href);if(['http:','https:'].includes(url.protocol)){link.href=url.href;link.target='_blank';link.rel='noopener noreferrer'}}catch(_){}
+ node('p','Original dataset label: '+(r.citation_category||'unavailable')+' (relative within this hostname). This is not a model prediction.',summary).className='muted';
+ node('h3','Title / visible main heading',summary);node('p',r.title||'Document title not present in this saved source.',summary);if(r.h1.length)node('p','Visible H1: '+r.h1.join(' · '),summary);
+ node('h3','URL path we embedded',summary);node('p',r.path||'No usable path representation.',summary);
+ node('p','Extraction: '+r.extraction_status.replaceAll('_',' ')+' · quality flags: '+(r.quality_flags.join(', ')||'none'),summary).className='muted';
+ const s=r.scores[modelSelect.value];
+ if(!s||!['selected','needs_review'].includes(r.extraction_status)){
+  node('p','This snapshot was not selected for content analysis: '+r.extraction_status.replaceAll('_',' ')+'. No content-match conclusions are available.',scores);
+  node('p','No matching section evidence is available for this snapshot.',support);return;
+ }
+ const table=document.createElement('table');table.className='score-table';const header=document.createElement('tr');['Part of the page','Similarity','What is being compared'].forEach(x=>node('th',x,header));table.append(header);
+ const features=[['Document title','title_similarity','Query vs. HTML document title'],['Visible H1','h1_similarity','Query vs. the visible main heading'],['Heading outline','outline_similarity','Query vs. the ordered heading hierarchy'],['Whole page','page_similarity','Query vs. page meaning; long pages may use a pooled representation'],['URL path','path_similarity','Query vs. path text, such as “journal / running shoes”'],['Closest section','section_max','Best match among '+s.section_chunk_count+' section chunks; more chunks can increase the maximum']];
+ features.forEach(([label,key,meaning])=>{const row=document.createElement('tr');node('td',label,row);node('td',s[key]===null?'Unavailable':s[key].toFixed(3),row);node('td',meaning,row);table.append(row)});scores.append(table);
+ if(!s.sections.length)node('p','No successfully embedded section is available.',support);
+ s.sections.forEach((section,i)=>{const article=document.createElement('article');node('h3',i===0?'Best matching section':'Next matching section '+(i+1),article);node('p',section.text,article).className='evidence-text';if(section.excerpt)node('p','Excerpt only; complete input is retained in the run artifacts.',article).className='muted';const provenance=document.createElement('details');node('summary','Source block references',provenance);node('p',section.block_ids.join(', '),provenance);if(section.source_chunk_ids?.length)node('p','Saved source chunks: '+section.source_chunk_ids.join(', '),provenance);article.append(provenance);support.append(article)});
+}
+function selectQuery(){const q=data.queries.find(q=>q.unit_id===querySelect.value);byId('query-text').textContent=q.prompt||'The original prompt is blank.';pageSelect.replaceChildren();q.results.forEach((r,i)=>option(pageSelect,String(i),r.hostname+' · '+r.extraction_status.replaceAll('_',' ')));evidence()}
+querySelect.addEventListener('change',selectQuery);pageSelect.addEventListener('change',evidence);modelSelect.addEventListener('change',evidence);selectQuery();
+function inspect(uid){
+ chosen=uid;pointSelect.value=uid;detail.replaceChildren();
+ const point=active.points.find(p=>p.unit_id===uid);if(!point){para('No available points for this filter.');return}
+ plot.querySelectorAll('circle').forEach(c=>c.classList.toggle('selected',c.dataset.id===uid));
+ const heading=document.createElement('h2');heading.textContent=point.view+' · '+point.subview;detail.append(heading);
+ para('Unit: '+point.unit_id);para('Representation: '+point.status);para('Source blocks: '+(point.block_ids.join(', ')||'Not applicable'));
+ point.associations.slice(0,5).forEach(a=>{const p=document.createElement('p');const anchor=document.createElement('a');try{const url=new URL(a.href);if(['http:','https:'].includes(url.protocol)){anchor.href=url.href;anchor.rel='noopener noreferrer';anchor.target='_blank'}}catch(_){}anchor.textContent=a.href;p.append(anchor);detail.append(p);para('Prompt: '+a.prompt);para('Extraction: '+a.extraction_status+' · flags: '+(a.quality_flags.join(', ')||'none'));});
+ para(point.excerpt?'Input excerpt (first 4,000 characters; complete text in units.parquet).':'Embedding input / pooled input members:');pre(point.text);
+ if(point.alignment.length){para('Alignment for associated queries/pages only (original-space cosine):');pre(JSON.stringify(point.alignment,null,2))}
+ if(point.support.length){para('Supporting sections:');point.support.forEach(s=>pre(s.text+'\nBlocks: '+s.block_ids.join(', ')))}
+ para('Original-space neighbors within this view:');point.neighbor_unit_ids.forEach(id=>{const other=active.points.find(p=>p.unit_id===id);if(!other)return;const b=document.createElement('button');b.type='button';b.textContent=(other.associations[0]?.href||other.text.slice(0,80));b.addEventListener('click',()=>{host.value='';label.value='';quality.value='';render();inspect(id)});detail.append(b,document.createElement('br'))});
+}
+function render(){
+ visible=active.points.filter(p=>(!host.value||p.associations.some(a=>a.hostname===host.value))&&(!label.value||p.associations.some(a=>a.citation_category===label.value))&&(!quality.value||p.associations.some(a=>quality.value==='flagged'?a.quality_flags.length>0:a.quality_flags.length===0)));
+ plot.replaceChildren();pointSelect.replaceChildren();byId('map-status').textContent=visible.length+' / '+active.points.length+' available points';
+ const xs=active.points.map(p=>p.x),ys=active.points.map(p=>p.y),minX=Math.min(...xs),maxX=Math.max(...xs),minY=Math.min(...ys),maxY=Math.max(...ys);
+ visible.forEach((p,i)=>{option(pointSelect,p.unit_id,(p.associations[0]?.href||p.text.slice(0,80)||p.unit_id));const c=document.createElementNS('http://www.w3.org/2000/svg','circle');c.setAttribute('cx',25+(p.x-minX)/(maxX-minX||1)*550);c.setAttribute('cy',25+(p.y-minY)/(maxY-minY||1)*430);c.setAttribute('r','5');c.dataset.id=p.unit_id;const title=document.createElementNS(c.namespaceURI,'title');title.textContent=p.associations[0]?.href||p.unit_id;c.append(title);c.addEventListener('click',()=>inspect(p.unit_id));plot.append(c)});
+ inspect(visible.some(p=>p.unit_id===chosen)?chosen:visible[0]?.unit_id);
+}
+function switchMap(){active=data.maps.find(m=>m.id===mapSelect.value);host.replaceChildren();option(host,'','All hostnames');[...new Set(active.points.flatMap(p=>p.associations.map(a=>a.hostname)))].sort().forEach(h=>option(host,h,h));byId('diagnostic').textContent='Exploratory all-available fit · mean original/screen neighbor overlap: '+active.metadata.umap.mean_neighbor_overlap_at_5.toFixed(3);render()}
+mapSelect.addEventListener('change',switchMap);[host,label,quality].forEach(el=>el.addEventListener('change',render));pointSelect.addEventListener('change',()=>inspect(pointSelect.value));if(data.maps.length)switchMap();else byId('map-disclosure').hidden=true;
+})();
+</script></body></html>
