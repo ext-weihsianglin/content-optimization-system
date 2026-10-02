@@ -7,7 +7,7 @@ from trad_ml_scorer.robust_features import robust_features, VERSION
 
 
 def predict_frontier(bundle, prompt, payload, href=''):
-    if bundle['feature_version'] != VERSION:
+    if bundle['feature_version'] not in (VERSION, 'lr-evidence-v5'):
         raise ValueError('Model/extractor version mismatch')
     root = Path(__file__).resolve().parents[1]
     for filename, expected in bundle['code_hashes'].items():
@@ -17,5 +17,8 @@ def predict_frontier(bundle, prompt, payload, href=''):
     if not doc['selection'].get('method') or not doc['text'].strip():
         return {'p_is_cited_high':None, 'selection':doc['selection'], 'reason':'No retained content; model abstained'}
     values = robust_features(prompt,doc)
+    if bundle['feature_version'] == 'lr-evidence-v5':
+        from trad_ml_scorer.evidence_features import evidence_features
+        values.update(evidence_features(prompt,doc))
     row = np.asarray([[values[n] for n in bundle['feature_names']]])
-    return {'p_is_cited_high':float(bundle['pipeline'].predict_proba(row)[0,1]), 'selection':doc['selection'], 'feature_version':VERSION}
+    return {'p_is_cited_high':float(bundle['pipeline'].predict_proba(row)[0,1]), 'selection':doc['selection'], 'feature_version':bundle['feature_version']}

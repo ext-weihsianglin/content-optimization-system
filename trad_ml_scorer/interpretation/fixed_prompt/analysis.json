@@ -1,0 +1,3111 @@
+{
+  "model": "frozen selected v5 (retained by v6)",
+  "model_sha256": "24f2351951bae3be9e36c42fdccc6bc966335db8350edb36ccf11782a6ba5ec8",
+  "split": "validation only",
+  "test_used": false,
+  "refit": false,
+  "sample_rule": "first 40 hash-sorted validation HTML records; no selection by labels or score gains",
+  "sample_record_ids": [
+    "000cb33fe83f9e6f903c2221fc7debe9e475ae5fc2baa1a975750b344509ecbe",
+    "002805b212f0996aadd3fa5891d9b6ab9a197446e9dc8e085001ad20016ba35d",
+    "0077594f218caa8507279e931bb5dc344679893cb4fd72dad3ad0f5e460f6e48",
+    "00b8cfbb148ca9c435583341c5b908e92a9c45cae770f74a512a017e492b0840",
+    "010959df86aadd37a805ba90690ec72bc9dfb1fe0c96d97e99c0eeff6b882d60",
+    "0125f9a602586eb24f9691ae8ba124dcf56c62478bb20bab0420940a8ca07807",
+    "0176c4b176409bb971d2b8c319c4bddb44ef67487c75af378f4199238893a97b",
+    "01804ef1d9fa1ea7ef14c0fcaef7f9dffda0bd24e24ba53d1dfd07322b04b6be",
+    "01836de57d13f683a91bf1e1354f77927e38ff5bd7e8fb934851d32a450f3edd",
+    "0188c535d856df5776a427d913a5c03352397e0760b5d36ebb1e9bd003243ade",
+    "018c9e9f8487b6f49255b05ef995e59dfa7bdbdae9494794cc82802143d75f63",
+    "01ac3b6acbb71cc20f7e6c53e7af1c45954938a83c78f20a1bee314a3a33c87b",
+    "021aec0c5863fad6992679283a6b0c077401c6206c4cc69e0095f3d03d331700",
+    "02c52f9910131ddd79cd1a9bb0eb6ff8af1a01e5d10ba39f71573ed32a7f7180",
+    "02ce417fbfe1f4bded7b088a4b60da48ab93bfdb36bd700ea98cc1937b73cf75",
+    "0311aa9f42f0875ae05480c93c178bb9ff126db6524db5b78c344dabe1e75672",
+    "0445f119810117d91ac6ca11a1aed87dc5383b6050c59b8ed2261c435e139f24",
+    "04cba271b3158facddb489915fdb4cc12c38e9586fe6ee249730251a0755e6aa",
+    "04e5935103d6a4ebeb31eb48887de84ff83ff8056dcb16afee63bdc9d13597b5",
+    "0564fd7d4d7a491eadaadf8f089b0a1116f52a04f57b7e352f15a00525180fbf",
+    "0596f80c2721a3220da69835668441b1600168c30a2be17144c96d4cb5ed5925",
+    "05a5f17cece1275c25ba9cc092c452f34471da5c0cdc1d470ea3157f4ad1e3c4",
+    "06108c9e37c9e93b49e1a1deb3df917e84c0f71fc30dcd005dfdfd8964bb2425",
+    "06939a5cefba54e71ba438dfdc8a1be5939850d70ed555a179a5afdfe87310cc",
+    "069da155bdfe5adbca807968c66ca81ed8281e17014c6373596cf2bda92aa579",
+    "07112a5b251498e88b2fb247574007bda7ce8f8c979de70a9272fc9c0fbcc950",
+    "07f41a288e61a6eddecef5481310ca94380c2f2f4984bcca6b538a8ce98781ec",
+    "081e8721d8a9579f4cf6ac0bc013941cb3c07cfa2e4004ee1955e20e7f6799f0",
+    "0829ca9bac5b7cd0dd1e822ea2c0d559704577ab406fa8c4c5143f21b2191cbe",
+    "0858fa6e73a7711a4af0cf27e51dd821be8a68b50958dce8de6b6eae80e4e4b0",
+    "08b3af651afedf4ded26823eac6583c567c31b1fe0a5d25426f4b4fe6e1f5c61",
+    "08b403bddd6c597d635d431bea9b55ca36d3c836dd4566249214f0124f48d9dd",
+    "092966c2f3ded876c25dd72edf23d782144e53a7eb7d83c2d3eb84ec14905c0d",
+    "0954106865ea5cec4b628d1fdf15e1c20fc6082c0b70afd1dc70294ae89e3006",
+    "097b8544d616bf10128ef65d83210e933deaffe70850540e5562c93241636149",
+    "0a26c7f7dd30a4c38d38e1481ee2a44791e54ae5f0198970d1c9de484a95f47f",
+    "0a76f80d8880d57be2e7e8934938b3eceefa4c3433780c8196a9520cb6ec68f3",
+    "0b518beb6bb3df82e3f32dcc8e96ab74f8de6798a693e256e54c7fcf1a92630d",
+    "0b6b5c92c2cee12ab2dd28d7bf676a4c00da38849cfa586a26b0eb5679bf5978",
+    "0c20e309c049c900c6870a47c352a67aa5b65e3947ec89eaf2f32b12658e145b"
+  ],
+  "matched_support": {
+    "prompt": {
+      "repeated_groups": 16,
+      "repeated_rows": 33,
+      "mixed_label_groups": 1,
+      "mixed_label_rows": 2
+    },
+    "prompt_and_host": {
+      "repeated_groups": 12,
+      "repeated_rows": 25,
+      "mixed_label_groups": 1,
+      "mixed_label_rows": 2
+    }
+  },
+  "feature_groups": {
+    "log_prompt_words": "Fixed prompt",
+    "prompt_question": "Fixed prompt",
+    "prompt_comparison": "Fixed prompt",
+    "prompt_how_to": "Fixed prompt",
+    "path_depth": "Fixed URL",
+    "path_homepage": "Fixed URL",
+    "path_editorial": "Fixed URL",
+    "path_commerce": "Fixed URL",
+    "path_support_docs": "Fixed URL",
+    "coverage_title": "Prompt \u00d7 HTML",
+    "coverage_headings": "Prompt \u00d7 HTML",
+    "coverage_body": "Prompt \u00d7 HTML",
+    "coverage_intro": "Prompt \u00d7 HTML",
+    "log_word_count": "HTML document",
+    "log_title_words": "HTML document",
+    "log_heading_count": "HTML document",
+    "log_h1_count": "HTML document",
+    "log_list_items": "HTML document",
+    "log_table_count": "HTML document",
+    "log_paragraph_count": "HTML document",
+    "log_code_count": "HTML document",
+    "log_ordered_steps": "HTML document",
+    "headings_per_1000_words": "HTML document",
+    "list_items_per_1000_words": "HTML document",
+    "has_table": "HTML document",
+    "has_list": "HTML document",
+    "has_jsonld": "HTML document",
+    "has_article_schema": "HTML document",
+    "log_source_script_count": "Parser/source diagnostics",
+    "empty_title": "HTML document",
+    "retained_text_fraction": "Parser/source diagnostics",
+    "needs_review": "Parser/source diagnostics",
+    "possible_error_response": "Parser/source diagnostics",
+    "sparse_body": "Parser/source diagnostics",
+    "format_html": "Parser/source diagnostics",
+    "coverage_h1": "Prompt \u00d7 HTML",
+    "coverage_table_headers": "Prompt \u00d7 HTML",
+    "best_section_coverage": "Prompt \u00d7 HTML",
+    "mean_section_coverage": "Prompt \u00d7 HTML",
+    "matching_section_fraction": "Prompt \u00d7 HTML",
+    "best_section_heading_coverage": "Prompt \u00d7 HTML",
+    "best_section_position": "Prompt \u00d7 HTML",
+    "comparison_x_table_header_coverage": "Prompt \u00d7 HTML",
+    "how_to_x_ordered_steps": "Prompt \u00d7 HTML",
+    "body_query_precision": "Prompt \u00d7 HTML",
+    "body_query_dice": "Prompt \u00d7 HTML",
+    "body_query_saturated_tf": "Prompt \u00d7 HTML",
+    "body_query_bigram": "Prompt \u00d7 HTML",
+    "title_query_precision": "Prompt \u00d7 HTML",
+    "title_query_dice": "Prompt \u00d7 HTML",
+    "title_query_saturated_tf": "Prompt \u00d7 HTML",
+    "title_query_bigram": "Prompt \u00d7 HTML",
+    "description_query_precision": "Prompt \u00d7 HTML",
+    "description_query_dice": "Prompt \u00d7 HTML",
+    "description_query_saturated_tf": "Prompt \u00d7 HTML",
+    "description_query_bigram": "Prompt \u00d7 HTML",
+    "path_query_precision": "Fixed URL",
+    "path_query_dice": "Fixed URL",
+    "path_query_saturated_tf": "Fixed URL",
+    "path_query_bigram": "Fixed URL",
+    "headings_query_precision": "Prompt \u00d7 HTML",
+    "headings_query_dice": "Prompt \u00d7 HTML",
+    "headings_query_saturated_tf": "Prompt \u00d7 HTML",
+    "headings_query_bigram": "Prompt \u00d7 HTML",
+    "section_coverage_fraction_0_5": "Prompt \u00d7 HTML",
+    "section_coverage_fraction_0_8": "Prompt \u00d7 HTML",
+    "section_coverage_fraction_1_0": "Prompt \u00d7 HTML",
+    "section_coverage_std": "Prompt \u00d7 HTML",
+    "top_three_section_coverage": "Prompt \u00d7 HTML",
+    "best_section_log_words": "Prompt \u00d7 HTML",
+    "first_query_match_position": "Prompt \u00d7 HTML",
+    "query_match_density": "Prompt \u00d7 HTML",
+    "paragraph_log_median_words": "HTML document",
+    "paragraph_log_p90_words": "HTML document",
+    "short_paragraph_fraction": "HTML document",
+    "unique_word_fraction": "HTML document",
+    "numeric_word_fraction": "HTML document",
+    "question_heading_fraction": "HTML document",
+    "duplicate_heading_fraction": "HTML document",
+    "log_link_count": "HTML document",
+    "links_per_1000_words": "HTML document",
+    "heading_word_fraction": "HTML document",
+    "paragraph_word_fraction": "HTML document",
+    "list_item_word_fraction": "HTML document",
+    "table_word_fraction": "HTML document",
+    "code_word_fraction": "HTML document",
+    "answer_best_sentence_coverage": "Prompt \u00d7 HTML",
+    "answer_top3_sentence_coverage": "Prompt \u00d7 HTML",
+    "answer_relevant_sentence_fraction": "Prompt \u00d7 HTML",
+    "answer_log_relevant_sentences": "Prompt \u00d7 HTML",
+    "answer_best_sentence_precision": "Prompt \u00d7 HTML",
+    "answer_relevant_median_words": "Prompt \u00d7 HTML",
+    "answer_window_10_coverage": "Prompt \u00d7 HTML",
+    "answer_window_25_coverage": "Prompt \u00d7 HTML",
+    "answer_window_50_coverage": "Prompt \u00d7 HTML",
+    "answer_relevant_union_coverage": "Prompt \u00d7 HTML"
+  },
+  "summary": {
+    "title_from_existing_h1": {
+      "rows": 26,
+      "hosts": 22,
+      "mean_delta": -0.009269362069975844,
+      "median_delta": -0.0003447815123168718,
+      "min_delta": -0.07573805785816451,
+      "max_delta": 0.06718374139436706,
+      "positive_fraction": 0.4230769230769231,
+      "mean_host_bootstrap_95": [
+        -0.02218496742199159,
+        0.0014460242452541867
+      ],
+      "not_applicable": 14
+    },
+    "relevant_paragraph_first": {
+      "rows": 21,
+      "hosts": 20,
+      "mean_delta": 0.0010749703309994162,
+      "median_delta": 0.0,
+      "min_delta": -0.017938688780789525,
+      "max_delta": 0.02333025253739629,
+      "positive_fraction": 0.3333333333333333,
+      "mean_host_bootstrap_95": [
+        -0.003506485400688231,
+        0.005874022975361984
+      ],
+      "not_applicable": 19
+    },
+    "split_long_paragraph": {
+      "rows": 4,
+      "hosts": 4,
+      "mean_delta": 0.00018742130496214593,
+      "median_delta": -0.0001005041344338542,
+      "min_delta": -0.0005874904341289788,
+      "max_delta": 0.001538183922845271,
+      "positive_fraction": 0.5,
+      "not_applicable": 36
+    }
+  },
+  "edits": [
+    {
+      "before_probability": 0.7778654452232651,
+      "after_probability": 0.7053553900714646,
+      "delta_log_odds": -0.38033840156739307,
+      "contributions": [
+        {
+          "feature": "coverage_title",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": -0.06717248474512515
+        },
+        {
+          "feature": "log_title_words",
+          "group": "HTML document",
+          "delta_log_odds": -0.03413034320392592
+        },
+        {
+          "feature": "title_query_precision",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": 0.059446177213712495
+        },
+        {
+          "feature": "title_query_dice",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": -0.06444136519470971
+        },
+        {
+          "feature": "title_query_saturated_tf",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": -0.3187374793352481
+        },
+        {
+          "feature": "title_query_bigram",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": 0.044697093697903326
+        }
+      ],
+      "record_id": "000cb33fe83f9e6f903c2221fc7debe9e475ae5fc2baa1a975750b344509ecbe",
+      "snapshot_id": "f317a8b946c4edcd1a859edd9a49ecff64c07bf0bd390ab2f2360cfae7f7fa3f",
+      "hostname": "lightpdf.com",
+      "prompt": "Best free PDF editor",
+      "url": "https://lightpdf.com/edit-pdf",
+      "action": "title_from_existing_h1",
+      "detail": "Use an existing content H1 as the title; body wording unchanged.",
+      "delta_probability": -0.07251005515180042,
+      "serialization_delta_probability": 0.0,
+      "edit_over_serialized_probability": -0.07251005515180042,
+      "group_delta_log_odds": {
+        "HTML document": -0.03413034320392592,
+        "Prompt \u00d7 HTML": -0.34620805836346713,
+        "Fixed prompt": 0,
+        "Fixed URL": 0,
+        "Parser/source diagnostics": 0
+      }
+    },
+    {
+      "before_probability": 0.3080919489452554,
+      "after_probability": 0.3061449642391593,
+      "delta_log_odds": -0.009149528748394031,
+      "contributions": [
+        {
+          "feature": "log_title_words",
+          "group": "HTML document",
+          "delta_log_odds": -0.009149528748394104
+        }
+      ],
+      "record_id": "0077594f218caa8507279e931bb5dc344679893cb4fd72dad3ad0f5e460f6e48",
+      "snapshot_id": "463389c9ed10aca541cf4323c9e76ac81e6f252a6beed11742acc5b541d61d11",
+      "hostname": "theacsi.org",
+      "prompt": "Wer ist der beste Telekommunikationsanbieter beim Kundendienst?",
+      "url": "https://theacsi.org/news-and-resources/press-releases/2022/05/17/press-release-wireless-phone-service-and-cell-phone-study-2021-2022",
+      "action": "title_from_existing_h1",
+      "detail": "Use an existing content H1 as the title; body wording unchanged.",
+      "delta_probability": -0.0019469847060960555,
+      "serialization_delta_probability": 0.0,
+      "edit_over_serialized_probability": -0.0019469847060960555,
+      "group_delta_log_odds": {
+        "HTML document": -0.009149528748394104,
+        "Prompt \u00d7 HTML": 0,
+        "Fixed prompt": 0,
+        "Fixed URL": 0,
+        "Parser/source diagnostics": 0
+      }
+    },
+    {
+      "before_probability": 0.3080919489452554,
+      "after_probability": 0.30963013286810065,
+      "delta_log_odds": 0.007205770703181624,
+      "contributions": [
+        {
+          "feature": "log_paragraph_count",
+          "group": "HTML document",
+          "delta_log_odds": -0.0005203860514076756
+        },
+        {
+          "feature": "paragraph_log_median_words",
+          "group": "HTML document",
+          "delta_log_odds": 0.00808079523312045
+        },
+        {
+          "feature": "paragraph_log_p90_words",
+          "group": "HTML document",
+          "delta_log_odds": 0.0054737310736773445
+        },
+        {
+          "feature": "short_paragraph_fraction",
+          "group": "HTML document",
+          "delta_log_odds": -0.005828369552208607
+        }
+      ],
+      "record_id": "0077594f218caa8507279e931bb5dc344679893cb4fd72dad3ad0f5e460f6e48",
+      "snapshot_id": "463389c9ed10aca541cf4323c9e76ac81e6f252a6beed11742acc5b541d61d11",
+      "hostname": "theacsi.org",
+      "prompt": "Wer ist der beste Telekommunikationsanbieter beim Kundendienst?",
+      "url": "https://theacsi.org/news-and-resources/press-releases/2022/05/17/press-release-wireless-phone-service-and-cell-phone-study-2021-2022",
+      "action": "split_long_paragraph",
+      "detail": "Split one long plain-text paragraph at an existing sentence boundary; preserve word order.",
+      "delta_probability": 0.001538183922845271,
+      "serialization_delta_probability": 0.0,
+      "edit_over_serialized_probability": 0.001538183922845271,
+      "group_delta_log_odds": {
+        "HTML document": 0.007205770703181512,
+        "Prompt \u00d7 HTML": 0,
+        "Fixed prompt": 0,
+        "Fixed URL": 0,
+        "Parser/source diagnostics": 0
+      }
+    },
+    {
+      "before_probability": 0.22636416105491222,
+      "after_probability": 0.22891250589839512,
+      "delta_log_odds": 0.014494247767762314,
+      "contributions": [
+        {
+          "feature": "log_title_words",
+          "group": "HTML document",
+          "delta_log_odds": -0.004388276697849784
+        },
+        {
+          "feature": "title_query_precision",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": 0.011889235442742509
+        },
+        {
+          "feature": "title_query_dice",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": 0.0069932890228693615
+        }
+      ],
+      "record_id": "00b8cfbb148ca9c435583341c5b908e92a9c45cae770f74a512a017e492b0840",
+      "snapshot_id": "bcff6ca885b83f15af5c5917b75bdcab06da2788a4b8251e1c8fd1ae23fe43d2",
+      "hostname": "telcomagazine.com",
+      "prompt": "What provider is the preferred choice for companies investing in AI-driven platforms?",
+      "url": "https://telcomagazine.com/news/bell-and-cohere-bring-sovereign-ai-to-canadian-data-centres",
+      "action": "title_from_existing_h1",
+      "detail": "Use an existing content H1 as the title; body wording unchanged.",
+      "delta_probability": 0.0025483448434829026,
+      "serialization_delta_probability": 0.0,
+      "edit_over_serialized_probability": 0.0025483448434829026,
+      "group_delta_log_odds": {
+        "HTML document": -0.004388276697849784,
+        "Prompt \u00d7 HTML": 0.01888252446561187,
+        "Fixed prompt": 0,
+        "Fixed URL": 0,
+        "Parser/source diagnostics": 0
+      }
+    },
+    {
+      "before_probability": 0.22636416105491222,
+      "after_probability": 0.22636416105491222,
+      "delta_log_odds": 0.0,
+      "contributions": [],
+      "record_id": "00b8cfbb148ca9c435583341c5b908e92a9c45cae770f74a512a017e492b0840",
+      "snapshot_id": "bcff6ca885b83f15af5c5917b75bdcab06da2788a4b8251e1c8fd1ae23fe43d2",
+      "hostname": "telcomagazine.com",
+      "prompt": "What provider is the preferred choice for companies investing in AI-driven platforms?",
+      "url": "https://telcomagazine.com/news/bell-and-cohere-bring-sovereign-ai-to-canadian-data-centres",
+      "action": "relevant_paragraph_first",
+      "detail": "Move a better-matching existing paragraph before its first eligible sibling, within the same parent.",
+      "delta_probability": 0.0,
+      "serialization_delta_probability": 0.0,
+      "edit_over_serialized_probability": 0.0,
+      "group_delta_log_odds": {
+        "HTML document": 0,
+        "Prompt \u00d7 HTML": 0,
+        "Fixed prompt": 0,
+        "Fixed URL": 0,
+        "Parser/source diagnostics": 0
+      }
+    },
+    {
+      "before_probability": 0.8474420274722635,
+      "after_probability": 0.8530591837195036,
+      "delta_log_odds": 0.044121271516226246,
+      "contributions": [
+        {
+          "feature": "log_title_words",
+          "group": "HTML document",
+          "delta_log_odds": -0.0047893317951956445
+        },
+        {
+          "feature": "title_query_precision",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": 0.023778470885485008
+        },
+        {
+          "feature": "title_query_dice",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": 0.025132132425936787
+        }
+      ],
+      "record_id": "0125f9a602586eb24f9691ae8ba124dcf56c62478bb20bab0420940a8ca07807",
+      "snapshot_id": "7690f9b24203825b3a9deab81bedc1eae6057a05f3c7da993a968dff460134ac",
+      "hostname": "www.vetstreet.com",
+      "prompt": "best cat litter for odor control",
+      "url": "https://www.vetstreet.com/home-and-cleaning/litter-boxes/best-cat-litter-for-odor-control",
+      "action": "title_from_existing_h1",
+      "detail": "Use an existing content H1 as the title; body wording unchanged.",
+      "delta_probability": 0.005617156247240129,
+      "serialization_delta_probability": 0.0,
+      "edit_over_serialized_probability": 0.005617156247240129,
+      "group_delta_log_odds": {
+        "HTML document": -0.0047893317951956445,
+        "Prompt \u00d7 HTML": 0.048910603311421795,
+        "Fixed prompt": 0,
+        "Fixed URL": 0,
+        "Parser/source diagnostics": 0
+      }
+    },
+    {
+      "before_probability": 0.8474420274722635,
+      "after_probability": 0.8476661584857351,
+      "delta_log_odds": 0.0017346778278972685,
+      "contributions": [
+        {
+          "feature": "best_section_log_words",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": 0.0017346778278973108
+        }
+      ],
+      "record_id": "0125f9a602586eb24f9691ae8ba124dcf56c62478bb20bab0420940a8ca07807",
+      "snapshot_id": "7690f9b24203825b3a9deab81bedc1eae6057a05f3c7da993a968dff460134ac",
+      "hostname": "www.vetstreet.com",
+      "prompt": "best cat litter for odor control",
+      "url": "https://www.vetstreet.com/home-and-cleaning/litter-boxes/best-cat-litter-for-odor-control",
+      "action": "relevant_paragraph_first",
+      "detail": "Move a better-matching existing paragraph before its first eligible sibling, within the same parent.",
+      "delta_probability": 0.000224131013471629,
+      "serialization_delta_probability": 0.0,
+      "edit_over_serialized_probability": 0.000224131013471629,
+      "group_delta_log_odds": {
+        "HTML document": 0,
+        "Prompt \u00d7 HTML": 0.0017346778278973108,
+        "Fixed prompt": 0,
+        "Fixed URL": 0,
+        "Parser/source diagnostics": 0
+      }
+    },
+    {
+      "before_probability": 0.8474420274722635,
+      "after_probability": 0.8472361980510652,
+      "delta_log_odds": -0.0015911915839603719,
+      "contributions": [
+        {
+          "feature": "log_paragraph_count",
+          "group": "HTML document",
+          "delta_log_odds": -0.00020734934838956726
+        },
+        {
+          "feature": "paragraph_log_p90_words",
+          "group": "HTML document",
+          "delta_log_odds": -0.0005822102611792681
+        },
+        {
+          "feature": "short_paragraph_fraction",
+          "group": "HTML document",
+          "delta_log_odds": -0.0008016319743919134
+        }
+      ],
+      "record_id": "0125f9a602586eb24f9691ae8ba124dcf56c62478bb20bab0420940a8ca07807",
+      "snapshot_id": "7690f9b24203825b3a9deab81bedc1eae6057a05f3c7da993a968dff460134ac",
+      "hostname": "www.vetstreet.com",
+      "prompt": "best cat litter for odor control",
+      "url": "https://www.vetstreet.com/home-and-cleaning/litter-boxes/best-cat-litter-for-odor-control",
+      "action": "split_long_paragraph",
+      "detail": "Split one long plain-text paragraph at an existing sentence boundary; preserve word order.",
+      "delta_probability": -0.00020582942119828918,
+      "serialization_delta_probability": 0.0,
+      "edit_over_serialized_probability": -0.00020582942119828918,
+      "group_delta_log_odds": {
+        "HTML document": -0.0015911915839607487,
+        "Prompt \u00d7 HTML": 0,
+        "Fixed prompt": 0,
+        "Fixed URL": 0,
+        "Parser/source diagnostics": 0
+      }
+    },
+    {
+      "before_probability": 0.6552299730356376,
+      "after_probability": 0.6590682864050154,
+      "delta_log_odds": 0.017036274912578975,
+      "contributions": [
+        {
+          "feature": "log_title_words",
+          "group": "HTML document",
+          "delta_log_odds": -0.0030939952879038063
+        },
+        {
+          "feature": "title_query_precision",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": 0.012738466545795529
+        },
+        {
+          "feature": "title_query_dice",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": 0.007391803654687287
+        }
+      ],
+      "record_id": "0176c4b176409bb971d2b8c319c4bddb44ef67487c75af378f4199238893a97b",
+      "snapshot_id": "ff481ff3e61e9027da2572566a67e7c0332dac52a6559335de349349aab0a470",
+      "hostname": "massive.io",
+      "prompt": "What managed file transfer solutions meet ISO 27001 standards?",
+      "url": "https://massive.io/secure-file-transfer",
+      "action": "title_from_existing_h1",
+      "detail": "Use an existing content H1 as the title; body wording unchanged.",
+      "delta_probability": 0.0038383133693777882,
+      "serialization_delta_probability": 0.0,
+      "edit_over_serialized_probability": 0.0038383133693777882,
+      "group_delta_log_odds": {
+        "HTML document": -0.0030939952879038063,
+        "Prompt \u00d7 HTML": 0.020130270200482817,
+        "Fixed prompt": 0,
+        "Fixed URL": 0,
+        "Parser/source diagnostics": 0
+      }
+    },
+    {
+      "before_probability": 0.6552299730356376,
+      "after_probability": 0.6552299730356376,
+      "delta_log_odds": 0.0,
+      "contributions": [],
+      "record_id": "0176c4b176409bb971d2b8c319c4bddb44ef67487c75af378f4199238893a97b",
+      "snapshot_id": "ff481ff3e61e9027da2572566a67e7c0332dac52a6559335de349349aab0a470",
+      "hostname": "massive.io",
+      "prompt": "What managed file transfer solutions meet ISO 27001 standards?",
+      "url": "https://massive.io/secure-file-transfer",
+      "action": "relevant_paragraph_first",
+      "detail": "Move a better-matching existing paragraph before its first eligible sibling, within the same parent.",
+      "delta_probability": 0.0,
+      "serialization_delta_probability": 0.0,
+      "edit_over_serialized_probability": 0.0,
+      "group_delta_log_odds": {
+        "HTML document": 0,
+        "Prompt \u00d7 HTML": 0,
+        "Fixed prompt": 0,
+        "Fixed URL": 0,
+        "Parser/source diagnostics": 0
+      }
+    },
+    {
+      "before_probability": 0.5756460995649441,
+      "after_probability": 0.5937848321159561,
+      "delta_log_odds": 0.07470874540407063,
+      "contributions": [
+        {
+          "feature": "coverage_intro",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": 0.08062528945680757
+        },
+        {
+          "feature": "log_word_count",
+          "group": "HTML document",
+          "delta_log_odds": -7.64611231083349e-06
+        },
+        {
+          "feature": "log_heading_count",
+          "group": "HTML document",
+          "delta_log_odds": -0.0015996007051116783
+        },
+        {
+          "feature": "headings_per_1000_words",
+          "group": "HTML document",
+          "delta_log_odds": -0.001104109855207555
+        },
+        {
+          "feature": "list_items_per_1000_words",
+          "group": "HTML document",
+          "delta_log_odds": -8.179651561332842e-06
+        },
+        {
+          "feature": "retained_text_fraction",
+          "group": "Parser/source diagnostics",
+          "delta_log_odds": 0.0001884731517039265
+        },
+        {
+          "feature": "mean_section_coverage",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": -0.0008018584792574999
+        },
+        {
+          "feature": "matching_section_fraction",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": -0.0003949067850000611
+        },
+        {
+          "feature": "best_section_position",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": 0.00013527142444435874
+        },
+        {
+          "feature": "headings_query_precision",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": -0.0007461809129047986
+        },
+        {
+          "feature": "headings_query_dice",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": 0.00046219392468986
+        },
+        {
+          "feature": "section_coverage_fraction_0_5",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": 0.0003607127966629227
+        },
+        {
+          "feature": "section_coverage_fraction_0_8",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": 0.00013152903414435037
+        },
+        {
+          "feature": "section_coverage_std",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": -0.002095166990553853
+        },
+        {
+          "feature": "first_query_match_position",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": 4.8852104124358975e-08
+        },
+        {
+          "feature": "query_match_density",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": -2.2533438993414644e-05
+        },
+        {
+          "feature": "unique_word_fraction",
+          "group": "HTML document",
+          "delta_log_odds": -3.671307444358407e-05
+        },
+        {
+          "feature": "numeric_word_fraction",
+          "group": "HTML document",
+          "delta_log_odds": -2.2213025978283396e-06
+        },
+        {
+          "feature": "question_heading_fraction",
+          "group": "HTML document",
+          "delta_log_odds": -0.0004679292770428941
+        },
+        {
+          "feature": "links_per_1000_words",
+          "group": "HTML document",
+          "delta_log_odds": -2.374922224452514e-07
+        },
+        {
+          "feature": "heading_word_fraction",
+          "group": "HTML document",
+          "delta_log_odds": 8.42701510329767e-05
+        },
+        {
+          "feature": "paragraph_word_fraction",
+          "group": "HTML document",
+          "delta_log_odds": 8.240689688303929e-06
+        }
+      ],
+      "record_id": "01804ef1d9fa1ea7ef14c0fcaef7f9dffda0bd24e24ba53d1dfd07322b04b6be",
+      "snapshot_id": "e68d6f6cb6f262f29a15e90ab673fe487fd41b283d90405f23b706f6136a6911",
+      "hostname": "technologyadvice.com",
+      "prompt": "What are the best HRIS platforms available?",
+      "url": "https://technologyadvice.com/blog/human-resources/top-hris-systems",
+      "action": "relevant_paragraph_first",
+      "detail": "Move a better-matching existing paragraph before its first eligible sibling, within the same parent.",
+      "delta_probability": 0.01813873255101206,
+      "serialization_delta_probability": 0.0,
+      "edit_over_serialized_probability": 0.01813873255101206,
+      "group_delta_log_odds": {
+        "HTML document": -0.003134126629776871,
+        "Prompt \u00d7 HTML": 0.07765439888214355,
+        "Fixed prompt": 0,
+        "Fixed URL": 0,
+        "Parser/source diagnostics": 0.0001884731517039265
+      }
+    },
+    {
+      "before_probability": 0.5756460995649441,
+      "after_probability": 0.5756509207172746,
+      "delta_log_odds": 1.9736390868496656e-05,
+      "contributions": [
+        {
+          "feature": "log_paragraph_count",
+          "group": "HTML document",
+          "delta_log_odds": -6.447540849375946e-05
+        },
+        {
+          "feature": "paragraph_log_p90_words",
+          "group": "HTML document",
+          "delta_log_odds": 0.0008363285176389519
+        },
+        {
+          "feature": "short_paragraph_fraction",
+          "group": "HTML document",
+          "delta_log_odds": -0.0007521167182767032
+        }
+      ],
+      "record_id": "01804ef1d9fa1ea7ef14c0fcaef7f9dffda0bd24e24ba53d1dfd07322b04b6be",
+      "snapshot_id": "e68d6f6cb6f262f29a15e90ab673fe487fd41b283d90405f23b706f6136a6911",
+      "hostname": "technologyadvice.com",
+      "prompt": "What are the best HRIS platforms available?",
+      "url": "https://technologyadvice.com/blog/human-resources/top-hris-systems",
+      "action": "split_long_paragraph",
+      "detail": "Split one long plain-text paragraph at an existing sentence boundary; preserve word order.",
+      "delta_probability": 4.82115233058078e-06,
+      "serialization_delta_probability": 0.0,
+      "edit_over_serialized_probability": 4.82115233058078e-06,
+      "group_delta_log_odds": {
+        "HTML document": 1.973639086848919e-05,
+        "Prompt \u00d7 HTML": 0,
+        "Fixed prompt": 0,
+        "Fixed URL": 0,
+        "Parser/source diagnostics": 0
+      }
+    },
+    {
+      "before_probability": 0.5249176860717106,
+      "after_probability": 0.5109908233711921,
+      "delta_log_odds": -0.05578300390847646,
+      "contributions": [
+        {
+          "feature": "best_section_position",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": -0.0545226659750217
+        },
+        {
+          "feature": "best_section_log_words",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": -0.0012603379334547432
+        }
+      ],
+      "record_id": "01836de57d13f683a91bf1e1354f77927e38ff5bd7e8fb934851d32a450f3edd",
+      "snapshot_id": "9d8b46f65e15f616764b3e7849eccf5ca6b2a274352c2b0ec36e3215cf79f507",
+      "hostname": "www.zerofox.com",
+      "prompt": "How can threat intelligence be integrated across tools?",
+      "url": "https://www.zerofox.com/blog/integrating-threat-intelligence-with-siem",
+      "action": "relevant_paragraph_first",
+      "detail": "Move a better-matching existing paragraph before its first eligible sibling, within the same parent.",
+      "delta_probability": -0.013926862700518572,
+      "serialization_delta_probability": 0.0,
+      "edit_over_serialized_probability": -0.013926862700518572,
+      "group_delta_log_odds": {
+        "HTML document": 0,
+        "Prompt \u00d7 HTML": -0.055783003908476445,
+        "Fixed prompt": 0,
+        "Fixed URL": 0,
+        "Parser/source diagnostics": 0
+      }
+    },
+    {
+      "before_probability": 0.4441906895453504,
+      "after_probability": 0.4396113833467795,
+      "delta_log_odds": -0.018568066957036056,
+      "contributions": [
+        {
+          "feature": "log_title_words",
+          "group": "HTML document",
+          "delta_log_odds": 0.00478933179519565
+        },
+        {
+          "feature": "title_query_precision",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": -0.017833853164113744
+        },
+        {
+          "feature": "title_query_dice",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": -0.005523545588117979
+        }
+      ],
+      "record_id": "0188c535d856df5776a427d913a5c03352397e0760b5d36ebb1e9bd003243ade",
+      "snapshot_id": "cb88d092a3440d947b0f8d91b1d4fa10f0553232de5ef360df1c5b94726857aa",
+      "hostname": "www.docusign.com",
+      "prompt": "Was ist das beste Tool f\u00fcr elektronische Signaturen f\u00fcr Unternehmen?",
+      "url": "https://www.docusign.com/de-de/produkte/elektronische-signatur/digitale-signatur",
+      "action": "title_from_existing_h1",
+      "detail": "Use an existing content H1 as the title; body wording unchanged.",
+      "delta_probability": -0.004579306198570887,
+      "serialization_delta_probability": 0.0,
+      "edit_over_serialized_probability": -0.004579306198570887,
+      "group_delta_log_odds": {
+        "HTML document": 0.00478933179519565,
+        "Prompt \u00d7 HTML": -0.023357398752231723,
+        "Fixed prompt": 0,
+        "Fixed URL": 0,
+        "Parser/source diagnostics": 0
+      }
+    },
+    {
+      "before_probability": 0.30831601808422165,
+      "after_probability": 0.30831601808422165,
+      "delta_log_odds": 0.0,
+      "contributions": [],
+      "record_id": "018c9e9f8487b6f49255b05ef995e59dfa7bdbdae9494794cc82802143d75f63",
+      "snapshot_id": "dcf8ee109964361937a6332780fa7fd01a3754cfa8f291f10780904100f66237",
+      "hostname": "www.1800flowers.com",
+      "prompt": "Who offers add-ons like photos or keepsakes with flower orders?",
+      "url": "https://www.1800flowers.com/personalized-flower-vases",
+      "action": "title_from_existing_h1",
+      "detail": "Use an existing content H1 as the title; body wording unchanged.",
+      "delta_probability": 0.0,
+      "serialization_delta_probability": 0.0,
+      "edit_over_serialized_probability": 0.0,
+      "group_delta_log_odds": {
+        "HTML document": 0,
+        "Prompt \u00d7 HTML": 0,
+        "Fixed prompt": 0,
+        "Fixed URL": 0,
+        "Parser/source diagnostics": 0
+      }
+    },
+    {
+      "before_probability": 0.3283841116533747,
+      "after_probability": 0.3283841116533747,
+      "delta_log_odds": 0.0,
+      "contributions": [],
+      "record_id": "01ac3b6acbb71cc20f7e6c53e7af1c45954938a83c78f20a1bee314a3a33c87b",
+      "snapshot_id": "7a2b3ca4c37b25d3076c1a9696b44485b253efd8c03b45eff98e61432c4d867c",
+      "hostname": "www.rydoo.com",
+      "prompt": "Which vendors provide tax-compliant employee meal benefits?",
+      "url": "https://www.rydoo.com/compliance/usa/per-diems-in-the-usa",
+      "action": "relevant_paragraph_first",
+      "detail": "Move a better-matching existing paragraph before its first eligible sibling, within the same parent.",
+      "delta_probability": 0.0,
+      "serialization_delta_probability": 0.0,
+      "edit_over_serialized_probability": 0.0,
+      "group_delta_log_odds": {
+        "HTML document": 0,
+        "Prompt \u00d7 HTML": 0,
+        "Fixed prompt": 0,
+        "Fixed URL": 0,
+        "Parser/source diagnostics": 0
+      }
+    },
+    {
+      "before_probability": 0.3482105241140631,
+      "after_probability": 0.3441160230512963,
+      "delta_log_odds": -0.018090663246907113,
+      "contributions": [
+        {
+          "feature": "log_title_words",
+          "group": "HTML document",
+          "delta_log_odds": 0.008365333241797203
+        },
+        {
+          "feature": "title_query_precision",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": -0.015286159854954639
+        },
+        {
+          "feature": "title_query_dice",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": -0.011169836633749678
+        }
+      ],
+      "record_id": "021aec0c5863fad6992679283a6b0c077401c6206c4cc69e0095f3d03d331700",
+      "snapshot_id": "b559d9c1bdf8c3f519b790f34d27006f3629df497a58219a84bab9a28a29d7c3",
+      "hostname": "www.invoicera.com",
+      "prompt": "what should i include on a professional invoice",
+      "url": "https://www.invoicera.com/blog/business-operations/10-tips-to-write-an-invoice-professionally",
+      "action": "title_from_existing_h1",
+      "detail": "Use an existing content H1 as the title; body wording unchanged.",
+      "delta_probability": -0.00409450106276682,
+      "serialization_delta_probability": 0.0,
+      "edit_over_serialized_probability": -0.00409450106276682,
+      "group_delta_log_odds": {
+        "HTML document": 0.008365333241797203,
+        "Prompt \u00d7 HTML": -0.026455996488704316,
+        "Fixed prompt": 0,
+        "Fixed URL": 0,
+        "Parser/source diagnostics": 0
+      }
+    },
+    {
+      "before_probability": 0.3482105241140631,
+      "after_probability": 0.3685248292767834,
+      "delta_log_odds": 0.08836383441802043,
+      "contributions": [
+        {
+          "feature": "coverage_intro",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": 0.12093793418521136
+        },
+        {
+          "feature": "log_word_count",
+          "group": "HTML document",
+          "delta_log_odds": -5.291574986739818e-05
+        },
+        {
+          "feature": "log_heading_count",
+          "group": "HTML document",
+          "delta_log_odds": -0.005723884587025528
+        },
+        {
+          "feature": "headings_per_1000_words",
+          "group": "HTML document",
+          "delta_log_odds": -0.0074463011785045885
+        },
+        {
+          "feature": "list_items_per_1000_words",
+          "group": "HTML document",
+          "delta_log_odds": -1.023093692639669e-05
+        },
+        {
+          "feature": "retained_text_fraction",
+          "group": "Parser/source diagnostics",
+          "delta_log_odds": 0.001288483739715362
+        },
+        {
+          "feature": "best_section_coverage",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": 0.029974276180511798
+        },
+        {
+          "feature": "mean_section_coverage",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": 0.0012836074470327402
+        },
+        {
+          "feature": "matching_section_fraction",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": -0.001264326070553561
+        },
+        {
+          "feature": "best_section_position",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": -0.010706268955095171
+        },
+        {
+          "feature": "headings_query_precision",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": -0.0018895671199567721
+        },
+        {
+          "feature": "headings_query_dice",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": 0.0010952595427499068
+        },
+        {
+          "feature": "section_coverage_fraction_0_5",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": -0.0008266303657247253
+        },
+        {
+          "feature": "section_coverage_std",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": -0.012792600107145616
+        },
+        {
+          "feature": "top_three_section_coverage",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": -0.044397696379921456
+        },
+        {
+          "feature": "best_section_log_words",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": 0.019901992094287915
+        },
+        {
+          "feature": "first_query_match_position",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": 2.342288915083876e-06
+        },
+        {
+          "feature": "query_match_density",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": -0.00019367865835174812
+        },
+        {
+          "feature": "unique_word_fraction",
+          "group": "HTML document",
+          "delta_log_odds": -0.0007977369151434489
+        },
+        {
+          "feature": "numeric_word_fraction",
+          "group": "HTML document",
+          "delta_log_odds": 4.2805336303200804e-05
+        },
+        {
+          "feature": "question_heading_fraction",
+          "group": "HTML document",
+          "delta_log_odds": -0.0006738011006860496
+        },
+        {
+          "feature": "links_per_1000_words",
+          "group": "HTML document",
+          "delta_log_odds": -2.377490494538243e-06
+        },
+        {
+          "feature": "heading_word_fraction",
+          "group": "HTML document",
+          "delta_log_odds": 0.0005573572457085534
+        },
+        {
+          "feature": "paragraph_word_fraction",
+          "group": "HTML document",
+          "delta_log_odds": 5.779197298154651e-05
+        }
+      ],
+      "record_id": "021aec0c5863fad6992679283a6b0c077401c6206c4cc69e0095f3d03d331700",
+      "snapshot_id": "b559d9c1bdf8c3f519b790f34d27006f3629df497a58219a84bab9a28a29d7c3",
+      "hostname": "www.invoicera.com",
+      "prompt": "what should i include on a professional invoice",
+      "url": "https://www.invoicera.com/blog/business-operations/10-tips-to-write-an-invoice-professionally",
+      "action": "relevant_paragraph_first",
+      "detail": "Move a better-matching existing paragraph before its first eligible sibling, within the same parent.",
+      "delta_probability": 0.020314305162720314,
+      "serialization_delta_probability": 0.0,
+      "edit_over_serialized_probability": 0.020314305162720314,
+      "group_delta_log_odds": {
+        "HTML document": -0.014049293403654647,
+        "Prompt \u00d7 HTML": 0.10112464408195974,
+        "Fixed prompt": 0,
+        "Fixed URL": 0,
+        "Parser/source diagnostics": 0.001288483739715362
+      }
+    },
+    {
+      "before_probability": 0.4014489793246179,
+      "after_probability": 0.4014489793246179,
+      "delta_log_odds": 0.0,
+      "contributions": [],
+      "record_id": "02c52f9910131ddd79cd1a9bb0eb6ff8af1a01e5d10ba39f71573ed32a7f7180",
+      "snapshot_id": "f41c6ba0a3169e3193b47dbf47ce16fc3bb4effef5751292a0e6a43e659db174",
+      "hostname": "www.gamesradar.com",
+      "prompt": "top innovative laptops on the market",
+      "url": "https://www.gamesradar.com/hardware/laptops/hp-omen-max-16-review",
+      "action": "relevant_paragraph_first",
+      "detail": "Move a better-matching existing paragraph before its first eligible sibling, within the same parent.",
+      "delta_probability": 0.0,
+      "serialization_delta_probability": 0.0,
+      "edit_over_serialized_probability": 0.0,
+      "group_delta_log_odds": {
+        "HTML document": 0,
+        "Prompt \u00d7 HTML": 0,
+        "Fixed prompt": 0,
+        "Fixed URL": 0,
+        "Parser/source diagnostics": 0
+      }
+    },
+    {
+      "before_probability": 0.4014489793246179,
+      "after_probability": 0.40086148889048895,
+      "delta_log_odds": -0.002445536442575169,
+      "contributions": [
+        {
+          "feature": "log_paragraph_count",
+          "group": "HTML document",
+          "delta_log_odds": -0.00021059765570258723
+        },
+        {
+          "feature": "paragraph_log_p90_words",
+          "group": "HTML document",
+          "delta_log_odds": -0.0013101138565443208
+        },
+        {
+          "feature": "short_paragraph_fraction",
+          "group": "HTML document",
+          "delta_log_odds": -0.0009248249303282539
+        }
+      ],
+      "record_id": "02c52f9910131ddd79cd1a9bb0eb6ff8af1a01e5d10ba39f71573ed32a7f7180",
+      "snapshot_id": "f41c6ba0a3169e3193b47dbf47ce16fc3bb4effef5751292a0e6a43e659db174",
+      "hostname": "www.gamesradar.com",
+      "prompt": "top innovative laptops on the market",
+      "url": "https://www.gamesradar.com/hardware/laptops/hp-omen-max-16-review",
+      "action": "split_long_paragraph",
+      "detail": "Split one long plain-text paragraph at an existing sentence boundary; preserve word order.",
+      "delta_probability": -0.0005874904341289788,
+      "serialization_delta_probability": 0.0,
+      "edit_over_serialized_probability": -0.0005874904341289788,
+      "group_delta_log_odds": {
+        "HTML document": -0.0024455364425751617,
+        "Prompt \u00d7 HTML": 0,
+        "Fixed prompt": 0,
+        "Fixed URL": 0,
+        "Parser/source diagnostics": 0
+      }
+    },
+    {
+      "before_probability": 0.4966654315210373,
+      "after_probability": 0.46339595680989404,
+      "delta_log_odds": -0.13334011421605876,
+      "contributions": [
+        {
+          "feature": "coverage_title",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": -0.010075872711768774
+        },
+        {
+          "feature": "log_title_words",
+          "group": "HTML document",
+          "delta_log_odds": -0.018208005070720408
+        },
+        {
+          "feature": "title_query_dice",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": -0.028559241393109974
+        },
+        {
+          "feature": "title_query_saturated_tf",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": -0.07649699504045955
+        }
+      ],
+      "record_id": "02ce417fbfe1f4bded7b088a4b60da48ab93bfdb36bd700ea98cc1937b73cf75",
+      "snapshot_id": "cd8e853e21274ff63adbac2bbdb7266ea12988f6dca612835cff02f7750b1299",
+      "hostname": "www.pdf2go.com",
+      "prompt": "Comment puis-je apporter des modifications \u00e0 un fichier PDF?",
+      "url": "https://www.pdf2go.com/fr",
+      "action": "title_from_existing_h1",
+      "detail": "Use an existing content H1 as the title; body wording unchanged.",
+      "delta_probability": -0.033269474711143276,
+      "serialization_delta_probability": 0.0,
+      "edit_over_serialized_probability": -0.033269474711143276,
+      "group_delta_log_odds": {
+        "HTML document": -0.018208005070720408,
+        "Prompt \u00d7 HTML": -0.1151321091453383,
+        "Fixed prompt": 0,
+        "Fixed URL": 0,
+        "Parser/source diagnostics": 0
+      }
+    },
+    {
+      "before_probability": 0.4966654315210373,
+      "after_probability": 0.4966654315210373,
+      "delta_log_odds": 0.0,
+      "contributions": [],
+      "record_id": "02ce417fbfe1f4bded7b088a4b60da48ab93bfdb36bd700ea98cc1937b73cf75",
+      "snapshot_id": "cd8e853e21274ff63adbac2bbdb7266ea12988f6dca612835cff02f7750b1299",
+      "hostname": "www.pdf2go.com",
+      "prompt": "Comment puis-je apporter des modifications \u00e0 un fichier PDF?",
+      "url": "https://www.pdf2go.com/fr",
+      "action": "relevant_paragraph_first",
+      "detail": "Move a better-matching existing paragraph before its first eligible sibling, within the same parent.",
+      "delta_probability": 0.0,
+      "serialization_delta_probability": 0.0,
+      "edit_over_serialized_probability": 0.0,
+      "group_delta_log_odds": {
+        "HTML document": 0,
+        "Prompt \u00d7 HTML": 0,
+        "Fixed prompt": 0,
+        "Fixed URL": 0,
+        "Parser/source diagnostics": 0
+      }
+    },
+    {
+      "before_probability": 0.7005060069614915,
+      "after_probability": 0.7060079543410608,
+      "delta_log_odds": 0.026365212543978167,
+      "contributions": [
+        {
+          "feature": "log_title_words",
+          "group": "HTML document",
+          "delta_log_odds": -0.003507682556024471
+        },
+        {
+          "feature": "title_query_precision",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": 0.016984622061060713
+        },
+        {
+          "feature": "title_query_dice",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": 0.012888273038941916
+        }
+      ],
+      "record_id": "0311aa9f42f0875ae05480c93c178bb9ff126db6524db5b78c344dabe1e75672",
+      "snapshot_id": "e93393d7240cc409d08fd455cf0c8da501a30b4825ced4f9011d42dc3f02f798",
+      "hostname": "www.docusign.com",
+      "prompt": "quickest way to sign PDFs online",
+      "url": "https://www.docusign.com/products/electronic-signature/learn/esign-pdf-free",
+      "action": "title_from_existing_h1",
+      "detail": "Use an existing content H1 as the title; body wording unchanged.",
+      "delta_probability": 0.0055019473795693274,
+      "serialization_delta_probability": 0.0,
+      "edit_over_serialized_probability": 0.0055019473795693274,
+      "group_delta_log_odds": {
+        "HTML document": -0.003507682556024471,
+        "Prompt \u00d7 HTML": 0.029872895100002628,
+        "Fixed prompt": 0,
+        "Fixed URL": 0,
+        "Parser/source diagnostics": 0
+      }
+    },
+    {
+      "before_probability": 0.3773374356721691,
+      "after_probability": 0.39135508587682394,
+      "delta_log_odds": 0.059245161867826246,
+      "contributions": [
+        {
+          "feature": "log_title_words",
+          "group": "HTML document",
+          "delta_log_odds": -0.01470032251469594
+        },
+        {
+          "feature": "title_query_precision",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": 0.059446177213712495
+        },
+        {
+          "feature": "title_query_dice",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": 0.014499307168809683
+        }
+      ],
+      "record_id": "0445f119810117d91ac6ca11a1aed87dc5383b6050c59b8ed2261c435e139f24",
+      "snapshot_id": "6b391a6e277e9681ae25a66dc0b337c14aba21119e2e7b5dca64c6fe1ff305a9",
+      "hostname": "www.larksuite.com",
+      "prompt": "Where can I manage software deployments and upgrades as projects?",
+      "url": "https://www.larksuite.com/en_us/templates/software-rollout-plan",
+      "action": "title_from_existing_h1",
+      "detail": "Use an existing content H1 as the title; body wording unchanged.",
+      "delta_probability": 0.014017650204654841,
+      "serialization_delta_probability": 0.0,
+      "edit_over_serialized_probability": 0.014017650204654841,
+      "group_delta_log_odds": {
+        "HTML document": -0.01470032251469594,
+        "Prompt \u00d7 HTML": 0.07394548438252217,
+        "Fixed prompt": 0,
+        "Fixed URL": 0,
+        "Parser/source diagnostics": 0
+      }
+    },
+    {
+      "before_probability": 0.3773374356721691,
+      "after_probability": 0.3773374356721691,
+      "delta_log_odds": 0.0,
+      "contributions": [],
+      "record_id": "0445f119810117d91ac6ca11a1aed87dc5383b6050c59b8ed2261c435e139f24",
+      "snapshot_id": "6b391a6e277e9681ae25a66dc0b337c14aba21119e2e7b5dca64c6fe1ff305a9",
+      "hostname": "www.larksuite.com",
+      "prompt": "Where can I manage software deployments and upgrades as projects?",
+      "url": "https://www.larksuite.com/en_us/templates/software-rollout-plan",
+      "action": "relevant_paragraph_first",
+      "detail": "Move a better-matching existing paragraph before its first eligible sibling, within the same parent.",
+      "delta_probability": 0.0,
+      "serialization_delta_probability": 0.0,
+      "edit_over_serialized_probability": 0.0,
+      "group_delta_log_odds": {
+        "HTML document": 0,
+        "Prompt \u00d7 HTML": 0,
+        "Fixed prompt": 0,
+        "Fixed URL": 0,
+        "Parser/source diagnostics": 0
+      }
+    },
+    {
+      "before_probability": 0.27041079156505676,
+      "after_probability": 0.2396618243460517,
+      "delta_log_odds": -0.16199504325226521,
+      "contributions": [
+        {
+          "feature": "coverage_title",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": -0.012594840889710962
+        },
+        {
+          "feature": "log_title_words",
+          "group": "HTML document",
+          "delta_log_odds": -0.005861668384116466
+        },
+        {
+          "feature": "title_query_precision",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": -0.03963078480914166
+        },
+        {
+          "feature": "title_query_dice",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": -0.05290975247565636
+        },
+        {
+          "feature": "title_query_saturated_tf",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": -0.050997996693639705
+        }
+      ],
+      "record_id": "04cba271b3158facddb489915fdb4cc12c38e9586fe6ee249730251a0755e6aa",
+      "snapshot_id": "f56a17c8c365e5007e33f6736ec481ec49dca6dd47c8d51ab435668d56494851",
+      "hostname": "telcomagazine.com",
+      "prompt": "Spot the breakthrough innovations poised to redefine the telco value chain.",
+      "url": "https://telcomagazine.com/articles/edge-computing-in-telecoms-revolutionising-5g-networks",
+      "action": "title_from_existing_h1",
+      "detail": "Use an existing content H1 as the title; body wording unchanged.",
+      "delta_probability": -0.030748967219005052,
+      "serialization_delta_probability": 0.0,
+      "edit_over_serialized_probability": -0.030748967219005052,
+      "group_delta_log_odds": {
+        "HTML document": -0.005861668384116466,
+        "Prompt \u00d7 HTML": -0.15613337486814868,
+        "Fixed prompt": 0,
+        "Fixed URL": 0,
+        "Parser/source diagnostics": 0
+      }
+    },
+    {
+      "before_probability": 0.27041079156505676,
+      "after_probability": 0.2800338934419402,
+      "delta_log_odds": 0.048245901746980846,
+      "contributions": [
+        {
+          "feature": "coverage_intro",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": 0.03023448354630284
+        },
+        {
+          "feature": "mean_section_coverage",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": 0.01159831014640302
+        },
+        {
+          "feature": "matching_section_fraction",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": 0.010154745900001608
+        },
+        {
+          "feature": "section_coverage_std",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": -0.0024318006474775933
+        },
+        {
+          "feature": "best_section_log_words",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": -0.0013098371982488083
+        }
+      ],
+      "record_id": "04cba271b3158facddb489915fdb4cc12c38e9586fe6ee249730251a0755e6aa",
+      "snapshot_id": "f56a17c8c365e5007e33f6736ec481ec49dca6dd47c8d51ab435668d56494851",
+      "hostname": "telcomagazine.com",
+      "prompt": "Spot the breakthrough innovations poised to redefine the telco value chain.",
+      "url": "https://telcomagazine.com/articles/edge-computing-in-telecoms-revolutionising-5g-networks",
+      "action": "relevant_paragraph_first",
+      "detail": "Move a better-matching existing paragraph before its first eligible sibling, within the same parent.",
+      "delta_probability": 0.009623101876883422,
+      "serialization_delta_probability": 0.0,
+      "edit_over_serialized_probability": 0.009623101876883422,
+      "group_delta_log_odds": {
+        "HTML document": 0,
+        "Prompt \u00d7 HTML": 0.04824590174698107,
+        "Fixed prompt": 0,
+        "Fixed URL": 0,
+        "Parser/source diagnostics": 0
+      }
+    },
+    {
+      "before_probability": 0.34697335053481587,
+      "after_probability": 0.3179871446897398,
+      "delta_log_odds": -0.1306675887581331,
+      "contributions": [
+        {
+          "feature": "coverage_title",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": -0.012594840889710966
+        },
+        {
+          "feature": "log_title_words",
+          "group": "HTML document",
+          "delta_log_odds": -0.0027676730962126602
+        },
+        {
+          "feature": "title_query_precision",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": -0.029723088606856244
+        },
+        {
+          "feature": "title_query_dice",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": -0.04308365558732017
+        },
+        {
+          "feature": "title_query_saturated_tf",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": -0.04249833057803308
+        }
+      ],
+      "record_id": "04e5935103d6a4ebeb31eb48887de84ff83ff8056dcb16afee63bdc9d13597b5",
+      "snapshot_id": "3907d58775753df8f130138e297233c656de1514da826c82524249f824ad033a",
+      "hostname": "www.netsuite.com",
+      "prompt": "How do users describe the implementation process for Acumatica versus NetSuite ERP?",
+      "url": "https://www.netsuite.com/portal/resource/articles/erp/implementing-an-erp-system-the-importance-of-phasing.shtml",
+      "action": "title_from_existing_h1",
+      "detail": "Use an existing content H1 as the title; body wording unchanged.",
+      "delta_probability": -0.028986205845076052,
+      "serialization_delta_probability": 0.0,
+      "edit_over_serialized_probability": -0.028986205845076052,
+      "group_delta_log_odds": {
+        "HTML document": -0.0027676730962126602,
+        "Prompt \u00d7 HTML": -0.12789991566192047,
+        "Fixed prompt": 0,
+        "Fixed URL": 0,
+        "Parser/source diagnostics": 0
+      }
+    },
+    {
+      "before_probability": 0.34697335053481587,
+      "after_probability": 0.34697335053481587,
+      "delta_log_odds": 0.0,
+      "contributions": [],
+      "record_id": "04e5935103d6a4ebeb31eb48887de84ff83ff8056dcb16afee63bdc9d13597b5",
+      "snapshot_id": "3907d58775753df8f130138e297233c656de1514da826c82524249f824ad033a",
+      "hostname": "www.netsuite.com",
+      "prompt": "How do users describe the implementation process for Acumatica versus NetSuite ERP?",
+      "url": "https://www.netsuite.com/portal/resource/articles/erp/implementing-an-erp-system-the-importance-of-phasing.shtml",
+      "action": "relevant_paragraph_first",
+      "detail": "Move a better-matching existing paragraph before its first eligible sibling, within the same parent.",
+      "delta_probability": 0.0,
+      "serialization_delta_probability": 0.0,
+      "edit_over_serialized_probability": 0.0,
+      "group_delta_log_odds": {
+        "HTML document": 0,
+        "Prompt \u00d7 HTML": 0,
+        "Fixed prompt": 0,
+        "Fixed URL": 0,
+        "Parser/source diagnostics": 0
+      }
+    },
+    {
+      "before_probability": 0.6576234943947913,
+      "after_probability": 0.5974918355179809,
+      "delta_log_odds": -0.2576963072566413,
+      "contributions": [
+        {
+          "feature": "log_title_words",
+          "group": "HTML document",
+          "delta_log_odds": -0.0047893317951956445
+        },
+        {
+          "feature": "title_query_precision",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": -0.051520020251884145
+        },
+        {
+          "feature": "title_query_dice",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": -0.08730109158483301
+        },
+        {
+          "feature": "title_query_saturated_tf",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": -0.12749499173409928
+        },
+        {
+          "feature": "title_query_bigram",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": 0.013409128109370989
+        }
+      ],
+      "record_id": "0596f80c2721a3220da69835668441b1600168c30a2be17144c96d4cb5ed5925",
+      "snapshot_id": "dc5db219f2ce851ae50e66ec55a9cebe293490bebc44e053a671cb0cc9d10075",
+      "hostname": "www.thebrokebackpacker.com",
+      "prompt": "How to choose the best area to stay in Palm Springs",
+      "url": "https://www.thebrokebackpacker.com/where-to-stay-in-palm-springs-usa/",
+      "action": "title_from_existing_h1",
+      "detail": "Use an existing content H1 as the title; body wording unchanged.",
+      "delta_probability": -0.06013165887681038,
+      "serialization_delta_probability": 0.0,
+      "edit_over_serialized_probability": -0.06013165887681038,
+      "group_delta_log_odds": {
+        "HTML document": -0.0047893317951956445,
+        "Prompt \u00d7 HTML": -0.25290697546144547,
+        "Fixed prompt": 0,
+        "Fixed URL": 0,
+        "Parser/source diagnostics": 0
+      }
+    },
+    {
+      "before_probability": 0.6576234943947913,
+      "after_probability": 0.6453621540191536,
+      "delta_log_odds": -0.05400702375820099,
+      "contributions": [
+        {
+          "feature": "coverage_intro",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": -0.048375173674084566
+        },
+        {
+          "feature": "log_word_count",
+          "group": "HTML document",
+          "delta_log_odds": -2.340938281429917e-05
+        },
+        {
+          "feature": "log_heading_count",
+          "group": "HTML document",
+          "delta_log_odds": -0.002362748875046801
+        },
+        {
+          "feature": "headings_per_1000_words",
+          "group": "HTML document",
+          "delta_log_odds": -0.0021825051513073585
+        },
+        {
+          "feature": "list_items_per_1000_words",
+          "group": "HTML document",
+          "delta_log_odds": -2.711792814585297e-05
+        },
+        {
+          "feature": "retained_text_fraction",
+          "group": "Parser/source diagnostics",
+          "delta_log_odds": 0.0005794945446500016
+        },
+        {
+          "feature": "mean_section_coverage",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": -0.0018807226149857184
+        },
+        {
+          "feature": "matching_section_fraction",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": -0.00019146995636366317
+        },
+        {
+          "feature": "best_section_position",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": 2.1336612820414653e-05
+        },
+        {
+          "feature": "body_query_saturated_tf",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": 1.670911483592497e-05
+        },
+        {
+          "feature": "headings_query_saturated_tf",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": -0.000747529042261417
+        },
+        {
+          "feature": "section_coverage_fraction_0_5",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": -0.00012426469550110196
+        },
+        {
+          "feature": "section_coverage_fraction_0_8",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": 0.0005739448762662485
+        },
+        {
+          "feature": "section_coverage_std",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": -0.0010146648067772101
+        },
+        {
+          "feature": "best_section_log_words",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": 0.0007432592558311352
+        },
+        {
+          "feature": "first_query_match_position",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": 6.106649262536342e-08
+        },
+        {
+          "feature": "query_match_density",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": 0.001090144324903884
+        },
+        {
+          "feature": "unique_word_fraction",
+          "group": "HTML document",
+          "delta_log_odds": -0.00015207949267396088
+        },
+        {
+          "feature": "numeric_word_fraction",
+          "group": "HTML document",
+          "delta_log_odds": -6.642799518463114e-07
+        },
+        {
+          "feature": "question_heading_fraction",
+          "group": "HTML document",
+          "delta_log_odds": -0.00021753746227600002
+        },
+        {
+          "feature": "links_per_1000_words",
+          "group": "HTML document",
+          "delta_log_odds": -3.0013423023017024e-06
+        },
+        {
+          "feature": "heading_word_fraction",
+          "group": "HTML document",
+          "delta_log_odds": 0.00024580329609011337
+        },
+        {
+          "feature": "paragraph_word_fraction",
+          "group": "HTML document",
+          "delta_log_odds": 2.5111854400734804e-05
+        }
+      ],
+      "record_id": "0596f80c2721a3220da69835668441b1600168c30a2be17144c96d4cb5ed5925",
+      "snapshot_id": "dc5db219f2ce851ae50e66ec55a9cebe293490bebc44e053a671cb0cc9d10075",
+      "hostname": "www.thebrokebackpacker.com",
+      "prompt": "How to choose the best area to stay in Palm Springs",
+      "url": "https://www.thebrokebackpacker.com/where-to-stay-in-palm-springs-usa/",
+      "action": "relevant_paragraph_first",
+      "detail": "Move a better-matching existing paragraph before its first eligible sibling, within the same parent.",
+      "delta_probability": -0.012261340375637642,
+      "serialization_delta_probability": 0.0,
+      "edit_over_serialized_probability": -0.012261340375637642,
+      "group_delta_log_odds": {
+        "HTML document": -0.004698148764027572,
+        "Prompt \u00d7 HTML": -0.049888369538823446,
+        "Fixed prompt": 0,
+        "Fixed URL": 0,
+        "Parser/source diagnostics": 0.0005794945446500016
+      }
+    },
+    {
+      "before_probability": 0.4860335303629654,
+      "after_probability": 0.43398823833877864,
+      "delta_log_odds": -0.20971701005504845,
+      "contributions": [
+        {
+          "feature": "coverage_title",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": -0.016793121186281287
+        },
+        {
+          "feature": "log_title_words",
+          "group": "HTML document",
+          "delta_log_odds": -0.00478933179519565
+        },
+        {
+          "feature": "title_query_precision",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": -0.053501559492341255
+        },
+        {
+          "feature": "title_query_dice",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": -0.07088550171418065
+        },
+        {
+          "feature": "title_query_saturated_tf",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": -0.06374749586704963
+        }
+      ],
+      "record_id": "05a5f17cece1275c25ba9cc092c452f34471da5c0cdc1d470ea3157f4ad1e3c4",
+      "snapshot_id": "57b15306499e306415f36bc3496f1d69106c4272886be2a35ec9d383dcc4ed7c",
+      "hostname": "www.zerofox.com",
+      "prompt": "who offers the most reliable data leak detection?",
+      "url": "https://www.zerofox.com/solutions/data-leakage-detection-software",
+      "action": "title_from_existing_h1",
+      "detail": "Use an existing content H1 as the title; body wording unchanged.",
+      "delta_probability": -0.052045292024186784,
+      "serialization_delta_probability": 0.0,
+      "edit_over_serialized_probability": -0.052045292024186784,
+      "group_delta_log_odds": {
+        "HTML document": -0.00478933179519565,
+        "Prompt \u00d7 HTML": -0.2049276782598528,
+        "Fixed prompt": 0,
+        "Fixed URL": 0,
+        "Parser/source diagnostics": 0
+      }
+    },
+    {
+      "before_probability": 0.6433665362939355,
+      "after_probability": 0.6458512560815497,
+      "delta_log_odds": 0.010846157406124046,
+      "contributions": [
+        {
+          "feature": "coverage_title",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": 0.020151745423537547
+        },
+        {
+          "feature": "log_title_words",
+          "group": "HTML document",
+          "delta_log_odds": 0.031626678346245184
+        },
+        {
+          "feature": "title_query_precision",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": -0.09907696202285415
+        },
+        {
+          "feature": "title_query_dice",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": 0.02204573019819015
+        },
+        {
+          "feature": "title_query_saturated_tf",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": 0.050997996693639705
+        },
+        {
+          "feature": "title_query_bigram",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": -0.014899031232634441
+        }
+      ],
+      "record_id": "06108c9e37c9e93b49e1a1deb3df917e84c0f71fc30dcd005dfdfd8964bb2425",
+      "snapshot_id": "c7b75121318d20a4847a94f77d81dcc941e54125ef72ceccce2874dca13cbdbb",
+      "hostname": "www.centraleyes.com",
+      "prompt": "What are the best software solutions to simplify CMMC compliance?",
+      "url": "https://www.centraleyes.com/cmmc",
+      "action": "title_from_existing_h1",
+      "detail": "Use an existing content H1 as the title; body wording unchanged.",
+      "delta_probability": 0.00248471978761422,
+      "serialization_delta_probability": 0.0,
+      "edit_over_serialized_probability": 0.00248471978761422,
+      "group_delta_log_odds": {
+        "HTML document": 0.031626678346245184,
+        "Prompt \u00d7 HTML": -0.020780520940121193,
+        "Fixed prompt": 0,
+        "Fixed URL": 0,
+        "Parser/source diagnostics": 0
+      }
+    },
+    {
+      "before_probability": 0.43265434606484393,
+      "after_probability": 0.3569162882066794,
+      "delta_log_odds": -0.31774403301498894,
+      "contributions": [
+        {
+          "feature": "coverage_title",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": -0.020151745423537544
+        },
+        {
+          "feature": "log_title_words",
+          "group": "HTML document",
+          "delta_log_odds": 0.0052713379538933975
+        },
+        {
+          "feature": "title_query_precision",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": -0.08916926582056874
+        },
+        {
+          "feature": "title_query_dice",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": -0.11169836633749676
+        },
+        {
+          "feature": "title_query_saturated_tf",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": -0.10199599338727941
+        }
+      ],
+      "record_id": "06939a5cefba54e71ba438dfdc8a1be5939850d70ed555a179a5afdfe87310cc",
+      "snapshot_id": "d4e62f27064bcef64fe8d43e915414b87645045f631cd564fea6aae4e6a8f25c",
+      "hostname": "www.carmatec.com",
+      "prompt": "What is the top framework for managing enterprise data policies?",
+      "url": "https://www.carmatec.com/es_mx/blog/top-10-data-governance-frameworks",
+      "action": "title_from_existing_h1",
+      "detail": "Use an existing content H1 as the title; body wording unchanged.",
+      "delta_probability": -0.07573805785816451,
+      "serialization_delta_probability": 0.0,
+      "edit_over_serialized_probability": -0.07573805785816451,
+      "group_delta_log_odds": {
+        "HTML document": 0.0052713379538933975,
+        "Prompt \u00d7 HTML": -0.32301537096888244,
+        "Fixed prompt": 0,
+        "Fixed URL": 0,
+        "Parser/source diagnostics": 0
+      }
+    },
+    {
+      "before_probability": 0.43265434606484393,
+      "after_probability": 0.44289828743431525,
+      "delta_log_odds": 0.04162191781333943,
+      "contributions": [
+        {
+          "feature": "coverage_intro",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": 0.048375173674084566
+        },
+        {
+          "feature": "section_coverage_fraction_0_8",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": -0.025067886507511183
+        },
+        {
+          "feature": "section_coverage_std",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": 0.0005555520947974237
+        },
+        {
+          "feature": "top_three_section_coverage",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": 0.0177590785519686
+        }
+      ],
+      "record_id": "06939a5cefba54e71ba438dfdc8a1be5939850d70ed555a179a5afdfe87310cc",
+      "snapshot_id": "d4e62f27064bcef64fe8d43e915414b87645045f631cd564fea6aae4e6a8f25c",
+      "hostname": "www.carmatec.com",
+      "prompt": "What is the top framework for managing enterprise data policies?",
+      "url": "https://www.carmatec.com/es_mx/blog/top-10-data-governance-frameworks",
+      "action": "relevant_paragraph_first",
+      "detail": "Move a better-matching existing paragraph before its first eligible sibling, within the same parent.",
+      "delta_probability": 0.010243941369471321,
+      "serialization_delta_probability": 0.0,
+      "edit_over_serialized_probability": 0.010243941369471321,
+      "group_delta_log_odds": {
+        "HTML document": 0,
+        "Prompt \u00d7 HTML": 0.041621917813339404,
+        "Fixed prompt": 0,
+        "Fixed URL": 0,
+        "Parser/source diagnostics": 0
+      }
+    },
+    {
+      "before_probability": 0.6039606214760562,
+      "after_probability": 0.6039606214760562,
+      "delta_log_odds": 0.0,
+      "contributions": [],
+      "record_id": "07112a5b251498e88b2fb247574007bda7ce8f8c979de70a9272fc9c0fbcc950",
+      "snapshot_id": "30cc4689c213e14aa2d4d671732a001b7a77608d0f823bb2275ddee4c8e4c167",
+      "hostname": "www.helpdesk.com",
+      "prompt": "freshdesk alternatives",
+      "url": "https://www.helpdesk.com/alternative/freshdesk",
+      "action": "title_from_existing_h1",
+      "detail": "Use an existing content H1 as the title; body wording unchanged.",
+      "delta_probability": 0.0,
+      "serialization_delta_probability": 0.0,
+      "edit_over_serialized_probability": 0.0,
+      "group_delta_log_odds": {
+        "HTML document": 0,
+        "Prompt \u00d7 HTML": 0,
+        "Fixed prompt": 0,
+        "Fixed URL": 0,
+        "Parser/source diagnostics": 0
+      }
+    },
+    {
+      "before_probability": 0.6039606214760562,
+      "after_probability": 0.5920063821823065,
+      "delta_log_odds": -0.04972946868901579,
+      "contributions": [
+        {
+          "feature": "log_word_count",
+          "group": "HTML document",
+          "delta_log_odds": -5.0069932259860934e-05
+        },
+        {
+          "feature": "log_heading_count",
+          "group": "HTML document",
+          "delta_log_odds": -0.004088159263682077
+        },
+        {
+          "feature": "headings_per_1000_words",
+          "group": "HTML document",
+          "delta_log_odds": -0.005525264878480197
+        },
+        {
+          "feature": "list_items_per_1000_words",
+          "group": "HTML document",
+          "delta_log_odds": -8.05840459473293e-05
+        },
+        {
+          "feature": "retained_text_fraction",
+          "group": "Parser/source diagnostics",
+          "delta_log_odds": 0.0012102029538528301
+        },
+        {
+          "feature": "mean_section_coverage",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": -0.006874804804521147
+        },
+        {
+          "feature": "matching_section_fraction",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": -0.0017197553540325317
+        },
+        {
+          "feature": "body_query_saturated_tf",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": 0.0036382300517781973
+        },
+        {
+          "feature": "headings_query_precision",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": -0.0008811817782793983
+        },
+        {
+          "feature": "headings_query_dice",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": 0.0005632763362713834
+        },
+        {
+          "feature": "headings_query_saturated_tf",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": -0.03877915948798648
+        },
+        {
+          "feature": "section_coverage_fraction_0_5",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": -0.0005952679768359266
+        },
+        {
+          "feature": "section_coverage_fraction_0_8",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": 0.0012887723910111589
+        },
+        {
+          "feature": "section_coverage_fraction_1_0",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": 0.0008371569473019126
+        },
+        {
+          "feature": "section_coverage_std",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": 0.000293167023523374
+        },
+        {
+          "feature": "first_query_match_position",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": 5.366997803915211e-06
+        },
+        {
+          "feature": "query_match_density",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": 0.0013604285886977857
+        },
+        {
+          "feature": "unique_word_fraction",
+          "group": "HTML document",
+          "delta_log_odds": -0.0003332095649398582
+        },
+        {
+          "feature": "numeric_word_fraction",
+          "group": "HTML document",
+          "delta_log_odds": 7.399929023685879e-05
+        },
+        {
+          "feature": "question_heading_fraction",
+          "group": "HTML document",
+          "delta_log_odds": -0.0006694539968106572
+        },
+        {
+          "feature": "links_per_1000_words",
+          "group": "HTML document",
+          "delta_log_odds": -2.3295901021716745e-06
+        },
+        {
+          "feature": "heading_word_fraction",
+          "group": "HTML document",
+          "delta_log_odds": 0.000542788816130846
+        },
+        {
+          "feature": "paragraph_word_fraction",
+          "group": "HTML document",
+          "delta_log_odds": 5.638258825350843e-05
+        }
+      ],
+      "record_id": "07112a5b251498e88b2fb247574007bda7ce8f8c979de70a9272fc9c0fbcc950",
+      "snapshot_id": "30cc4689c213e14aa2d4d671732a001b7a77608d0f823bb2275ddee4c8e4c167",
+      "hostname": "www.helpdesk.com",
+      "prompt": "freshdesk alternatives",
+      "url": "https://www.helpdesk.com/alternative/freshdesk",
+      "action": "relevant_paragraph_first",
+      "detail": "Move a better-matching existing paragraph before its first eligible sibling, within the same parent.",
+      "delta_probability": -0.011954239293749724,
+      "serialization_delta_probability": 0.0,
+      "edit_over_serialized_probability": -0.011954239293749724,
+      "group_delta_log_odds": {
+        "HTML document": -0.010075900577600938,
+        "Prompt \u00d7 HTML": -0.04086377106526776,
+        "Fixed prompt": 0,
+        "Fixed URL": 0,
+        "Parser/source diagnostics": 0.0012102029538528301
+      }
+    },
+    {
+      "before_probability": 0.26677339710007586,
+      "after_probability": 0.3339571384944429,
+      "delta_log_odds": 0.3207138323316987,
+      "contributions": [
+        {
+          "feature": "coverage_title",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": 0.020151745423537547
+        },
+        {
+          "feature": "log_title_words",
+          "group": "HTML document",
+          "delta_log_odds": -0.01820800507072041
+        },
+        {
+          "feature": "title_query_precision",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": 0.17833853164113747
+        },
+        {
+          "feature": "title_query_dice",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": 0.10052852970374708
+        },
+        {
+          "feature": "title_query_saturated_tf",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": 0.05666444077071078
+        },
+        {
+          "feature": "title_query_bigram",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": -0.01676141013671375
+        }
+      ],
+      "record_id": "081e8721d8a9579f4cf6ac0bc013941cb3c07cfa2e4004ee1955e20e7f6799f0",
+      "snapshot_id": "80e09f80707c4be9f790f0b7d4f9e0960037ac9ed4cfbf4ebd7305ebfbac05dd",
+      "hostname": "www.1800flowers.com",
+      "prompt": "Can I get peony bouquets delivered in the summer?",
+      "url": "https://www.1800flowers.com/peonies",
+      "action": "title_from_existing_h1",
+      "detail": "Use an existing content H1 as the title; body wording unchanged.",
+      "delta_probability": 0.06718374139436706,
+      "serialization_delta_probability": 0.0,
+      "edit_over_serialized_probability": 0.06718374139436706,
+      "group_delta_log_odds": {
+        "HTML document": -0.01820800507072041,
+        "Prompt \u00d7 HTML": 0.33892183740241916,
+        "Fixed prompt": 0,
+        "Fixed URL": 0,
+        "Parser/source diagnostics": 0
+      }
+    },
+    {
+      "before_probability": 0.26677339710007586,
+      "after_probability": 0.24883470831928634,
+      "delta_log_odds": -0.0937816684320707,
+      "contributions": [
+        {
+          "feature": "log_word_count",
+          "group": "HTML document",
+          "delta_log_odds": -0.00019759498939144168
+        },
+        {
+          "feature": "log_heading_count",
+          "group": "HTML document",
+          "delta_log_odds": -0.02347685420015609
+        },
+        {
+          "feature": "headings_per_1000_words",
+          "group": "HTML document",
+          "delta_log_odds": -0.02820064216186586
+        },
+        {
+          "feature": "list_items_per_1000_words",
+          "group": "HTML document",
+          "delta_log_odds": -0.00011929377627013498
+        },
+        {
+          "feature": "retained_text_fraction",
+          "group": "Parser/source diagnostics",
+          "delta_log_odds": 0.004881720084273765
+        },
+        {
+          "feature": "mean_section_coverage",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": 0.012990107363971397
+        },
+        {
+          "feature": "matching_section_fraction",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": -0.0023694407100003745
+        },
+        {
+          "feature": "best_section_position",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": 0.009159807883803646
+        },
+        {
+          "feature": "headings_query_precision",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": -0.09170699088856869
+        },
+        {
+          "feature": "headings_query_dice",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": 0.021686138946448233
+        },
+        {
+          "feature": "section_coverage_std",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": -0.001051648877468136
+        },
+        {
+          "feature": "best_section_log_words",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": 0.006028658719444624
+        },
+        {
+          "feature": "first_query_match_position",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": 1.3109438174322776e-05
+        },
+        {
+          "feature": "query_match_density",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": -0.0005877055689681589
+        },
+        {
+          "feature": "unique_word_fraction",
+          "group": "HTML document",
+          "delta_log_odds": -0.003091830826426595
+        },
+        {
+          "feature": "numeric_word_fraction",
+          "group": "HTML document",
+          "delta_log_odds": -7.13020887928858e-05
+        },
+        {
+          "feature": "links_per_1000_words",
+          "group": "HTML document",
+          "delta_log_odds": -5.602718362593214e-05
+        },
+        {
+          "feature": "heading_word_fraction",
+          "group": "HTML document",
+          "delta_log_odds": 0.0021668695898103933
+        },
+        {
+          "feature": "paragraph_word_fraction",
+          "group": "HTML document",
+          "delta_log_odds": 0.00022125081353737506
+        }
+      ],
+      "record_id": "081e8721d8a9579f4cf6ac0bc013941cb3c07cfa2e4004ee1955e20e7f6799f0",
+      "snapshot_id": "80e09f80707c4be9f790f0b7d4f9e0960037ac9ed4cfbf4ebd7305ebfbac05dd",
+      "hostname": "www.1800flowers.com",
+      "prompt": "Can I get peony bouquets delivered in the summer?",
+      "url": "https://www.1800flowers.com/peonies",
+      "action": "relevant_paragraph_first",
+      "detail": "Move a better-matching existing paragraph before its first eligible sibling, within the same parent.",
+      "delta_probability": -0.017938688780789525,
+      "serialization_delta_probability": 0.0,
+      "edit_over_serialized_probability": -0.017938688780789525,
+      "group_delta_log_odds": {
+        "HTML document": -0.05282542482318117,
+        "Prompt \u00d7 HTML": -0.04583796369316314,
+        "Fixed prompt": 0,
+        "Fixed URL": 0,
+        "Parser/source diagnostics": 0.004881720084273765
+      }
+    },
+    {
+      "before_probability": 0.816926231024513,
+      "after_probability": 0.843878574038087,
+      "delta_log_odds": 0.191714921087067,
+      "contributions": [
+        {
+          "feature": "log_title_words",
+          "group": "HTML document",
+          "delta_log_odds": -0.022997336865916065
+        },
+        {
+          "feature": "title_query_precision",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": 0.10700311898468248
+        },
+        {
+          "feature": "title_query_dice",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": 0.10770913896830049
+        }
+      ],
+      "record_id": "0858fa6e73a7711a4af0cf27e51dd821be8a68b50958dce8de6b6eae80e4e4b0",
+      "snapshot_id": "e70de593fa74fe8dc6e1d7d2ad4bb6a4877824bbde87df0af6e8ecb537a11487",
+      "hostname": "www.webfleet.com",
+      "prompt": "best fleet management app",
+      "url": "https://www.webfleet.com/en_gb/webfleet/products/webfleet",
+      "action": "title_from_existing_h1",
+      "detail": "Use an existing content H1 as the title; body wording unchanged.",
+      "delta_probability": 0.026952343013573965,
+      "serialization_delta_probability": 0.0,
+      "edit_over_serialized_probability": 0.026952343013573965,
+      "group_delta_log_odds": {
+        "HTML document": -0.022997336865916065,
+        "Prompt \u00d7 HTML": 0.214712257952983,
+        "Fixed prompt": 0,
+        "Fixed URL": 0,
+        "Parser/source diagnostics": 0
+      }
+    },
+    {
+      "before_probability": 0.2922524450730901,
+      "after_probability": 0.2922524450730901,
+      "delta_log_odds": 0.0,
+      "contributions": [],
+      "record_id": "08b3af651afedf4ded26823eac6583c567c31b1fe0a5d25426f4b4fe6e1f5c61",
+      "snapshot_id": "4b76cad2ca50a44d9048389387c5be5ba47ccb0bcc418528a5e22b7fceec0925",
+      "hostname": "www.liquor.com",
+      "prompt": "Recommended brands for making a classic martini?",
+      "url": "https://www.liquor.com/best-dry-vermouths-5101306",
+      "action": "relevant_paragraph_first",
+      "detail": "Move a better-matching existing paragraph before its first eligible sibling, within the same parent.",
+      "delta_probability": 0.0,
+      "serialization_delta_probability": 0.0,
+      "edit_over_serialized_probability": 0.0,
+      "group_delta_log_odds": {
+        "HTML document": 0,
+        "Prompt \u00d7 HTML": 0,
+        "Fixed prompt": 0,
+        "Fixed URL": 0,
+        "Parser/source diagnostics": 0
+      }
+    },
+    {
+      "before_probability": 0.3852654807892526,
+      "after_probability": 0.39018219552947875,
+      "delta_log_odds": 0.020711408087351002,
+      "contributions": [
+        {
+          "feature": "coverage_intro",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": 0.024187586837042287
+        },
+        {
+          "feature": "best_section_coverage",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": 0.011989710472204715
+        },
+        {
+          "feature": "section_coverage_std",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": -0.005233482556353402
+        },
+        {
+          "feature": "top_three_section_coverage",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": -0.011839385701312356
+        },
+        {
+          "feature": "best_section_log_words",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": 0.0016069790357697207
+        }
+      ],
+      "record_id": "08b403bddd6c597d635d431bea9b55ca36d3c836dd4566249214f0124f48d9dd",
+      "snapshot_id": "409af6317a4b83d17d4dfa8d1a902d8acff664adcae0c3efe47e69e75798ba72",
+      "hostname": "www.celoxis.com",
+      "prompt": "What metrics matter most to the CFO in approving a collaborative work management tool investment?",
+      "url": "https://www.celoxis.com/article/roi-project-management-software-numbers-results",
+      "action": "relevant_paragraph_first",
+      "detail": "Move a better-matching existing paragraph before its first eligible sibling, within the same parent.",
+      "delta_probability": 0.004916714740226147,
+      "serialization_delta_probability": 0.0,
+      "edit_over_serialized_probability": 0.004916714740226147,
+      "group_delta_log_odds": {
+        "HTML document": 0,
+        "Prompt \u00d7 HTML": 0.020711408087350964,
+        "Fixed prompt": 0,
+        "Fixed URL": 0,
+        "Parser/source diagnostics": 0
+      }
+    },
+    {
+      "before_probability": 0.5295157472497751,
+      "after_probability": 0.5288261842251414,
+      "delta_log_odds": -0.0027676730962126472,
+      "contributions": [
+        {
+          "feature": "log_title_words",
+          "group": "HTML document",
+          "delta_log_odds": -0.0027676730962126602
+        }
+      ],
+      "record_id": "092966c2f3ded876c25dd72edf23d782144e53a7eb7d83c2d3eb84ec14905c0d",
+      "snapshot_id": "a7c2f2995163dd2382af4380ccc1ef8be2c0836fb808567a12368f13a3c41037",
+      "hostname": "www.videoproc.com",
+      "prompt": "\u0907\u0902\u0938\u094d\u091f\u093e\u0917\u094d\u0930\u093e\u092e \u092a\u094b\u0938\u094d\u091f \u0915\u0947 \u0932\u093f\u090f \u0938\u0930\u094d\u0935\u0936\u094d\u0930\u0947\u0937\u094d\u0920 \u0915\u094b\u0932\u093e\u091c \u091f\u0942\u0932",
+      "url": "https://www.videoproc.com/video-editor/video-collages-for-instagram.htm",
+      "action": "title_from_existing_h1",
+      "detail": "Use an existing content H1 as the title; body wording unchanged.",
+      "delta_probability": -0.0006895630246337436,
+      "serialization_delta_probability": 0.0,
+      "edit_over_serialized_probability": -0.0006895630246337436,
+      "group_delta_log_odds": {
+        "HTML document": -0.0027676730962126602,
+        "Prompt \u00d7 HTML": 0,
+        "Fixed prompt": 0,
+        "Fixed URL": 0,
+        "Parser/source diagnostics": 0
+      }
+    },
+    {
+      "before_probability": 0.2851169780003359,
+      "after_probability": 0.2990577734208994,
+      "delta_log_odds": 0.06743068748546333,
+      "contributions": [
+        {
+          "feature": "coverage_title",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": -0.014394103873955389
+        },
+        {
+          "feature": "log_title_words",
+          "group": "HTML document",
+          "delta_log_odds": -0.012346336686603957
+        },
+        {
+          "feature": "title_query_precision",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": 0.0764307992747732
+        },
+        {
+          "feature": "title_query_dice",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": 0.01774032877124948
+        }
+      ],
+      "record_id": "0954106865ea5cec4b628d1fdf15e1c20fc6082c0b70afd1dc70294ae89e3006",
+      "snapshot_id": "dc0589681023497bf2df40d3c78eab9c2c819e6146c93ca801701c91c6e23f38",
+      "hostname": "www.denver.org",
+      "prompt": "What's the best area in Denver (and vicinity) for shopping and boutique hotels?",
+      "url": "https://www.denver.org/places-to-stay/by-area/cherry-creek/",
+      "action": "title_from_existing_h1",
+      "detail": "Use an existing content H1 as the title; body wording unchanged.",
+      "delta_probability": 0.013940795420563479,
+      "serialization_delta_probability": 0.0,
+      "edit_over_serialized_probability": 0.013940795420563479,
+      "group_delta_log_odds": {
+        "HTML document": -0.012346336686603957,
+        "Prompt \u00d7 HTML": 0.07977702417206729,
+        "Fixed prompt": 0,
+        "Fixed URL": 0,
+        "Parser/source diagnostics": 0
+      }
+    },
+    {
+      "before_probability": 0.6588570336237627,
+      "after_probability": 0.657177424582107,
+      "delta_log_odds": -0.0074639267226500605,
+      "contributions": [
+        {
+          "feature": "log_title_words",
+          "group": "HTML document",
+          "delta_log_odds": 0.0030939952879038063
+        },
+        {
+          "feature": "title_query_precision",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": -0.006369233272897765
+        },
+        {
+          "feature": "title_query_dice",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": -0.00418868873765613
+        }
+      ],
+      "record_id": "0a26c7f7dd30a4c38d38e1481ee2a44791e54ae5f0198970d1c9de484a95f47f",
+      "snapshot_id": "03d15afc4e14001b9bface3833e3366d9289e353105f2e9b9074e7e0d9fbd35b",
+      "hostname": "www.centraleyes.com",
+      "prompt": "best AI customer service solutions for regulated industries",
+      "url": "https://www.centraleyes.com/top-ai-compliance-tools",
+      "action": "title_from_existing_h1",
+      "detail": "Use an existing content H1 as the title; body wording unchanged.",
+      "delta_probability": -0.0016796090416556497,
+      "serialization_delta_probability": 0.0,
+      "edit_over_serialized_probability": -0.0016796090416556497,
+      "group_delta_log_odds": {
+        "HTML document": 0.0030939952879038063,
+        "Prompt \u00d7 HTML": -0.010557922010553895,
+        "Fixed prompt": 0,
+        "Fixed URL": 0,
+        "Parser/source diagnostics": 0
+      }
+    },
+    {
+      "before_probability": 0.6588570336237627,
+      "after_probability": 0.6507213624742647,
+      "delta_log_odds": -0.0359933769201336,
+      "contributions": [
+        {
+          "feature": "mean_section_coverage",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": 0.0037327894724055845
+        },
+        {
+          "feature": "best_section_position",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": -0.013927193273619578
+        },
+        {
+          "feature": "section_coverage_fraction_0_5",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": 0.00042421396050376333
+        },
+        {
+          "feature": "section_coverage_std",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": -0.004243042604489633
+        },
+        {
+          "feature": "top_three_section_coverage",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": -0.022198848189960728
+        },
+        {
+          "feature": "best_section_log_words",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": 0.00021870371502688356
+        }
+      ],
+      "record_id": "0a26c7f7dd30a4c38d38e1481ee2a44791e54ae5f0198970d1c9de484a95f47f",
+      "snapshot_id": "03d15afc4e14001b9bface3833e3366d9289e353105f2e9b9074e7e0d9fbd35b",
+      "hostname": "www.centraleyes.com",
+      "prompt": "best AI customer service solutions for regulated industries",
+      "url": "https://www.centraleyes.com/top-ai-compliance-tools",
+      "action": "relevant_paragraph_first",
+      "detail": "Move a better-matching existing paragraph before its first eligible sibling, within the same parent.",
+      "delta_probability": -0.00813567114949798,
+      "serialization_delta_probability": 0.0,
+      "edit_over_serialized_probability": -0.00813567114949798,
+      "group_delta_log_odds": {
+        "HTML document": 0,
+        "Prompt \u00d7 HTML": -0.035993376920133706,
+        "Fixed prompt": 0,
+        "Fixed URL": 0,
+        "Parser/source diagnostics": 0
+      }
+    },
+    {
+      "before_probability": 0.4547732583438358,
+      "after_probability": 0.46487817701467427,
+      "delta_log_odds": 0.04068374530659638,
+      "contributions": [
+        {
+          "feature": "log_title_words",
+          "group": "HTML document",
+          "delta_log_odds": -0.0047893317951956445
+        },
+        {
+          "feature": "title_query_precision",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": 0.02882238895210302
+        },
+        {
+          "feature": "title_query_dice",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": 0.016650688149688946
+        }
+      ],
+      "record_id": "0a76f80d8880d57be2e7e8934938b3eceefa4c3433780c8196a9520cb6ec68f3",
+      "snapshot_id": "2b51d08aaaf1df93c751fee49d34a2ba6abe6f0023d8ee5bc90ef10daa74c8ef",
+      "hostname": "www.logiwa.com",
+      "prompt": "What\u2019s the most reliable way to outsource inventory and shipping management?",
+      "url": "https://www.logiwa.com/blog/outsourcing-inventory-management-to-3pl",
+      "action": "title_from_existing_h1",
+      "detail": "Use an existing content H1 as the title; body wording unchanged.",
+      "delta_probability": 0.010104918670838459,
+      "serialization_delta_probability": 0.0,
+      "edit_over_serialized_probability": 0.010104918670838459,
+      "group_delta_log_odds": {
+        "HTML document": -0.0047893317951956445,
+        "Prompt \u00d7 HTML": 0.045473077101791964,
+        "Fixed prompt": 0,
+        "Fixed URL": 0,
+        "Parser/source diagnostics": 0
+      }
+    },
+    {
+      "before_probability": 0.4547732583438358,
+      "after_probability": 0.4781035108812321,
+      "delta_log_odds": 0.09376077394413013,
+      "contributions": [
+        {
+          "feature": "coverage_headings",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": 0.00719458331561288
+        },
+        {
+          "feature": "coverage_intro",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": 0.030234483546302843
+        },
+        {
+          "feature": "log_word_count",
+          "group": "HTML document",
+          "delta_log_odds": -6.94355409777211e-05
+        },
+        {
+          "feature": "log_heading_count",
+          "group": "HTML document",
+          "delta_log_odds": -0.0054802398580553625
+        },
+        {
+          "feature": "headings_per_1000_words",
+          "group": "HTML document",
+          "delta_log_odds": -0.005463146304749667
+        },
+        {
+          "feature": "list_items_per_1000_words",
+          "group": "HTML document",
+          "delta_log_odds": -4.8638593548558655e-05
+        },
+        {
+          "feature": "retained_text_fraction",
+          "group": "Parser/source diagnostics",
+          "delta_log_odds": 0.0016747916810060188
+        },
+        {
+          "feature": "mean_section_coverage",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": -0.010001441358130116
+        },
+        {
+          "feature": "matching_section_fraction",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": -0.00012877395163045377
+        },
+        {
+          "feature": "best_section_heading_coverage",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": 0.013937353404822952
+        },
+        {
+          "feature": "best_section_position",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": -0.002534334197099821
+        },
+        {
+          "feature": "body_query_saturated_tf",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": 0.0014368762612089574
+        },
+        {
+          "feature": "headings_query_precision",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": 0.011781800912767516
+        },
+        {
+          "feature": "headings_query_dice",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": -0.007313756664292338
+        },
+        {
+          "feature": "headings_query_saturated_tf",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": -0.01487853466069684
+        },
+        {
+          "feature": "headings_query_bigram",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": 0.03513824677834257
+        },
+        {
+          "feature": "section_coverage_fraction_0_5",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": -0.0007131712959193701
+        },
+        {
+          "feature": "section_coverage_fraction_0_8",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": 0.0007720182438907434
+        },
+        {
+          "feature": "section_coverage_std",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": 0.0042506746439071996
+        },
+        {
+          "feature": "top_three_section_coverage",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": 0.014799232126640558
+        },
+        {
+          "feature": "best_section_log_words",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": 0.019339389260650527
+        },
+        {
+          "feature": "first_query_match_position",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": 2.764652574569547e-06
+        },
+        {
+          "feature": "query_match_density",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": 0.0013246643672447723
+        },
+        {
+          "feature": "unique_word_fraction",
+          "group": "HTML document",
+          "delta_log_odds": -0.0005838861933588971
+        },
+        {
+          "feature": "numeric_word_fraction",
+          "group": "HTML document",
+          "delta_log_odds": 0.00012792118132859133
+        },
+        {
+          "feature": "question_heading_fraction",
+          "group": "HTML document",
+          "delta_log_odds": -0.0018456291018791803
+        },
+        {
+          "feature": "links_per_1000_words",
+          "group": "HTML document",
+          "delta_log_odds": -5.046239961573769e-06
+        },
+        {
+          "feature": "heading_word_fraction",
+          "group": "HTML document",
+          "delta_log_odds": 0.0007362941740972707
+        },
+        {
+          "feature": "paragraph_word_fraction",
+          "group": "HTML document",
+          "delta_log_odds": 7.571335403205772e-05
+        }
+      ],
+      "record_id": "0a76f80d8880d57be2e7e8934938b3eceefa4c3433780c8196a9520cb6ec68f3",
+      "snapshot_id": "2b51d08aaaf1df93c751fee49d34a2ba6abe6f0023d8ee5bc90ef10daa74c8ef",
+      "hostname": "www.logiwa.com",
+      "prompt": "What\u2019s the most reliable way to outsource inventory and shipping management?",
+      "url": "https://www.logiwa.com/blog/outsourcing-inventory-management-to-3pl",
+      "action": "relevant_paragraph_first",
+      "detail": "Move a better-matching existing paragraph before its first eligible sibling, within the same parent.",
+      "delta_probability": 0.02333025253739629,
+      "serialization_delta_probability": 0.0,
+      "edit_over_serialized_probability": 0.02333025253739629,
+      "group_delta_log_odds": {
+        "HTML document": -0.01255609312307304,
+        "Prompt \u00d7 HTML": 0.10464207538619714,
+        "Fixed prompt": 0,
+        "Fixed URL": 0,
+        "Parser/source diagnostics": 0.0016747916810060188
+      }
+    },
+    {
+      "before_probability": 0.3833041315109787,
+      "after_probability": 0.3459139364357203,
+      "delta_log_odds": -0.16150170150205923,
+      "contributions": [
+        {
+          "feature": "coverage_title",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": -0.011195414124187524
+        },
+        {
+          "feature": "log_title_words",
+          "group": "HTML document",
+          "delta_log_odds": 0.0027676730962126602
+        },
+        {
+          "feature": "title_query_precision",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": -0.059446177213712495
+        },
+        {
+          "feature": "title_query_dice",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": -0.05439855503449517
+        },
+        {
+          "feature": "title_query_saturated_tf",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": -0.03922922822587669
+        }
+      ],
+      "record_id": "0b518beb6bb3df82e3f32dcc8e96ab74f8de6798a693e256e54c7fcf1a92630d",
+      "snapshot_id": "ed7ed8b487a4f8f88903a35ad2d3f95272a1d7f99fa6fda5c2049de613388c72",
+      "hostname": "www.truefoundry.com",
+      "prompt": "What\u2019s the cost of fine-tuning models like LLaMA 2 or Mistral?",
+      "url": "https://www.truefoundry.com/blog/deploy-and-finetune-llama-2-on-your-cloud",
+      "action": "title_from_existing_h1",
+      "detail": "Use an existing content H1 as the title; body wording unchanged.",
+      "delta_probability": -0.03739019507525837,
+      "serialization_delta_probability": 0.0,
+      "edit_over_serialized_probability": -0.03739019507525837,
+      "group_delta_log_odds": {
+        "HTML document": 0.0027676730962126602,
+        "Prompt \u00d7 HTML": -0.16426937459827187,
+        "Fixed prompt": 0,
+        "Fixed URL": 0,
+        "Parser/source diagnostics": 0
+      }
+    },
+    {
+      "before_probability": 0.41403503851601314,
+      "after_probability": 0.424651565160527,
+      "delta_log_odds": 0.04360254584109663,
+      "contributions": [
+        {
+          "feature": "log_title_words",
+          "group": "HTML document",
+          "delta_log_odds": -0.003507682556024471
+        },
+        {
+          "feature": "title_query_precision",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": 0.03396924412212144
+        },
+        {
+          "feature": "title_query_dice",
+          "group": "Prompt \u00d7 HTML",
+          "delta_log_odds": 0.013140984274999648
+        }
+      ],
+      "record_id": "0c20e309c049c900c6870a47c352a67aa5b65e3947ec89eaf2f32b12658e145b",
+      "snapshot_id": "d4fdc96d56f0685ae65447955e7b6b5b46582a24850c2629358588bc075ed6a5",
+      "hostname": "www.ncuk.ac.uk",
+      "prompt": "Which subjects are typically covered in an International Year One program?",
+      "url": "https://www.ncuk.ac.uk/ncuk-programmes/international-year-one/accounting-finance",
+      "action": "title_from_existing_h1",
+      "detail": "Use an existing content H1 as the title; body wording unchanged.",
+      "delta_probability": 0.010616526644513846,
+      "serialization_delta_probability": 0.0,
+      "edit_over_serialized_probability": 0.010616526644513846,
+      "group_delta_log_odds": {
+        "HTML document": -0.003507682556024471,
+        "Prompt \u00d7 HTML": 0.04711022839712109,
+        "Fixed prompt": 0,
+        "Fixed URL": 0,
+        "Parser/source diagnostics": 0
+      }
+    },
+    {
+      "before_probability": 0.41403503851601314,
+      "after_probability": 0.41403503851601314,
+      "delta_log_odds": 0.0,
+      "contributions": [],
+      "record_id": "0c20e309c049c900c6870a47c352a67aa5b65e3947ec89eaf2f32b12658e145b",
+      "snapshot_id": "d4fdc96d56f0685ae65447955e7b6b5b46582a24850c2629358588bc075ed6a5",
+      "hostname": "www.ncuk.ac.uk",
+      "prompt": "Which subjects are typically covered in an International Year One program?",
+      "url": "https://www.ncuk.ac.uk/ncuk-programmes/international-year-one/accounting-finance",
+      "action": "relevant_paragraph_first",
+      "detail": "Move a better-matching existing paragraph before its first eligible sibling, within the same parent.",
+      "delta_probability": 0.0,
+      "serialization_delta_probability": 0.0,
+      "edit_over_serialized_probability": 0.0,
+      "group_delta_log_odds": {
+        "HTML document": 0,
+        "Prompt \u00d7 HTML": 0,
+        "Fixed prompt": 0,
+        "Fixed URL": 0,
+        "Parser/source diagnostics": 0
+      }
+    }
+  ],
+  "not_applicable": [
+    {
+      "record_id": "000cb33fe83f9e6f903c2221fc7debe9e475ae5fc2baa1a975750b344509ecbe",
+      "action": "relevant_paragraph_first",
+      "reason": "No later direct-sibling paragraph with better query coverage"
+    },
+    {
+      "record_id": "000cb33fe83f9e6f903c2221fc7debe9e475ae5fc2baa1a975750b344509ecbe",
+      "action": "split_long_paragraph",
+      "reason": "No long plain-text paragraph with an interior sentence boundary"
+    },
+    {
+      "record_id": "002805b212f0996aadd3fa5891d9b6ab9a197446e9dc8e085001ad20016ba35d",
+      "action": "title_from_existing_h1",
+      "reason": "No short content H1"
+    },
+    {
+      "record_id": "002805b212f0996aadd3fa5891d9b6ab9a197446e9dc8e085001ad20016ba35d",
+      "action": "relevant_paragraph_first",
+      "reason": "No later direct-sibling paragraph with better query coverage"
+    },
+    {
+      "record_id": "002805b212f0996aadd3fa5891d9b6ab9a197446e9dc8e085001ad20016ba35d",
+      "action": "split_long_paragraph",
+      "reason": "No long plain-text paragraph with an interior sentence boundary"
+    },
+    {
+      "record_id": "0077594f218caa8507279e931bb5dc344679893cb4fd72dad3ad0f5e460f6e48",
+      "action": "relevant_paragraph_first",
+      "reason": "No later direct-sibling paragraph with better query coverage"
+    },
+    {
+      "record_id": "00b8cfbb148ca9c435583341c5b908e92a9c45cae770f74a512a017e492b0840",
+      "action": "split_long_paragraph",
+      "reason": "No long plain-text paragraph with an interior sentence boundary"
+    },
+    {
+      "record_id": "010959df86aadd37a805ba90690ec72bc9dfb1fe0c96d97e99c0eeff6b882d60",
+      "action": "title_from_existing_h1",
+      "reason": "Title already equals H1"
+    },
+    {
+      "record_id": "010959df86aadd37a805ba90690ec72bc9dfb1fe0c96d97e99c0eeff6b882d60",
+      "action": "relevant_paragraph_first",
+      "reason": "No later direct-sibling paragraph with better query coverage"
+    },
+    {
+      "record_id": "010959df86aadd37a805ba90690ec72bc9dfb1fe0c96d97e99c0eeff6b882d60",
+      "action": "split_long_paragraph",
+      "reason": "No long plain-text paragraph with an interior sentence boundary"
+    },
+    {
+      "record_id": "0176c4b176409bb971d2b8c319c4bddb44ef67487c75af378f4199238893a97b",
+      "action": "split_long_paragraph",
+      "reason": "No long plain-text paragraph with an interior sentence boundary"
+    },
+    {
+      "record_id": "01804ef1d9fa1ea7ef14c0fcaef7f9dffda0bd24e24ba53d1dfd07322b04b6be",
+      "action": "title_from_existing_h1",
+      "reason": "Title already equals H1"
+    },
+    {
+      "record_id": "01836de57d13f683a91bf1e1354f77927e38ff5bd7e8fb934851d32a450f3edd",
+      "action": "title_from_existing_h1",
+      "reason": "No short content H1"
+    },
+    {
+      "record_id": "01836de57d13f683a91bf1e1354f77927e38ff5bd7e8fb934851d32a450f3edd",
+      "action": "split_long_paragraph",
+      "reason": "No long plain-text paragraph with an interior sentence boundary"
+    },
+    {
+      "record_id": "0188c535d856df5776a427d913a5c03352397e0760b5d36ebb1e9bd003243ade",
+      "action": "relevant_paragraph_first",
+      "reason": "No later direct-sibling paragraph with better query coverage"
+    },
+    {
+      "record_id": "0188c535d856df5776a427d913a5c03352397e0760b5d36ebb1e9bd003243ade",
+      "action": "split_long_paragraph",
+      "reason": "No long plain-text paragraph with an interior sentence boundary"
+    },
+    {
+      "record_id": "018c9e9f8487b6f49255b05ef995e59dfa7bdbdae9494794cc82802143d75f63",
+      "action": "relevant_paragraph_first",
+      "reason": "No later direct-sibling paragraph with better query coverage"
+    },
+    {
+      "record_id": "018c9e9f8487b6f49255b05ef995e59dfa7bdbdae9494794cc82802143d75f63",
+      "action": "split_long_paragraph",
+      "reason": "No long plain-text paragraph with an interior sentence boundary"
+    },
+    {
+      "record_id": "01ac3b6acbb71cc20f7e6c53e7af1c45954938a83c78f20a1bee314a3a33c87b",
+      "action": "title_from_existing_h1",
+      "reason": "No short content H1"
+    },
+    {
+      "record_id": "01ac3b6acbb71cc20f7e6c53e7af1c45954938a83c78f20a1bee314a3a33c87b",
+      "action": "split_long_paragraph",
+      "reason": "No long plain-text paragraph with an interior sentence boundary"
+    },
+    {
+      "record_id": "021aec0c5863fad6992679283a6b0c077401c6206c4cc69e0095f3d03d331700",
+      "action": "split_long_paragraph",
+      "reason": "No long plain-text paragraph with an interior sentence boundary"
+    },
+    {
+      "record_id": "02c52f9910131ddd79cd1a9bb0eb6ff8af1a01e5d10ba39f71573ed32a7f7180",
+      "action": "title_from_existing_h1",
+      "reason": "No short content H1"
+    },
+    {
+      "record_id": "02ce417fbfe1f4bded7b088a4b60da48ab93bfdb36bd700ea98cc1937b73cf75",
+      "action": "split_long_paragraph",
+      "reason": "No long plain-text paragraph with an interior sentence boundary"
+    },
+    {
+      "record_id": "0311aa9f42f0875ae05480c93c178bb9ff126db6524db5b78c344dabe1e75672",
+      "action": "relevant_paragraph_first",
+      "reason": "No later direct-sibling paragraph with better query coverage"
+    },
+    {
+      "record_id": "0311aa9f42f0875ae05480c93c178bb9ff126db6524db5b78c344dabe1e75672",
+      "action": "split_long_paragraph",
+      "reason": "No long plain-text paragraph with an interior sentence boundary"
+    },
+    {
+      "record_id": "0445f119810117d91ac6ca11a1aed87dc5383b6050c59b8ed2261c435e139f24",
+      "action": "split_long_paragraph",
+      "reason": "No long plain-text paragraph with an interior sentence boundary"
+    },
+    {
+      "record_id": "04cba271b3158facddb489915fdb4cc12c38e9586fe6ee249730251a0755e6aa",
+      "action": "split_long_paragraph",
+      "reason": "No long plain-text paragraph with an interior sentence boundary"
+    },
+    {
+      "record_id": "04e5935103d6a4ebeb31eb48887de84ff83ff8056dcb16afee63bdc9d13597b5",
+      "action": "split_long_paragraph",
+      "reason": "No long plain-text paragraph with an interior sentence boundary"
+    },
+    {
+      "record_id": "0564fd7d4d7a491eadaadf8f089b0a1116f52a04f57b7e352f15a00525180fbf",
+      "action": "title_from_existing_h1",
+      "reason": "No short content H1"
+    },
+    {
+      "record_id": "0564fd7d4d7a491eadaadf8f089b0a1116f52a04f57b7e352f15a00525180fbf",
+      "action": "relevant_paragraph_first",
+      "reason": "No later direct-sibling paragraph with better query coverage"
+    },
+    {
+      "record_id": "0564fd7d4d7a491eadaadf8f089b0a1116f52a04f57b7e352f15a00525180fbf",
+      "action": "split_long_paragraph",
+      "reason": "No long plain-text paragraph with an interior sentence boundary"
+    },
+    {
+      "record_id": "0596f80c2721a3220da69835668441b1600168c30a2be17144c96d4cb5ed5925",
+      "action": "split_long_paragraph",
+      "reason": "No long plain-text paragraph with an interior sentence boundary"
+    },
+    {
+      "record_id": "05a5f17cece1275c25ba9cc092c452f34471da5c0cdc1d470ea3157f4ad1e3c4",
+      "action": "relevant_paragraph_first",
+      "reason": "No later direct-sibling paragraph with better query coverage"
+    },
+    {
+      "record_id": "05a5f17cece1275c25ba9cc092c452f34471da5c0cdc1d470ea3157f4ad1e3c4",
+      "action": "split_long_paragraph",
+      "reason": "No long plain-text paragraph with an interior sentence boundary"
+    },
+    {
+      "record_id": "06108c9e37c9e93b49e1a1deb3df917e84c0f71fc30dcd005dfdfd8964bb2425",
+      "action": "relevant_paragraph_first",
+      "reason": "No later direct-sibling paragraph with better query coverage"
+    },
+    {
+      "record_id": "06108c9e37c9e93b49e1a1deb3df917e84c0f71fc30dcd005dfdfd8964bb2425",
+      "action": "split_long_paragraph",
+      "reason": "No long plain-text paragraph with an interior sentence boundary"
+    },
+    {
+      "record_id": "06939a5cefba54e71ba438dfdc8a1be5939850d70ed555a179a5afdfe87310cc",
+      "action": "split_long_paragraph",
+      "reason": "No long plain-text paragraph with an interior sentence boundary"
+    },
+    {
+      "record_id": "069da155bdfe5adbca807968c66ca81ed8281e17014c6373596cf2bda92aa579",
+      "action": "title_from_existing_h1",
+      "reason": "No short content H1"
+    },
+    {
+      "record_id": "069da155bdfe5adbca807968c66ca81ed8281e17014c6373596cf2bda92aa579",
+      "action": "relevant_paragraph_first",
+      "reason": "No later direct-sibling paragraph with better query coverage"
+    },
+    {
+      "record_id": "069da155bdfe5adbca807968c66ca81ed8281e17014c6373596cf2bda92aa579",
+      "action": "split_long_paragraph",
+      "reason": "No long plain-text paragraph with an interior sentence boundary"
+    },
+    {
+      "record_id": "07112a5b251498e88b2fb247574007bda7ce8f8c979de70a9272fc9c0fbcc950",
+      "action": "split_long_paragraph",
+      "reason": "No long plain-text paragraph with an interior sentence boundary"
+    },
+    {
+      "record_id": "07f41a288e61a6eddecef5481310ca94380c2f2f4984bcca6b538a8ce98781ec",
+      "action": "title_from_existing_h1",
+      "reason": "No short content H1"
+    },
+    {
+      "record_id": "07f41a288e61a6eddecef5481310ca94380c2f2f4984bcca6b538a8ce98781ec",
+      "action": "relevant_paragraph_first",
+      "reason": "No later direct-sibling paragraph with better query coverage"
+    },
+    {
+      "record_id": "07f41a288e61a6eddecef5481310ca94380c2f2f4984bcca6b538a8ce98781ec",
+      "action": "split_long_paragraph",
+      "reason": "No long plain-text paragraph with an interior sentence boundary"
+    },
+    {
+      "record_id": "081e8721d8a9579f4cf6ac0bc013941cb3c07cfa2e4004ee1955e20e7f6799f0",
+      "action": "split_long_paragraph",
+      "reason": "No long plain-text paragraph with an interior sentence boundary"
+    },
+    {
+      "record_id": "0829ca9bac5b7cd0dd1e822ea2c0d559704577ab406fa8c4c5143f21b2191cbe",
+      "action": "title_from_existing_h1",
+      "reason": "No short content H1"
+    },
+    {
+      "record_id": "0829ca9bac5b7cd0dd1e822ea2c0d559704577ab406fa8c4c5143f21b2191cbe",
+      "action": "relevant_paragraph_first",
+      "reason": "No later direct-sibling paragraph with better query coverage"
+    },
+    {
+      "record_id": "0829ca9bac5b7cd0dd1e822ea2c0d559704577ab406fa8c4c5143f21b2191cbe",
+      "action": "split_long_paragraph",
+      "reason": "No long plain-text paragraph with an interior sentence boundary"
+    },
+    {
+      "record_id": "0858fa6e73a7711a4af0cf27e51dd821be8a68b50958dce8de6b6eae80e4e4b0",
+      "action": "relevant_paragraph_first",
+      "reason": "No later direct-sibling paragraph with better query coverage"
+    },
+    {
+      "record_id": "0858fa6e73a7711a4af0cf27e51dd821be8a68b50958dce8de6b6eae80e4e4b0",
+      "action": "split_long_paragraph",
+      "reason": "No long plain-text paragraph with an interior sentence boundary"
+    },
+    {
+      "record_id": "08b3af651afedf4ded26823eac6583c567c31b1fe0a5d25426f4b4fe6e1f5c61",
+      "action": "title_from_existing_h1",
+      "reason": "Title already equals H1"
+    },
+    {
+      "record_id": "08b3af651afedf4ded26823eac6583c567c31b1fe0a5d25426f4b4fe6e1f5c61",
+      "action": "split_long_paragraph",
+      "reason": "No long plain-text paragraph with an interior sentence boundary"
+    },
+    {
+      "record_id": "08b403bddd6c597d635d431bea9b55ca36d3c836dd4566249214f0124f48d9dd",
+      "action": "title_from_existing_h1",
+      "reason": "No short content H1"
+    },
+    {
+      "record_id": "08b403bddd6c597d635d431bea9b55ca36d3c836dd4566249214f0124f48d9dd",
+      "action": "split_long_paragraph",
+      "reason": "No long plain-text paragraph with an interior sentence boundary"
+    },
+    {
+      "record_id": "092966c2f3ded876c25dd72edf23d782144e53a7eb7d83c2d3eb84ec14905c0d",
+      "action": "relevant_paragraph_first",
+      "reason": "No later direct-sibling paragraph with better query coverage"
+    },
+    {
+      "record_id": "092966c2f3ded876c25dd72edf23d782144e53a7eb7d83c2d3eb84ec14905c0d",
+      "action": "split_long_paragraph",
+      "reason": "No long plain-text paragraph with an interior sentence boundary"
+    },
+    {
+      "record_id": "0954106865ea5cec4b628d1fdf15e1c20fc6082c0b70afd1dc70294ae89e3006",
+      "action": "relevant_paragraph_first",
+      "reason": "No later direct-sibling paragraph with better query coverage"
+    },
+    {
+      "record_id": "0954106865ea5cec4b628d1fdf15e1c20fc6082c0b70afd1dc70294ae89e3006",
+      "action": "split_long_paragraph",
+      "reason": "No long plain-text paragraph with an interior sentence boundary"
+    },
+    {
+      "record_id": "097b8544d616bf10128ef65d83210e933deaffe70850540e5562c93241636149",
+      "action": "title_from_existing_h1",
+      "reason": "No short content H1"
+    },
+    {
+      "record_id": "097b8544d616bf10128ef65d83210e933deaffe70850540e5562c93241636149",
+      "action": "relevant_paragraph_first",
+      "reason": "No later direct-sibling paragraph with better query coverage"
+    },
+    {
+      "record_id": "097b8544d616bf10128ef65d83210e933deaffe70850540e5562c93241636149",
+      "action": "split_long_paragraph",
+      "reason": "No long plain-text paragraph with an interior sentence boundary"
+    },
+    {
+      "record_id": "0a26c7f7dd30a4c38d38e1481ee2a44791e54ae5f0198970d1c9de484a95f47f",
+      "action": "split_long_paragraph",
+      "reason": "No long plain-text paragraph with an interior sentence boundary"
+    },
+    {
+      "record_id": "0a76f80d8880d57be2e7e8934938b3eceefa4c3433780c8196a9520cb6ec68f3",
+      "action": "split_long_paragraph",
+      "reason": "No long plain-text paragraph with an interior sentence boundary"
+    },
+    {
+      "record_id": "0b518beb6bb3df82e3f32dcc8e96ab74f8de6798a693e256e54c7fcf1a92630d",
+      "action": "relevant_paragraph_first",
+      "reason": "No later direct-sibling paragraph with better query coverage"
+    },
+    {
+      "record_id": "0b518beb6bb3df82e3f32dcc8e96ab74f8de6798a693e256e54c7fcf1a92630d",
+      "action": "split_long_paragraph",
+      "reason": "No long plain-text paragraph with an interior sentence boundary"
+    },
+    {
+      "record_id": "0b6b5c92c2cee12ab2dd28d7bf676a4c00da38849cfa586a26b0eb5679bf5978",
+      "action": "title_from_existing_h1",
+      "reason": "Title already equals H1"
+    },
+    {
+      "record_id": "0b6b5c92c2cee12ab2dd28d7bf676a4c00da38849cfa586a26b0eb5679bf5978",
+      "action": "relevant_paragraph_first",
+      "reason": "No later direct-sibling paragraph with better query coverage"
+    },
+    {
+      "record_id": "0b6b5c92c2cee12ab2dd28d7bf676a4c00da38849cfa586a26b0eb5679bf5978",
+      "action": "split_long_paragraph",
+      "reason": "No long plain-text paragraph with an interior sentence boundary"
+    },
+    {
+      "record_id": "0c20e309c049c900c6870a47c352a67aa5b65e3947ec89eaf2f32b12658e145b",
+      "action": "split_long_paragraph",
+      "reason": "No long plain-text paragraph with an interior sentence boundary"
+    }
+  ],
+  "checks": [
+    "raw/cache feature parity for every original sample",
+    "body word multiset preserved for every applicable edit",
+    "prompt and URL contributions exactly zero",
+    "all transformed-feature deltas sum to exact LR logit change",
+    "serialization-only control recorded"
+  ],
+  "limitations": [
+    "Lexical rearrangement is not factual verification or guaranteed readability improvement.",
+    "Bootstrap intervals are conditional on this small, selected development sample and frozen model.",
+    "Scores predict the sampled within-host high class among already-cited pages, not citation occurrence probability."
+  ]
+}

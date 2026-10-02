@@ -117,3 +117,156 @@ Coefficient gates are top-one ≤20% and top-five ≤60%; positive permutation t
 ≤45%. Each stress check requires mean probability increase ≤.03 and p95 ≤.08.
 Test is evaluated only after selection freezes; further tuning must not use these
 test outcomes. Source fingerprints are enforced during explicit v4 inference.
+
+## V5 answer and evidence iteration
+
+Following merged PR #5, v5 explores 28 new sparse features across answer sentences,
+numerical/explanation/link cues, and table/numbered-step alignment. See
+[v5/report.html](v5/report.html), [v5/report.md](v5/report.md), and the predeclared
+[v5/plan.md](v5/plan.md), including the pending embedding integration contract.
+No embeddings or projection methods are implemented in this iteration.
+
+The selected experimental candidate adds **10 answer-sentence features** to v4
+(96 total, C=.01). Grouped training CV AUC 0.66185; validation 0.67435; reused-test
+0.68088 versus v4 0.67904. The paired 95% difference interval [-0.00253,+0.00604]
+crosses zero. Evidence cues raised validation AUC but failed the predeclared CV
+non-regression rule; table/step features did not improve validation. Accuracy and
+within-host AUC declined slightly even though overall AUC and log loss improved.
+
+Top coefficient share is 5.55%, top positive permutation share 11.42%. Original
+post-parser gates pass, but broader raw-input diagnostics expose unresolved title,
+URL, and synthetic-assertion score inflation. These models remain experimental
+ranking estimators, not unchecked content-editing rewards. No independent fresh-host
+confirmation is available. V2 remains the default; use v5 explicitly:
+
+```sh
+uv run python -m trad_ml_scorer.predict_lr --model data/trad_ml_scorer/v5/model.joblib --prompt "How to choose running shoes" --html-file page.html --url https://example.com/shoes
+```
+
+Reuse the prepared matrices/models under the main repository's shared ignored
+`data/trad_ml_scorer/v5/`. This derives features from existing cached documents;
+it does not repeat corpus parsing. Reproduction in a fresh artifact checkout follows
+these commands; existing frozen outputs deliberately refuse overwrite:
+
+```sh
+uv run python -m trad_ml_scorer.prepare_evidence
+uv run python -m trad_ml_scorer.frontier_experiment --version v5
+uv run python -m trad_ml_scorer.audit_frontier --version v5
+uv run python -m trad_ml_scorer.stress_frontier --version v5
+uv run python -m trad_ml_scorer.finalize_evidence
+uv run python -m trad_ml_scorer.stress_evidence_raw --input-dir data/raw
+uv run python -m trad_ml_scorer.finalize_evidence --evaluate
+uv run python -m trad_ml_scorer.build_evidence_report
+```
+
+Evaluation refuses to open test if no new candidate wins on development data.
+Finalization verifies v4 feature-column/row/split identity and training-only full
+refit parity; the raw diagnostic verifies extraction and public inference parity on
+20 validation HTML snapshots. Source/extractor fingerprints accompany the cache and
+model. New query/page-field embeddings should preserve exact snapshot and prompt
+identity, field-level provenance, and fold-local fitting of learned transforms.
+
+## V6 controlled ablations: retain v5
+
+The three approved low-cost ideas were tested separately, plus a combined variant:
+body-supported metadata, long-prose recovery, and conservative lexical normalization.
+See [v6/report.html](v6/report.html), [v6/report.md](v6/report.md), and the
+predeclared [v6/plan.md](v6/plan.md). All 25 C/variant configurations are recorded.
+
+None passed the development promotion rule. CV AUC was .66185 for v5, .66146 for
+corroboration, .66162 for long prose, .66072 for normalization and .66051 combined.
+Validation AUC rose slightly, but this did not override the predeclared CV gate.
+**No new test evaluation was performed.** Keep the original v5 experimental model;
+there is no new v6 deployment model or default change.
+
+Corroboration reduced raw title/URL inflation, but its query-repetition p95 inflation
+rose from .066 to .112 (.131 combined). Normalization also worsened some raw-edit
+tails. Importance concentration passed; that alone did not establish robustness.
+The decreases in CV AUC are small, not proof that the ideas are universally harmful.
+
+V6 caches reuse the original parsed documents and the selected 96 v5 columns.
+They are also SHA-verified copies in the main repository's shared ignored
+`data/trad_ml_scorer/v6/`. Reproduction requires absent frozen output paths:
+
+```sh
+uv run python -m trad_ml_scorer.prepare_controls
+uv run python -m trad_ml_scorer.frontier_experiment --version v6
+uv run python -m trad_ml_scorer.audit_frontier --version v6
+uv run python -m trad_ml_scorer.stress_frontier --version v6
+uv run python -m trad_ml_scorer.stress_controls_raw --input-dir data/raw
+uv run python -m trad_ml_scorer.finalize_evidence --version v6
+uv run python -m trad_ml_scorer.build_controls_report
+```
+
+`finalize_evidence --version v6 --evaluate` deliberately refuses when no new
+candidate wins. The v6 saved model is an audit copy of the refitted baseline;
+for inference keep using `data/trad_ml_scorer/v5/model.joblib`. No embeddings or
+projection fitting were added. Await the other session's field embeddings before
+another semantic-feature comparison.
+
+## Fixed-prompt HTML-edit interpretation
+
+The [companion report](interpretation/dependency_audit/report.html)
+([Markdown](interpretation/dependency_audit/report.md)) replots retained v5 importance
+for the editing use case without retraining or changing frozen experiment reports.
+It audits all 142 v2–v6 candidates into prompt, doc, or promptXdoc, with HTML
+editability annotated separately. The retained 96 raw features comprise 4 prompt,
+41 doc and 51 promptXdoc. URL and parser diagnostics belong to doc; URL–prompt
+matching belongs to promptXdoc. Original interpretation artifacts stay frozen. Pure prompt terms act as a query-specific
+intercept and cancel in paired log-odds changes; they remain in probability scoring.
+
+Its primary view measures coherent HTML edits with prompt and URL fixed, reparses
+and recomputes all features, and attributes each score change exactly as
+`sum(beta * (z_after - z_before))`, including missing indicators. It also retains a
+clearly labelled across-query predictive-importance view; hiding prompt bars alone
+does not create conditional importance. Validation has only one mixed-label
+same-prompt/same-host group, too little for reliable within-query ranking estimates.
+
+On 40 hash-selected validation HTML pages, applicable edits had mean predicted
+probability changes of -.93 points for title←existing H1 (26 pages), +.11 points
+for moving a relevant paragraph earlier (21), and +.02 points for paragraph splitting
+(4). These are model responses, not observed citation gains. The first two host
+bootstrap intervals cross zero; four hosts are too few for a useful third interval.
+All applied edits preserve the visible body word multiset and insert no new facts;
+editorial review is still required for semantic/context preservation.
+
+```sh
+uv run python -m trad_ml_scorer.analyze_fixed_prompt --input-dir data/raw
+uv run python -m trad_ml_scorer.build_fixed_prompt_report
+```
+
+The analysis refuses to replace existing results. The report includes model/data
+provenance, edit applicability, serialization controls, exact attribution, and advice
+on grouped conditional permutation, coherent edit distributions, SHAP/PDP/ALE limits
+and prospective evaluation. No test data, new model fit or embeddings are involved.
+
+## V7 embedding-similarity prototype
+
+The user paused page-edit interpretation to prototype semantic features. See
+[v7/report.html](v7/report.html) ([Markdown](v7/report.md)) and the frozen
+[v7/plan.md](v7/plan.md). The supplied Markdownify/OpenAI bundle joins all 9,432
+eligible records by source-file hash/row, with exact snapshot/prompt/payload/split
+checks. Ten original-3072D cosine features compare prompts with five page fields
+and five section-chunk summaries. No API calls or PCA fitting are needed.
+
+Three variants compare five semantic fields, ten similarities, and ten similarities
+plus 45 existing prompt/doc context features. This last variant replaces all 51
+lexical prompt–document features from v5. It wins semantic training CV (AUC .67440)
+but has validation AUC .66443 versus v5 .67435. Pure ten-similarity LR reaches
+validation .63411. No default-model promotion, test evaluation or edit advice.
+
+Reuse `data/trad_ml_scorer/v7/` (features, manifest, joined IDs, four fitted bundles).
+A SHA-verified shared copy lives in the main repository's ignored
+`data/trad_ml_scorer/v7/`; no need to redo prep in another local session. Model
+bundles take precomputed features in their saved order; there is no new live
+HTML/embedding endpoint. Run `uv run python -m trad_ml_scorer.build_semantic_report`
+to rebuild the standalone HTML. Tests: `uv run python -m pytest -q`.
+
+The per-field 32D PCA axes are independent, so their coordinates must not be used
+for cross-field cosine. Any future learned shared projection must fit inside each
+CV training fold. This prototype changes parser and representation together;
+context uses frozen retention features alongside Markdownify embeddings.
+
+**Adoption update:** The user selected v7 `semantic_context` as the direction for
+continued development. See [v7/decision.md](v7/decision.md) for the decision and
+its distinction from the frozen experimental outcome above.

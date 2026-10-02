@@ -339,6 +339,133 @@ JSONL must be read by file iteration, not `str.splitlines()` (embedded Unicode l
 separators caused a real parsing bug). Large generated reports use escaped previews;
 their truncation does not affect full-output anchor scoring.
 
+## V5 sparse-feature follow-up after merged PR #5
+
+Review branch `feat/lr-evidence-v5-v6` captures the v5 and v6 iterations. See
+`trad_ml_scorer/v5/report.md` / `.html` and `v5/STATUS.md`. Added 28 candidate
+features; development rules selected 10 answer-sentence features (96 total).
+Validation AUC .67435; reused-test .68088 vs v4 .67904; difference interval
+[-.00253,+.00604] crosses zero. Numerical/evidence cues failed CV non-regression,
+and structured table/step additions did not improve validation. No post-test tuning.
+
+119 tests / 12 subtests pass; unchanged population/v4 columns, training-only refit
+and 20 raw/public inference parity checks passed. Shared ignored v5 cache avoids
+repeating prep. V2 remains the CLI default. Importance is not concentrated, but raw
+title replacement causes ~23-point probability inflation; arbitrary metadata and
+unverified assertion edits remain unsafe as model-driven optimization targets.
+
+The user has another session scoping per-field embeddings and projections. Leave
+that work to it. Integrate later via exact snapshot/field/prompt identity, encoding
+fingerprints and fold-local fitting of learned projections (see v5/plan.md), with
+explicit benchmark/test exposure. No embeddings were generated in this iteration.
+
+## V6 controlled low-cost experiments
+
+The user approved all three follow-up ideas: body-supported title/URL matching,
+long-prose recovery, and conservative lexical normalization. Each was tested alone,
+plus combined, against selected v5 (25 C/variant configurations; same host folds).
+See `trad_ml_scorer/v6/report.html`, `report.md`, `plan.md` and `STATUS.md`.
+
+Retain v5: all new variants slightly reduced grouped CV AUC despite small validation
+gains, failing the predeclared rule. No new test evaluation. Corroboration cuts title
+mean inflation .230 -> .142 and URL .066 -> .018, but query-repetition p95 grows
+.066 -> .112 (combined .131). Balanced importance does not establish robustness.
+123 tests / 12 subtests pass, training-only refit and source/cache parity verified.
+
+Prepared v6 caches are shared and SHA-verified under the main repository's ignored
+`data/trad_ml_scorer/v6`. Reuse v5 for inference; v6 bundles are experiment artifacts.
+No embedding work was duplicated. Continue with per-field embeddings when the
+other session supplies provenance and fold-local projection/benchmark details.
+
+## Fixed-prompt interpretation follow-up
+
+The user wants editing-oriented importance with the prompt fixed. See
+`trad_ml_scorer/interpretation/fixed_prompt/report.html` and `.md`. This is a
+companion analysis of retained v5, not v7 or a new fit. Prompt-only terms cancel
+in paired log-odds differences but still affect baseline probabilities. URL stays
+fixed too; document and prompt×document effects are shown separately from context.
+
+The report analyzes coherent, body-word-preserving edits on 40 validation HTML
+snapshots, reparses all features, and verifies exact additive logit attribution
+including missing indicators. Pure prompt/URL contributions are zero. Serialization
+controls had zero score drift. Title←H1 mean score delta -.93 pp (26 applicable),
+relevant-paragraph-first +.11 pp (21), paragraph split +.02 pp (4). No demonstrated
+citation uplift; intervals for first two span zero, third sample too small.
+
+Validation contains only one mixed-label same-prompt/same-host group, so do not
+claim reliable empirical conditional ranking importance. The filtered global
+permutation plot is explicitly still across-query predictive importance. Prefer
+real fixed-query edit contrasts, paired distributions and joint-family reasoning;
+require grounded review and prospective evaluation before optimizing citations.
+
+
+## Corrected feature dependency audit
+
+The original fixed_prompt companion mixed dependency with editability. Its frozen
+JSON/plots remain as provenance, but its five-category taxonomy is superseded by
+`trad_ml_scorer/interpretation/dependency_audit/report.html` (and `.md`). The explicit
+registry `feature_dependencies.json` audits every retention-based v2–v6 candidate:
+142 total = 4 prompt + 41 doc + 97 promptXdoc; selected v5 = 4 + 41 + 51 (96).
+`path_homepage` is doc, as are source/parser flags and question_heading_fraction.
+`path_query_*` and normalized_path_* are promptXdoc, but fixed during HTML-only
+edits. Supported path variants also use body support and may vary under HTML edits.
+Query-selected section lengths and relevant-sentence evidence fractions are joint.
+Missing indicators inherit their parent dependency. Unknown names fail explicitly.
+
+The corrected plots use three dependency panels with separate URL/diagnostic
+annotations. Model, coefficients, edit outcomes and frozen v1–v6 results unchanged;
+no fitting, corpus preparation, or test evaluation rerun. All 130 tests and 12
+subtests pass, including extractor inventory, prompt invariance of doc features,
+document invariance of prompt features, and fixed-context attribution checks.
+
+The dependency-audit report now uses an ELI5 narrative: purpose and score meaning,
+real edits and their outcomes, a guide to every chart, and concrete next steps.
+Calculations, provenance and the 142-feature inventory are in an expandable HTML
+appendix. Edit `trad_ml_scorer/fixed_prompt_report_template.md` and run the report
+builder to keep Markdown and standalone HTML synchronized. Presentation only;
+source evidence and model artifacts remain unchanged.
+
+## V7 original-space embedding prototype
+
+User paused editing interpretation and supplied the Markdownify/OpenAI artifact
+pair under `/Users/ext-weihsiang.lin/Documents/profound/data/content-optimization-system/`:
+`processed/markdownify-corpus-v1-complete` and
+`representations/runs/markdownify-openai-v1`. Read `features/openai-v1.json` there.
+No new embedding requests. Separate field PCA32 fits are incompatible coordinate
+bases for cross-field cosine and are whole-training, not CV-fold-local; not used.
+
+V7 uses ten cached original-3072D query similarities: title, best H1, outline,
+pooled whole page, URL path; section-chunk max/top3mean/median/Q25/Q75. Source-file
+hash + row joins match snapshot, payload, prompt, host, URL, label, and split for
+all 9432 v5 eligible rows (7540/945/947). No additional exclusions or host overlap;
+page/section embeddings available for every eligible row. SHA-verified matching
+corpus/artifacts, including 4.7GB vectors. Independently recomputed 200 scores on
+20 validation records; max absolute error 1.19e-7. Optional missing fields retained.
+
+Predeclared plan: `trad_ml_scorer/v7/plan.md`. Same four training-host folds seed137,
+five C values for three semantic variants, fixed v5 C=.01 reference. Train-fold-only
+imputation/scaling/LR; choose semantic variant/C by training CV alone.
+Results (CV / validation AUC): v5 .66185/.67435; 5 similarities .64523/.63331;
+10 similarities .64590/.63411; 10 + 45 existing prompt/doc context .67440/.66443.
+Last is the selected semantic prototype (C=.001), replaces all 51 v5 lexical
+promptXdoc features. Validation paired delta vs v5 -.00992, 95% host-bootstrap
+[-.03369,+.01348]. No promotion, new test predictions/metrics, or edit interpretation.
+Test identities/availability were audited, not evaluated. Context-only ablation
+not run; Markdownify vs retention parser difference prevents embedding-only claims.
+
+See `trad_ml_scorer/v7/report.html` / `.md`, results.json, validation_predictions.json.
+Code: semantic_features.py, prepare_semantic.py, semantic_experiment.py,
+build_semantic_report.py. All 133 tests + 12 subtests pass. Fitted models require
+precomputed named features; this is an offline prototype, not a new HTML endpoint.
+Prepared cache + models reused locally from `data/trad_ml_scorer/v7/`; SHA-verified
+copy at main repo `data/trad_ml_scorer/v7/` with shared-cache-sha256.json. No need to
+redo data prep. Work isolated on `feat/lr-semantic-v7`, leaving v5/v6 PR unchanged.
+
+User approved v7 as the next scorer development direction and requested a PR.
+Use semantic_context C=.001 as the working experimental baseline; see
+`trad_ml_scorer/v7/decision.md`. This does not retroactively change the frozen
+validation result or claim v7 outperformed v5. Existing generic CLI default is
+unchanged; live HTML-to-semantic inference is not part of this prototype.
 ## Completed markdownify OpenAI projection and lineage (2026-10-01)
 
 The user requested embeddings against PR #11's completed saved markdownify corpus.
@@ -442,3 +569,12 @@ namespace. The completed corpus manifest is unchanged. Other worktrees were not
 modified. Existing manifest paths describe the original extraction environment;
 the shared paths above identify the current storage location. Follow `AGENTS.md`
 for unique run directories, identity-checked resume, and cross-session discovery.
+
+## Combined v5–v7 integration
+
+PR #14 merged into the v5/v6 branch first. PR #13 consequently carries v5–v7
+into the default branch `main` (there is no `master` branch). The integration
+retains both scorer history and Markdownify/embedding provenance from main.
+Frozen model/report artifacts are preserved; use cached v7 semantic_context for
+the chosen experimental direction. Raw-input inference with older model bundles
+remains subject to their original parser/code fingerprint checks.

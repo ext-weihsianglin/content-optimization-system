@@ -1,0 +1,1015 @@
+{
+  "selected_raw_counts": {
+    "prompt": 4,
+    "doc": 41,
+    "promptXdoc": 51
+  },
+  "candidate_counts": {
+    "prompt": 4,
+    "doc": 41,
+    "promptXdoc": 97
+  },
+  "transformed_counts": {
+    "prompt": 4,
+    "doc": 44,
+    "promptXdoc": 56
+  },
+  "features": {
+    "log_prompt_words": {
+      "dependency": "prompt",
+      "reason": "Computed solely from the user prompt.",
+      "source": "retention_features.py",
+      "family": "prompt",
+      "html_edit_role": "prompt fixed"
+    },
+    "prompt_question": {
+      "dependency": "prompt",
+      "reason": "Computed solely from the user prompt.",
+      "source": "retention_features.py",
+      "family": "prompt",
+      "html_edit_role": "prompt fixed"
+    },
+    "prompt_comparison": {
+      "dependency": "prompt",
+      "reason": "Computed solely from the user prompt.",
+      "source": "retention_features.py",
+      "family": "prompt",
+      "html_edit_role": "prompt fixed"
+    },
+    "prompt_how_to": {
+      "dependency": "prompt",
+      "reason": "Computed solely from the user prompt.",
+      "source": "retention_features.py",
+      "family": "prompt",
+      "html_edit_role": "prompt fixed"
+    },
+    "path_depth": {
+      "dependency": "doc",
+      "reason": "Computed solely from the document URL.",
+      "source": "retention_features.py",
+      "family": "url",
+      "html_edit_role": "URL fixed"
+    },
+    "path_homepage": {
+      "dependency": "doc",
+      "reason": "Computed solely from the document URL.",
+      "source": "retention_features.py",
+      "family": "url",
+      "html_edit_role": "URL fixed"
+    },
+    "path_editorial": {
+      "dependency": "doc",
+      "reason": "Computed solely from the document URL.",
+      "source": "retention_features.py",
+      "family": "url",
+      "html_edit_role": "URL fixed"
+    },
+    "path_commerce": {
+      "dependency": "doc",
+      "reason": "Computed solely from the document URL.",
+      "source": "retention_features.py",
+      "family": "url",
+      "html_edit_role": "URL fixed"
+    },
+    "path_support_docs": {
+      "dependency": "doc",
+      "reason": "Computed solely from the document URL.",
+      "source": "retention_features.py",
+      "family": "url",
+      "html_edit_role": "URL fixed"
+    },
+    "coverage_title": {
+      "dependency": "promptXdoc",
+      "reason": "Matches prompt tokens against document text or metadata.",
+      "source": "retention_features.py",
+      "family": "whole_alignment",
+      "html_edit_role": "may vary with HTML"
+    },
+    "coverage_headings": {
+      "dependency": "promptXdoc",
+      "reason": "Matches prompt tokens against document text or metadata.",
+      "source": "retention_features.py",
+      "family": "whole_alignment",
+      "html_edit_role": "may vary with HTML"
+    },
+    "coverage_body": {
+      "dependency": "promptXdoc",
+      "reason": "Matches prompt tokens against document text or metadata.",
+      "source": "retention_features.py",
+      "family": "whole_alignment",
+      "html_edit_role": "may vary with HTML"
+    },
+    "coverage_intro": {
+      "dependency": "promptXdoc",
+      "reason": "Matches prompt tokens against document text or metadata.",
+      "source": "retention_features.py",
+      "family": "whole_alignment",
+      "html_edit_role": "may vary with HTML"
+    },
+    "log_word_count": {
+      "dependency": "doc",
+      "reason": "Counts retained document content, without reading the prompt.",
+      "source": "retention_features.py",
+      "family": "content_size",
+      "html_edit_role": "may vary with HTML"
+    },
+    "log_title_words": {
+      "dependency": "doc",
+      "reason": "Counts retained document content, without reading the prompt.",
+      "source": "retention_features.py",
+      "family": "content_size",
+      "html_edit_role": "may vary with HTML"
+    },
+    "log_heading_count": {
+      "dependency": "doc",
+      "reason": "Counts retained document content, without reading the prompt.",
+      "source": "retention_features.py",
+      "family": "content_size",
+      "html_edit_role": "may vary with HTML"
+    },
+    "log_h1_count": {
+      "dependency": "doc",
+      "reason": "Counts retained document content, without reading the prompt.",
+      "source": "retention_features.py",
+      "family": "content_size",
+      "html_edit_role": "may vary with HTML"
+    },
+    "log_list_items": {
+      "dependency": "doc",
+      "reason": "Counts retained document content, without reading the prompt.",
+      "source": "retention_features.py",
+      "family": "content_size",
+      "html_edit_role": "may vary with HTML"
+    },
+    "log_table_count": {
+      "dependency": "doc",
+      "reason": "Counts retained document content, without reading the prompt.",
+      "source": "retention_features.py",
+      "family": "content_size",
+      "html_edit_role": "may vary with HTML"
+    },
+    "log_paragraph_count": {
+      "dependency": "doc",
+      "reason": "Counts retained document content, without reading the prompt.",
+      "source": "retention_features.py",
+      "family": "content_size",
+      "html_edit_role": "may vary with HTML"
+    },
+    "log_code_count": {
+      "dependency": "doc",
+      "reason": "Counts retained document content, without reading the prompt.",
+      "source": "retention_features.py",
+      "family": "content_size",
+      "html_edit_role": "may vary with HTML"
+    },
+    "log_ordered_steps": {
+      "dependency": "doc",
+      "reason": "Counts retained document content, without reading the prompt.",
+      "source": "retention_features.py",
+      "family": "content_size",
+      "html_edit_role": "may vary with HTML"
+    },
+    "headings_per_1000_words": {
+      "dependency": "doc",
+      "reason": "Measures document structure, without reading the prompt.",
+      "source": "retention_features.py",
+      "family": "structure",
+      "html_edit_role": "may vary with HTML"
+    },
+    "list_items_per_1000_words": {
+      "dependency": "doc",
+      "reason": "Measures document structure, without reading the prompt.",
+      "source": "retention_features.py",
+      "family": "structure",
+      "html_edit_role": "may vary with HTML"
+    },
+    "has_table": {
+      "dependency": "doc",
+      "reason": "Measures document structure, without reading the prompt.",
+      "source": "retention_features.py",
+      "family": "structure",
+      "html_edit_role": "may vary with HTML"
+    },
+    "has_list": {
+      "dependency": "doc",
+      "reason": "Measures document structure, without reading the prompt.",
+      "source": "retention_features.py",
+      "family": "structure",
+      "html_edit_role": "may vary with HTML"
+    },
+    "has_jsonld": {
+      "dependency": "doc",
+      "reason": "Reads document source metadata, without reading the prompt.",
+      "source": "retention_features.py",
+      "family": "source_metadata",
+      "html_edit_role": "may vary with HTML"
+    },
+    "has_article_schema": {
+      "dependency": "doc",
+      "reason": "Reads document source metadata, without reading the prompt.",
+      "source": "retention_features.py",
+      "family": "source_metadata",
+      "html_edit_role": "may vary with HTML"
+    },
+    "log_source_script_count": {
+      "dependency": "doc",
+      "reason": "Reads document source metadata, without reading the prompt.",
+      "source": "retention_features.py",
+      "family": "source_metadata",
+      "html_edit_role": "diagnostic; not an edit target"
+    },
+    "empty_title": {
+      "dependency": "doc",
+      "reason": "Reads document source metadata, without reading the prompt.",
+      "source": "retention_features.py",
+      "family": "source_metadata",
+      "html_edit_role": "may vary with HTML"
+    },
+    "retained_text_fraction": {
+      "dependency": "doc",
+      "reason": "Describes source format or parser retention/quality, without reading the prompt.",
+      "source": "retention_features.py",
+      "family": "quality",
+      "html_edit_role": "diagnostic; not an edit target"
+    },
+    "needs_review": {
+      "dependency": "doc",
+      "reason": "Describes source format or parser retention/quality, without reading the prompt.",
+      "source": "retention_features.py",
+      "family": "quality",
+      "html_edit_role": "diagnostic; not an edit target"
+    },
+    "possible_error_response": {
+      "dependency": "doc",
+      "reason": "Describes source format or parser retention/quality, without reading the prompt.",
+      "source": "retention_features.py",
+      "family": "quality",
+      "html_edit_role": "diagnostic; not an edit target"
+    },
+    "sparse_body": {
+      "dependency": "doc",
+      "reason": "Describes source format or parser retention/quality, without reading the prompt.",
+      "source": "retention_features.py",
+      "family": "quality",
+      "html_edit_role": "diagnostic; not an edit target"
+    },
+    "format_html": {
+      "dependency": "doc",
+      "reason": "Describes source format or parser retention/quality, without reading the prompt.",
+      "source": "retention_features.py",
+      "family": "quality",
+      "html_edit_role": "diagnostic; not an edit target"
+    },
+    "coverage_h1": {
+      "dependency": "promptXdoc",
+      "reason": "Uses prompt matching, query-selected sections, or prompt intent \u00d7 document structure.",
+      "source": "retention_features.py",
+      "family": "section_alignment",
+      "html_edit_role": "may vary with HTML"
+    },
+    "coverage_table_headers": {
+      "dependency": "promptXdoc",
+      "reason": "Uses prompt matching, query-selected sections, or prompt intent \u00d7 document structure.",
+      "source": "retention_features.py",
+      "family": "section_alignment",
+      "html_edit_role": "may vary with HTML"
+    },
+    "best_section_coverage": {
+      "dependency": "promptXdoc",
+      "reason": "Uses prompt matching, query-selected sections, or prompt intent \u00d7 document structure.",
+      "source": "retention_features.py",
+      "family": "section_alignment",
+      "html_edit_role": "may vary with HTML"
+    },
+    "mean_section_coverage": {
+      "dependency": "promptXdoc",
+      "reason": "Uses prompt matching, query-selected sections, or prompt intent \u00d7 document structure.",
+      "source": "retention_features.py",
+      "family": "section_alignment",
+      "html_edit_role": "may vary with HTML"
+    },
+    "matching_section_fraction": {
+      "dependency": "promptXdoc",
+      "reason": "Uses prompt matching, query-selected sections, or prompt intent \u00d7 document structure.",
+      "source": "retention_features.py",
+      "family": "section_alignment",
+      "html_edit_role": "may vary with HTML"
+    },
+    "best_section_heading_coverage": {
+      "dependency": "promptXdoc",
+      "reason": "Uses prompt matching, query-selected sections, or prompt intent \u00d7 document structure.",
+      "source": "retention_features.py",
+      "family": "section_alignment",
+      "html_edit_role": "may vary with HTML"
+    },
+    "best_section_position": {
+      "dependency": "promptXdoc",
+      "reason": "Uses prompt matching, query-selected sections, or prompt intent \u00d7 document structure.",
+      "source": "retention_features.py",
+      "family": "section_alignment",
+      "html_edit_role": "may vary with HTML"
+    },
+    "comparison_x_table_header_coverage": {
+      "dependency": "promptXdoc",
+      "reason": "Uses prompt matching, query-selected sections, or prompt intent \u00d7 document structure.",
+      "source": "retention_features.py",
+      "family": "section_alignment",
+      "html_edit_role": "may vary with HTML"
+    },
+    "how_to_x_ordered_steps": {
+      "dependency": "promptXdoc",
+      "reason": "Uses prompt matching, query-selected sections, or prompt intent \u00d7 document structure.",
+      "source": "retention_features.py",
+      "family": "section_alignment",
+      "html_edit_role": "may vary with HTML"
+    },
+    "body_query_precision": {
+      "dependency": "promptXdoc",
+      "reason": "How much of the distinct body vocabulary belongs to the question?",
+      "source": "frontier_features.py",
+      "family": "lexical",
+      "html_edit_role": "may vary with HTML"
+    },
+    "body_query_dice": {
+      "dependency": "promptXdoc",
+      "reason": "How similar are the question and body word sets, accounting for both lengths?",
+      "source": "frontier_features.py",
+      "family": "lexical",
+      "html_edit_role": "may vary with HTML"
+    },
+    "body_query_saturated_tf": {
+      "dependency": "promptXdoc",
+      "reason": "How often do question words appear in body, with diminishing credit for repeats?",
+      "source": "frontier_features.py",
+      "family": "lexical",
+      "html_edit_role": "may vary with HTML"
+    },
+    "body_query_bigram": {
+      "dependency": "promptXdoc",
+      "reason": "What fraction of adjacent question-word pairs appear together in body?",
+      "source": "frontier_features.py",
+      "family": "lexical",
+      "html_edit_role": "may vary with HTML"
+    },
+    "title_query_precision": {
+      "dependency": "promptXdoc",
+      "reason": "How much of the distinct title vocabulary belongs to the question?",
+      "source": "frontier_features.py",
+      "family": "lexical",
+      "html_edit_role": "may vary with HTML"
+    },
+    "title_query_dice": {
+      "dependency": "promptXdoc",
+      "reason": "How similar are the question and title word sets, accounting for both lengths?",
+      "source": "frontier_features.py",
+      "family": "lexical",
+      "html_edit_role": "may vary with HTML"
+    },
+    "title_query_saturated_tf": {
+      "dependency": "promptXdoc",
+      "reason": "How often do question words appear in title, with diminishing credit for repeats?",
+      "source": "frontier_features.py",
+      "family": "lexical",
+      "html_edit_role": "may vary with HTML"
+    },
+    "title_query_bigram": {
+      "dependency": "promptXdoc",
+      "reason": "What fraction of adjacent question-word pairs appear together in title?",
+      "source": "frontier_features.py",
+      "family": "lexical",
+      "html_edit_role": "may vary with HTML"
+    },
+    "description_query_precision": {
+      "dependency": "promptXdoc",
+      "reason": "How much of the distinct description vocabulary belongs to the question?",
+      "source": "frontier_features.py",
+      "family": "lexical",
+      "html_edit_role": "may vary with HTML"
+    },
+    "description_query_dice": {
+      "dependency": "promptXdoc",
+      "reason": "How similar are the question and description word sets, accounting for both lengths?",
+      "source": "frontier_features.py",
+      "family": "lexical",
+      "html_edit_role": "may vary with HTML"
+    },
+    "description_query_saturated_tf": {
+      "dependency": "promptXdoc",
+      "reason": "How often do question words appear in description, with diminishing credit for repeats?",
+      "source": "frontier_features.py",
+      "family": "lexical",
+      "html_edit_role": "may vary with HTML"
+    },
+    "description_query_bigram": {
+      "dependency": "promptXdoc",
+      "reason": "What fraction of adjacent question-word pairs appear together in description?",
+      "source": "frontier_features.py",
+      "family": "lexical",
+      "html_edit_role": "may vary with HTML"
+    },
+    "path_query_precision": {
+      "dependency": "promptXdoc",
+      "reason": "How much of the distinct path vocabulary belongs to the question?",
+      "source": "frontier_features.py",
+      "family": "lexical",
+      "html_edit_role": "URL fixed"
+    },
+    "path_query_dice": {
+      "dependency": "promptXdoc",
+      "reason": "How similar are the question and path word sets, accounting for both lengths?",
+      "source": "frontier_features.py",
+      "family": "lexical",
+      "html_edit_role": "URL fixed"
+    },
+    "path_query_saturated_tf": {
+      "dependency": "promptXdoc",
+      "reason": "How often do question words appear in path, with diminishing credit for repeats?",
+      "source": "frontier_features.py",
+      "family": "lexical",
+      "html_edit_role": "URL fixed"
+    },
+    "path_query_bigram": {
+      "dependency": "promptXdoc",
+      "reason": "What fraction of adjacent question-word pairs appear together in path?",
+      "source": "frontier_features.py",
+      "family": "lexical",
+      "html_edit_role": "URL fixed"
+    },
+    "headings_query_precision": {
+      "dependency": "promptXdoc",
+      "reason": "How much of the distinct headings vocabulary belongs to the question?",
+      "source": "frontier_features.py",
+      "family": "lexical",
+      "html_edit_role": "may vary with HTML"
+    },
+    "headings_query_dice": {
+      "dependency": "promptXdoc",
+      "reason": "How similar are the question and headings word sets, accounting for both lengths?",
+      "source": "frontier_features.py",
+      "family": "lexical",
+      "html_edit_role": "may vary with HTML"
+    },
+    "headings_query_saturated_tf": {
+      "dependency": "promptXdoc",
+      "reason": "How often do question words appear in headings, with diminishing credit for repeats?",
+      "source": "frontier_features.py",
+      "family": "lexical",
+      "html_edit_role": "may vary with HTML"
+    },
+    "headings_query_bigram": {
+      "dependency": "promptXdoc",
+      "reason": "What fraction of adjacent question-word pairs appear together in headings?",
+      "source": "frontier_features.py",
+      "family": "lexical",
+      "html_edit_role": "may vary with HTML"
+    },
+    "section_coverage_fraction_0_5": {
+      "dependency": "promptXdoc",
+      "reason": "What fraction of sections cover at least 50% of question words?",
+      "source": "frontier_features.py",
+      "family": "relevance",
+      "html_edit_role": "may vary with HTML"
+    },
+    "section_coverage_fraction_0_8": {
+      "dependency": "promptXdoc",
+      "reason": "What fraction of sections cover at least 80% of question words?",
+      "source": "frontier_features.py",
+      "family": "relevance",
+      "html_edit_role": "may vary with HTML"
+    },
+    "section_coverage_fraction_1_0": {
+      "dependency": "promptXdoc",
+      "reason": "What fraction of sections cover at least 100% of question words?",
+      "source": "frontier_features.py",
+      "family": "relevance",
+      "html_edit_role": "may vary with HTML"
+    },
+    "section_coverage_std": {
+      "dependency": "promptXdoc",
+      "reason": "Is question coverage spread evenly across sections or concentrated in a few?",
+      "source": "frontier_features.py",
+      "family": "relevance",
+      "html_edit_role": "may vary with HTML"
+    },
+    "top_three_section_coverage": {
+      "dependency": "promptXdoc",
+      "reason": "How well do the three best sections cover the question?",
+      "source": "frontier_features.py",
+      "family": "relevance",
+      "html_edit_role": "may vary with HTML"
+    },
+    "best_section_log_words": {
+      "dependency": "promptXdoc",
+      "reason": "How long is the section that best matches the question? The section is selected by prompt coverage.",
+      "source": "frontier_features.py",
+      "family": "relevance",
+      "html_edit_role": "may vary with HTML"
+    },
+    "first_query_match_position": {
+      "dependency": "promptXdoc",
+      "reason": "How far into the page is the first question word?",
+      "source": "frontier_features.py",
+      "family": "relevance",
+      "html_edit_role": "may vary with HTML"
+    },
+    "query_match_density": {
+      "dependency": "promptXdoc",
+      "reason": "What fraction of page words match the question?",
+      "source": "frontier_features.py",
+      "family": "relevance",
+      "html_edit_role": "may vary with HTML"
+    },
+    "paragraph_log_median_words": {
+      "dependency": "doc",
+      "reason": "How long is a typical paragraph?",
+      "source": "frontier_features.py",
+      "family": "composition",
+      "html_edit_role": "may vary with HTML"
+    },
+    "paragraph_log_p90_words": {
+      "dependency": "doc",
+      "reason": "How long are the longer paragraphs?",
+      "source": "frontier_features.py",
+      "family": "composition",
+      "html_edit_role": "may vary with HTML"
+    },
+    "short_paragraph_fraction": {
+      "dependency": "doc",
+      "reason": "How many paragraphs are short, readable chunks of 10 to 60 words?",
+      "source": "frontier_features.py",
+      "family": "composition",
+      "html_edit_role": "may vary with HTML"
+    },
+    "unique_word_fraction": {
+      "dependency": "doc",
+      "reason": "How much vocabulary variety does the page have? This also depends on length.",
+      "source": "frontier_features.py",
+      "family": "composition",
+      "html_edit_role": "may vary with HTML"
+    },
+    "numeric_word_fraction": {
+      "dependency": "doc",
+      "reason": "How often does the page include numbers?",
+      "source": "frontier_features.py",
+      "family": "composition",
+      "html_edit_role": "may vary with HTML"
+    },
+    "question_heading_fraction": {
+      "dependency": "doc",
+      "reason": "How many headings are written as questions?",
+      "source": "frontier_features.py",
+      "family": "composition",
+      "html_edit_role": "may vary with HTML"
+    },
+    "duplicate_heading_fraction": {
+      "dependency": "doc",
+      "reason": "How often are headings repeated?",
+      "source": "frontier_features.py",
+      "family": "composition",
+      "html_edit_role": "may vary with HTML"
+    },
+    "log_link_count": {
+      "dependency": "doc",
+      "reason": "How many links appear in retained blocks?",
+      "source": "frontier_features.py",
+      "family": "composition",
+      "html_edit_role": "may vary with HTML"
+    },
+    "links_per_1000_words": {
+      "dependency": "doc",
+      "reason": "How link-heavy is the page relative to its length?",
+      "source": "frontier_features.py",
+      "family": "composition",
+      "html_edit_role": "may vary with HTML"
+    },
+    "heading_word_fraction": {
+      "dependency": "doc",
+      "reason": "How much retained text is inside heading blocks?",
+      "source": "frontier_features.py",
+      "family": "composition",
+      "html_edit_role": "may vary with HTML"
+    },
+    "paragraph_word_fraction": {
+      "dependency": "doc",
+      "reason": "How much retained text is inside paragraph blocks?",
+      "source": "frontier_features.py",
+      "family": "composition",
+      "html_edit_role": "may vary with HTML"
+    },
+    "list_item_word_fraction": {
+      "dependency": "doc",
+      "reason": "How much retained text is inside list item blocks?",
+      "source": "frontier_features.py",
+      "family": "composition",
+      "html_edit_role": "may vary with HTML"
+    },
+    "table_word_fraction": {
+      "dependency": "doc",
+      "reason": "How much retained text is inside table blocks?",
+      "source": "frontier_features.py",
+      "family": "composition",
+      "html_edit_role": "may vary with HTML"
+    },
+    "code_word_fraction": {
+      "dependency": "doc",
+      "reason": "How much retained text is inside code blocks?",
+      "source": "frontier_features.py",
+      "family": "composition",
+      "html_edit_role": "may vary with HTML"
+    },
+    "answer_best_sentence_coverage": {
+      "dependency": "promptXdoc",
+      "reason": "How much of the question appears together in one 6\u201380-word sentence?",
+      "source": "evidence_features.py",
+      "family": "answer",
+      "html_edit_role": "may vary with HTML"
+    },
+    "answer_top3_sentence_coverage": {
+      "dependency": "promptXdoc",
+      "reason": "How much question coverage do the three best distinct sentences provide?",
+      "source": "evidence_features.py",
+      "family": "answer",
+      "html_edit_role": "may vary with HTML"
+    },
+    "answer_relevant_sentence_fraction": {
+      "dependency": "promptXdoc",
+      "reason": "What fraction of distinct sentences cover at least half the meaningful question words?",
+      "source": "evidence_features.py",
+      "family": "answer",
+      "html_edit_role": "may vary with HTML"
+    },
+    "answer_log_relevant_sentences": {
+      "dependency": "promptXdoc",
+      "reason": "How many distinct question-relevant sentences are available? Large counts are squeezed.",
+      "source": "evidence_features.py",
+      "family": "answer",
+      "html_edit_role": "may vary with HTML"
+    },
+    "answer_best_sentence_precision": {
+      "dependency": "promptXdoc",
+      "reason": "How focused is the most question-dense sentence?",
+      "source": "evidence_features.py",
+      "family": "answer",
+      "html_edit_role": "may vary with HTML"
+    },
+    "answer_relevant_median_words": {
+      "dependency": "promptXdoc",
+      "reason": "How long is a typical relevant sentence?",
+      "source": "evidence_features.py",
+      "family": "answer",
+      "html_edit_role": "may vary with HTML"
+    },
+    "answer_window_10_coverage": {
+      "dependency": "promptXdoc",
+      "reason": "How much of the question occurs within a 10-word prose window?",
+      "source": "evidence_features.py",
+      "family": "answer",
+      "html_edit_role": "may vary with HTML"
+    },
+    "answer_window_25_coverage": {
+      "dependency": "promptXdoc",
+      "reason": "How much of the question occurs within a 25-word prose window?",
+      "source": "evidence_features.py",
+      "family": "answer",
+      "html_edit_role": "may vary with HTML"
+    },
+    "answer_window_50_coverage": {
+      "dependency": "promptXdoc",
+      "reason": "How much of the question occurs within a 50-word prose window?",
+      "source": "evidence_features.py",
+      "family": "answer",
+      "html_edit_role": "may vary with HTML"
+    },
+    "answer_relevant_union_coverage": {
+      "dependency": "promptXdoc",
+      "reason": "Together, how much of the question do relevant distinct sentences cover?",
+      "source": "evidence_features.py",
+      "family": "answer",
+      "html_edit_role": "may vary with HTML"
+    },
+    "evidence_number_fraction": {
+      "dependency": "promptXdoc",
+      "reason": "What fraction of relevant sentences contain a number cue? This does not verify truth. Relevant sentences are selected using the prompt, so this is a joint feature.",
+      "source": "evidence_features.py",
+      "family": "evidence",
+      "html_edit_role": "may vary with HTML"
+    },
+    "evidence_number_coverage": {
+      "dependency": "promptXdoc",
+      "reason": "How well does the best relevant sentence with a number cue cover the question? Relevant sentences are selected using the prompt, so this is a joint feature.",
+      "source": "evidence_features.py",
+      "family": "evidence",
+      "html_edit_role": "may vary with HTML"
+    },
+    "evidence_unit_fraction": {
+      "dependency": "promptXdoc",
+      "reason": "What fraction of relevant sentences contain a unit cue? This does not verify truth. Relevant sentences are selected using the prompt, so this is a joint feature.",
+      "source": "evidence_features.py",
+      "family": "evidence",
+      "html_edit_role": "may vary with HTML"
+    },
+    "evidence_unit_coverage": {
+      "dependency": "promptXdoc",
+      "reason": "How well does the best relevant sentence with a unit cue cover the question? Relevant sentences are selected using the prompt, so this is a joint feature.",
+      "source": "evidence_features.py",
+      "family": "evidence",
+      "html_edit_role": "may vary with HTML"
+    },
+    "evidence_definition_fraction": {
+      "dependency": "promptXdoc",
+      "reason": "What fraction of relevant sentences contain a definition cue? This does not verify truth. Relevant sentences are selected using the prompt, so this is a joint feature.",
+      "source": "evidence_features.py",
+      "family": "evidence",
+      "html_edit_role": "may vary with HTML"
+    },
+    "evidence_definition_coverage": {
+      "dependency": "promptXdoc",
+      "reason": "How well does the best relevant sentence with a definition cue cover the question? Relevant sentences are selected using the prompt, so this is a joint feature.",
+      "source": "evidence_features.py",
+      "family": "evidence",
+      "html_edit_role": "may vary with HTML"
+    },
+    "evidence_linked_fraction": {
+      "dependency": "promptXdoc",
+      "reason": "How often are relevant sentences inside a block with a link? A link need not be a trustworthy citation. Relevant sentences are selected using the prompt, so this is a joint feature.",
+      "source": "evidence_features.py",
+      "family": "evidence",
+      "html_edit_role": "may vary with HTML"
+    },
+    "evidence_numeric_intent_alignment": {
+      "dependency": "promptXdoc",
+      "reason": "For a numeric question, does a relevant sentence contain a number? Relevant sentences are selected using the prompt, so this is a joint feature.",
+      "source": "evidence_features.py",
+      "family": "evidence",
+      "html_edit_role": "may vary with HTML"
+    },
+    "evidence_definition_intent_alignment": {
+      "dependency": "promptXdoc",
+      "reason": "For a definition or explanation question, does relevant prose use an explanation cue? Relevant sentences are selected using the prompt, so this is a joint feature.",
+      "source": "evidence_features.py",
+      "family": "evidence",
+      "html_edit_role": "may vary with HTML"
+    },
+    "table_best_value_row_coverage": {
+      "dependency": "promptXdoc",
+      "reason": "How well does one table data row cover the question, excluding header cells?",
+      "source": "evidence_features.py",
+      "family": "structured",
+      "html_edit_role": "may vary with HTML"
+    },
+    "table_top3_value_row_coverage": {
+      "dependency": "promptXdoc",
+      "reason": "How well do the three best distinct table data rows match?",
+      "source": "evidence_features.py",
+      "family": "structured",
+      "html_edit_role": "may vary with HTML"
+    },
+    "table_relevant_row_fraction": {
+      "dependency": "promptXdoc",
+      "reason": "What fraction of distinct table data rows cover half the question?",
+      "source": "evidence_features.py",
+      "family": "structured",
+      "html_edit_role": "may vary with HTML"
+    },
+    "table_numeric_row_coverage": {
+      "dependency": "promptXdoc",
+      "reason": "How well does a table data row containing numbers match the question?",
+      "source": "evidence_features.py",
+      "family": "structured",
+      "html_edit_role": "may vary with HTML"
+    },
+    "table_header_best_coverage": {
+      "dependency": "promptXdoc",
+      "reason": "What is the best question match within the headers of one table?",
+      "source": "evidence_features.py",
+      "family": "structured",
+      "html_edit_role": "may vary with HTML"
+    },
+    "table_numeric_intent_alignment": {
+      "dependency": "promptXdoc",
+      "reason": "For numeric questions, how relevant is the best numeric table row?",
+      "source": "evidence_features.py",
+      "family": "structured",
+      "html_edit_role": "may vary with HTML"
+    },
+    "steps_best_coverage": {
+      "dependency": "promptXdoc",
+      "reason": "How well does one distinct numbered step match the question?",
+      "source": "evidence_features.py",
+      "family": "structured",
+      "html_edit_role": "may vary with HTML"
+    },
+    "steps_relevant_fraction": {
+      "dependency": "promptXdoc",
+      "reason": "What fraction of distinct numbered steps cover half the question?",
+      "source": "evidence_features.py",
+      "family": "structured",
+      "html_edit_role": "may vary with HTML"
+    },
+    "steps_howto_alignment": {
+      "dependency": "promptXdoc",
+      "reason": "For how-to questions, is there a matching numbered step?",
+      "source": "evidence_features.py",
+      "family": "structured",
+      "html_edit_role": "may vary with HTML"
+    },
+    "supported_coverage_title": {
+      "dependency": "promptXdoc",
+      "reason": "coverage_title multiplied by best answer-sentence coverage: metadata gets lexical credit only when prose also matches. Body support may change even when the URL stays fixed.",
+      "source": "control_features.py",
+      "family": "corroboration",
+      "html_edit_role": "may vary with HTML"
+    },
+    "supported_title_query_precision": {
+      "dependency": "promptXdoc",
+      "reason": "title_query_precision multiplied by best answer-sentence coverage: metadata gets lexical credit only when prose also matches. Body support may change even when the URL stays fixed.",
+      "source": "control_features.py",
+      "family": "corroboration",
+      "html_edit_role": "may vary with HTML"
+    },
+    "supported_title_query_dice": {
+      "dependency": "promptXdoc",
+      "reason": "title_query_dice multiplied by best answer-sentence coverage: metadata gets lexical credit only when prose also matches. Body support may change even when the URL stays fixed.",
+      "source": "control_features.py",
+      "family": "corroboration",
+      "html_edit_role": "may vary with HTML"
+    },
+    "supported_title_query_saturated_tf": {
+      "dependency": "promptXdoc",
+      "reason": "title_query_saturated_tf multiplied by best answer-sentence coverage: metadata gets lexical credit only when prose also matches. Body support may change even when the URL stays fixed.",
+      "source": "control_features.py",
+      "family": "corroboration",
+      "html_edit_role": "may vary with HTML"
+    },
+    "supported_title_query_bigram": {
+      "dependency": "promptXdoc",
+      "reason": "title_query_bigram multiplied by best answer-sentence coverage: metadata gets lexical credit only when prose also matches. Body support may change even when the URL stays fixed.",
+      "source": "control_features.py",
+      "family": "corroboration",
+      "html_edit_role": "may vary with HTML"
+    },
+    "supported_path_query_precision": {
+      "dependency": "promptXdoc",
+      "reason": "path_query_precision multiplied by best answer-sentence coverage: metadata gets lexical credit only when prose also matches. Body support may change even when the URL stays fixed.",
+      "source": "control_features.py",
+      "family": "corroboration",
+      "html_edit_role": "may vary with HTML"
+    },
+    "supported_path_query_dice": {
+      "dependency": "promptXdoc",
+      "reason": "path_query_dice multiplied by best answer-sentence coverage: metadata gets lexical credit only when prose also matches. Body support may change even when the URL stays fixed.",
+      "source": "control_features.py",
+      "family": "corroboration",
+      "html_edit_role": "may vary with HTML"
+    },
+    "supported_path_query_saturated_tf": {
+      "dependency": "promptXdoc",
+      "reason": "path_query_saturated_tf multiplied by best answer-sentence coverage: metadata gets lexical credit only when prose also matches. Body support may change even when the URL stays fixed.",
+      "source": "control_features.py",
+      "family": "corroboration",
+      "html_edit_role": "may vary with HTML"
+    },
+    "supported_path_query_bigram": {
+      "dependency": "promptXdoc",
+      "reason": "path_query_bigram multiplied by best answer-sentence coverage: metadata gets lexical credit only when prose also matches. Body support may change even when the URL stays fixed.",
+      "source": "control_features.py",
+      "family": "corroboration",
+      "html_edit_role": "may vary with HTML"
+    },
+    "long_window_10_best": {
+      "dependency": "promptXdoc",
+      "reason": "Best question coverage inside a 10-word window in prose segments longer than 80 tokens.",
+      "source": "control_features.py",
+      "family": "long_prose",
+      "html_edit_role": "may vary with HTML"
+    },
+    "long_window_10_mean": {
+      "dependency": "promptXdoc",
+      "reason": "Average best 10-word question coverage across distinct long prose segments; exact repetition receives no extra count.",
+      "source": "control_features.py",
+      "family": "long_prose",
+      "html_edit_role": "may vary with HTML"
+    },
+    "long_window_25_best": {
+      "dependency": "promptXdoc",
+      "reason": "Best question coverage inside a 25-word window in prose segments longer than 80 tokens.",
+      "source": "control_features.py",
+      "family": "long_prose",
+      "html_edit_role": "may vary with HTML"
+    },
+    "long_window_25_mean": {
+      "dependency": "promptXdoc",
+      "reason": "Average best 25-word question coverage across distinct long prose segments; exact repetition receives no extra count.",
+      "source": "control_features.py",
+      "family": "long_prose",
+      "html_edit_role": "may vary with HTML"
+    },
+    "long_window_50_best": {
+      "dependency": "promptXdoc",
+      "reason": "Best question coverage inside a 50-word window in prose segments longer than 80 tokens.",
+      "source": "control_features.py",
+      "family": "long_prose",
+      "html_edit_role": "may vary with HTML"
+    },
+    "long_window_50_mean": {
+      "dependency": "promptXdoc",
+      "reason": "Average best 50-word question coverage across distinct long prose segments; exact repetition receives no extra count.",
+      "source": "control_features.py",
+      "family": "long_prose",
+      "html_edit_role": "may vary with HTML"
+    },
+    "normalized_title_coverage": {
+      "dependency": "promptXdoc",
+      "reason": "Question-word coverage in title after fixed plural, spelling, unit and number normalization.",
+      "source": "control_features.py",
+      "family": "normalization",
+      "html_edit_role": "may vary with HTML"
+    },
+    "normalized_title_gain": {
+      "dependency": "promptXdoc",
+      "reason": "Change in title coverage from lexical normalization; may be negative when normalization changes token sets.",
+      "source": "control_features.py",
+      "family": "normalization",
+      "html_edit_role": "may vary with HTML"
+    },
+    "normalized_path_coverage": {
+      "dependency": "promptXdoc",
+      "reason": "Question-word coverage in path after fixed plural, spelling, unit and number normalization.",
+      "source": "control_features.py",
+      "family": "normalization",
+      "html_edit_role": "URL fixed"
+    },
+    "normalized_path_gain": {
+      "dependency": "promptXdoc",
+      "reason": "Change in path coverage from lexical normalization; may be negative when normalization changes token sets.",
+      "source": "control_features.py",
+      "family": "normalization",
+      "html_edit_role": "URL fixed"
+    },
+    "normalized_body_coverage": {
+      "dependency": "promptXdoc",
+      "reason": "Question-word coverage in body after fixed plural, spelling, unit and number normalization.",
+      "source": "control_features.py",
+      "family": "normalization",
+      "html_edit_role": "may vary with HTML"
+    },
+    "normalized_body_gain": {
+      "dependency": "promptXdoc",
+      "reason": "Change in body coverage from lexical normalization; may be negative when normalization changes token sets.",
+      "source": "control_features.py",
+      "family": "normalization",
+      "html_edit_role": "may vary with HTML"
+    },
+    "normalized_prose_window_10": {
+      "dependency": "promptXdoc",
+      "reason": "Best 10-word prose coverage after normalization, using the same 6\u201380-token sentence eligibility as v5.",
+      "source": "control_features.py",
+      "family": "normalization",
+      "html_edit_role": "may vary with HTML"
+    },
+    "normalized_prose_window_25": {
+      "dependency": "promptXdoc",
+      "reason": "Best 25-word prose coverage after normalization, using the same 6\u201380-token sentence eligibility as v5.",
+      "source": "control_features.py",
+      "family": "normalization",
+      "html_edit_role": "may vary with HTML"
+    },
+    "normalized_number_coverage": {
+      "dependency": "promptXdoc",
+      "reason": "Do the explicit numbers in the question appear in the body after numeric-format normalization? Units are not converted.",
+      "source": "control_features.py",
+      "family": "normalization",
+      "html_edit_role": "may vary with HTML"
+    },
+    "supported_normalized_title_coverage": {
+      "dependency": "promptXdoc",
+      "reason": "normalized_title_coverage multiplied by prose support, keeping combined metadata corroboration intact. Body support may change even when the URL stays fixed.",
+      "source": "control_features.py",
+      "family": "combined_support",
+      "html_edit_role": "may vary with HTML"
+    },
+    "supported_normalized_title_gain": {
+      "dependency": "promptXdoc",
+      "reason": "normalized_title_gain multiplied by prose support, keeping combined metadata corroboration intact. Body support may change even when the URL stays fixed.",
+      "source": "control_features.py",
+      "family": "combined_support",
+      "html_edit_role": "may vary with HTML"
+    },
+    "supported_normalized_path_coverage": {
+      "dependency": "promptXdoc",
+      "reason": "normalized_path_coverage multiplied by prose support, keeping combined metadata corroboration intact. Body support may change even when the URL stays fixed.",
+      "source": "control_features.py",
+      "family": "combined_support",
+      "html_edit_role": "may vary with HTML"
+    },
+    "supported_normalized_path_gain": {
+      "dependency": "promptXdoc",
+      "reason": "normalized_path_gain multiplied by prose support, keeping combined metadata corroboration intact. Body support may change even when the URL stays fixed.",
+      "source": "control_features.py",
+      "family": "combined_support",
+      "html_edit_role": "may vary with HTML"
+    }
+  },
+  "source_analysis_sha256": "a2140a814ecf61ad57e30cf0022987cb162e301afb3637309928724eca495486",
+  "coefficient_sha256": "6ad21ee74996ad4008a5012b1daad4376f0c19b44967d25f0330b2ac9bd904f5"
+}

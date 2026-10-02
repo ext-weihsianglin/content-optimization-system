@@ -1,0 +1,153 @@
+{
+  "rows": 20,
+  "selection": "first 20 hash-sorted validation HTML snapshots",
+  "examples": [
+    {
+      "record_id": "000cb33fe83f9e6f903c2221fc7debe9e475ae5fc2baa1a975750b344509ecbe",
+      "snapshot_id": "f317a8b946c4edcd1a859edd9a49ecff64c07bf0bd390ab2f2360cfae7f7fa3f",
+      "split": "validation"
+    },
+    {
+      "record_id": "002805b212f0996aadd3fa5891d9b6ab9a197446e9dc8e085001ad20016ba35d",
+      "snapshot_id": "b3dcb1ac2feeae6dcfadf618ddc9bd51d0a402143c7930a696dfaabf5b368685",
+      "split": "validation"
+    },
+    {
+      "record_id": "0077594f218caa8507279e931bb5dc344679893cb4fd72dad3ad0f5e460f6e48",
+      "snapshot_id": "463389c9ed10aca541cf4323c9e76ac81e6f252a6beed11742acc5b541d61d11",
+      "split": "validation"
+    },
+    {
+      "record_id": "00b8cfbb148ca9c435583341c5b908e92a9c45cae770f74a512a017e492b0840",
+      "snapshot_id": "bcff6ca885b83f15af5c5917b75bdcab06da2788a4b8251e1c8fd1ae23fe43d2",
+      "split": "validation"
+    },
+    {
+      "record_id": "010959df86aadd37a805ba90690ec72bc9dfb1fe0c96d97e99c0eeff6b882d60",
+      "snapshot_id": "d04fe8e8cfc156e5e4f7e1a5a072e134dfc8b94b9e6ae4ae738dc3c3f60d77a2",
+      "split": "validation"
+    },
+    {
+      "record_id": "0125f9a602586eb24f9691ae8ba124dcf56c62478bb20bab0420940a8ca07807",
+      "snapshot_id": "7690f9b24203825b3a9deab81bedc1eae6057a05f3c7da993a968dff460134ac",
+      "split": "validation"
+    },
+    {
+      "record_id": "0176c4b176409bb971d2b8c319c4bddb44ef67487c75af378f4199238893a97b",
+      "snapshot_id": "ff481ff3e61e9027da2572566a67e7c0332dac52a6559335de349349aab0a470",
+      "split": "validation"
+    },
+    {
+      "record_id": "01804ef1d9fa1ea7ef14c0fcaef7f9dffda0bd24e24ba53d1dfd07322b04b6be",
+      "snapshot_id": "e68d6f6cb6f262f29a15e90ab673fe487fd41b283d90405f23b706f6136a6911",
+      "split": "validation"
+    },
+    {
+      "record_id": "01836de57d13f683a91bf1e1354f77927e38ff5bd7e8fb934851d32a450f3edd",
+      "snapshot_id": "9d8b46f65e15f616764b3e7849eccf5ca6b2a274352c2b0ec36e3215cf79f507",
+      "split": "validation"
+    },
+    {
+      "record_id": "0188c535d856df5776a427d913a5c03352397e0760b5d36ebb1e9bd003243ade",
+      "snapshot_id": "cb88d092a3440d947b0f8d91b1d4fa10f0553232de5ef360df1c5b94726857aa",
+      "split": "validation"
+    },
+    {
+      "record_id": "018c9e9f8487b6f49255b05ef995e59dfa7bdbdae9494794cc82802143d75f63",
+      "snapshot_id": "dcf8ee109964361937a6332780fa7fd01a3754cfa8f291f10780904100f66237",
+      "split": "validation"
+    },
+    {
+      "record_id": "01ac3b6acbb71cc20f7e6c53e7af1c45954938a83c78f20a1bee314a3a33c87b",
+      "snapshot_id": "7a2b3ca4c37b25d3076c1a9696b44485b253efd8c03b45eff98e61432c4d867c",
+      "split": "validation"
+    },
+    {
+      "record_id": "021aec0c5863fad6992679283a6b0c077401c6206c4cc69e0095f3d03d331700",
+      "snapshot_id": "b559d9c1bdf8c3f519b790f34d27006f3629df497a58219a84bab9a28a29d7c3",
+      "split": "validation"
+    },
+    {
+      "record_id": "02c52f9910131ddd79cd1a9bb0eb6ff8af1a01e5d10ba39f71573ed32a7f7180",
+      "snapshot_id": "f41c6ba0a3169e3193b47dbf47ce16fc3bb4effef5751292a0e6a43e659db174",
+      "split": "validation"
+    },
+    {
+      "record_id": "02ce417fbfe1f4bded7b088a4b60da48ab93bfdb36bd700ea98cc1937b73cf75",
+      "snapshot_id": "cd8e853e21274ff63adbac2bbdb7266ea12988f6dca612835cff02f7750b1299",
+      "split": "validation"
+    },
+    {
+      "record_id": "0311aa9f42f0875ae05480c93c178bb9ff126db6524db5b78c344dabe1e75672",
+      "snapshot_id": "e93393d7240cc409d08fd455cf0c8da501a30b4825ced4f9011d42dc3f02f798",
+      "split": "validation"
+    },
+    {
+      "record_id": "0445f119810117d91ac6ca11a1aed87dc5383b6050c59b8ed2261c435e139f24",
+      "snapshot_id": "6b391a6e277e9681ae25a66dc0b337c14aba21119e2e7b5dca64c6fe1ff305a9",
+      "split": "validation"
+    },
+    {
+      "record_id": "04cba271b3158facddb489915fdb4cc12c38e9586fe6ee249730251a0755e6aa",
+      "snapshot_id": "f56a17c8c365e5007e33f6736ec481ec49dca6dd47c8d51ab435668d56494851",
+      "split": "validation"
+    },
+    {
+      "record_id": "04e5935103d6a4ebeb31eb48887de84ff83ff8056dcb16afee63bdc9d13597b5",
+      "snapshot_id": "3907d58775753df8f130138e297233c656de1514da826c82524249f824ad033a",
+      "split": "validation"
+    },
+    {
+      "record_id": "0564fd7d4d7a491eadaadf8f089b0a1116f52a04f57b7e352f15a00525180fbf",
+      "snapshot_id": "d185b24bb8c8a8017318fa0454acdbb4800a6d560dc609cd6707403780b4bbe7",
+      "split": "validation"
+    }
+  ],
+  "scope": "Small diagnostic, not a selection gate or robustness certification; raw parsing/feature parity verified for every original sample.",
+  "variants": {
+    "selected": {
+      "raw_query_headings": {
+        "mean_delta": 0.012469692281536908,
+        "p95_increase": 0.027190819947654033,
+        "max_increase": 0.02983706361916838
+      },
+      "raw_query_evidence": {
+        "mean_delta": 0.05294346496399484,
+        "p95_increase": 0.09969453735557363,
+        "max_increase": 0.11511459399853169
+      },
+      "title_query": {
+        "mean_delta": 0.23004626256038424,
+        "p95_increase": 0.31630088088913333,
+        "max_increase": 0.3213104436781919
+      },
+      "url_query": {
+        "mean_delta": 0.066059042360832,
+        "p95_increase": 0.12057659538240664,
+        "max_increase": 0.12425714542175104
+      }
+    },
+    "v4": {
+      "raw_query_headings": {
+        "mean_delta": 0.012106581590789913,
+        "p95_increase": 0.026763760896700038,
+        "max_increase": 0.028610020129317904
+      },
+      "raw_query_evidence": {
+        "mean_delta": 0.04440200691431244,
+        "p95_increase": 0.07247967140336044,
+        "max_increase": 0.095131808127848
+      },
+      "title_query": {
+        "mean_delta": 0.22885140319666397,
+        "p95_increase": 0.3152468875861549,
+        "max_increase": 0.3194581087216035
+      },
+      "url_query": {
+        "mean_delta": 0.06803633715348498,
+        "p95_increase": 0.1218215662818955,
+        "max_increase": 0.12715209784041442
+      }
+    }
+  }
+}
