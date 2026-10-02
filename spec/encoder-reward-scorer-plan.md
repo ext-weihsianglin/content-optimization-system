@@ -20,6 +20,9 @@ The markdownify corpus is now the source of truth for future annotation. Recreat
 120-case pilot and 12-case smoke packages preserve the frozen case/split/queue IDs;
 see the [new preparation report](../analysis/teacher-markdownify-packages-v2.html).
 The earlier GPT-5 labels concern LR v2 source documents and are not transferred.
+The [fresh markdownify smoke](../analysis/teacher-markdownify-gpt5-smoke-v1.md) now
+has 9 valid body labels and three failed stages. Human/rubric review remains the
+next gate; pilot and full-corpus annotation have not started.
 
 ## Phase 1 — Curate supervision from stronger models
 

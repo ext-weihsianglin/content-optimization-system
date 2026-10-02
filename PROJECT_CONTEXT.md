@@ -298,12 +298,25 @@ Markdown in v3 HTML block text, exact code whitespace and structured tables; nat
 formats use native block text. Quality flags and omissions remain explicit. Future
 packet construction and annotation reject the older source format. LR v2 metadata
 serves only as the frozen split/raw-row join reference. Old-source annotations are
-not transferred. No new model calls. Preparation report:
+not transferred. A fresh GPT-5 markdownify smoke is now complete (details below). Preparation report:
 `analysis/teacher-markdownify-packages-v2.html` / `.json`; independent rebuild at
 `teacher-markdownify-v2-replay` is byte-identical. The earlier `teacher-markdownify-v2`
 folder is preflight preparation, not the ready package; use `-ready` for execution.
 Validation: 238 tests / 12 subtests passed; all 120 packets checked against saved
 source representations, quality flags, block ancestry and complete omission accounting.
+
+Latest GPT-5 smoke: `teacher-markdownify-v2-ready/gpt5-smoke-v1/` under the same
+persistent root. GPT-5 medium, returned `gpt-5-2025-08-07`; 12 cases processed,
+12 valid requirements/title stages each, 9 valid body stages. Video automation,
+GPT-4o and visual-planning body stages remain unavailable after two attempts.
+48 calls: 33 valid / 15 invalid, no transport failures; cost estimate $2.45878.
+Failures: 10 exact-quote/block-span, 4 partial-view missing, 1 output cap. No human
+review or training. Evidence support still abstains locally (no separate pack).
+Reports: `analysis/teacher-markdownify-gpt5-smoke-v1.html` / `.json` / `.md`.
+Run preserves all traces and matching code/rubric/packet provenance; older labels
+were not reused. Before pilot/full-corpus expansion, review static-page requirement
+framing, improve exact-quote repair diagnostics, rerun failures, and evaluate edits
+and separately supplied support packs. Human reliability gates remain unmet.
 
 
 Source audit after merging latest `origin/main` (`864e663`) on 2026-10-01:

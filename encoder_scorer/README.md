@@ -1,19 +1,22 @@
 # Encoder scorer experiments
 
-Phase 1 offline preparation is implemented. The user approved **GPT-5 at medium
-reasoning** for the 12-case smoke annotation. The run is complete: 12 requirements/title labels
-each and 11 body labels passed validation; one body stage remains unavailable.
-Review [actual judgments](../analysis/teacher-gpt5-smoke-v1.html) and
-[findings/costs](../analysis/teacher-gpt5-smoke-v1.md). Student training and later
-benchmarking/dogfood have not started. GPT-5.6 Luna/Sol model endpoints returned
-404 with the available key; no model was substituted before user approval.
+The approved GPT-5 medium smoke on the markdownify packages is complete: 12 valid
+requirements/title stages each and 9 valid body stages. Three body failures remain
+unlabeled after bounded repair. Review [latest judgments](../analysis/teacher-markdownify-gpt5-smoke-v1.html)
+and [findings/costs](../analysis/teacher-markdownify-gpt5-smoke-v1.md). No human review,
+student training or bulk expansion. Factual support lacks separate evidence packs.
+
+The [historical GPT-5 report](../analysis/teacher-gpt5-smoke-v1.html) used older LR v2
+source documents; its labels were not transferred or reused. GPT-5.6 Luna/Sol were
+unavailable to the API key when teacher choice was discussed; the user approved GPT-5.
 
 **Current source of truth:** the completed shared markdownify corpus. Recreated
 packages are ready at
 `/Users/ext-weihsiang.lin/Documents/profound/data/content-optimization-system/processed/encoder-scorer/teacher-markdownify-v2-ready/`.
 See the [preparation report](../analysis/teacher-markdownify-packages-v2.html).
 They contain 120 pilot packets, 12 smoke packets (6 full / 6 partial), and 18 blinded
-edit pairs. No labels have been transferred and no new teacher calls made.
+edit pairs. New smoke traces/labels are under `gpt5-smoke-v1/` in this root.
+No historical labels have been transferred.
 The [source audit](../analysis/teacher-source-markdownify-audit-v1.json) describes the
 historical mismatch; old packets, labels, and reports remain separate.
 

@@ -12,8 +12,12 @@ Persistent root:
   table structure, quality flags and all omitted block IDs retained.
 - Corpus indexes, selected documents, raw-row joins and extraction identity verified.
   No re-extraction, no test documents loaded. Independent replay is byte-identical.
-- No new teacher calls, no transferred old-source labels, no human reviews.
-  GPT-5 remains the approved smoke teacher; this package has not been annotated.
+- Fresh GPT-5 medium smoke complete: 12 valid requirements/title stages each,
+  9 valid body stages; three body failures remain unlabeled. 48 attempts: 33 valid /
+  15 invalid, no transport failures. Conservative cost $2.45878. No old-source
+  label reuse, human review or training. No separately supplied factual-support pack.
+- Review [latest judgments](../../analysis/teacher-markdownify-gpt5-smoke-v1.html) and
+  [findings/failures](../../analysis/teacher-markdownify-gpt5-smoke-v1.md) before expansion.
 - Source packets and new calls use version guards to reject the older input format.
 
 Validation: 238 tests / 12 subtests passed; source formatting, exact code/table
