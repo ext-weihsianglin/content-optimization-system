@@ -255,3 +255,23 @@ claim reliable empirical conditional ranking importance. The filtered global
 permutation plot is explicitly still across-query predictive importance. Prefer
 real fixed-query edit contrasts, paired distributions and joint-family reasoning;
 require grounded review and prospective evaluation before optimizing citations.
+
+
+## Corrected feature dependency audit
+
+The original fixed_prompt companion mixed dependency with editability. Its frozen
+JSON/plots remain as provenance, but its five-category taxonomy is superseded by
+`trad_ml_scorer/interpretation/dependency_audit/report.html` (and `.md`). The explicit
+registry `feature_dependencies.json` audits every retention-based v2–v6 candidate:
+142 total = 4 prompt + 41 doc + 97 promptXdoc; selected v5 = 4 + 41 + 51 (96).
+`path_homepage` is doc, as are source/parser flags and question_heading_fraction.
+`path_query_*` and normalized_path_* are promptXdoc, but fixed during HTML-only
+edits. Supported path variants also use body support and may vary under HTML edits.
+Query-selected section lengths and relevant-sentence evidence fractions are joint.
+Missing indicators inherit their parent dependency. Unknown names fail explicitly.
+
+The corrected plots use three dependency panels with separate URL/diagnostic
+annotations. Model, coefficients, edit outcomes and frozen v1–v6 results unchanged;
+no fitting, corpus preparation, or test evaluation rerun. All 130 tests and 12
+subtests pass, including extractor inventory, prompt invariance of doc features,
+document invariance of prompt features, and fixed-context attribution checks.

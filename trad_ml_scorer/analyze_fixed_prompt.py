@@ -7,7 +7,7 @@ from pathlib import Path
 import duckdb
 import joblib
 import numpy as np
-from trad_ml_scorer.fixed_prompt_edits import contrast,make_edit,feature_group
+from trad_ml_scorer.fixed_prompt_edits import contrast,make_edit,feature_group,GROUPS
 from trad_ml_scorer.retention_features import parse_snapshot
 from trad_ml_scorer.robust_features import robust_features
 from trad_ml_scorer.evidence_features import evidence_features
@@ -87,7 +87,7 @@ def main():
                           action=action,detail=detail,delta_probability=change['after_probability']-change['before_probability'],
                           serialization_delta_probability=control_probability-original_probability,
                           edit_over_serialized_probability=change['after_probability']-control_probability,
-                          group_delta_log_odds={group:sum(r['delta_log_odds'] for r in change['contributions'] if r['group']==group) for group in ('HTML document','Prompt × HTML','Fixed prompt','Fixed URL','Parser/source diagnostics')})
+                          group_delta_log_odds={group:sum(r['delta_log_odds'] for r in change['contributions'] if r['group']==group) for group in GROUPS})
             edits.append(change)
         print('Checked',len(sampled),'validation HTML snapshots',flush=True)
         if len(sampled)==40:break

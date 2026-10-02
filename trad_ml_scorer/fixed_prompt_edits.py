@@ -4,22 +4,7 @@ import re
 import numpy as np
 from bs4 import BeautifulSoup
 from scripts.analyze_content import STOPWORDS, words
-from trad_ml_scorer.retention_features import PROMPT
-
-GROUPS=('HTML document','Prompt × HTML','Fixed prompt','Fixed URL','Parser/source diagnostics')
-
-
-def feature_group(name):
-    name=name.removeprefix('missingindicator_')
-    if name in PROMPT:return 'Fixed prompt'
-    if name.startswith('path_'):return 'Fixed URL'
-    if name in ('retained_text_fraction','needs_review','possible_error_response','sparse_body','format_html','log_source_script_count'):
-        return 'Parser/source diagnostics'
-    if (name.startswith(('coverage_','answer_','section_coverage_','best_section_','top_three_section_',
-                         'mean_section_','matching_section_','first_query_match_','query_match_'))
-        or '_query_' in name or '_x_' in name):
-        return 'Prompt × HTML'
-    return 'HTML document'
+from trad_ml_scorer.feature_dependencies import GROUPS, feature_group, feature_metadata, fixed_for_html_edit
 
 
 def transform(model,x):
@@ -32,9 +17,9 @@ def contrast(model,names,before,after):
     transformed=model[0].get_feature_names_out(names)
     delta=float(model.decision_function(after)[0]-model.decision_function(before)[0])
     np.testing.assert_allclose(terms.sum(),delta,atol=1e-10)
-    contributions=[{'feature':str(n),'group':feature_group(str(n)),'delta_log_odds':float(v)} for n,v in zip(transformed,terms)]
+    contributions=[{'feature':str(n),'group':feature_group(str(n)),'html_edit_role':feature_metadata(str(n))['html_edit_role'],'delta_log_odds':float(v)} for n,v in zip(transformed,terms)]
     for row in contributions:
-        if row['group'] in ('Fixed prompt','Fixed URL'):
+        if fixed_for_html_edit(row['feature']):
             assert abs(row['delta_log_odds'])<1e-12
     return {'before_probability':float(model.predict_proba(before)[0,1]),
             'after_probability':float(model.predict_proba(after)[0,1]),

@@ -5,12 +5,12 @@ from trad_ml_scorer.train_lr import pipeline
 
 
 def test_dependencies_keep_interactions_and_fixed_url_separate():
-    assert feature_group('prompt_question')=='Fixed prompt'
-    assert feature_group('path_query_precision')=='Fixed URL'
-    assert feature_group('how_to_x_ordered_steps')=='Prompt × HTML'
-    assert feature_group('answer_best_sentence_coverage')=='Prompt × HTML'
-    assert feature_group('missingindicator_coverage_body')=='Prompt × HTML'
-    assert feature_group('log_heading_count')=='HTML document'
+    assert feature_group('prompt_question')=='prompt'
+    assert feature_group('path_query_precision')=='promptXdoc'
+    assert feature_group('how_to_x_ordered_steps')=='promptXdoc'
+    assert feature_group('answer_best_sentence_coverage')=='promptXdoc'
+    assert feature_group('missingindicator_coverage_body')=='promptXdoc'
+    assert feature_group('log_heading_count')=='doc'
 
 
 def test_existing_title_content_and_paragraph_edits():
@@ -34,4 +34,4 @@ def test_exact_delta_cancels_fixed_context_including_missing_indicators():
     model=pipeline(.1).fit(x,[0,1,0,1,1,0])
     result=contrast(model,names,[1,0,np.nan,2],[1,0,.9,3])
     assert abs(sum(r['delta_log_odds'] for r in result['contributions'])-result['delta_log_odds'])<1e-10
-    assert all(r['delta_log_odds']==0 for r in result['contributions'] if r['group'].startswith('Fixed'))
+    assert all(r['delta_log_odds']==0 for r in result['contributions'] if r['html_edit_role'] in ('prompt fixed','URL fixed'))

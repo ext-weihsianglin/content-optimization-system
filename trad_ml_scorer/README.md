@@ -206,11 +206,13 @@ another semantic-feature comparison.
 
 ## Fixed-prompt HTML-edit interpretation
 
-The [companion report](interpretation/fixed_prompt/report.html)
-([Markdown](interpretation/fixed_prompt/report.md)) replots retained v5 importance
+The [companion report](interpretation/dependency_audit/report.html)
+([Markdown](interpretation/dependency_audit/report.md)) replots retained v5 importance
 for the editing use case without retraining or changing frozen experiment reports.
-It separates HTML-only and prompt×HTML signals from pure prompt, fixed URL and
-parser/source diagnostic features. Pure prompt terms act as a query-specific
+It audits all 142 v2–v6 candidates into prompt, doc, or promptXdoc, with HTML
+editability annotated separately. The retained 96 raw features comprise 4 prompt,
+41 doc and 51 promptXdoc. URL and parser diagnostics belong to doc; URL–prompt
+matching belongs to promptXdoc. Original interpretation artifacts stay frozen. Pure prompt terms act as a query-specific
 intercept and cancel in paired log-odds changes; they remain in probability scoring.
 
 Its primary view measures coherent HTML edits with prompt and URL fixed, reparses
